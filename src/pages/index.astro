@@ -1,17 +1,150 @@
 ---
-
+import { MapPin, MessageCircle, ShieldCheck } from "lucide-react";
+import Layout from "@/layouts/Layout.astro";
+import CompressionFinder from "@/components/CompressionFinder";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { compressionStockingLines } from "@/data/compression-stockings";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Casa do Médico BH · Produtos médicos e meias compressivas"
+  description="Encontre meias compressivas Venosan e Sigvaris, produtos ortopédicos e equipamentos de saúde com atendimento especializado em Belo Horizonte."
+>
+  <header class="sticky top-0 z-30 border-b bg-background/95 backdrop-blur-md">
+    <div class="mx-auto flex min-h-[72px] w-full max-w-7xl items-center justify-between gap-5 px-5 sm:px-6">
+      <a href="/" aria-label="Casa do Médico BH">
+        <img src="/logo/casa-do-medico.png" alt="Casa do Médico BH" class="h-12 w-auto" />
+      </a>
+      <div class="flex items-center gap-2">
+        <Button asChild variant="outline" className="hidden sm:inline-flex">
+          <a href="/meias-compressivas">Ver catálogo</a>
+        </Button>
+        <Button asChild>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <img src="/icons/whatsapp.svg" alt="" class="size-4" />
+            Fale conosco
+          </a>
+        </Button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative overflow-hidden border-b bg-secondary/60">
+      <div class="pointer-events-none absolute -top-24 -right-24 size-80 rounded-full bg-primary/10 blur-3xl"></div>
+      <div class="mx-auto grid min-h-[620px] w-full max-w-7xl items-center gap-12 px-5 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)] lg:py-24">
+        <div class="relative z-10 max-w-3xl">
+          <Badge>Casa do Médico BH · desde 1954</Badge>
+          <h1 class="mt-5 text-4xl font-bold tracking-tight sm:text-6xl">
+            Encontre sua meia compressiva por marca e linha
+          </h1>
+          <p class="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Selecione primeiro a marca e depois a linha desejada. Você será levado direto aos
+            produtos correspondentes, com os filtros já aplicados.
+          </p>
+
+          <div class="mt-8">
+            <CompressionFinder client:idle />
+          </div>
+
+          <div class="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
+            <span class="inline-flex items-center gap-2">
+              <ShieldCheck className="size-4 text-primary" />
+              Atendimento especializado
+            </span>
+            <span class="inline-flex items-center gap-2">
+              <MapPin className="size-4 text-primary" />
+              Belo Horizonte
+            </span>
+            <span class="inline-flex items-center gap-2">
+              <MessageCircle className="size-4 text-primary" />
+              Disponibilidade pelo WhatsApp
+            </span>
+          </div>
+        </div>
+
+        <div class="relative mx-auto hidden w-full max-w-lg lg:block" aria-hidden="true">
+          <div class="absolute inset-8 rounded-full bg-primary/10 blur-3xl"></div>
+          <div class="relative grid grid-cols-2 gap-4">
+            <Card className="translate-y-10 overflow-hidden py-0">
+              <div class="grid h-80 place-items-center bg-background p-6">
+                <img
+                  src="/Venosan/COMFORTLINE/AD-COMFORT PERNA FEMININA.webp"
+                  alt=""
+                  class="max-h-full w-full object-contain"
+                />
+              </div>
+              <CardContent className="border-t p-4">
+                <img
+                  src="/Marcas/logo-venosan-meias-compressivas.svg"
+                  alt=""
+                  class="h-7 max-w-32 object-contain"
+                />
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden py-0">
+              <div class="grid h-80 place-items-center bg-background p-6">
+                <img
+                  src="/Sigvaris/Performance (esportiva)/ACM_HighTech_CW_black.jpg"
+                  alt=""
+                  class="max-h-full w-full object-contain"
+                />
+              </div>
+              <CardContent className="border-t p-4">
+                <img
+                  src="/Marcas/sig9000_sigvaris_group_160th_logo_dual_horizontal_darkblue_rgb.svg"
+                  alt=""
+                  class="h-7 max-w-36 object-contain"
+                />
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 lg:py-20">
+      <div class="grid gap-6 md:grid-cols-3">
+        <Card>
+          <CardContent>
+            <p class="text-3xl font-bold text-primary">{compressionStockingLines.length}</p>
+            <h2 class="mt-2 font-semibold">Produtos cadastrados</h2>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Linhas Venosan e Sigvaris reunidas em um catálogo único.
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent>
+            <p class="text-3xl font-bold text-primary">2</p>
+            <h2 class="mt-2 font-semibold">Passos para encontrar</h2>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Escolha a marca, selecione a linha e veja os produtos.
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent>
+            <p class="text-3xl font-bold text-primary">0</p>
+            <h2 class="mt-2 font-semibold">Preços engessados</h2>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Consulte disponibilidade e condições diretamente com a equipe.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t bg-secondary">
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <p class="text-sm text-muted-foreground">
+        Casa do Médico BH — produtos médicos e atendimento consultivo desde 1954.
+      </p>
+      <img src="/logo/casa-do-medico-pb.png" alt="" class="h-10 w-auto opacity-60" />
+    </div>
+  </footer>
+</Layout>

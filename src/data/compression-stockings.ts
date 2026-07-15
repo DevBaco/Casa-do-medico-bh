@@ -39,6 +39,7 @@ export interface StockingBrand {
 }
 
 const venosanBase = "/Venosan";
+const sigvarisBase = "/Sigvaris";
 
 const colors = {
   bege: "#d8b894",
@@ -51,6 +52,10 @@ const colors = {
   caqui: "#9d8f72",
   azul: "#243d69",
   pink: "#d84f92",
+  natural: "#c7a17f",
+  naturalEscura: "#9d7254",
+  chocolate: "#5d3a2a",
+  grafite: "#414247",
 };
 
 const defaultSpecs: StockingSpecGroup[] = [
@@ -855,6 +860,439 @@ export const compressionStockingBrands: StockingBrand[] = [
         badges: ["Unissex", "Esportiva"],
         keywords: ["sportactive", "sport active", "esportiva", "unissex"],
         whatsappMessage: "Olá! Tenho interesse na Venosan SportActive.",
+      },
+    ],
+  },
+  {
+    id: "sigvaris",
+    name: "Sigvaris",
+    logo: "/Marcas/sig9000_sigvaris_group_160th_logo_dual_horizontal_darkblue_rgb.svg",
+    description:
+      "Linhas Sigvaris organizadas por coleção e finalidade, com modelos, cores, compressões e tamanhos confirmados no atendimento.",
+    lines: [
+      {
+        id: "sigvaris-antitrombo",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Antitrombo",
+        audience: "Unissex",
+        displayName: "Sigvaris Antitrombo · Unissex",
+        summary:
+          "Linha hospitalar para profilaxia de tromboembolismo venoso em períodos pré, intra e pós-operatórios.",
+        description:
+          "A Sigvaris Antitrombo foi desenvolvida para contextos hospitalares e períodos de repouso prolongado. O modelo e o tamanho devem seguir orientação profissional e a tabela específica da linha.",
+        compression: ["18-23 mmHg"],
+        colors: [
+          {
+            name: "Branca",
+            swatch: colors.branca,
+            image: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_TighHigh_SA.jpg`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_Calf_BOX_ALT1_SA.png`,
+        genericImage: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_TighHigh_SA.jpg`,
+        sizeChartImage: `${sigvarisBase}/Antitrombo/SIZE_CHART_HOS_Antitrombo.jpg`,
+        specifications: [
+          {
+            title: "Apresentações da linha",
+            items: [
+              "Modelos panturrilha e meia-coxa",
+              "Ponteira aberta/rebatível",
+              "Uso hospitalar conforme orientação profissional",
+            ],
+          },
+        ],
+        badges: ["Unissex", "Hospitalar"],
+        keywords: ["antitrombo", "antitrombose", "hospitalar", "cirurgia", "repouso"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Antitrombo.",
+      },
+      {
+        id: "sigvaris-dynaven-basic",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Dynaven Basic",
+        audience: "Unissex",
+        displayName: "Sigvaris Dynaven Basic · Unissex",
+        summary:
+          "Meia medicinal com proposta de custo-benefício para tratamento compressivo no dia a dia.",
+        description:
+          "A Dynaven Basic combina compressão graduada, calcanhar anatômico e uma construção voltada ao uso cotidiano. Consulte o modelo disponível e confirme as medidas antes da compra.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${sigvarisBase}/Dynaven/DYN_Basic_NWG_OT_honey_alt1_NA_SA.jpg`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Dynaven/DYN_BASIC_packing_calf_unisex_brazil_box.png`,
+        genericImage: `${sigvarisBase}/Dynaven/DYN_Basic_NWG_OT_honey_alt1_NA_SA.jpg`,
+        sizeChartImage: `${sigvarisBase}/Dynaven/SIZE_CHART_DYN_BASIC_SA.jpg`,
+        specifications: [
+          {
+            title: "Apresentações da linha",
+            items: [
+              "Modelos panturrilha, meia-coxa e meia-calça",
+              "Ponteira aberta",
+              "Comprimentos normal e longo conforme modelo",
+            ],
+          },
+        ],
+        badges: ["Unissex", "Custo-benefício"],
+        keywords: ["dynaven", "dynaven basic", "basic", "medicinal", "dia a dia"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Dynaven Basic.",
+      },
+      {
+        id: "sigvaris-essencial-algodao-super-tech",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Essencial Fibras Naturais",
+        subline: "Algodão Super Tech",
+        audience: "Unissex",
+        displayName: "Sigvaris Essencial Algodão Super Tech",
+        summary:
+          "Linha com toque macio, respirabilidade e controle climático para uso prolongado.",
+        description:
+          "A Essencial Algodão Super Tech foi desenvolvida para oferecer conforto diário, especialmente para quem prefere contato mais macio com a pele. Compressão, ponteira e tamanho são confirmados no atendimento.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_AlgodaoSuperTech_Unisex_Beige_SA.jpg`,
+          },
+          {
+            name: "Preta",
+            swatch: colors.preta,
+            image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_AlgodaoSuperTech_Unisex_CT_Black_SA_2.jpg`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_AlgodaoSuperTech_packaging_SA_BR.png`,
+        genericImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_AlgodaoSuperTech_Unisex_Beige_SA.jpg`,
+        sizeChartImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/SIZE_CHART_ALGODAO_SUPER_TECH_CALF_SA_BR.jpg`,
+        specifications: [
+          {
+            title: "Características da linha",
+            items: [
+              "Modelo panturrilha",
+              "Opções de ponteira aberta e fechada conforme estoque",
+              "Cores bege e preta",
+            ],
+          },
+        ],
+        badges: ["Unissex", "Fibras naturais"],
+        keywords: ["essencial", "algodão", "algodao", "super tech", "fibras naturais"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Essencial Algodão Super Tech.",
+      },
+      {
+        id: "sigvaris-essencial-fibras-naturais",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Essencial Fibras Naturais",
+        subline: "Algodão Super",
+        audience: "Unissex",
+        displayName: "Sigvaris Essencial Fibras Naturais",
+        summary:
+          "Meia de compressão com fibras naturais, indicada para quem busca respirabilidade e toque confortável.",
+        description:
+          "A linha Essencial Fibras Naturais combina compressão médica com algodão em contato com a pele. Consulte disponibilidade de cor, ponteira, compressão e tamanho.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Beige_SA.jpg`,
+          },
+          {
+            name: "Preta",
+            swatch: colors.preta,
+            image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Black_2_SA.jpg`,
+          },
+          {
+            name: "Chocolate",
+            swatch: colors.chocolate,
+            image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Brown_2_SA.jpg`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_ALGODÃO SUPER_PACKING_WOMAN_BRAZIL_BOX.png`,
+        genericImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Beige_SA.jpg`,
+        sizeChartImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/SIZE_CHART_ESS_FibrasNaturais_Calf.jpg`,
+        specifications: [
+          {
+            title: "Características da linha",
+            items: [
+              "Modelo panturrilha",
+              "Ponteiras aberta e fechada conforme configuração",
+              "Cores bege, preta e chocolate",
+            ],
+          },
+        ],
+        badges: ["Unissex", "Algodão"],
+        keywords: ["essencial", "fibras naturais", "algodão super", "algodao super"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Essencial Fibras Naturais.",
+      },
+      {
+        id: "sigvaris-essencial-conforto",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Essencial Conforto",
+        subline: "Select Comfort Premium",
+        audience: "Unissex",
+        displayName: "Sigvaris Essencial Conforto Select Comfort Premium",
+        summary:
+          "Linha premium com microfibra, controle climático e variedade de modelos para uso diário.",
+        description:
+          "A Essencial Conforto Select Comfort Premium possui revestimento interno de microfibra e construção voltada à durabilidade e ao conforto. Consulte a combinação disponível de modelo, cor, ponteira e compressão.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Chocolate",
+            swatch: colors.chocolate,
+            image: `${sigvarisBase}/Essencial/Conforto/ESS_Confort_Pantyhouse_Sigvaris_UnisexChocolate_SA.jpg`,
+          },
+          {
+            name: "Preta",
+            swatch: colors.preta,
+            image: `${sigvarisBase}/Essencial/Conforto/ESS_Confort_Pantyhouse_Sigvaris_Unisex_Black_SA.jpg`,
+          },
+          {
+            name: "Natural",
+            swatch: colors.natural,
+            image: `${sigvarisBase}/Essencial/Conforto/ESS_Confort_Pantyhouse_Sigvaris_Unisex_Suntan_SA.jpg`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.jpg`,
+        genericImage: `${sigvarisBase}/Essencial/Conforto/ESS_Confort_Pantyhouse_Sigvaris_UnisexChocolate_SA.jpg`,
+        sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.jpg`,
+        specifications: [
+          {
+            title: "Apresentações da linha",
+            items: [
+              "Modelos panturrilha, meia-coxa e meia-calça",
+              "Ponteiras aberta e fechada conforme modelo",
+              "Comprimentos normal, curto e longo conforme configuração",
+            ],
+          },
+        ],
+        badges: ["Unissex", "Premium"],
+        keywords: ["essencial", "conforto", "select comfort", "premium", "microfibra"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Essencial Conforto.",
+      },
+      {
+        id: "sigvaris-performance",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Performance",
+        audience: "Unissex",
+        displayName: "Sigvaris Performance · Esportiva",
+        summary:
+          "Meia de compressão para prática esportiva, com construção anatômica e variedade de cores.",
+        description:
+          "A linha Sigvaris Performance oferece compressão graduada e recursos voltados ao conforto durante atividades físicas. Consulte cores e tamanhos disponíveis.",
+        compression: ["20-30 mmHg"],
+        colors: [
+          {
+            name: "Preta",
+            swatch: colors.preta,
+            image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CW_black.jpg`,
+          },
+          {
+            name: "Azul",
+            swatch: colors.azul,
+            image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CW_blue.jpg`,
+          },
+          {
+            name: "Rosa",
+            swatch: colors.pink,
+            image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_women_calf_pink.jpg`,
+          },
+          {
+            name: "Branca",
+            swatch: colors.branca,
+            image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CM_white_1200x1200.jpg`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Performance (esportiva)/Performance_Sigvaris_Unisex_Packaging_BR.jpg`,
+        genericImage: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CW_black.jpg`,
+        sizeChartImage: `${sigvarisBase}/Performance (esportiva)/SIZE_CHART_SPO_all sports.jpg`,
+        specifications: [
+          {
+            title: "Características da linha",
+            items: [
+              "Modelo panturrilha esportiva",
+              "Formato anatômico",
+              "Cores preta, azul, rosa e branca conforme estoque",
+            ],
+          },
+        ],
+        badges: ["Unissex", "Esportiva"],
+        keywords: ["performance", "esportiva", "esporte", "atividade física", "corrida"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Performance.",
+      },
+      {
+        id: "sigvaris-style-actitud",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Style Elegância Actitud",
+        audience: "Masculina",
+        displayName: "Sigvaris Style Elegância Actitud Masculina",
+        summary:
+          "Meia social masculina de compressão com visual discreto, canelado ou liso.",
+        description:
+          "A Style Elegância Actitud foi desenvolvida para o público masculino e combina aparência social com compressão graduada. Consulte cor, compressão e tamanho disponíveis.",
+        compression: ["15-20 mmHg", "20-30 mmHg"],
+        colors: [
+          {
+            name: "Preta",
+            swatch: colors.preta,
+            image: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Black_1_SA.jpg`,
+          },
+          {
+            name: "Caqui",
+            swatch: colors.caqui,
+            image: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Khaki_SA (2).jpg`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Packaging_BR.png`,
+        genericImage: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Black_1_SA.jpg`,
+        sizeChartImage: `${sigvarisBase}/Style/Actitud/SIZE_CHART_STY_Elegancia_Actitud.jpg`,
+        specifications: [
+          {
+            title: "Características da linha",
+            items: [
+              "Modelo panturrilha",
+              "Ponteira fechada",
+              "Visual social masculino nas cores preta e caqui",
+            ],
+          },
+        ],
+        badges: ["Masculina", "Social"],
+        keywords: ["style", "actitud", "elegância", "elegancia", "masculina", "social"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Elegância Actitud.",
+      },
+      {
+        id: "sigvaris-style-audace",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Style Prevenção Audace",
+        audience: "Feminina",
+        displayName: "Sigvaris Style Prevenção Audace Feminina",
+        summary:
+          "Linha feminina transparente para prevenção, conforto e elegância no uso diário.",
+        description:
+          "A Style Prevenção Audace foi desenvolvida para combinar transparência, elasticidade e compressão suave. Os modelos e as cores variam conforme disponibilidade.",
+        compression: ["15-20 mmHg"],
+        colors: [
+          {
+            name: "Natural escura",
+            swatch: colors.naturalEscura,
+            image: `${sigvarisBase}/Style/Audace/STY_Preventive_Sigvaris_Woman_Pantyhouse_Open_NaturalEscura_alt3_SA.jpg`,
+          },
+          {
+            name: "Preta",
+            swatch: colors.preta,
+            image: `${sigvarisBase}/Style/Audace/STY_Preventive_Sigvaris_Woman_Pantyhouse_Black_SA.jpg`,
+          },
+          {
+            name: "Natural",
+            swatch: colors.natural,
+            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_pantyhouse_suntan_alt1_SA.jpg`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Style/Audace/STY_Audace_Sigvaris_Unisex_Calf_BOX_SA.png`,
+        genericImage: `${sigvarisBase}/Style/Audace/STY_Preventive_Sigvaris_Woman_Pantyhouse_Open_NaturalEscura_alt3_SA.jpg`,
+        sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_Prevencao_Pantyhouse.jpg`,
+        specifications: [
+          {
+            title: "Apresentações da linha",
+            items: [
+              "Modelos panturrilha, meia-coxa e meia-calça",
+              "Ponteiras aberta e fechada conforme modelo",
+              "Tabela de medidas adaptada ao biótipo brasileiro",
+            ],
+          },
+        ],
+        badges: ["Feminina", "Prevenção"],
+        keywords: ["style", "audace", "prevenção", "prevencao", "transparente", "feminina"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Prevenção Audace.",
+      },
+      {
+        id: "sigvaris-style-audace-modeladora",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Style Prevenção Audace",
+        subline: "Modeladora",
+        audience: "Feminina",
+        displayName: "Sigvaris Style Audace Modeladora",
+        summary:
+          "Meia-calça de prevenção com modelagem corporal e compressão suave.",
+        description:
+          "A Style Audace Modeladora alia compressão graduada e modelagem na região abdominal e do quadril. Consulte cor e tamanho disponíveis antes da compra.",
+        compression: ["15-20 mmHg"],
+        colors: [
+          {
+            name: "Natural",
+            swatch: colors.natural,
+            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_pantyhouse_suntan_alt1_SA.jpg`,
+          },
+          {
+            name: "Preta",
+            swatch: colors.preta,
+            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_pantyhouse_black_alt3_SA.jpg`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Style/Audace/sty_preventive_audace modeladora_Sigvaris_Packaging_Unisex_BR.jpg`,
+        genericImage: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_pantyhouse_suntan_alt1_SA.jpg`,
+        sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_AUDACE_MODELADORA_2021_Prancheta 1.jpg`,
+        specifications: [
+          {
+            title: "Apresentação da linha",
+            items: [
+              "Modelo meia-calça",
+              "Ponteira fechada",
+              "Comprimentos curto e longo conforme tamanho",
+            ],
+          },
+        ],
+        badges: ["Feminina", "Modeladora"],
+        keywords: ["style", "audace", "modeladora", "meia-calça", "meia calça", "feminina"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Audace Modeladora.",
+      },
+      {
+        id: "sigvaris-style-ever-sheer",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Style Transparência Ever Sheer",
+        audience: "Feminina",
+        displayName: "Sigvaris Style Transparência Ever Sheer",
+        summary:
+          "Linha feminina transparente com efeito natural e opções para diferentes tons de pele.",
+        description:
+          "A Style Transparência Ever Sheer combina compressão graduada, transparência e variedade de tons. Consulte a cor, o modelo e o tamanho disponíveis.",
+        compression: ["20-30 mmHg"],
+        colors: [
+          {
+            name: "Natural",
+            swatch: colors.natural,
+            image: `${sigvarisBase}/Style/Eversheer/STY_Transparent_EverSheer_Pantyhose_OT_Sigvaris_Women_Natural_Brazil_alt.jpg`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Style/Eversheer/STY_EverSheer_Sigvaris_Unisex_Thigh_BOX_SA.png`,
+        genericImage: `${sigvarisBase}/Style/Eversheer/STY_Transparent_EverSheer_Pantyhose_OT_Sigvaris_Women_Natural_Brazil_alt.jpg`,
+        sizeChartImage: `${sigvarisBase}/Style/Eversheer/SIZE_CHART_STY_Transparencia_TH.jpg`,
+        specifications: [
+          {
+            title: "Apresentações da linha",
+            items: [
+              "Modelos panturrilha, meia-coxa e meia-calça",
+              "Ponteiras aberta e fechada conforme modelo",
+              "Opções de tons de pele confirmadas no atendimento",
+            ],
+          },
+        ],
+        badges: ["Feminina", "Transparente"],
+        keywords: ["style", "ever sheer", "eversheer", "transparência", "transparencia", "nude"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Transparência Ever Sheer.",
       },
     ],
   },
