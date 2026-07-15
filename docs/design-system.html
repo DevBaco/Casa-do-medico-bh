@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Design System CM</title>
+    <link rel="stylesheet" href="design-system.css">
+  </head>
+  <body class="ds-page">
+    <header class="ds-topbar">
+      <div class="ds-topbar__inner">
+        <a class="ds-brand" href="#hero" aria-label="Design System CM">
+          <img src="design-system-logo.png" alt="">
+          <span>Design System CM</span>
+        </a>
+        <nav class="ds-nav" aria-label="Seções do design system">
+          <a href="#tipografia">Tipografia</a>
+          <a href="#cores">Cores</a>
+          <a href="#componentes">Componentes</a>
+          <a href="#layout">Layout</a>
+          <a href="#movimento">Movimento</a>
+          <a href="#icones">Icones</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="ds-hero" id="hero">
+        <div class="ds-hero__inner">
+          <div class="ds-motion">
+            <p class="ds-kicker">Sistema visual independente</p>
+            <h1>Base de interface para presença institucional e catálogo consultivo.</h1>
+            <p class="ds-hero__text">Um conjunto portátil de tokens, componentes e padrões para apresentar a loja, organizar categorias e gerar contato pelo WhatsApp.</p>
+            <div class="ds-hero__actions">
+              <a class="ds-button ds-button--accent" href="#componentes">Ver componentes</a>
+              <a class="ds-button ds-button--ghost" href="#layout">Padrões de layout</a>
+            </div>
+          </div>
+          <div class="ds-hero__mark" aria-label="Marca CM colorida">
+            <img src="design-system-logo.png" alt="Logo CM">
+          </div>
+        </div>
+      </section>
+
+      <section class="ds-section" id="tipografia">
+        <div class="ds-container">
+          <div class="ds-section__header">
+            <h2>Tipografia</h2>
+            <p>Escala objetiva, com hierarquia forte para chamadas e boa leitura em descrições, cards e formulários.</p>
+          </div>
+          <div class="ds-card">
+            <div class="ds-card__body">
+              <div class="ds-token-row">
+                <span class="ds-label">Display</span>
+                <div class="ds-type-display">Compressão com precisão</div>
+                <span class="ds-spec">54px / 54px</span>
+              </div>
+              <div class="ds-token-row">
+                <span class="ds-label">Heading 1</span>
+                <div class="ds-type-h1">Escolha orientada por necessidade</div>
+                <span class="ds-spec">42px / 45px</span>
+              </div>
+              <div class="ds-token-row">
+                <span class="ds-label">Heading 2</span>
+                <div class="ds-type-h2">Categorias, guias e vitrines</div>
+                <span class="ds-spec">32px / 36px</span>
+              </div>
+              <div class="ds-token-row">
+                <span class="ds-label">Heading 3</span>
+                <div class="ds-type-h3">Produto com apoio consultivo</div>
+                <span class="ds-spec">24px / 29px</span>
+              </div>
+              <div class="ds-token-row">
+                <span class="ds-label">Body L</span>
+                <div class="ds-type-body-lg">Texto para orientar escolhas, explicar categorias e apoiar consultas de disponibilidade com segurança.</div>
+                <span class="ds-spec">18px / 29px</span>
+              </div>
+              <div class="ds-token-row">
+                <span class="ds-label">Body M</span>
+                <div class="ds-type-body">Texto padrão para cards, descrições, mensagens transacionais e conteúdos institucionais.</div>
+                <span class="ds-spec">16px / 25px</span>
+              </div>
+              <div class="ds-token-row">
+                <span class="ds-label">Small</span>
+                <div class="ds-type-small">Labels, metadados, ajuda de campo e informações secundárias.</div>
+                <span class="ds-spec">14px / 20px</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ds-section ds-section--soft" id="cores">
+        <div class="ds-container">
+          <div class="ds-section__header">
+            <h2>Cores e superfícies</h2>
+            <p>Verde como cor de confiança e ação principal; dourado como destaque de valor, alerta positivo e assinatura visual.</p>
+          </div>
+          <div class="ds-grid ds-grid--4">
+            <div class="ds-card ds-swatch">
+              <div class="ds-swatch__color ds-swatch__color--green"></div>
+              <div class="ds-swatch__meta"><strong>Primary Green</strong><span>#009d43</span></div>
+            </div>
+            <div class="ds-card ds-swatch">
+              <div class="ds-swatch__color ds-swatch__color--gold"></div>
+              <div class="ds-swatch__meta"><strong>Gold Accent</strong><span>#e8a400</span></div>
+            </div>
+            <div class="ds-card ds-swatch">
+              <div class="ds-swatch__color ds-swatch__color--ink"></div>
+              <div class="ds-swatch__meta"><strong>Ink</strong><span>#17201b</span></div>
+            </div>
+            <div class="ds-card ds-swatch">
+              <div class="ds-swatch__color ds-swatch__color--soft"></div>
+              <div class="ds-swatch__meta"><strong>Soft Surface</strong><span>#f6faf7</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ds-section" id="componentes">
+        <div class="ds-container">
+          <div class="ds-section__header">
+            <h2>Componentes</h2>
+            <p>Elementos essenciais para site institucional com catálogo: ações claras, busca previsível, cards de linha/produto e sinais de confiança.</p>
+          </div>
+          <div class="ds-grid ds-grid--2">
+            <div class="ds-card">
+              <div class="ds-card__body">
+                <p class="ds-label">Botoes</p>
+                <div class="ds-grid">
+                  <div>
+                    <button class="ds-button ds-button--primary">Consultar no WhatsApp</button>
+                    <button class="ds-button ds-button--accent">Consultar medida</button>
+                    <button class="ds-button ds-button--outline">Ver detalhes</button>
+                  </div>
+                  <div>
+                    <button class="ds-button ds-button--primary is-disabled" disabled>Indisponivel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-card">
+              <div class="ds-card__body">
+                <p class="ds-label">Formulario</p>
+                <div class="ds-grid">
+                  <div class="ds-field">
+                    <label for="ds-search">Busca</label>
+                    <input class="ds-input" id="ds-search" placeholder="Meia 20-30 panturrilha">
+                    <span class="ds-helper">Use termos de categoria, linha, modelo ou marca.</span>
+                  </div>
+                  <div class="ds-field is-error">
+                    <label for="ds-size">Tamanho</label>
+                    <select class="ds-select" id="ds-size">
+                      <option>Selecione</option>
+                    </select>
+                    <span class="ds-helper">Selecione uma opcao antes de continuar.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <article class="ds-card ds-product">
+              <div class="ds-product__image">
+                <img src="design-system-logo-pb.png" alt="">
+              </div>
+              <div class="ds-product__body">
+                <span class="ds-badge">Mais vendido</span>
+                <h3 class="ds-type-h3">Card de linha com imagem limpa</h3>
+                <p class="ds-type-body">Nome direto, variações disponíveis em texto curto e chamada para consultar estoque pelo atendimento.</p>
+                <strong class="ds-price">Consultar disponibilidade</strong>
+                <button class="ds-button ds-button--primary">Falar no WhatsApp</button>
+              </div>
+            </article>
+            <div class="ds-card">
+              <div class="ds-card__body">
+                <p class="ds-label">Sinal de confianca</p>
+                <h3 class="ds-type-h3">Atendimento orientado</h3>
+                <p class="ds-type-body">Use cards curtos para atendimento, localização, marcas, certificado, consultoria e guia de medidas. O texto deve ser util, nao decorativo.</p>
+                <div class="ds-motion-pulse" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ds-section ds-section--soft" id="layout">
+        <div class="ds-container">
+          <div class="ds-section__header">
+            <h2>Layout e espaco</h2>
+            <p>Padroes para site institucional e catálogo: hero com marca forte, busca guiada, listas por categoria e blocos de confiança próximos do contato.</p>
+          </div>
+          <div class="ds-grid ds-grid--3">
+            <div class="ds-layout-demo">
+              <div class="ds-layout-demo__bar"></div>
+              <div class="ds-layout-demo__content">
+                <div class="ds-layout-demo__block"></div>
+                <div class="ds-layout-demo__block"></div>
+              </div>
+            </div>
+            <div class="ds-layout-demo">
+              <div class="ds-grid ds-grid--3">
+                <div class="ds-layout-demo__block"></div>
+                <div class="ds-layout-demo__block"></div>
+                <div class="ds-layout-demo__block"></div>
+              </div>
+            </div>
+            <div class="ds-layout-demo">
+              <div class="ds-layout-demo__block"></div>
+              <div class="ds-layout-demo__bar ds-layout-demo__bar--gold"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ds-section" id="movimento">
+        <div class="ds-container">
+          <div class="ds-section__header">
+            <h2>Movimento</h2>
+            <p>Animações discretas: revelar conteudo, elevar cards no hover e pulsar indicadores de status. Evite movimento constante fora de sinais funcionais.</p>
+          </div>
+          <div class="ds-grid ds-grid--3">
+            <div class="ds-card ds-motion"><div class="ds-card__body"><strong>Fade up</strong><p>Entrada suave para secoes.</p></div></div>
+            <div class="ds-card ds-product"><div class="ds-card__body"><strong>Hover lift</strong><p>Elevação curta em cards clicaveis.</p></div></div>
+            <div class="ds-card"><div class="ds-card__body"><strong>Status pulse</strong><p class="ds-motion-pulse"></p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ds-section ds-section--soft" id="icones">
+        <div class="ds-container">
+          <div class="ds-section__header">
+            <h2>Icones</h2>
+            <p>Use icones lineares simples, com tema de saude, atendimento, localização, busca e catálogo. Evite símbolos genéricos soltos.</p>
+          </div>
+          <div class="ds-icon-row" aria-label="Exemplos de icones">
+            <span class="ds-icon" aria-label="Saude">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.2-9.3C1.1 8.2 3.2 4 7.1 4c2 0 3.6 1.1 4.4 2.5C12.4 5.1 14 4 16 4c3.9 0 6 4.2 4.3 7.7C18.1 16.4 12 21 12 21Z"/><path d="M8 12h3l1-3 2 6 1-3h3"/></svg>
+            </span>
+            <span class="ds-icon" aria-label="Catalogo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+            </span>
+            <span class="ds-icon" aria-label="Busca">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/></svg>
+            </span>
+            <span class="ds-icon" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.4 19.1 6.5 16A7.4 7.4 0 1 1 9 18.2l-3.6.9Z"/><path d="M9.2 8.8c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.6 1.4c.1.2.1.4-.1.6l-.4.5c-.1.1-.2.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.6-.1l1.4.7c.2.1.4.3.4.5 0 .6-.4 1.3-.9 1.5-.6.3-1.9.2-3.6-.8-2.2-1.2-3.7-3.2-4-4.5-.2-.8.1-1.3.4-1.5Z"/></svg>
+            </span>
+            <span class="ds-icon" aria-label="Localizacao">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.3 6-10a6 6 0 1 0-12 0c0 4.7 6 10 6 10Z"/><circle cx="12" cy="11" r="2"/></svg>
+            </span>
+            <span class="ds-icon" aria-label="Avaliacao">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.9-5.4 2.9 1-6-4.4-4.3 6.1-.9L12 3Z"/></svg>
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ds-footer">
+      <div class="ds-container">
+        <div>
+          <strong>Design System CM</strong>
+          <p>CSS independente, tokens documentados e componentes prontos para migracao.</p>
+        </div>
+        <img src="design-system-logo-pb.png" alt="Logo CM preto e branco">
+      </div>
+    </footer>
+  </body>
+</html>

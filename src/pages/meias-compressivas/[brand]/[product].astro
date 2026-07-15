@@ -1,0 +1,235 @@
+---
+import type { GetStaticPaths } from "astro";
+import { ArrowLeft, Check } from "lucide-react";
+import Layout from "@/layouts/Layout.astro";
+import CompressionProductCard from "@/components/CompressionProductCard";
+import CompressionProductGallery from "@/components/CompressionProductGallery";
+import CompressionProductTabs from "@/components/CompressionProductTabs";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import {
+  WHATSAPP_ENDPOINT,
+  WHATSAPP_PHONE,
+  buildProductWhatsAppMessage,
+  buildProductWhatsAppUrl,
+} from "@/lib/whatsapp";
+import {
+  compressionStockingBrands,
+  compressionStockingLines,
+  getCompressionStockingPath,
+  type StockingLine,
+} from "@/data/compression-stockings";
+
+export const getStaticPaths = (() =>
+  compressionStockingLines.map((line) => {
+    const product = getCompressionStockingPath(line).split("/").at(-1)!;
+
+    return {
+      params: { brand: line.brandId, product },
+      props: { line },
+    };
+  })) satisfies GetStaticPaths;
+
+interface Props {
+  line: StockingLine;
+}
+
+const { line } = Astro.props;
+const brand = compressionStockingBrands.find((item) => item.id === line.brandId)!;
+const productWhatsappMessage = buildProductWhatsAppMessage(line.displayName);
+const productWhatsappUrl = buildProductWhatsAppUrl(line.displayName);
+
+const similarProducts = compressionStockingLines
+  .filter((item) => item.brandId === line.brandId && item.id !== line.id)
+  .map((item) => ({
+    item,
+    score:
+      (item.line === line.line ? 4 : 0) +
+      (item.audience === line.audience ? 2 : 0) +
+      item.badges.filter((badge) => line.badges.includes(badge)).length,
+  }))
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3)
+  .map(({ item }) => item);
+---
+
+<Layout
+  title={`${line.displayName} em BH · Casa do Médico BH`}
+  description={`${line.summary} Consulte cores, medidas, modelos e disponibilidade da ${line.displayName} pelo WhatsApp.`}
+>
+  <header class="sticky top-0 z-30 border-b bg-background/95 backdrop-blur-md">
+    <div class="mx-auto flex min-h-[72px] w-full max-w-7xl items-center justify-between gap-6 px-5 sm:px-6">
+      <a href="/" class="flex items-center gap-3" aria-label="Casa do Médico BH">
+        <img src="/logo/casa-do-medico.png" alt="Casa do Médico BH" class="h-12 w-auto" />
+      </a>
+      <Button asChild>
+        <a href={productWhatsappUrl} target="_blank" rel="noopener noreferrer">
+          <img src="/icons/whatsapp.svg" alt="" class="size-4" />
+          Fale conosco
+        </a>
+      </Button>
+    </div>
+  </header>
+
+  <main>
+    <section class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-6 lg:py-10">
+      <nav class="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted-foreground" aria-label="Navegação estrutural">
+        <a href="/meias-compressivas" class="inline-flex items-center gap-1.5 font-medium hover:text-primary">
+          <ArrowLeft className="size-4" />
+          Meias compressivas
+        </a>
+        <span aria-hidden="true">/</span>
+        <a href={`/meias-compressivas#${brand.id}`} class="font-medium hover:text-primary">
+          {brand.name}
+        </a>
+        <span aria-hidden="true">/</span>
+        <span class="text-foreground">{line.line}</span>
+      </nav>
+
+      <div class="grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] lg:items-start">
+        <CompressionProductGallery
+          client:visible
+          displayName={line.displayName}
+          boxImage={line.boxImage}
+          sizeChartImage={line.sizeChartImage}
+          colors={line.colors}
+        />
+
+        <div class="lg:sticky lg:top-24">
+          <div class="flex flex-wrap items-center gap-2">
+            <Badge>{line.brandName}</Badge>
+            <Badge variant="secondary">{line.line}</Badge>
+            {line.audience && <Badge variant="secondary">{line.audience}</Badge>}
+          </div>
+
+          <h1 class="mt-4 text-3xl font-bold leading-tight sm:text-4xl">{line.displayName}</h1>
+          <p class="mt-4 text-base leading-relaxed text-muted-foreground">{line.summary}</p>
+
+          <Card className="relative mt-7 gap-0 overflow-hidden border-2 border-primary bg-secondary/70 py-0 shadow-lg">
+            <div class="bg-primary px-5 py-2.5 text-center text-sm font-semibold text-primary-foreground">
+              Gostou? Consulte a compra e a disponibilidade
+            </div>
+            <CardContent className="p-5 sm:p-6">
+              <div class="flex items-start gap-3">
+                <span class="grid size-11 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+                  <img src="/icons/whatsapp.svg" alt="" class="size-6" />
+                </span>
+                <div>
+                  <p class="text-xl font-bold">Quero este produto</p>
+                  <p class="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    Consulte modelos, tamanhos, cores e disponibilidade diretamente com nossa equipe.
+                  </p>
+                </div>
+              </div>
+
+              <ul class="mt-5 grid gap-2 text-sm sm:grid-cols-2">
+                <li class="flex items-center gap-2">
+                  <Check className="size-4 shrink-0 text-primary" />
+                  Tamanho e modelo
+                </li>
+                <li class="flex items-center gap-2">
+                  <Check className="size-4 shrink-0 text-primary" />
+                  Cor e disponibilidade
+                </li>
+              </ul>
+
+              <form
+                action={WHATSAPP_ENDPOINT}
+                method="get"
+                target="_blank"
+                class="mt-5 rounded-lg border bg-background p-4"
+                data-product-whatsapp-form
+              >
+                <input type="hidden" name="phone" value={WHATSAPP_PHONE} />
+                <input
+                  type="hidden"
+                  name="text"
+                  value={productWhatsappMessage}
+                  data-whatsapp-message
+                />
+
+                <label for="customer-name" class="text-sm font-semibold">
+                  Como podemos chamar você?
+                  <span class="font-normal text-muted-foreground">(opcional)</span>
+                </label>
+                <Input
+                  id="customer-name"
+                  type="text"
+                  autoComplete="name"
+                  placeholder="Digite seu nome"
+                  className="mt-2 h-11 bg-background"
+                  data-customer-name
+                />
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="mt-4 h-14 w-full text-base font-bold shadow-lg ring-4 ring-primary/15 transition-transform hover:scale-[1.01]"
+                >
+                  <img src="/icons/whatsapp.svg" alt="" class="size-6" />
+                  Quero comprar este produto
+                </Button>
+                <p class="mt-3 text-center text-xs leading-relaxed text-muted-foreground">
+                  Você será redirecionado ao WhatsApp com o produto e sua solicitação preenchidos.
+                </p>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y bg-secondary">
+      <div class="mx-auto w-full max-w-6xl px-5 py-10 sm:px-6 lg:py-14">
+        <CompressionProductTabs client:visible line={line} whatsappUrl={productWhatsappUrl} />
+      </div>
+    </section>
+
+    {similarProducts.length > 0 && (
+      <section class="mx-auto w-full max-w-7xl px-5 py-10 sm:px-6 lg:py-14">
+        <div class="mb-6 max-w-3xl">
+          <Badge variant="secondary">{brand.name}</Badge>
+          <h2 class="mt-3 text-2xl font-bold sm:text-3xl">Produtos semelhantes</h2>
+          <p class="mt-2 text-sm text-muted-foreground">
+            Outras opções da mesma marca para comparar linha, compressão e finalidade.
+          </p>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {similarProducts.map((similarProduct) => (
+            <CompressionProductCard line={similarProduct} />
+          ))}
+        </div>
+      </section>
+    )}
+  </main>
+
+  <footer class="border-t bg-secondary">
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <p class="text-sm text-muted-foreground">
+        Casa do Médico BH — catálogo institucional com atendimento consultivo pelo WhatsApp.
+      </p>
+      <img src="/logo/casa-do-medico-pb.png" alt="" class="h-10 w-auto opacity-60" />
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll<HTMLFormElement>("[data-product-whatsapp-form]").forEach((form) => {
+      form.addEventListener("submit", () => {
+        const nameInput = form.querySelector<HTMLInputElement>("[data-customer-name]");
+        const messageInput = form.querySelector<HTMLInputElement>("[data-whatsapp-message]");
+        const customerName = nameInput?.value.trim();
+
+        if (messageInput) {
+          messageInput.value = customerName
+            ? messageInput.defaultValue.replace(
+                /^Olá, gostaria/,
+                `Olá, meu nome é ${customerName}. Gostaria`
+              )
+            : messageInput.defaultValue;
+        }
+      });
+    });
+  </script>
+</Layout>

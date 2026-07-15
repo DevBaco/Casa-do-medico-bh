@@ -1,0 +1,91 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ProductCard from "@/components/ProductCard";
+import { Button } from "@/components/ui/button";
+import { buildProductWhatsAppUrl } from "@/lib/whatsapp";
+
+const hobby = {
+  brand: "Sigvaris",
+  line: "Hobby",
+  name: "Meia de Compressão Hobby",
+  tagline: "Suave compressão · Unissex",
+  boxImage: "/Sigvaris/Hobby/BOX_Hobby_Packing_Unisex_BR_SIGVARIS_GROUP.jpg",
+  hoverImage: "/Sigvaris/Hobby/Hobby_Sigvaris_Unisex_Grafite_SA_1.jpg",
+  colors: [
+    {
+      name: "Preta",
+      swatch: "#26262a",
+      image: "/Sigvaris/Hobby/Hobby_Sigvaris_Unisex_Grafite_SA_1.jpg",
+    },
+    {
+      name: "Grafite",
+      swatch: "#8d8178",
+      image: "/Sigvaris/Hobby/hobby_GRAPHITE_alt2_unisex_br_sigvaris_group.jpg",
+    },
+    {
+      name: "Marinho",
+      swatch: "#2b3a55",
+      image: "/Sigvaris/Hobby/Hobby_Sigvaris_Unisex_Marine_SA.jpg",
+    },
+    {
+      name: "Azul",
+      swatch: "#4d6faa",
+      image: "/Sigvaris/Hobby/Hobby_Blue1_Unisex_BR_SIGVARIS_GROUP.jpg",
+    },
+    {
+      name: "Rosa",
+      swatch: "#d792b0",
+      image: "/Sigvaris/Hobby/Hobby_Pink2_Unisex_BR_SIGVARIS_GROUP.jpg",
+    },
+  ],
+  compression:
+    "Disponível em diferentes graus de compressão (suave a moderada). Consulte nosso atendimento para a indicação adequada ao seu caso.",
+  models:
+    "Diversos modelos disponíveis: panturrilha (3/4), meia 7/8, ponteira aberta ou fechada. Consulte disponibilidade por modelo e tamanho.",
+  whatsappUrl: buildProductWhatsAppUrl("Meia de Compressão Hobby"),
+};
+---
+
+<Layout title="Meias de Compressão · Casa do Médico BH">
+  <header class="sticky top-0 z-20 border-b bg-background/95 backdrop-blur-md">
+    <div class="mx-auto flex min-h-[72px] w-full max-w-6xl items-center justify-between gap-6 px-6">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/logo/casa-do-medico.png" alt="Casa do Médico BH" class="h-12 w-auto" />
+      </a>
+      <Button asChild>
+        <a href={hobby.whatsappUrl} target="_blank" rel="noopener noreferrer">
+          <img src="/icons/whatsapp.svg" alt="" class="size-4" />
+          Fale conosco
+        </a>
+      </Button>
+    </div>
+  </header>
+
+  <main class="mx-auto w-full max-w-6xl px-6 py-12">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold tracking-wide text-primary uppercase">
+        Catálogo · Meias de compressão
+      </p>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+        Sigvaris — Linha Hobby
+      </h1>
+      <p class="mt-3 text-lg text-muted-foreground">
+        Passe o mouse sobre o produto para ver a meia e clique para conhecer as cores
+        disponíveis. Preços e disponibilidade mediante consulta pelo WhatsApp.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ProductCard client:visible {...hobby} />
+    </div>
+  </main>
+
+  <footer class="mt-12 border-t bg-secondary">
+    <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-8">
+      <p class="text-sm text-muted-foreground">
+        Casa do Médico BH — atendimento consultivo, sem preços no site.
+      </p>
+      <img src="/logo/casa-do-medico-pb.png" alt="" class="h-10 w-auto opacity-60" />
+    </div>
+  </footer>
+</Layout>
