@@ -23,7 +23,7 @@ export interface StockingLine {
   colors: StockingColor[];
   boxImage: string;
   genericImage: string;
-  sizeChartImage: string;
+  sizeChartImage?: string;
   specifications: StockingSpecGroup[];
   badges: string[];
   keywords: string[];
@@ -1296,11 +1296,72 @@ export const compressionStockingBrands: StockingBrand[] = [
       },
     ],
   },
+  {
+    id: "genoven",
+    name: "Genoven",
+    logo: "/Marcas/genoven.webp",
+    description:
+      "Meias compressivas Genoven organizadas por linha, compressão e modelo, com disponibilidade confirmada no atendimento.",
+    lines: [
+      {
+        id: "genoven-basic",
+        brandId: "genoven",
+        brandName: "Genoven",
+        line: "Basic",
+        audience: "Unissex",
+        displayName: "Genoven Basic 20-30 mmHg",
+        summary:
+          "Meia compressiva Genoven Basic 3/4 com compressão de 20-30 mmHg e opções conforme disponibilidade.",
+        description:
+          "A linha Genoven Basic reúne meias de compressão para uso conforme orientação profissional. Consulte tamanhos, ponteira e disponibilidade antes da compra.",
+        compression: ["20-30 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: "/Genoven/genoven-meias.webp",
+          },
+        ],
+        boxImage: "/Genoven/genoven-meias.webp",
+        genericImage: "/Genoven/genoven-meias.webp",
+        specifications: [
+          {
+            title: "Variações para consulta",
+            items: [
+              "Modelo 3/4",
+              "Ponteira aberta conforme apresentação",
+              "Tamanho confirmado no atendimento",
+            ],
+          },
+        ],
+        badges: ["Unissex", "Uso diário"],
+        keywords: ["genoven", "basic", "meia 3/4", "20-30 mmHg"],
+        whatsappMessage: "Olá! Tenho interesse na meia Genoven Basic 20-30 mmHg.",
+      },
+    ],
+  },
 ];
 
 export const compressionStockingLines = compressionStockingBrands.flatMap(
   (brand) => brand.lines
 );
+
+export function getCompressionLineKey(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export function getCompressionBrandPath(brandId: string) {
+  return `/meias-compressivas/${brandId}`;
+}
+
+export function getCompressionLinePath(brandId: string, line: string) {
+  return `${getCompressionBrandPath(brandId)}/linhas/${getCompressionLineKey(line)}`;
+}
 
 export function getCompressionStockingPath(
   line: Pick<StockingLine, "brandId" | "id">

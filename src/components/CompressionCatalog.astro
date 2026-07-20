@@ -1,0 +1,189 @@
+---
+import { Check, ChevronDown, SlidersHorizontal, X } from "lucide-react";
+import CompressionProductCard from "@/components/CompressionProductCard.astro";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  compressionStockingBrands,
+  getCompressionBrandPath,
+  getCompressionLineKey,
+  getCompressionLinePath,
+} from "@/data/compression-stockings";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  brandId?: string;
+  lineKey?: string;
+}
+
+const { brandId, lineKey } = Astro.props;
+const selectedBrand = compressionStockingBrands.find((brand) => brand.id === brandId);
+const availableLines = selectedBrand
+  ? Array.from(
+      new Map(
+        selectedBrand.lines.map((line) => [getCompressionLineKey(line.line), line.line])
+      ).entries()
+    ).map(([key, label]) => ({ key, label }))
+  : [];
+const selectedLineLabel = availableLines.find((line) => line.key === lineKey)?.label;
+
+const displayedBrands = compressionStockingBrands
+  .filter((brand) => !selectedBrand || brand.id === selectedBrand.id)
+  .map((brand) => ({
+    ...brand,
+    lines: brand.lines.filter(
+      (line) => !selectedLineLabel || getCompressionLineKey(line.line) === lineKey
+    ),
+  }))
+  .filter((brand) => brand.lines.length > 0);
+
+---
+
+<div class="space-y-8">
+  <Card className="gap-0 overflow-hidden py-0 shadow-sm">
+    <CardContent className="p-0">
+      <div class="flex flex-col gap-5 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div class="flex min-w-0 items-center gap-4">
+          {selectedBrand ? (
+            <div class="grid min-h-14 min-w-40 place-items-center rounded-lg border bg-white px-4 py-2">
+              <img
+                src={selectedBrand.logo}
+                alt={selectedBrand.name}
+                class="h-8 max-w-40 object-contain"
+              />
+            </div>
+          ) : (
+            <div class="grid size-14 place-items-center rounded-lg bg-primary text-lg font-bold text-primary-foreground">
+              CM
+            </div>
+          )}
+
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-center gap-2">
+              {selectedBrand && <Badge>{selectedBrand.name}</Badge>}
+              {selectedLineLabel && <Badge variant="secondary">{selectedLineLabel}</Badge>}
+            </div>
+            <h2 class="mt-2 text-xl font-semibold sm:text-2xl">
+              {selectedLineLabel
+                ? `Produtos da linha ${selectedLineLabel}`
+                : selectedBrand
+                  ? `Meias compressivas ${selectedBrand.name}`
+                  : "Todas as meias compressivas"}
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <details class="group border-t" open={Boolean(selectedBrand && !selectedLineLabel)}>
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-3.5 transition-colors hover:bg-secondary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-6 [&::-webkit-details-marker]:hidden">
+          <span class="flex min-w-0 items-center gap-3">
+            <span class="grid size-8 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+              <SlidersHorizontal className="size-4" />
+            </span>
+            <span class="min-w-0">
+              <span class="block text-sm font-semibold">Alterar filtros</span>
+              <span class="block truncate text-xs text-muted-foreground">
+                {selectedBrand
+                  ? `${selectedBrand.name}${selectedLineLabel ? ` · ${selectedLineLabel}` : " · escolha uma linha"}`
+                  : "Escolha uma marca para ver suas linhas"}
+              </span>
+            </span>
+          </span>
+          <ChevronDown className="size-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
+        </summary>
+
+        <div class="space-y-4 border-t bg-secondary/40 px-5 py-4 sm:px-6">
+          <fieldset>
+            <legend class="mb-2.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Marca
+            </legend>
+            <div class="flex flex-wrap gap-2">
+              {compressionStockingBrands.map((brand) => (
+                <a
+                  href={getCompressionBrandPath(brand.id)}
+                  aria-current={selectedBrand?.id === brand.id ? "page" : undefined}
+                  class={cn(
+                    buttonVariants({
+                      variant: selectedBrand?.id === brand.id ? "default" : "outline",
+                      size: "sm",
+                    }),
+                    "rounded-full"
+                  )}
+                >
+                  {selectedBrand?.id === brand.id && <Check className="size-3.5" />}
+                  {brand.name}
+                </a>
+              ))}
+            </div>
+          </fieldset>
+
+          {selectedBrand && (
+            <fieldset>
+              <legend class="mb-2.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Linha da {selectedBrand.name}
+              </legend>
+              <div class="flex flex-wrap gap-2">
+                <a
+                  href={getCompressionBrandPath(selectedBrand.id)}
+                  aria-current={!selectedLineLabel ? "page" : undefined}
+                  class={cn(
+                    buttonVariants({
+                      variant: !selectedLineLabel ? "default" : "outline",
+                      size: "sm",
+                    }),
+                    "rounded-full"
+                  )}
+                >
+                  {!selectedLineLabel && <Check className="size-3.5" />}
+                  Todas
+                </a>
+
+                {availableLines.map((line) => (
+                  <a
+                    href={getCompressionLinePath(selectedBrand.id, line.label)}
+                    aria-current={selectedLineLabel === line.label ? "page" : undefined}
+                    class={cn(
+                      buttonVariants({
+                        variant: selectedLineLabel === line.label ? "default" : "outline",
+                        size: "sm",
+                      }),
+                      "rounded-full"
+                    )}
+                  >
+                    {selectedLineLabel === line.label && <Check className="size-3.5" />}
+                    {line.label}
+                  </a>
+                ))}
+              </div>
+            </fieldset>
+          )}
+
+          {selectedBrand && (
+            <a
+              href="/meias-compressivas"
+              class={cn(buttonVariants({ variant: "ghost", size: "sm" }), "px-0 text-muted-foreground")}
+            >
+              <X className="size-3.5" />
+              Limpar filtros
+            </a>
+          )}
+        </div>
+      </details>
+    </CardContent>
+  </Card>
+
+  {displayedBrands.map((brand) => (
+    <section id={brand.id} class="scroll-mt-24">
+      {!selectedBrand && (
+        <div class="mb-6 border-b pb-5">
+          <img src={brand.logo} alt={brand.name} class="h-9 max-w-44 object-contain" />
+        </div>
+      )}
+
+      <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        {brand.lines.map((line) => <CompressionProductCard line={line} />)}
+      </div>
+    </section>
+  ))}
+</div>

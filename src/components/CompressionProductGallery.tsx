@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 interface CompressionProductGalleryProps {
   displayName: string;
   boxImage: string;
-  sizeChartImage: string;
+  sizeChartImage?: string;
   colors: StockingColor[];
 }
 
@@ -128,11 +128,22 @@ export default function CompressionProductGallery({
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const media = [selectedColor.image, sizeChartImage, boxImage];
-  const labels = [
-    `${displayName} na cor ${selectedColor.name}`,
-    `Tabela de medidas ${displayName}`,
-    `Embalagem ${displayName}`,
+  const media = [
+    {
+      image: selectedColor.image,
+      label: `${displayName} na cor ${selectedColor.name}`,
+      type: "product",
+    },
+    ...(sizeChartImage
+      ? [
+          {
+            image: sizeChartImage,
+            label: `Tabela de medidas ${displayName}`,
+            type: "size-chart",
+          },
+        ]
+      : []),
+    { image: boxImage, label: `Embalagem ${displayName}`, type: "package" },
   ];
 
   useEffect(() => {
@@ -153,10 +164,10 @@ export default function CompressionProductGallery({
     <div>
       <Carousel setApi={setApi} opts={{ align: "start" }} className="w-full">
         <CarouselContent className="ml-0">
-          {media.map((image, index) => (
-            <CarouselItem key={`${index}-${image}`} className="pl-0">
-              {index === 1 ? (
-                <SliderTableZoom image={image} alt={labels[index]} />
+          {media.map((item, index) => (
+            <CarouselItem key={`${index}-${item.image}`} className="pl-0">
+              {item.type === "size-chart" ? (
+                <SliderTableZoom image={item.image} alt={item.label} />
               ) : (
                 <div className="relative flex h-[390px] items-center justify-center overflow-hidden rounded-lg border bg-secondary sm:h-[520px]">
                   {index === 0 && (
@@ -165,8 +176,8 @@ export default function CompressionProductGallery({
                     </Badge>
                   )}
                   <img
-                    src={image}
-                    alt={labels[index]}
+                    src={item.image}
+                    alt={item.label}
                     className="max-h-full w-full object-contain p-6 sm:p-10"
                   />
                 </div>
@@ -184,14 +195,17 @@ export default function CompressionProductGallery({
         />
       </Carousel>
 
-      <div className="mt-3 grid grid-cols-3 gap-2" aria-label="Selecionar imagem do produto">
-        {media.map((image, index) => (
+      <div
+        className={cn("mt-3 grid gap-2", media.length === 2 ? "grid-cols-2" : "grid-cols-3")}
+        aria-label="Selecionar imagem do produto"
+      >
+        {media.map((item, index) => (
           <Button
-            key={`${index}-${image}`}
+            key={`${index}-${item.image}`}
             type="button"
             variant="ghost"
-            title={labels[index]}
-            aria-label={labels[index]}
+            title={item.label}
+            aria-label={item.label}
             aria-pressed={currentSlide === index}
             onClick={() => api?.scrollTo(index)}
             className={cn(
@@ -199,7 +213,7 @@ export default function CompressionProductGallery({
               currentSlide === index && "border-primary bg-secondary ring-1 ring-primary/20"
             )}
           >
-            <img src={image} alt="" className="h-full w-full object-contain" />
+            <img src={item.image} alt="" className="h-full w-full object-contain" />
           </Button>
         ))}
       </div>

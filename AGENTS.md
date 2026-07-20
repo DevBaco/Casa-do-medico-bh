@@ -23,7 +23,7 @@ no shadcn.
 - Ícones: `lucide-react`.
 
 Componentes já instalados: `button`, `card`, `badge`, `input`, `separator`, `accordion`,
-`sheet`, `navigation-menu`, `carousel`, `dialog`.
+`sheet`, `navigation-menu`, `carousel`, `dialog`, `select`.
 
 ## Regra nº 2: hospedagem é shared (Hostinger, NÃO VPS) → minimize JS no cliente
 

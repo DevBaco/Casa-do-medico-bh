@@ -1,0 +1,29 @@
+---
+import type { GetStaticPaths } from "astro";
+import CompressionCatalogPage from "@/components/CompressionCatalogPage.astro";
+import {
+  compressionStockingBrands,
+  getCompressionLineKey,
+} from "@/data/compression-stockings";
+
+export const getStaticPaths = (() =>
+  compressionStockingBrands.flatMap((brand) =>
+    Array.from(
+      new Map(
+        brand.lines.map((line) => [getCompressionLineKey(line.line), line.line])
+      ).keys()
+    ).map((lineKey) => ({
+      params: { brand: brand.id, line: lineKey },
+      props: { brandId: brand.id, lineKey },
+    }))
+  )) satisfies GetStaticPaths;
+
+interface Props {
+  brandId: string;
+  lineKey: string;
+}
+
+const { brandId, lineKey } = Astro.props;
+---
+
+<CompressionCatalogPage brandId={brandId} lineKey={lineKey} />

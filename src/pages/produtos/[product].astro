@@ -1,0 +1,257 @@
+---
+import type { GetStaticPaths } from "astro";
+import { ArrowLeft, Check, Info, PackageCheck } from "lucide-react";
+import CatalogProductCard from "@/components/CatalogProductCard.astro";
+import CatalogProductGallery from "@/components/CatalogProductGallery";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  catalogProducts,
+  getCatalogCategory,
+  type CatalogProduct,
+} from "@/data/catalog-products";
+import Layout from "@/layouts/Layout.astro";
+import { buildCatalogProductWhatsAppUrl } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
+
+export const getStaticPaths = (() =>
+  catalogProducts.map((product) => ({
+    params: { product: product.id },
+    props: { product },
+  }))) satisfies GetStaticPaths;
+
+interface Props {
+  product: CatalogProduct;
+}
+
+const { product } = Astro.props;
+const category = getCatalogCategory(product.categoryId);
+const whatsappUrl = buildCatalogProductWhatsAppUrl(product.name);
+const similarProducts = catalogProducts
+  .filter((item) => item.categoryId === product.categoryId && item.id !== product.id)
+  .slice(0, 3);
+const detailImageStyle = `transform: translateX(${product.imageFrame?.detailTranslateX ?? 0}%) scale(${product.imageFrame?.detailScale ?? 1});`;
+const detailAspectClass = product.imageFrame?.detailAspectRatio === "landscape"
+  ? "aspect-[3/2]"
+  : product.imageFrame?.detailAspectRatio === "standard"
+    ? "aspect-[4/3]"
+    : "aspect-square";
+const detailObjectClass = product.imageFrame?.detailFit === "cover"
+  ? product.imageFrame.detailPosition === "bottom"
+    ? "object-cover object-bottom"
+    : "object-cover object-center"
+  : "object-contain object-center";
+---
+
+<Layout
+  title={`${product.name} em BH · Casa do Médico BH`}
+  description={`${product.summary} Consulte marcas, modelos e disponibilidade de ${product.name} pelo WhatsApp.`}
+>
+  <header class="sticky top-0 z-30 border-b bg-background/95 backdrop-blur-md">
+    <div class="mx-auto flex min-h-[72px] w-full max-w-7xl items-center justify-between gap-5 px-5 sm:px-6">
+      <a href="/" aria-label="Casa do Médico BH">
+        <img src="/logo/casa-do-medico.png" alt="Casa do Médico BH" class="h-12 w-auto" />
+      </a>
+      <div class="flex items-center gap-2">
+        <a
+          href="/meias-compressivas"
+          class={cn(buttonVariants({ variant: "outline" }), "hidden sm:inline-flex")}
+        >
+          Catálogo de meias
+        </a>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={buttonVariants()}
+        >
+          <img src="/icons/whatsapp.svg" alt="" class="size-4" />
+          Consultar produto
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-6 lg:py-10">
+      <nav class="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted-foreground" aria-label="Navegação estrutural">
+        <a href="/produtos" class="inline-flex items-center gap-1.5 font-medium hover:text-primary">
+          <ArrowLeft className="size-4" />
+          Produtos
+        </a>
+        <span aria-hidden="true">/</span>
+        <a href={`/produtos#${category.id}`} class="font-medium hover:text-primary">
+          {category.shortName}
+        </a>
+        <span aria-hidden="true">/</span>
+        <span class="text-foreground">{product.name}</span>
+      </nav>
+
+      <div class="grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] lg:items-start">
+        <div>
+          {product.images.length > 1 ? (
+            <CatalogProductGallery
+              client:visible
+              images={product.images}
+              imageFrame={product.imageFrame}
+            />
+          ) : (
+            <Card className="gap-0 overflow-hidden py-0 shadow-sm">
+              <div class:list={["relative max-h-[650px] overflow-hidden bg-white", detailAspectClass]}>
+                <img
+                  src={product.images[0].src}
+                  alt={product.images[0].alt}
+                  class:list={[
+                    "absolute inset-0 h-full w-full origin-center",
+                    detailObjectClass,
+                  ]}
+                  style={detailImageStyle}
+                />
+              </div>
+            </Card>
+          )}
+
+          <p class="mt-3 text-xs leading-relaxed text-muted-foreground">
+            Imagens ilustrativas. Marca, acabamento e configuração podem variar conforme o estoque.
+          </p>
+        </div>
+
+        <div class="lg:sticky lg:top-24">
+          <div class="flex flex-wrap items-center gap-2">
+            <Badge>{category.shortName}</Badge>
+            {product.badges.map((badge) => <Badge variant="secondary">{badge}</Badge>)}
+          </div>
+
+          <h1 class="mt-4 text-3xl font-bold leading-tight sm:text-4xl">{product.name}</h1>
+          <p class="mt-4 text-base leading-relaxed text-muted-foreground">{product.summary}</p>
+
+          <Card className="relative mt-7 gap-0 overflow-hidden border-2 border-primary bg-secondary/70 py-0 shadow-lg">
+            <div class="bg-primary px-5 py-2.5 text-center text-sm font-semibold text-primary-foreground">
+              Consulte opções e disponibilidade
+            </div>
+            <CardContent className="p-5 sm:p-6">
+              <div class="flex items-start gap-3">
+                <span class="grid size-11 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+                  <img src="/icons/whatsapp.svg" alt="" class="size-6" />
+                </span>
+                <div>
+                  <p class="text-xl font-bold">Quero este produto</p>
+                  <p class="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    Nossa equipe confirma marcas, modelos, medidas e disponibilidade pelo WhatsApp.
+                  </p>
+                </div>
+              </div>
+
+              <ul class="mt-5 grid gap-2 text-sm sm:grid-cols-2">
+                {product.consultation.slice(0, 4).map((item) => (
+                  <li class="flex items-start gap-2">
+                    <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={cn(
+                  buttonVariants({ size: "lg" }),
+                  "mt-5 h-14 w-full text-base font-bold shadow-lg ring-4 ring-primary/15 transition-transform hover:scale-[1.01]"
+                )}
+              >
+                <img src="/icons/whatsapp.svg" alt="" class="size-6" />
+                Consultar no WhatsApp
+              </a>
+              <p class="mt-3 text-center text-xs leading-relaxed text-muted-foreground">
+                Atendimento direto da Casa do Médico BH, sem preço fixo no site.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y bg-secondary">
+      <div class="mx-auto grid w-full max-w-6xl gap-5 px-5 py-10 sm:px-6 md:grid-cols-2 lg:py-14">
+        <Card>
+          <CardHeader>
+            <span class="mb-1 grid size-10 place-items-center rounded-lg bg-primary/10 text-primary">
+              <Info className="size-5" />
+            </span>
+            <CardTitle>Sobre o produto</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p class="leading-relaxed text-muted-foreground">{product.description}</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <span class="mb-1 grid size-10 place-items-center rounded-lg bg-primary/10 text-primary">
+              <PackageCheck className="size-5" />
+            </span>
+            <CardTitle>O que considerar na escolha</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul class="grid gap-3">
+              {product.highlights.map((highlight) => (
+                <li class="flex items-start gap-2.5 text-sm leading-relaxed">
+                  <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+
+        <Card className="md:col-span-2">
+          <CardContent className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p class="font-semibold">A escolha pode depender de medidas ou orientação profissional.</p>
+              <p class="mt-1 text-sm leading-relaxed text-muted-foreground">
+                Envie pelo WhatsApp as informações que você já possui para agilizar o atendimento.
+              </p>
+            </div>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={cn(buttonVariants({ size: "lg" }), "shrink-0")}
+            >
+              <img src="/icons/whatsapp.svg" alt="" class="size-5" />
+              Tirar dúvidas
+            </a>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+
+    {similarProducts.length > 0 && (
+      <section class="mx-auto w-full max-w-7xl px-5 py-10 sm:px-6 lg:py-14">
+        <div class="mb-6 max-w-3xl">
+          <Badge variant="secondary">{category.shortName}</Badge>
+          <h2 class="mt-3 text-2xl font-bold sm:text-3xl">Produtos relacionados</h2>
+          <p class="mt-2 text-sm text-muted-foreground">
+            Outros itens da mesma categoria para conhecer e consultar com nossa equipe.
+          </p>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {similarProducts.map((similarProduct) => (
+            <CatalogProductCard product={similarProduct} />
+          ))}
+        </div>
+      </section>
+    )}
+  </main>
+
+  <footer class="border-t bg-secondary">
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <p class="text-sm text-muted-foreground">
+        Casa do Médico BH — catálogo institucional com atendimento consultivo pelo WhatsApp.
+      </p>
+      <img src="/logo/casa-do-medico-pb.png" alt="" class="h-10 w-auto opacity-60" />
+    </div>
+  </footer>
+</Layout>

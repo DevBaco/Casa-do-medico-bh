@@ -1,17 +1,37 @@
 ---
-import { MapPin, MessageCircle, ShieldCheck } from "lucide-react";
+import { Activity, ArrowRight, Boxes, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
+import BrandCarousel from "@/components/BrandCarousel";
 import CompressionFinder from "@/components/CompressionFinder";
+import ProductCatalogNavigator from "@/components/ProductCatalogNavigator.astro";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { compressionStockingLines } from "@/data/compression-stockings";
+import { compressionStockingBrands } from "@/data/compression-stockings";
+import { cn } from "@/lib/utils";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
+
+function toKey(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+const compressionFinderBrands = compressionStockingBrands.map((brand) => ({
+  id: brand.id,
+  name: brand.name,
+  lines: Array.from(new Map(brand.lines.map((line) => [toKey(line.line), line.line])).entries()).map(
+    ([key, label]) => ({ key, label })
+  ),
+}));
 ---
 
 <Layout
   title="Casa do Médico BH · Produtos médicos e meias compressivas"
-  description="Encontre meias compressivas Venosan e Sigvaris, produtos ortopédicos e equipamentos de saúde com atendimento especializado em Belo Horizonte."
+  description="Encontre meias compressivas Venosan, Sigvaris e Genoven, produtos ortopédicos e equipamentos de saúde com atendimento especializado em Belo Horizonte."
 >
   <header class="sticky top-0 z-30 border-b bg-background/95 backdrop-blur-md">
     <div class="mx-auto flex min-h-[72px] w-full max-w-7xl items-center justify-between gap-5 px-5 sm:px-6">
@@ -19,15 +39,27 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
         <img src="/logo/casa-do-medico.png" alt="Casa do Médico BH" class="h-12 w-auto" />
       </a>
       <div class="flex items-center gap-2">
-        <Button asChild variant="outline" className="hidden sm:inline-flex">
-          <a href="/meias-compressivas">Ver catálogo</a>
-        </Button>
-        <Button asChild>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-            <img src="/icons/whatsapp.svg" alt="" class="size-4" />
-            Fale conosco
-          </a>
-        </Button>
+        <a
+          href="/produtos"
+          class={cn(buttonVariants({ variant: "outline" }), "hidden sm:inline-flex")}
+        >
+          Produtos
+        </a>
+        <a
+          href="/meias-compressivas"
+          class={cn(buttonVariants({ variant: "outline" }), "hidden md:inline-flex")}
+        >
+          Meias compressivas
+        </a>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={buttonVariants()}
+        >
+          <img src="/icons/whatsapp.svg" alt="" class="size-4" />
+          Fale conosco
+        </a>
       </div>
     </div>
   </header>
@@ -42,12 +74,12 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
             Encontre sua meia compressiva por marca e linha
           </h1>
           <p class="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Selecione primeiro a marca e depois a linha desejada. Você será levado direto aos
-            produtos correspondentes, com os filtros já aplicados.
+            Selecione a marca e a linha desejada. Você será levado direto às meias correspondentes,
+            com os dois filtros já aplicados.
           </p>
 
           <div class="mt-8">
-            <CompressionFinder client:idle />
+            <CompressionFinder brands={compressionFinderBrands} client:idle />
           </div>
 
           <div class="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
@@ -70,11 +102,11 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
           <div class="absolute inset-8 rounded-full bg-primary/10 blur-3xl"></div>
           <div class="relative grid grid-cols-2 gap-4">
             <Card className="translate-y-10 overflow-hidden py-0">
-              <div class="grid h-80 place-items-center bg-background p-6">
+              <div class="flex h-80 items-stretch justify-center overflow-hidden bg-white">
                 <img
                   src="/Venosan/COMFORTLINE/AD-COMFORT PERNA FEMININA.webp"
                   alt=""
-                  class="max-h-full w-full object-contain"
+                  class="h-full w-full object-contain object-center"
                 />
               </div>
               <CardContent className="border-t p-4">
@@ -86,11 +118,11 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
               </CardContent>
             </Card>
             <Card className="overflow-hidden py-0">
-              <div class="grid h-80 place-items-center bg-background p-6">
+              <div class="flex h-80 items-stretch justify-center overflow-hidden bg-white">
                 <img
                   src="/Sigvaris/Performance (esportiva)/ACM_HighTech_CW_black.jpg"
                   alt=""
-                  class="max-h-full w-full object-contain"
+                  class="h-full w-full object-contain object-center"
                 />
               </div>
               <CardContent className="border-t p-4">
@@ -106,37 +138,107 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
       </div>
     </section>
 
-    <section class="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 lg:py-20">
-      <div class="grid gap-6 md:grid-cols-3">
-        <Card>
-          <CardContent>
-            <p class="text-3xl font-bold text-primary">{compressionStockingLines.length}</p>
-            <h2 class="mt-2 font-semibold">Produtos cadastrados</h2>
-            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Linhas Venosan e Sigvaris reunidas em um catálogo único.
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent>
-            <p class="text-3xl font-bold text-primary">2</p>
-            <h2 class="mt-2 font-semibold">Passos para encontrar</h2>
-            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Escolha a marca, selecione a linha e veja os produtos.
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent>
-            <p class="text-3xl font-bold text-primary">0</p>
-            <h2 class="mt-2 font-semibold">Preços engessados</h2>
-            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Consulte disponibilidade e condições diretamente com a equipe.
-            </p>
-          </CardContent>
-        </Card>
+    <section class="border-b bg-secondary/40">
+      <div class="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 lg:py-20">
+        <div class="max-w-3xl">
+          <Badge>Catálogo de produtos · sem preços fixos</Badge>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
+            Catálogo de produtos médicos e ortopédicos
+          </h2>
+          <p class="mt-2 leading-relaxed text-muted-foreground">
+            Escolha um produto para abrir diretamente o item e encontrar opções semelhantes no
+            catálogo completo.
+          </p>
+        </div>
+
+        <div class="mt-8">
+          <ProductCatalogNavigator basePath="/produtos" />
+        </div>
       </div>
     </section>
+
+    <section class="border-b bg-background">
+      <div class="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 lg:py-20">
+        <div class="max-w-3xl">
+          <Badge variant="secondary">Explore sem aplicar filtros</Badge>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
+            Acesse o catálogo completo
+          </h2>
+          <p class="mt-2 leading-relaxed text-muted-foreground">
+            Se preferir navegar por todas as opções, escolha um dos catálogos abaixo.
+          </p>
+        </div>
+
+        <div class="mt-8 grid gap-5 lg:grid-cols-2">
+          <Card className="overflow-hidden border-primary/20">
+            <CardContent className="flex h-full flex-col gap-5 sm:flex-row sm:items-center">
+              <span class="grid size-14 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground">
+                <Activity className="size-7" />
+              </span>
+              <div class="flex-1">
+                <Badge>Catálogo exclusivo</Badge>
+                <h3 class="mt-3 text-xl font-bold">Meias compressivas</h3>
+                <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Veja todas as linhas Venosan, Sigvaris e Genoven sem filtros aplicados.
+                </p>
+                <a
+                  href="/meias-compressivas"
+                  class={cn(buttonVariants({ size: "lg" }), "mt-5 w-full sm:w-auto")}
+                >
+                  Ver todas as meias
+                  <ArrowRight className="size-4" />
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="overflow-hidden border-accent/40">
+            <CardContent className="flex h-full flex-col gap-5 sm:flex-row sm:items-center">
+              <span class="grid size-14 shrink-0 place-items-center rounded-lg bg-accent text-accent-foreground">
+                <Boxes className="size-7" />
+              </span>
+              <div class="flex-1">
+                <Badge variant="secondary">Catálogo de produtos</Badge>
+                <h3 class="mt-3 text-xl font-bold">Outros produtos médicos</h3>
+                <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Explore monitoramento, ortopedia, mobilidade, cuidados em casa e fisioterapia.
+                </p>
+                <a
+                  href="/produtos"
+                  class={cn(
+                    buttonVariants({ variant: "outline", size: "lg" }),
+                    "mt-5 w-full sm:w-auto"
+                  )}
+                >
+                  Ver todos os produtos
+                  <ArrowRight className="size-4" />
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <section class="overflow-hidden border-b bg-secondary/40">
+      <div class="mx-auto w-full max-w-7xl px-5 py-14 sm:px-10 lg:py-20">
+        <div class="max-w-3xl">
+          <Badge variant="secondary">Marcas</Badge>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
+            Encontre produtos pela marca
+          </h2>
+          <p class="mt-2 leading-relaxed text-muted-foreground">
+            As marcas de meias abrem o catálogo com a marca selecionada. As demais levam ao catálogo
+            geral, onde você pode pesquisar o produto desejado.
+          </p>
+        </div>
+
+        <div class="mt-8">
+          <BrandCarousel client:visible />
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="border-t bg-secondary">

@@ -1,0 +1,83 @@
+---
+import CompressionCatalog from "@/components/CompressionCatalog.astro";
+import { buttonVariants } from "@/components/ui/button";
+import { compressionStockingBrands, getCompressionLineKey } from "@/data/compression-stockings";
+import Layout from "@/layouts/Layout.astro";
+import { cn } from "@/lib/utils";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
+
+interface Props {
+  brandId?: string;
+  lineKey?: string;
+}
+
+const { brandId, lineKey } = Astro.props;
+const selectedBrand = compressionStockingBrands.find((brand) => brand.id === brandId);
+const selectedLine = selectedBrand?.lines.find(
+  (line) => getCompressionLineKey(line.line) === lineKey
+)?.line;
+
+const heading = selectedLine
+  ? `Meias compressivas ${selectedBrand?.name} · ${selectedLine}`
+  : selectedBrand
+    ? `Meias compressivas ${selectedBrand.name}`
+    : "Catálogo de meias compressivas Venosan, Sigvaris e Genoven";
+
+const title = selectedLine
+  ? `${selectedBrand?.name} ${selectedLine} em BH · Casa do Médico BH`
+  : selectedBrand
+    ? `Meias Compressivas ${selectedBrand.name} em BH · Casa do Médico BH`
+    : "Meias Compressivas em BH · Casa do Médico BH";
+
+const description = selectedLine
+  ? `Conheça as meias compressivas ${selectedBrand?.name} da linha ${selectedLine}. Consulte modelos, tamanhos e disponibilidade em Belo Horizonte.`
+  : selectedBrand
+    ? `Catálogo de meias compressivas ${selectedBrand.name} em Belo Horizonte. Consulte linhas, modelos, compressões e tamanhos pelo WhatsApp.`
+    : "Catálogo de meias compressivas Venosan, Sigvaris e Genoven em Belo Horizonte. Consulte disponibilidade por marca, linha, cor, compressão e tamanho pelo WhatsApp.";
+---
+
+<Layout title={title} description={description}>
+  <header class="sticky top-0 z-20 border-b bg-background/95 backdrop-blur-md">
+    <div class="mx-auto flex min-h-[72px] w-full max-w-7xl items-center justify-between gap-6 px-5 sm:px-6">
+      <a href="/" class="flex items-center gap-3" aria-label="Casa do Médico BH">
+        <img src="/logo/casa-do-medico.png" alt="Casa do Médico BH" class="h-12 w-auto" />
+      </a>
+      <div class="flex items-center gap-2">
+        <a href="/" class={cn(buttonVariants({ variant: "outline" }), "hidden sm:inline-flex")}>
+          Início
+        </a>
+        <a
+          href="/produtos"
+          class={cn(buttonVariants({ variant: "outline" }), "hidden md:inline-flex")}
+        >
+          Produtos médicos
+        </a>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={buttonVariants()}
+        >
+          <img src="/icons/whatsapp.svg" alt="" class="size-4" />
+          Fale conosco
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="sr-only">{heading}</h1>
+    <section class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-6 lg:py-8">
+      <CompressionCatalog brandId={brandId} lineKey={lineKey} />
+    </section>
+  </main>
+
+  <footer class="border-t bg-secondary">
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <p class="text-sm text-muted-foreground">
+        Casa do Médico BH — catálogo institucional com atendimento consultivo pelo WhatsApp.
+      </p>
+      <img src="/logo/casa-do-medico-pb.png" alt="" class="h-10 w-auto opacity-60" />
+    </div>
+  </footer>
+</Layout>

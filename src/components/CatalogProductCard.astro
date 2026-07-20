@@ -1,0 +1,96 @@
+---
+import { ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  getCatalogProductPath,
+  type CatalogProduct,
+} from "@/data/catalog-products";
+import { buildCatalogProductWhatsAppUrl } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  product: CatalogProduct;
+}
+
+const { product } = Astro.props;
+const href = getCatalogProductPath(product);
+const whatsappUrl = buildCatalogProductWhatsAppUrl(product.name);
+const catalogImageStyle = `transform: translateX(${product.imageFrame?.catalogTranslateX ?? 0}%) scale(${product.imageFrame?.catalogScale ?? 1});`;
+const hasMultipleImages = product.images.length > 1;
+---
+
+<Card
+  id={product.id}
+  className="group h-full scroll-mt-24 gap-0 overflow-hidden rounded-lg p-0 transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lg"
+>
+  <a
+    href={href}
+    class="group/media relative flex aspect-[5/4] w-full snap-x snap-mandatory overflow-x-auto bg-white [scrollbar-width:none] md:grid md:place-items-center md:overflow-hidden [&::-webkit-scrollbar]:hidden"
+    aria-label={`Ver detalhes de ${product.name}`}
+  >
+    {product.images.map((image, index) => (
+      <img
+        src={image.src}
+        alt={image.alt}
+        loading="lazy"
+        class:list={[
+          "h-full w-full shrink-0 snap-center object-contain object-center transition-opacity duration-200 md:absolute md:inset-0",
+          index === 0 && hasMultipleImages && "md:group-hover/media:opacity-0",
+          index === 1 && "md:opacity-0 md:group-hover/media:opacity-100",
+          index > 1 && "md:hidden",
+        ]}
+        style={index === 0 ? catalogImageStyle : undefined}
+      />
+    ))}
+    {hasMultipleImages && (
+      <span class="pointer-events-none absolute right-3 bottom-3 flex gap-1.5 md:hidden" aria-hidden="true">
+        {product.images.map((_, index) => (
+          <span class:list={["size-1.5 rounded-full", index === 0 ? "bg-primary" : "bg-border"]}></span>
+        ))}
+      </span>
+    )}
+    <span class="absolute right-3 bottom-3 hidden rounded-md border bg-background/95 px-2.5 py-1 text-xs font-semibold text-primary opacity-0 shadow-sm transition-opacity group-hover/media:opacity-100 md:block">
+      Ver produto
+    </span>
+  </a>
+
+  <CardContent className="flex min-h-[310px] flex-1 flex-col gap-3 border-t p-4 sm:p-5">
+    <div class="flex flex-wrap gap-2">
+      {product.badges.slice(0, 2).map((badge) => (
+        <Badge variant="secondary">{badge}</Badge>
+      ))}
+    </div>
+
+    <div>
+      <a href={href} class="hover:text-primary">
+        <h3 class="text-lg font-semibold leading-snug">{product.name}</h3>
+      </a>
+      <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+        {product.summary}
+      </p>
+    </div>
+
+    <p class="mt-auto text-sm font-semibold text-primary">Consulte disponibilidade</p>
+
+    <div class="grid gap-2 sm:grid-cols-2">
+      <a
+        href={href}
+        class={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-full")}
+      >
+        Ver detalhes
+        <ArrowRight className="size-4" />
+      </a>
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={cn(buttonVariants({ size: "lg" }), "w-full")}
+      >
+        <img src="/icons/whatsapp.svg" alt="" class="size-4" />
+        WhatsApp
+      </a>
+    </div>
+  </CardContent>
+</Card>

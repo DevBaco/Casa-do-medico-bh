@@ -1,35 +1,38 @@
-import { useMemo, useState } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { compressionStockingBrands } from "@/data/compression-stockings";
-
-function toKey(value: string) {
-  return value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+interface CompressionFinderBrand {
+  id: string;
+  name: string;
+  lines: Array<{
+    key: string;
+    label: string;
+  }>;
 }
 
-export default function CompressionFinder() {
+interface CompressionFinderProps {
+  brands: CompressionFinderBrand[];
+}
+
+export default function CompressionFinder({ brands }: CompressionFinderProps) {
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedLine, setSelectedLine] = useState("");
 
-  const brand = compressionStockingBrands.find((item) => item.id === selectedBrand);
-  const lines = useMemo(() => {
-    if (!brand) return [];
-
-    return Array.from(
-      new Map(brand.lines.map((line) => [toKey(line.line), line.line])).entries()
-    ).map(([key, label]) => ({ key, label }));
-  }, [brand]);
+  const brand = brands.find((item) => item.id === selectedBrand);
+  const lines = brand?.lines ?? [];
 
   const destination =
     selectedBrand && selectedLine
-      ? `/meias-compressivas?marca=${selectedBrand}&linha=${selectedLine}`
+      ? `/meias-compressivas/${selectedBrand}/linhas/${selectedLine}`
       : "";
 
   return (
@@ -37,8 +40,8 @@ export default function CompressionFinder() {
       <div className="border-b bg-secondary/60 px-5 py-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <Badge>Encontre sua meia</Badge>
-            <p className="mt-2 font-semibold">Escolha a marca e depois a linha</p>
+            <Badge>Busca guiada</Badge>
+            <p className="mt-2 font-semibold">Encontre sua meia por marca e linha</p>
           </div>
           <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
             <span className={selectedBrand ? "text-primary" : ""}>1. Marca</span>
@@ -48,68 +51,61 @@ export default function CompressionFinder() {
         </div>
       </div>
 
-      <CardContent className="space-y-6 p-5 sm:p-6">
-        <fieldset>
-          <legend className="mb-3 text-sm font-semibold">1. Qual marca você procura?</legend>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {compressionStockingBrands.map((item) => {
-              const isSelected = selectedBrand === item.id;
-
-              return (
-                <Button
-                  key={item.id}
-                  type="button"
-                  variant={isSelected ? "default" : "outline"}
-                  aria-pressed={isSelected}
-                  onClick={() => {
-                    setSelectedBrand(item.id);
-                    setSelectedLine("");
-                  }}
-                  className="h-16 justify-between px-4"
-                >
-                  <span className={isSelected ? "rounded bg-white px-3 py-1.5" : ""}>
-                    <img src={item.logo} alt={item.name} className="h-7 max-w-36 object-contain" />
-                  </span>
-                  {isSelected && <Check className="size-5" />}
-                </Button>
-              );
-            })}
-          </div>
-        </fieldset>
-
-        {brand && (
+      <CardContent className="p-5 sm:p-6">
+        <div className="grid gap-5 lg:grid-cols-2">
           <fieldset>
-            <legend className="mb-3 text-sm font-semibold">2. Qual linha da {brand.name}?</legend>
-            <div className="flex flex-wrap gap-2">
-              {lines.map((line) => (
-                <Button
-                  key={line.key}
-                  type="button"
-                  size="sm"
-                  variant={selectedLine === line.key ? "default" : "outline"}
-                  aria-pressed={selectedLine === line.key}
-                  onClick={() => setSelectedLine(line.key)}
-                >
-                  {selectedLine === line.key && <Check />}
-                  {line.label}
-                </Button>
-              ))}
-            </div>
+            <legend className="mb-2 text-sm font-semibold">1. Qual marca?</legend>
+            <Select
+              value={selectedBrand}
+              onValueChange={(value) => {
+                setSelectedBrand(value);
+                setSelectedLine("");
+              }}
+            >
+              <SelectTrigger className="h-12 w-full bg-background">
+                <SelectValue placeholder="Selecione a marca" />
+              </SelectTrigger>
+              <SelectContent>
+                {brands.map((item) => (
+                  <SelectItem key={item.id} value={item.id}>
+                    {item.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </fieldset>
-        )}
 
-        {destination ? (
-          <Button asChild size="lg" className="h-12 w-full text-base">
-            <a href={destination}>
-              Ver produtos desta linha
-              <ArrowRight />
-            </a>
-          </Button>
-        ) : (
-          <Button type="button" size="lg" className="h-12 w-full text-base" disabled>
-            {selectedBrand ? "Escolha uma linha" : "Escolha uma marca"}
-          </Button>
-        )}
+          <fieldset>
+            <legend className="mb-2 text-sm font-semibold">2. Qual linha?</legend>
+            <Select value={selectedLine} disabled={!brand} onValueChange={setSelectedLine}>
+              <SelectTrigger className="h-12 w-full bg-background">
+                <SelectValue placeholder="Selecione a linha" />
+              </SelectTrigger>
+              <SelectContent>
+                {lines.map((line) => (
+                  <SelectItem key={line.key} value={line.key}>
+                    {line.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </fieldset>
+        </div>
+
+        <div className="mt-6">
+          {destination ? (
+            <Button asChild size="lg" className="h-12 w-full text-base">
+              <a href={destination}>
+                Aplicar filtros e ver as meias
+                <ArrowRight />
+              </a>
+            </Button>
+          ) : (
+            <Button type="button" size="lg" className="h-12 w-full text-base" disabled>
+              {!selectedBrand ? "Selecione a marca" : "Selecione a linha"}
+            </Button>
+          )}
+        </div>
       </CardContent>
     </Card>
   );

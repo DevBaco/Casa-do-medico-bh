@@ -14,3 +14,13 @@ export function buildProductWhatsAppUrl(productName: string) {
     buildProductWhatsAppMessage(productName)
   )}`;
 }
+
+export function buildCatalogProductWhatsAppMessage(productName: string) {
+  return `${WHATSAPP_MESSAGE} Tenho interesse em ${productName} e quero consultar marcas, modelos e disponibilidade.`;
+}
+
+export function buildCatalogProductWhatsAppUrl(productName: string) {
+  return `${WHATSAPP_ENDPOINT}?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(
+    buildCatalogProductWhatsAppMessage(productName)
+  )}`;
+}

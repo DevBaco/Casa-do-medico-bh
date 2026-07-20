@@ -42,9 +42,11 @@ export default function CompressionProductTabs({ line, whatsappUrl }: Compressio
         <TabsTrigger value="general" className="flex-none px-0 text-base">
           Informações gerais
         </TabsTrigger>
-        <TabsTrigger value="size" className="flex-none px-0 text-base">
-          Tamanho
-        </TabsTrigger>
+        {line.sizeChartImage && (
+          <TabsTrigger value="size" className="flex-none px-0 text-base">
+            Tamanho
+          </TabsTrigger>
+        )}
       </TabsList>
 
       <TabsContent value="general" className="pt-6">
@@ -95,28 +97,30 @@ export default function CompressionProductTabs({ line, whatsappUrl }: Compressio
         />
       </TabsContent>
 
-      <TabsContent value="size" className="pt-6">
-        <div className="mb-5 max-w-3xl">
-          <h3 className="text-xl font-semibold">Tabela de medidas</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            As medidas devem ser conferidas antes da escolha do tamanho e confirmadas no atendimento.
-          </p>
-        </div>
-        <div className="flex min-h-[360px] items-center justify-center rounded-lg border bg-white p-4 sm:p-6">
-          <img
-            src={line.sizeChartImage}
-            alt={`Tabela de medidas ${line.displayName}`}
-            className="max-h-[720px] w-full object-contain"
-          />
-        </div>
+      {line.sizeChartImage && (
+        <TabsContent value="size" className="pt-6">
+          <div className="mb-5 max-w-3xl">
+            <h3 className="text-xl font-semibold">Tabela de medidas</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              As medidas devem ser conferidas antes da escolha do tamanho e confirmadas no atendimento.
+            </p>
+          </div>
+          <div className="flex min-h-[360px] items-center justify-center rounded-lg border bg-white p-4 sm:p-6">
+            <img
+              src={line.sizeChartImage}
+              alt={`Tabela de medidas ${line.displayName}`}
+              className="max-h-[720px] w-full object-contain"
+            />
+          </div>
 
-        <WhatsAppCta
-          whatsappUrl={whatsappUrl}
-          title="Ficou em dúvida entre dois tamanhos?"
-          description="Envie suas medidas pelo WhatsApp para confirmar o tamanho e consultar a disponibilidade."
-          label="Confirmar meu tamanho"
-        />
-      </TabsContent>
+          <WhatsAppCta
+            whatsappUrl={whatsappUrl}
+            title="Ficou em dúvida entre dois tamanhos?"
+            description="Envie suas medidas pelo WhatsApp para confirmar o tamanho e consultar a disponibilidade."
+            label="Confirmar meu tamanho"
+          />
+        </TabsContent>
+      )}
     </Tabs>
   );
 }

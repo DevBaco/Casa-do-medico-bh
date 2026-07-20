@@ -2,11 +2,11 @@
 import type { GetStaticPaths } from "astro";
 import { ArrowLeft, Check } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
-import CompressionProductCard from "@/components/CompressionProductCard";
+import CompressionProductCard from "@/components/CompressionProductCard.astro";
 import CompressionProductGallery from "@/components/CompressionProductGallery";
 import CompressionProductTabs from "@/components/CompressionProductTabs";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
@@ -21,6 +21,7 @@ import {
   getCompressionStockingPath,
   type StockingLine,
 } from "@/data/compression-stockings";
+import { cn } from "@/lib/utils";
 
 export const getStaticPaths = (() =>
   compressionStockingLines.map((line) => {
@@ -64,12 +65,23 @@ const similarProducts = compressionStockingLines
       <a href="/" class="flex items-center gap-3" aria-label="Casa do Médico BH">
         <img src="/logo/casa-do-medico.png" alt="Casa do Médico BH" class="h-12 w-auto" />
       </a>
-      <Button asChild>
-        <a href={productWhatsappUrl} target="_blank" rel="noopener noreferrer">
+      <div class="flex items-center gap-2">
+        <a
+          href="/produtos"
+          class={cn(buttonVariants({ variant: "outline" }), "hidden sm:inline-flex")}
+        >
+          Produtos médicos
+        </a>
+        <a
+          href={productWhatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={buttonVariants()}
+        >
           <img src="/icons/whatsapp.svg" alt="" class="size-4" />
           Fale conosco
         </a>
-      </Button>
+      </div>
     </div>
   </header>
 
