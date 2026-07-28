@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -9,8 +11,16 @@ import { storeBrands } from "@/data/brands";
 import { cn } from "@/lib/utils";
 
 export default function BrandCarousel() {
+  const autoplay = useRef(
+    Autoplay({ delay: 2800, stopOnMouseEnter: true, stopOnInteraction: false })
+  );
+
   return (
-    <Carousel opts={{ align: "start", loop: true }} className="w-full">
+    <Carousel
+      opts={{ align: "start", loop: true, duration: 32 }}
+      plugins={[autoplay.current]}
+      className="w-full"
+    >
       <CarouselContent className="-ml-3">
         {storeBrands.map((brand) => (
           <CarouselItem
@@ -36,11 +46,11 @@ export default function BrandCarousel() {
         ))}
       </CarouselContent>
       <CarouselPrevious
-        className="left-2 z-10 size-9 bg-background/95 shadow-md sm:-left-4"
+        className="z-10 hidden size-9 bg-background/95 shadow-md sm:-left-4 sm:flex"
         title="Marcas anteriores"
       />
       <CarouselNext
-        className="right-2 z-10 size-9 bg-background/95 shadow-md sm:-right-4"
+        className="z-10 hidden size-9 bg-background/95 shadow-md sm:-right-4 sm:flex"
         title="Próximas marcas"
       />
     </Carousel>

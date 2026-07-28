@@ -437,35 +437,26 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
         var matchesBrand =
           !state.brand || (element.dataset.brands || "").split(" ").includes(state.brand);
         var matchesSearch = !normalizedQuery || search.includes(normalizedQuery);
-        var visible = matchesCategory && matchesType && matchesBrand && matchesSearch;
+        var exclusiveImageBrands = (element.dataset.exclusiveImageBrands || "")
+          .split(" ")
+          .filter(Boolean);
+        var hasBrandImage = Boolean(
+          state.brand &&
+          exclusiveImageBrands.length > 0 &&
+          exclusiveImageBrands.indexOf(state.brand) !== -1
+        );
+        var hasOnlyAnotherBrandImage = Boolean(
+          state.brand && exclusiveImageBrands.length > 0 && !hasBrandImage
+        );
+        var visible = matchesCategory && matchesType && matchesBrand && matchesSearch && !hasOnlyAnotherBrandImage;
 
         element.hidden = !visible;
         if (visible) visibleProducts += 1;
 
-        var exclusiveImageBrands = (element.dataset.exclusiveImageBrands || "")
-          .split(" ")
-          .filter(Boolean);
-        var matchingPlaceholder = state.brand
-          ? element.querySelector('[data-brand-product-placeholder="' + CSS.escape(state.brand) + '"]')
-          : null;
-        var useBrandPlaceholder = Boolean(
-          state.brand &&
-          exclusiveImageBrands.length > 0 &&
-          exclusiveImageBrands.indexOf(state.brand) === -1 &&
-          matchingPlaceholder
-        );
-
-        var productImages = element.querySelector("[data-product-images]");
-        if (productImages) productImages.toggleAttribute("hidden", useBrandPlaceholder);
-
-        element
-          .querySelectorAll("[data-brand-product-placeholder]")
-          .forEach(function (placeholder) {
-            placeholder.hidden = !(
-              useBrandPlaceholder &&
-              placeholder.dataset.brandProductPlaceholder === state.brand
-            );
-          });
+        element.querySelectorAll("[data-image-brand]").forEach(function (image) {
+          var imageBrand = image.dataset.imageBrand || "";
+          image.hidden = Boolean(state.brand && imageBrand && imageBrand !== state.brand);
+        });
       });
 
       categoryButtons.forEach(function (button) {

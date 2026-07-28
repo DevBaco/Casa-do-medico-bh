@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ArrowRight, Menu } from "lucide-react";
 import {
   Accordion,
@@ -67,12 +68,41 @@ function MobileCatalogLinks({ items }: { items: HeaderCatalogItem[] }) {
   );
 }
 
+function MobileSectionLink({
+  sectionId,
+  onNavigate,
+  children,
+}: {
+  sectionId: string;
+  onNavigate: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={`/#${sectionId}`}
+      className="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium hover:bg-muted"
+      onClick={(event) => {
+        if (window.location.pathname !== "/") return;
+        event.preventDefault();
+        onNavigate();
+        window.setTimeout(() => {
+          document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300);
+      }}
+    >
+      {children}
+    </a>
+  );
+}
+
 export default function SiteHeaderClient({
   productItems,
   compressionItems,
   whatsappUrl,
   whatsappLabel,
 }: Props) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-30 border-b bg-background/95 backdrop-blur-md">
       <div className="mx-auto flex min-h-[72px] w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-6">
@@ -120,7 +150,7 @@ export default function SiteHeaderClient({
               <NavigationMenuTrigger>Meias compressivas</NavigationMenuTrigger>
               <NavigationMenuContent className="w-[320px] p-2">
                 <NavigationMenuLink
-                  href="/meias-compressivas"
+                  href="/meias-de-compressão"
                   className="mb-1 block border bg-primary/5 px-3 py-2.5 font-semibold text-primary"
                 >
                   Ver todas as meias
@@ -143,7 +173,7 @@ export default function SiteHeaderClient({
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuLink href="/#contato" className={navigationMenuTriggerStyle()}>
-                Contato
+                Visite a loja
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
@@ -158,7 +188,7 @@ export default function SiteHeaderClient({
             </a>
           </Button>
 
-          <Sheet>
+          <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon-lg" className="xl:hidden">
                 <Menu className="size-5" />
@@ -207,7 +237,7 @@ export default function SiteHeaderClient({
                     <AccordionContent className="space-y-2 pb-4">
                       <SheetClose asChild>
                         <a
-                          href="/meias-compressivas"
+                          href="/meias-de-compressão"
                           className="flex items-center justify-between rounded-lg bg-primary/10 px-3 py-2.5 font-semibold text-primary no-underline"
                         >
                           Catálogo de meias
@@ -219,22 +249,12 @@ export default function SiteHeaderClient({
                   </AccordionItem>
                 </Accordion>
 
-                <SheetClose asChild>
-                  <a
-                    href="/#nossa-historia"
-                    className="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium hover:bg-muted"
-                  >
-                    Nossa história
-                  </a>
-                </SheetClose>
-                <SheetClose asChild>
-                  <a
-                    href="/#contato"
-                    className="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium hover:bg-muted"
-                  >
-                    Contato
-                  </a>
-                </SheetClose>
+                <MobileSectionLink sectionId="nossa-historia" onNavigate={() => setMenuOpen(false)}>
+                  Nossa história
+                </MobileSectionLink>
+                <MobileSectionLink sectionId="contato" onNavigate={() => setMenuOpen(false)}>
+                  Visite a loja
+                </MobileSectionLink>
               </nav>
             </SheetContent>
           </Sheet>

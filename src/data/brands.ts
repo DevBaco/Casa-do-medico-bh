@@ -71,7 +71,7 @@ export const storeBrands: StoreBrand[] = [
     name: "Genoven",
     logo: "/Marcas/genoven.webp",
     catalog: "compression",
-    href: "/meias-compressivas/genoven",
+    href: "/meias-de-compressão/genoven",
   },
   {
     id: "hidrolight",
@@ -107,13 +107,13 @@ export const storeBrands: StoreBrand[] = [
     name: "Venosan",
     logo: "/Marcas/logo-venosan-meias-compressivas.svg",
     catalog: "compression",
-    href: "/meias-compressivas/venosan",
+    href: "/meias-de-compressão/venosan",
   },
   {
     id: "sigvaris",
     name: "Sigvaris",
     logo: "/Marcas/sig9000_sigvaris_group_160th_logo_dual_horizontal_darkblue_rgb.svg",
     catalog: "compression",
-    href: "/meias-compressivas/sigvaris",
+    href: "/meias-de-compressão/sigvaris",
   },
 ];

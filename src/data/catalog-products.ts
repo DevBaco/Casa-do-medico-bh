@@ -9,6 +9,10 @@ export type CatalogCategoryId =
 export interface CatalogProductImage {
   src: string;
   alt: string;
+  /** Set when the photo depicts one specific manufacturer's product, even though this
+   * catalog entry is also sold under other brands — lets the brand filter avoid showing
+   * a competitor's device as if it were generic. */
+  brandId?: StoreBrandId;
 }
 
 export interface CatalogProduct {
@@ -96,6 +100,7 @@ export const catalogProducts: CatalogProduct[] = [
       {
         src: `${produtosBase}/oxímetro.png`,
         alt: "Oxímetro digital posicionado no dedo",
+        brandId: "gtech",
       },
     ],
     highlights: [
@@ -121,14 +126,17 @@ export const catalogProducts: CatalogProduct[] = [
       {
         src: `${produtosBase}/aparelho-de-pressao-digital.jpg (1).jpg`,
         alt: "Aparelho digital de pressão arterial com braçadeira",
+        brandId: "gtech",
       },
       {
         src: `${acumedBase}/Aparelho de pressão digital pulso.jpg`,
         alt: "Aparelho digital de pressão arterial de pulso",
+        brandId: "gtech",
       },
       {
         src: `${acumedBase}/BPSP11A 02.jpg (1).jpg (1).jpg`,
         alt: "Outra opção de aparelho digital de pressão com braçadeira",
+        brandId: "gtech",
       },
     ],
     highlights: [
@@ -154,6 +162,7 @@ export const catalogProducts: CatalogProduct[] = [
       {
         src: `${produtosBase}/aparelho-de-pressao-manual.jpg`,
         alt: "Aparelho manual de pressão arterial com manômetro e braçadeira",
+        brandId: "premium",
       },
     ],
     highlights: [
@@ -208,6 +217,7 @@ export const catalogProducts: CatalogProduct[] = [
       {
         src: `${produtosBase}/termometro-digital.jpg`,
         alt: "Termômetro clínico digital",
+        brandId: "gtech",
       },
     ],
     highlights: [
@@ -233,10 +243,12 @@ export const catalogProducts: CatalogProduct[] = [
       {
         src: `${produtosBase}/glicometro.jpg`,
         alt: "Kit de glicômetro digital",
+        brandId: "gtech",
       },
       {
         src: `${acumedBase}/GTECH FREE.jpg`,
         alt: "Outra opção de glicômetro portátil",
+        brandId: "gtech",
       },
     ],
     highlights: [
@@ -262,6 +274,7 @@ export const catalogProducts: CatalogProduct[] = [
       {
         src: `${produtosBase}/tiras-reagentes-para-glicose.jpg`,
         alt: "Embalagem de tiras reagentes para teste de glicose",
+        brandId: "gtech",
       },
     ],
     highlights: [
@@ -1085,6 +1098,7 @@ export function getCatalogProductPath(product: CatalogProduct) {
  */
 export function getCatalogExclusiveImageBrandIds(product: CatalogProduct): StoreBrandId[] {
   const detectedBrands = product.images.map((image) => {
+    if (image.brandId) return image.brandId;
     if (image.src.startsWith(`${hidrolightBase}/`)) return "hidrolight" as const;
     return null;
   });

@@ -1356,7 +1356,7 @@ export function getCompressionLineKey(value: string) {
 }
 
 export function getCompressionBrandPath(brandId: string) {
-  return `/meias-compressivas/${brandId}`;
+  return `/meias-de-compressão/${brandId}`;
 }
 
 export function getCompressionLinePath(brandId: string, line: string) {
@@ -1371,7 +1371,7 @@ export function getCompressionStockingPath(
     ? line.id.slice(brandPrefix.length)
     : line.id;
 
-  return `/meias-compressivas/${line.brandId}/${productSlug}`;
+  return `/meias-de-compressão/${line.brandId}/${productSlug}`;
 }
 
 export const compressionStockingSearchIndex = compressionStockingLines.map((line) => ({

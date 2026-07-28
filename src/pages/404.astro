@@ -1,0 +1,82 @@
+---
+import { Home, PackageSearch, Stethoscope } from "lucide-react";
+import SiteHeader from "@/components/SiteHeader.astro";
+import { Badge } from "@/components/ui/badge";
+import Layout from "@/layouts/Layout.astro";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
+
+const aisles = [
+  { href: "/", label: "Início", icon: Home },
+  { href: "/produtos", label: "Produtos médicos", icon: PackageSearch },
+  { href: "/meias-de-compressão", label: "Meias de compressão", icon: Stethoscope },
+];
+---
+
+<Layout
+  title="Página não encontrada · Casa do Médico BH"
+  description="A página que você procura não existe ou foi movida. Veja nosso catálogo de produtos médicos, ortopédicos e meias de compressão."
+>
+  <SiteHeader />
+
+  <main class="flex min-h-[calc(100dvh-73px)] items-center">
+    <section class="relative isolate w-full overflow-hidden">
+      <div
+        class="pointer-events-none absolute inset-0 -z-20 opacity-[0.35]"
+        style="background-image: radial-gradient(circle at 1px 1px, var(--color-border) 1px, transparent 0); background-size: 22px 22px;"
+      >
+      </div>
+      <div class="pointer-events-none absolute -top-40 left-1/2 -z-10 size-[34rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl"></div>
+
+      <div class="mx-auto flex w-full max-w-2xl flex-col items-center px-5 py-12 text-center sm:px-6 sm:py-16">
+        <div class="relative">
+          <div class="absolute -inset-5 -z-10 rotate-6 rounded-[2rem] bg-primary/10"></div>
+          <div class="relative flex -rotate-3 items-center justify-center rounded-2xl bg-accent px-10 py-8 shadow-xl ring-4 ring-background">
+            <span class="absolute top-3.5 left-3.5 size-3 rounded-full bg-background/70"></span>
+            <span class="text-7xl font-black tracking-tighter text-foreground sm:text-8xl">404</span>
+          </div>
+        </div>
+
+        <Badge variant="secondary" className="mt-9">Fora de estoque</Badge>
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+          Esse item não está no nosso catálogo
+        </h1>
+        <p class="mt-4 max-w-md leading-relaxed text-muted-foreground">
+          O link que você seguiu não existe ou saiu de linha. Vamos te levar pro corredor certo:
+        </p>
+
+        <div class="mt-10 grid w-full gap-3 sm:grid-cols-3">
+          {aisles.map((aisle) => (
+            <a
+              href={aisle.href}
+              class="group overflow-hidden rounded-xl border bg-background shadow-sm transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-md"
+            >
+              <div class="flex items-center justify-center bg-primary py-3.5 text-primary-foreground">
+                <aisle.icon className="size-5" />
+              </div>
+              <div class="px-3 py-3 text-sm font-semibold group-hover:text-primary">
+                {aisle.label}
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-9 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+        >
+          <img src="/icons/whatsapp.svg" alt="" class="size-4" />
+          Ou fale com a gente pelo WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t bg-background">
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <p>© {new Date().getFullYear()} Casa do Médico BH. Todos os direitos reservados.</p>
+      <p>Av. Afonso Pena, 981 · Belo Horizonte/MG</p>
+    </div>
+  </footer>
+</Layout>

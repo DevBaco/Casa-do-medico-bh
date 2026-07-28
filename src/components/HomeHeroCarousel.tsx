@@ -26,7 +26,7 @@ const slides = [
     title: "Meias de compressão para cada rotina",
     description:
       "Compare linhas Venosan, Sigvaris e Genoven e converse com a equipe sobre modelos, tamanhos e disponibilidade.",
-    href: "/meias-compressivas",
+    href: "/meias-de-compressão",
     action: "Ver marcas e linhas",
   },
   {
@@ -43,7 +43,7 @@ const slides = [
   {
     image: "/images/home/monitoramento-em-casa.webp",
     imageAlt: "Pessoa medindo a pressão arterial com aparelho digital em casa",
-    imagePosition: "object-center",
+    imagePosition: "object-[78%_center]",
     eyebrow: "Monitoramento de saúde",
     title: "Praticidade para acompanhar a saúde em casa",
     description:

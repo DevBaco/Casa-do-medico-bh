@@ -32,7 +32,7 @@ export default function CompressionFinder({ brands }: CompressionFinderProps) {
 
   const destination =
     selectedBrand && selectedLine
-      ? `/meias-compressivas/${selectedBrand}/linhas/${selectedLine}`
+      ? `/meias-de-compressão/${selectedBrand}/linhas/${selectedLine}`
       : "";
 
   return (

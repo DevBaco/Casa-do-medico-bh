@@ -7,6 +7,9 @@ interface Props {
 }
 
 const { title, description = "Casa do Médico BH — produtos ortopédicos, meias de compressão e equipamentos de saúde." } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL("/images/home/logo-casa-do-medico-wordmark.webp", Astro.site);
 ---
 
 <html lang="pt-BR">
@@ -15,11 +18,39 @@ const { title, description = "Casa do Médico BH — produtos ortopédicos, meia
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <meta name="google-site-verification" content="LANBzI-rKHiq_hCVVCDiDkplUGadD98neGvk3SUCeu8" />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <title>{title}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Casa do Médico BH" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="pt_BR" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
   </head>
   <body class="min-h-dvh bg-background text-foreground antialiased">
     <slot />
+    <script>
+      if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
+          const url = new URL(link.getAttribute("href")!);
+          const phone = url.pathname.replace("/", "");
+          const text = url.searchParams.get("text") ?? "";
+          link.setAttribute(
+            "href",
+            `whatsapp://send?phone=${phone}&text=${encodeURIComponent(text)}`
+          );
+        });
+      }
+    </script>
   </body>
 </html>
