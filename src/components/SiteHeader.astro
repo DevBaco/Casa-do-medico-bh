@@ -1,0 +1,46 @@
+---
+import SiteHeaderClient from "@/components/SiteHeaderClient";
+import { getCatalogCategoryFilterPath } from "@/data/catalog-filters";
+import { catalogCategories } from "@/data/catalog-products";
+import {
+  compressionStockingBrands,
+  getCompressionBrandPath,
+} from "@/data/compression-stockings";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
+
+interface Props {
+  whatsappUrl?: string;
+  whatsappLabel?: string;
+}
+
+const {
+  whatsappUrl = WHATSAPP_URL,
+  whatsappLabel = "Fale conosco",
+} = Astro.props;
+
+const productItems = catalogCategories.map((category) => ({
+  id: category.id,
+  label: category.shortName,
+  description: category.description,
+  href: getCatalogCategoryFilterPath(category.id),
+}));
+
+const compressionItems = compressionStockingBrands.map((brand) => {
+  const lineCount = new Set(brand.lines.map((line) => line.line)).size;
+
+  return {
+    id: brand.id,
+    label: brand.name,
+    description: `${lineCount} ${lineCount === 1 ? "linha disponível" : "linhas disponíveis"}`,
+    href: getCompressionBrandPath(brand.id),
+  };
+});
+---
+
+<SiteHeaderClient
+  client:idle
+  productItems={productItems}
+  compressionItems={compressionItems}
+  whatsappUrl={whatsappUrl}
+  whatsappLabel={whatsappLabel}
+/>

@@ -4,9 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
+  getCatalogCategory,
+  getCatalogExclusiveImageBrandIds,
   getCatalogProductPath,
   type CatalogProduct,
 } from "@/data/catalog-products";
+import { storeBrands } from "@/data/brands";
 import { buildCatalogProductWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 
@@ -15,10 +18,19 @@ interface Props {
 }
 
 const { product } = Astro.props;
+const category = getCatalogCategory(product.categoryId);
 const href = getCatalogProductPath(product);
 const whatsappUrl = buildCatalogProductWhatsAppUrl(product.name);
 const catalogImageStyle = `transform: translateX(${product.imageFrame?.catalogTranslateX ?? 0}%) scale(${product.imageFrame?.catalogScale ?? 1});`;
 const hasMultipleImages = product.images.length > 1;
+const exclusiveImageBrandIds = getCatalogExclusiveImageBrandIds(product);
+const brandPlaceholders = exclusiveImageBrandIds.length > 0
+  ? storeBrands.filter(
+      (brand) =>
+        product.brandIds.includes(brand.id) &&
+        !exclusiveImageBrandIds.includes(brand.id)
+    )
+  : [];
 ---
 
 <Card
@@ -30,27 +42,56 @@ const hasMultipleImages = product.images.length > 1;
     class="group/media relative flex aspect-[5/4] w-full snap-x snap-mandatory overflow-x-auto bg-white [scrollbar-width:none] md:grid md:place-items-center md:overflow-hidden [&::-webkit-scrollbar]:hidden"
     aria-label={`Ver detalhes de ${product.name}`}
   >
-    {product.images.map((image, index) => (
-      <img
-        src={image.src}
-        alt={image.alt}
-        loading="lazy"
-        class:list={[
-          "h-full w-full shrink-0 snap-center object-contain object-center transition-opacity duration-200 md:absolute md:inset-0",
-          index === 0 && hasMultipleImages && "md:group-hover/media:opacity-0",
-          index === 1 && "md:opacity-0 md:group-hover/media:opacity-100",
-          index > 1 && "md:hidden",
-        ]}
-        style={index === 0 ? catalogImageStyle : undefined}
-      />
-    ))}
-    {hasMultipleImages && (
-      <span class="pointer-events-none absolute right-3 bottom-3 flex gap-1.5 md:hidden" aria-hidden="true">
-        {product.images.map((_, index) => (
-          <span class:list={["size-1.5 rounded-full", index === 0 ? "bg-primary" : "bg-border"]}></span>
-        ))}
+    <span data-product-images class="contents">
+      {product.images.map((image, index) => (
+        <img
+          src={image.src}
+          alt={image.alt}
+          loading="lazy"
+          class:list={[
+            "h-full w-full shrink-0 snap-center object-contain object-center transition-opacity duration-200 md:absolute md:inset-0",
+            index === 0 && hasMultipleImages && "md:group-hover/media:opacity-0",
+            index === 1 && "md:opacity-0 md:group-hover/media:opacity-100",
+            index > 1 && "md:hidden",
+          ]}
+          style={index === 0 ? catalogImageStyle : undefined}
+        />
+      ))}
+      {hasMultipleImages && (
+        <span class="pointer-events-none absolute right-3 bottom-3 flex gap-1.5 md:hidden" aria-hidden="true">
+          {product.images.map((_, index) => (
+            <span class:list={["size-1.5 rounded-full", index === 0 ? "bg-primary" : "bg-border"]}></span>
+          ))}
+        </span>
+      )}
+    </span>
+
+    {brandPlaceholders.map((brand) => (
+      <span
+        data-brand-product-placeholder={brand.id}
+        hidden
+        class="absolute inset-0 grid place-items-center bg-secondary/35 p-8 text-center"
+      >
+        <span>
+          <span class="mx-auto grid h-16 w-40 place-items-center rounded-lg border bg-white px-4 py-3 shadow-sm">
+            <img
+              src={brand.logo}
+              alt={brand.name}
+              class:list={[
+                "max-h-10 max-w-32 object-contain",
+                brand.darkInkOnLight && "brightness-0",
+              ]}
+            />
+          </span>
+          <span class="mt-4 block text-sm font-semibold text-foreground">
+            {product.name} {brand.name}
+          </span>
+          <span class="mt-1 block text-xs text-muted-foreground">
+            Consulte os modelos disponíveis
+          </span>
+        </span>
       </span>
-    )}
+    ))}
     <span class="absolute right-3 bottom-3 hidden rounded-md border bg-background/95 px-2.5 py-1 text-xs font-semibold text-primary opacity-0 shadow-sm transition-opacity group-hover/media:opacity-100 md:block">
       Ver produto
     </span>
@@ -58,7 +99,8 @@ const hasMultipleImages = product.images.length > 1;
 
   <CardContent className="flex min-h-[310px] flex-1 flex-col gap-3 border-t p-4 sm:p-5">
     <div class="flex flex-wrap gap-2">
-      {product.badges.slice(0, 2).map((badge) => (
+      <Badge variant="outline">{category.shortName}</Badge>
+      {product.badges.slice(0, 1).map((badge) => (
         <Badge variant="secondary">{badge}</Badge>
       ))}
     </div>

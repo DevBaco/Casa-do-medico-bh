@@ -1,13 +1,32 @@
 ---
-import { Activity, ArrowRight, Boxes, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
-import Layout from "@/layouts/Layout.astro";
+import {
+  ArrowRight,
+  Camera,
+  HeartHandshake,
+  Mail,
+  MapPin,
+  PackageCheck,
+  Phone,
+  Share2,
+} from "lucide-react";
 import BrandCarousel from "@/components/BrandCarousel";
 import CompressionFinder from "@/components/CompressionFinder";
-import ProductCatalogNavigator from "@/components/ProductCatalogNavigator.astro";
+import HomeHeroCarousel from "@/components/HomeHeroCarousel";
+import SiteHeader from "@/components/SiteHeader.astro";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { getCatalogPopularFilterPath } from "@/data/catalog-filters";
+import { catalogProducts } from "@/data/catalog-products";
 import { compressionStockingBrands } from "@/data/compression-stockings";
+import Layout from "@/layouts/Layout.astro";
 import { cn } from "@/lib/utils";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
@@ -27,226 +46,534 @@ const compressionFinderBrands = compressionStockingBrands.map((brand) => ({
     ([key, label]) => ({ key, label })
   ),
 }));
+
+function categoryShortcut(productId: string, label: string, filterId: string) {
+  const product = catalogProducts.find((item) => item.id === productId);
+
+  if (!product) {
+    throw new Error(`Produto não encontrado para o atalho da home: ${productId}`);
+  }
+
+  return {
+    label,
+    href: getCatalogPopularFilterPath(filterId),
+    image: product.images[0],
+  };
+}
+
+const categoryShortcuts = [
+  {
+    label: "Meias compressivas",
+    href: "/meias-compressivas",
+    image: {
+      src: "/Venosan/COMFORTLINE/AD-COMFORT PERNA FEMININA.webp",
+      alt: "Meia de compressão até o joelho",
+    },
+  },
+  categoryShortcut("aparelho-de-pressao-digital", "Pressão arterial", "pressao-arterial"),
+  categoryShortcut("oximetro-de-dedo", "Oxímetros", "oximetros"),
+  categoryShortcut("glicometro", "Glicemia", "glicemia"),
+  categoryShortcut("joelheiras", "Joelheiras", "joelheiras"),
+  categoryShortcut("andador", "Andadores", "andadores"),
+  categoryShortcut("cadeira-de-banho", "Cadeiras de banho", "cadeiras-de-banho"),
+  categoryShortcut("curativos", "Curativos", "curativos"),
+  categoryShortcut("luvas-descartaveis", "Luvas", "luvas"),
+  categoryShortcut("faixa-elastica-para-exercicios", "Fisioterapia", "fisioterapia"),
+];
+
+const compressionLineCount = compressionStockingBrands.reduce(
+  (total, brand) => total + new Set(brand.lines.map((line) => line.line)).size,
+  0
+);
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  name: "Casa do Médico BH",
+  image: "https://www.casadomedicobh.com.br/images/home/logo-casa-do-medico-wordmark.webp",
+  url: "https://www.casadomedicobh.com.br/",
+  telephone: "+55 31 3224-4407",
+  email: "bramelbrasilmedica@gmail.com",
+  foundingDate: "1954-12-28",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Av. Afonso Pena, 981",
+    addressLocality: "Belo Horizonte",
+    addressRegion: "MG",
+    postalCode: "30130-907",
+    addressCountry: "BR",
+  },
+  sameAs: [
+    "https://www.instagram.com/casadomedico_/",
+    "https://www.facebook.com/profile.php?id=100090896740956",
+  ],
+};
 ---
 
 <Layout
-  title="Casa do Médico BH · Produtos médicos e meias compressivas"
-  description="Encontre meias compressivas Venosan, Sigvaris e Genoven, produtos ortopédicos e equipamentos de saúde com atendimento especializado em Belo Horizonte."
+  title="Casa do Médico BH · Produtos médicos, ortopédicos e meias de compressão"
+  description="Casa do Médico BH é referência em meias de compressão, produtos ortopédicos e equipamentos de saúde em Belo Horizonte. Atendimento especializado desde 1954."
 >
-  <header class="sticky top-0 z-30 border-b bg-background/95 backdrop-blur-md">
-    <div class="mx-auto flex min-h-[72px] w-full max-w-7xl items-center justify-between gap-5 px-5 sm:px-6">
-      <a href="/" aria-label="Casa do Médico BH">
-        <img src="/logo/casa-do-medico.png" alt="Casa do Médico BH" class="h-12 w-auto" />
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+  <div class="border-b border-primary-foreground/15 bg-primary text-primary-foreground">
+    <div class="mx-auto flex min-h-9 w-full max-w-7xl items-center justify-between gap-4 px-5 py-2 text-xs sm:px-6 sm:text-sm">
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Av.%20Afonso%20Pena%2C%20981%2C%20Belo%20Horizonte"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 hover:underline"
+      >
+        <MapPin className="size-3.5" />
+        <span class="hidden sm:inline">Av. Afonso Pena, 981 · Centro · Belo Horizonte</span>
+        <span class="sm:hidden">Loja no Centro de BH</span>
       </a>
-      <div class="flex items-center gap-2">
-        <a
-          href="/produtos"
-          class={cn(buttonVariants({ variant: "outline" }), "hidden sm:inline-flex")}
-        >
-          Produtos
-        </a>
-        <a
-          href="/meias-compressivas"
-          class={cn(buttonVariants({ variant: "outline" }), "hidden md:inline-flex")}
-        >
-          Meias compressivas
-        </a>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={buttonVariants()}
-        >
-          <img src="/icons/whatsapp.svg" alt="" class="size-4" />
-          Fale conosco
-        </a>
-      </div>
+      <a href="tel:+553132244407" class="inline-flex shrink-0 items-center gap-1.5 font-medium hover:underline">
+        <Phone className="size-3.5" />
+        (31) 3224-4407
+      </a>
     </div>
-  </header>
+  </div>
+
+  <SiteHeader />
 
   <main>
-    <section class="relative overflow-hidden border-b bg-secondary/60">
-      <div class="pointer-events-none absolute -top-24 -right-24 size-80 rounded-full bg-primary/10 blur-3xl"></div>
-      <div class="mx-auto grid min-h-[620px] w-full max-w-7xl items-center gap-12 px-5 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)] lg:py-24">
-        <div class="relative z-10 max-w-3xl">
-          <Badge>Casa do Médico BH · desde 1954</Badge>
-          <h1 class="mt-5 text-4xl font-bold tracking-tight sm:text-6xl">
-            Encontre sua meia compressiva por marca e linha
-          </h1>
-          <p class="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Selecione a marca e a linha desejada. Você será levado direto às meias correspondentes,
-            com os dois filtros já aplicados.
-          </p>
-
-          <div class="mt-8">
-            <CompressionFinder brands={compressionFinderBrands} client:idle />
-          </div>
-
-          <div class="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
-            <span class="inline-flex items-center gap-2">
-              <ShieldCheck className="size-4 text-primary" />
-              Atendimento especializado
-            </span>
-            <span class="inline-flex items-center gap-2">
-              <MapPin className="size-4 text-primary" />
-              Belo Horizonte
-            </span>
-            <span class="inline-flex items-center gap-2">
-              <MessageCircle className="size-4 text-primary" />
-              Disponibilidade pelo WhatsApp
-            </span>
-          </div>
+    <section id="categorias" class="scroll-mt-32 border-b bg-background">
+      <div class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-6 sm:py-8">
+        <div>
+          <p class="text-xs font-semibold tracking-wide text-primary uppercase">Explore o catálogo</p>
+          <h2 class="mt-1 text-lg font-bold tracking-tight sm:text-xl">Categorias em destaque</h2>
         </div>
 
-        <div class="relative mx-auto hidden w-full max-w-lg lg:block" aria-hidden="true">
-          <div class="absolute inset-8 rounded-full bg-primary/10 blur-3xl"></div>
-          <div class="relative grid grid-cols-2 gap-4">
-            <Card className="translate-y-10 overflow-hidden py-0">
-              <div class="flex h-80 items-stretch justify-center overflow-hidden bg-white">
-                <img
-                  src="/Venosan/COMFORTLINE/AD-COMFORT PERNA FEMININA.webp"
-                  alt=""
-                  class="h-full w-full object-contain object-center"
-                />
-              </div>
-              <CardContent className="border-t p-4">
-                <img
-                  src="/Marcas/logo-venosan-meias-compressivas.svg"
-                  alt=""
-                  class="h-7 max-w-32 object-contain"
-                />
-              </CardContent>
-            </Card>
-            <Card className="overflow-hidden py-0">
-              <div class="flex h-80 items-stretch justify-center overflow-hidden bg-white">
-                <img
-                  src="/Sigvaris/Performance (esportiva)/ACM_HighTech_CW_black.jpg"
-                  alt=""
-                  class="h-full w-full object-contain object-center"
-                />
-              </div>
-              <CardContent className="border-t p-4">
-                <img
-                  src="/Marcas/sig9000_sigvaris_group_160th_logo_dual_horizontal_darkblue_rgb.svg"
-                  alt=""
-                  class="h-7 max-w-36 object-contain"
-                />
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-b bg-secondary/40">
-      <div class="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 lg:py-20">
-        <div class="max-w-3xl">
-          <Badge>Catálogo de produtos · sem preços fixos</Badge>
-          <h2 class="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
-            Catálogo de produtos médicos e ortopédicos
-          </h2>
-          <p class="mt-2 leading-relaxed text-muted-foreground">
-            Escolha um produto para abrir diretamente o item e encontrar opções semelhantes no
-            catálogo completo.
-          </p>
-        </div>
-
-        <div class="mt-8">
-          <ProductCatalogNavigator basePath="/produtos" />
+        <div class="mt-5 flex snap-x gap-4 overflow-x-auto pb-1 [scrollbar-width:none] lg:grid lg:grid-cols-10 lg:overflow-visible [&::-webkit-scrollbar]:hidden">
+          {categoryShortcuts.map((category) => (
+            <a href={category.href} class="group block w-24 shrink-0 snap-start sm:w-28 lg:w-auto">
+              <Card className="h-full gap-0 border-0 bg-transparent py-0 shadow-none">
+                <div class="mx-auto flex size-20 items-center justify-center overflow-hidden rounded-full bg-background p-3 shadow-sm ring-1 ring-border transition-[transform,box-shadow] duration-200 group-hover:-translate-y-1 group-hover:shadow-md sm:size-24">
+                  <img
+                    src={category.image.src}
+                    alt={category.image.alt}
+                    loading="lazy"
+                    class="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+                <CardContent className="flex min-h-12 items-start justify-center px-1 pt-2.5 pb-0 text-center">
+                  <h3 class="text-xs leading-tight font-medium group-hover:text-primary sm:text-sm">{category.label}</h3>
+                </CardContent>
+              </Card>
+            </a>
+          ))}
         </div>
       </div>
     </section>
 
     <section class="border-b bg-background">
-      <div class="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 lg:py-20">
-        <div class="max-w-3xl">
-          <Badge variant="secondary">Explore sem aplicar filtros</Badge>
-          <h2 class="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
-            Acesse o catálogo completo
-          </h2>
-          <p class="mt-2 leading-relaxed text-muted-foreground">
-            Se preferir navegar por todas as opções, escolha um dos catálogos abaixo.
-          </p>
+      <div class="mx-auto w-full max-w-7xl px-4 py-5 sm:px-6 sm:py-6">
+        <HomeHeroCarousel client:visible />
+      </div>
+    </section>
+
+    <section class="border-b bg-background" aria-label="Diferenciais da loja">
+      <div class="mx-auto grid w-full max-w-7xl grid-cols-2 divide-x divide-y px-5 sm:px-6 md:grid-cols-4 md:divide-y-0">
+        <div class="flex items-center gap-3 px-2 py-4 sm:px-4">
+          <span class="grid size-11 shrink-0 place-items-center overflow-hidden rounded-xl border bg-background p-1.5 shadow-sm">
+            <img src="/images/home/logo-casa-do-medico-symbol.webp" alt="" class="size-full object-contain" />
+          </span>
+          <span>
+            <strong class="block text-sm leading-tight">Loja no Centro de BH</strong>
+            <span class="mt-1 block text-xs leading-tight text-muted-foreground">Av. Afonso Pena, 981</span>
+          </span>
         </div>
-
-        <div class="mt-8 grid gap-5 lg:grid-cols-2">
-          <Card className="overflow-hidden border-primary/20">
-            <CardContent className="flex h-full flex-col gap-5 sm:flex-row sm:items-center">
-              <span class="grid size-14 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground">
-                <Activity className="size-7" />
-              </span>
-              <div class="flex-1">
-                <Badge>Catálogo exclusivo</Badge>
-                <h3 class="mt-3 text-xl font-bold">Meias compressivas</h3>
-                <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Veja todas as linhas Venosan, Sigvaris e Genoven sem filtros aplicados.
-                </p>
-                <a
-                  href="/meias-compressivas"
-                  class={cn(buttonVariants({ size: "lg" }), "mt-5 w-full sm:w-auto")}
-                >
-                  Ver todas as meias
-                  <ArrowRight className="size-4" />
-                </a>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="overflow-hidden border-accent/40">
-            <CardContent className="flex h-full flex-col gap-5 sm:flex-row sm:items-center">
-              <span class="grid size-14 shrink-0 place-items-center rounded-lg bg-accent text-accent-foreground">
-                <Boxes className="size-7" />
-              </span>
-              <div class="flex-1">
-                <Badge variant="secondary">Catálogo de produtos</Badge>
-                <h3 class="mt-3 text-xl font-bold">Outros produtos médicos</h3>
-                <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Explore monitoramento, ortopedia, mobilidade, cuidados em casa e fisioterapia.
-                </p>
-                <a
-                  href="/produtos"
-                  class={cn(
-                    buttonVariants({ variant: "outline", size: "lg" }),
-                    "mt-5 w-full sm:w-auto"
-                  )}
-                >
-                  Ver todos os produtos
-                  <ArrowRight className="size-4" />
-                </a>
-              </div>
-            </CardContent>
-          </Card>
+        <div class="flex items-center gap-3 px-3 py-4 sm:px-5">
+          <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              class="size-6"
+            >
+              <path d="M12 8v4l2 2" />
+              <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" />
+            </svg>
+          </span>
+          <span>
+            <strong class="block text-sm leading-tight">Casa do Médico: desde 1954</strong>
+            <span class="mt-1 block text-xs leading-tight text-muted-foreground">Atendimento familiar em BH</span>
+          </span>
+        </div>
+        <div class="flex items-center gap-3 px-2 py-4 sm:px-5">
+          <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              class="size-6"
+            >
+              <path d="M6 9a6 6 0 1 0 12 0a6 6 0 1 0 -12 0" />
+              <path d="m12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889" />
+              <path d="m6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889" />
+            </svg>
+          </span>
+          <span>
+            <strong class="block text-sm leading-tight">Venosan, Sigvaris e Genoven</strong>
+            <span class="mt-1 block text-xs leading-tight text-muted-foreground">Linhas disponíveis na loja</span>
+          </span>
+        </div>
+        <div class="flex items-center gap-3 px-3 py-4 sm:px-5">
+          <span class="grid size-11 shrink-0 place-items-center rounded-full bg-primary shadow-sm">
+            <img src="/icons/whatsapp.svg" alt="" class="size-5" />
+          </span>
+          <span>
+            <strong class="block text-sm leading-tight">Atendimento pelo WhatsApp</strong>
+            <span class="mt-1 block text-xs leading-tight text-muted-foreground">Consulte disponibilidade</span>
+          </span>
         </div>
       </div>
     </section>
 
-    <section class="overflow-hidden border-b bg-secondary/40">
-      <div class="mx-auto w-full max-w-7xl px-5 py-14 sm:px-10 lg:py-20">
-        <div class="max-w-3xl">
-          <Badge variant="secondary">Marcas</Badge>
-          <h2 class="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
-            Encontre produtos pela marca
+    <section class="relative isolate overflow-hidden border-b bg-primary text-primary-foreground">
+      <div class="pointer-events-none absolute -top-52 left-1/2 -z-10 size-[38rem] -translate-x-1/2 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="mx-auto grid w-full max-w-7xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(480px,1.15fr)] lg:items-center lg:py-20">
+        <div>
+          <Badge className="bg-white/15 text-white ring-1 ring-white/25">Nossa especialidade</Badge>
+          <h2 class="mt-4 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+            Meias de compressão com escolha orientada
           </h2>
-          <p class="mt-2 leading-relaxed text-muted-foreground">
-            As marcas de meias abrem o catálogo com a marca selecionada. As demais levam ao catálogo
-            geral, onde você pode pesquisar o produto desejado.
+          <p class="mt-4 max-w-xl leading-relaxed text-primary-foreground/80">
+            A Casa do Médico foi pioneira na comercialização de meias elásticas de compressão em Belo Horizonte.
+            Hoje, o catálogo reúne {compressionLineCount} linhas entre Venosan, Sigvaris e Genoven.
+          </p>
+
+          <div class="mt-7 grid grid-cols-2 gap-3 sm:max-w-lg sm:grid-cols-3">
+            {compressionStockingBrands.map((brand) => (
+              <div class="flex min-h-16 items-center justify-center rounded-xl bg-white p-3 shadow-sm">
+                <img src={brand.logo} alt={brand.name} loading="lazy" class="max-h-8 max-w-full object-contain" />
+              </div>
+            ))}
+          </div>
+
+          <a
+            href="/meias-compressivas"
+            class={cn(buttonVariants({ variant: "secondary", size: "lg" }), "mt-7 h-11 px-4")}
+          >
+            Conhecer todas as linhas
+            <ArrowRight className="size-4" />
+          </a>
+        </div>
+
+        <Card className="gap-0 border-white/20 bg-background py-0 text-foreground shadow-2xl">
+          <CardHeader className="border-b p-5 sm:p-6">
+            <Badge variant="secondary">Busca rápida</Badge>
+            <CardTitle className="mt-2 text-xl sm:text-2xl">Já sabe a marca ou a linha?</CardTitle>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Selecione as duas opções para abrir o catálogo já filtrado.
+            </p>
+          </CardHeader>
+          <CardContent className="p-5 sm:p-6">
+            <CompressionFinder brands={compressionFinderBrands} client:idle />
+            <Separator className="my-5" />
+            <p class="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+              <HeartHandshake className="mt-0.5 size-4 shrink-0 text-primary" />
+              Em dúvida sobre compressão, modelo ou tamanho? Leve sua orientação profissional e fale conosco.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+
+    <section class="border-b bg-background">
+      <div class="mx-auto grid w-full max-w-7xl gap-8 px-5 py-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-20">
+        <Card className="gap-0 overflow-hidden py-0">
+          <div class="relative aspect-[7/5] overflow-hidden bg-muted">
+            <img
+              src="/images/home/ortopedia-recuperacao.webp"
+              alt="Pessoa ajustando um imobilizador de joelho"
+              width="727"
+              height="618"
+              loading="lazy"
+              class="h-full w-full object-cover"
+            />
+          </div>
+        </Card>
+
+        <div class="max-w-xl lg:pl-6">
+          <Badge variant="secondary">Atendimento consultivo</Badge>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+            O produto certo depende da sua necessidade
+          </h2>
+          <p class="mt-4 leading-relaxed text-muted-foreground">
+            Medida, ajuste, finalidade e disponibilidade fazem diferença. Por isso, nossa vitrine ajuda você a
+            conhecer as opções, e a equipe continua a conversa com atenção aos detalhes.
+          </p>
+
+          <div class="mt-7 grid gap-4 sm:grid-cols-2">
+            <Card size="sm" className="bg-secondary/60">
+              <CardContent className="flex gap-3">
+                <span class="grid size-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <HeartHandshake className="size-4" />
+                </span>
+                <div>
+                  <h3 class="font-semibold">Escuta antes da indicação</h3>
+                  <p class="mt-1 text-xs leading-relaxed text-muted-foreground">Entendemos o uso e as características que você procura.</p>
+                </div>
+              </CardContent>
+            </Card>
+            <Card size="sm" className="bg-secondary/60">
+              <CardContent className="flex gap-3">
+                <span class="grid size-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <PackageCheck className="size-4" />
+                </span>
+                <div>
+                  <h3 class="font-semibold">Opções conforme o estoque</h3>
+                  <p class="mt-1 text-xs leading-relaxed text-muted-foreground">Confirmamos marcas, modelos, tamanhos e cores disponíveis.</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={cn(buttonVariants({ size: "lg" }), "mt-7 h-11 px-4")}
+          >
+            Pedir orientação no WhatsApp
+            <ArrowRight className="size-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="nossa-historia" class="scroll-mt-32 border-b bg-secondary/50">
+      <div class="mx-auto grid w-full max-w-7xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[minmax(360px,0.82fr)_minmax(0,1.18fr)] lg:items-center lg:py-20">
+        <div class="relative mx-auto w-full max-w-lg pb-12 sm:pr-16">
+          <Card className="gap-0 overflow-hidden py-0 shadow-xl">
+            <img
+              src="/images/home/fundador-paulo-melasippo.webp"
+              alt="Paulo Melasippo, fundador da Casa do Médico BH"
+              width="800"
+              height="800"
+              loading="lazy"
+              class="aspect-square w-full object-cover"
+            />
+          </Card>
+          <Card className="absolute right-0 bottom-0 w-36 gap-0 overflow-hidden border-4 border-background py-0 shadow-xl sm:w-44">
+            <img
+              src="/images/home/reconhecimento-1958.webp"
+              alt="Diploma de gratidão concedido à Casa do Médico em 1958"
+              width="700"
+              height="933"
+              loading="lazy"
+              class="aspect-[3/4] w-full object-cover"
+            />
+          </Card>
+        </div>
+
+        <div class="max-w-2xl lg:pl-6">
+          <Badge>Uma história de Belo Horizonte</Badge>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+            Tradição familiar que acompanha a evolução do cuidado
+          </h2>
+          <p class="mt-4 leading-relaxed text-muted-foreground">
+            Fundada por Paulo Melasippo em 28 de dezembro de 1954, a Casa do Médico nasceu ao perceber que a
+            continuidade do tratamento em casa pedia mais acesso a materiais e equipamentos de uso pessoal.
+          </p>
+          <p class="mt-3 leading-relaxed text-muted-foreground">
+            A loja cresceu como referência em autocuidado e meias de compressão. Em 1997, a gestão passou para a
+            geração seguinte da família, preservando valores que continuam no balcão: experiência, honestidade,
+            respeito e confiança.
+          </p>
+
+          <ol class="mt-7 space-y-5 border-l border-primary/30 pl-5">
+            <li class="relative">
+              <span class="absolute top-1.5 -left-[1.57rem] size-3 rounded-full border-2 border-background bg-primary"></span>
+              <strong class="text-primary">1954</strong>
+              <p class="mt-0.5 text-sm text-muted-foreground">Paulo Melasippo funda a Casa do Médico em Belo Horizonte.</p>
+            </li>
+            <li class="relative">
+              <span class="absolute top-1.5 -left-[1.57rem] size-3 rounded-full border-2 border-background bg-accent"></span>
+              <strong class="text-primary">1958</strong>
+              <p class="mt-0.5 text-sm text-muted-foreground">A Casa recebe um diploma de gratidão da Faculdade de Medicina da Bahia.</p>
+            </li>
+            <li class="relative">
+              <span class="absolute top-1.5 -left-[1.57rem] size-3 rounded-full border-2 border-background bg-primary"></span>
+              <strong class="text-primary">Hoje</strong>
+              <p class="mt-0.5 text-sm text-muted-foreground">A mesma família, agora com catálogo digital e atendimento pelo WhatsApp.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b bg-background">
+      <div class="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 lg:py-18">
+        <div class="max-w-2xl">
+          <Badge variant="secondary">Marcas parceiras</Badge>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Qualidade reconhecida em cada categoria</h2>
+          <p class="mt-3 leading-relaxed text-muted-foreground">
+            Trabalhamos com marcas consolidadas em produtos de saúde, ortopedia, cuidado e compressão.
           </p>
         </div>
 
-        <div class="mt-8">
+        <div class="mt-9">
           <BrandCarousel client:visible />
         </div>
       </div>
     </section>
 
+    <section id="contato" class="scroll-mt-32 bg-foreground text-background">
+      <div class="mx-auto grid w-full max-w-7xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1.1fr)] lg:items-center lg:py-20">
+        <div class="max-w-xl">
+          <Badge className="bg-background/10 text-background ring-1 ring-background/20">Estamos no Centro de BH</Badge>
+          <h2 class="mt-4 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+            Visite a loja ou chame a gente
+          </h2>
+          <p class="mt-4 leading-relaxed text-background/70">
+            Conte o que você procura. A equipe confirma as opções disponíveis e ajuda a preparar seu atendimento.
+          </p>
+
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={cn(buttonVariants({ size: "lg" }), "h-11 px-4")}
+            >
+              <img src="/icons/whatsapp.svg" alt="" class="size-5" />
+              Falar no WhatsApp
+            </a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Av.%20Afonso%20Pena%2C%20981%2C%20Belo%20Horizonte"
+              target="_blank"
+              rel="noopener noreferrer"
+              class={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "h-11 border-background/25 bg-transparent px-4 text-background hover:bg-background/10 hover:text-background"
+              )}
+            >
+              Como chegar
+              <ArrowRight className="size-4" />
+            </a>
+          </div>
+        </div>
+
+        <Card className="gap-0 bg-background py-0 text-foreground shadow-2xl">
+          <CardContent className="grid gap-5 p-5 sm:grid-cols-2 sm:p-7">
+            <div class="flex items-start gap-3">
+              <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                <MapPin className="size-5" />
+              </span>
+              <div>
+                <h3 class="font-semibold">Endereço</h3>
+                <p class="mt-1 text-sm leading-relaxed text-muted-foreground">Av. Afonso Pena, 981<br />Centro · Belo Horizonte/MG<br />CEP 30130-907</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                <Phone className="size-5" />
+              </span>
+              <div>
+                <h3 class="font-semibold">Telefone e WhatsApp</h3>
+                <a href="tel:+553132244407" class="mt-1 block text-sm text-muted-foreground hover:text-primary">(31) 3224-4407</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 sm:col-span-2">
+              <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                <Mail className="size-5" />
+              </span>
+              <div class="min-w-0">
+                <h3 class="font-semibold">E-mail</h3>
+                <a href="mailto:bramelbrasilmedica@gmail.com" class="mt-1 block break-all text-sm text-muted-foreground hover:text-primary">bramelbrasilmedica@gmail.com</a>
+              </div>
+            </div>
+          </CardContent>
+          <CardFooter className="flex flex-wrap justify-between gap-3 p-4 sm:px-7">
+            <span class="text-xs text-muted-foreground">Acompanhe a Casa do Médico BH</span>
+            <div class="flex gap-2">
+              <a
+                href="https://www.instagram.com/casadomedico_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram da Casa do Médico BH"
+                class={buttonVariants({ variant: "outline", size: "icon-sm" })}
+              >
+                <Camera className="size-4" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=100090896740956"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook da Casa do Médico BH"
+                class={buttonVariants({ variant: "outline", size: "icon-sm" })}
+              >
+                <Share2 className="size-4" />
+              </a>
+            </div>
+          </CardFooter>
+        </Card>
+      </div>
+    </section>
   </main>
 
-  <footer class="border-t bg-secondary">
-    <div class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-      <p class="text-sm text-muted-foreground">
-        Casa do Médico BH — produtos médicos e atendimento consultivo desde 1954.
-      </p>
-      <img src="/logo/casa-do-medico-pb.png" alt="" class="h-10 w-auto opacity-60" />
+  <footer class="border-t bg-background">
+    <div class="mx-auto grid w-full max-w-7xl gap-8 px-5 py-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
+      <div>
+        <img
+          src="/images/home/logo-casa-do-medico-wordmark.webp"
+          alt="Casa do Médico BH"
+          width="520"
+          height="240"
+          loading="lazy"
+          class="h-12 w-auto"
+        />
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+          Produtos médicos, ortopédicos e meias de compressão com atendimento próximo desde 1954.
+        </p>
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold">Catálogos</h2>
+        <nav class="mt-3 grid gap-2 text-sm text-muted-foreground" aria-label="Links de catálogo no rodapé">
+          <a href="/produtos" class="hover:text-primary">Produtos médicos e ortopédicos</a>
+          <a href="/meias-compressivas" class="hover:text-primary">Meias de compressão</a>
+          <a href="#categorias" class="hover:text-primary">Categorias</a>
+        </nav>
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold">Casa do Médico BH</h2>
+        <nav class="mt-3 grid gap-2 text-sm text-muted-foreground" aria-label="Links institucionais no rodapé">
+          <a href="#nossa-historia" class="hover:text-primary">Nossa história</a>
+          <a href="#contato" class="hover:text-primary">Contato e localização</a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="hover:text-primary">WhatsApp</a>
+        </nav>
+      </div>
+    </div>
+    <Separator />
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <p>© {new Date().getFullYear()} Casa do Médico BH. Todos os direitos reservados.</p>
+      <p>Av. Afonso Pena, 981 · Belo Horizonte/MG</p>
     </div>
   </footer>
+
+  <a
+    href={WHATSAPP_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com a Casa do Médico BH pelo WhatsApp"
+    class={cn(
+      buttonVariants({ size: "icon-lg" }),
+      "fixed right-4 bottom-4 z-40 size-14 rounded-full shadow-xl ring-4 ring-background/80 sm:right-6 sm:bottom-6"
+    )}
+  >
+    <img src="/icons/whatsapp.svg" alt="" class="size-7" />
+  </a>
 </Layout>

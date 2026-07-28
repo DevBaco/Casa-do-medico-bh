@@ -1,10 +1,8 @@
 ---
 import CompressionCatalog from "@/components/CompressionCatalog.astro";
-import { buttonVariants } from "@/components/ui/button";
+import SiteHeader from "@/components/SiteHeader.astro";
 import { compressionStockingBrands, getCompressionLineKey } from "@/data/compression-stockings";
 import Layout from "@/layouts/Layout.astro";
-import { cn } from "@/lib/utils";
-import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 interface Props {
   brandId?: string;
@@ -37,33 +35,7 @@ const description = selectedLine
 ---
 
 <Layout title={title} description={description}>
-  <header class="sticky top-0 z-20 border-b bg-background/95 backdrop-blur-md">
-    <div class="mx-auto flex min-h-[72px] w-full max-w-7xl items-center justify-between gap-6 px-5 sm:px-6">
-      <a href="/" class="flex items-center gap-3" aria-label="Casa do Médico BH">
-        <img src="/logo/casa-do-medico.png" alt="Casa do Médico BH" class="h-12 w-auto" />
-      </a>
-      <div class="flex items-center gap-2">
-        <a href="/" class={cn(buttonVariants({ variant: "outline" }), "hidden sm:inline-flex")}>
-          Início
-        </a>
-        <a
-          href="/produtos"
-          class={cn(buttonVariants({ variant: "outline" }), "hidden md:inline-flex")}
-        >
-          Produtos médicos
-        </a>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={buttonVariants()}
-        >
-          <img src="/icons/whatsapp.svg" alt="" class="size-4" />
-          Fale conosco
-        </a>
-      </div>
-    </div>
-  </header>
+  <SiteHeader />
 
   <main>
     <h1 class="sr-only">{heading}</h1>

@@ -1,0 +1,20 @@
+---
+import ProductCatalogPage from "@/components/ProductCatalogPage.astro";
+import { catalogCategories } from "@/data/catalog-products";
+import type { CatalogCategoryId } from "@/data/catalog-products";
+
+export function getStaticPaths() {
+  return catalogCategories.map((category) => ({
+    params: { category: category.id },
+    props: { initialCategory: category.id },
+  }));
+}
+
+interface Props {
+  initialCategory: CatalogCategoryId;
+}
+
+const { initialCategory } = Astro.props;
+---
+
+<ProductCatalogPage initialCategory={initialCategory} />

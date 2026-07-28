@@ -1,0 +1,586 @@
+---
+import { ChevronDown, Search, SlidersHorizontal, X } from "lucide-react";
+import CatalogProductCard from "@/components/CatalogProductCard.astro";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { storeBrands } from "@/data/brands";
+import {
+  catalogPopularFilters,
+  getCatalogPopularFilterIds,
+} from "@/data/catalog-filters";
+import {
+  catalogCategories,
+  catalogProducts,
+  getCatalogExclusiveImageBrandIds,
+} from "@/data/catalog-products";
+import type { CatalogCategoryId } from "@/data/catalog-products";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  initialCategory?: CatalogCategoryId;
+}
+
+const { initialCategory = "" } = Astro.props;
+const initialCategoryDetails = catalogCategories.find(
+  (category) => category.id === initialCategory
+);
+const validInitialCategory = initialCategoryDetails?.id ?? "";
+const initialProductCount = validInitialCategory
+  ? catalogProducts.filter((product) => product.categoryId === validInitialCategory).length
+  : catalogProducts.length;
+
+const productBrands = storeBrands.filter(
+  (brand) =>
+    brand.catalog === "products" &&
+    catalogProducts.some((product) => product.brandIds.includes(brand.id))
+);
+
+const brandNameById = new Map(productBrands.map((brand) => [brand.id, brand.name]));
+const categoryNameById = new Map(
+  catalogCategories.map((category) => [category.id, category.name])
+);
+
+const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
+  [
+    product.name,
+    categoryNameById.get(product.categoryId) ?? "",
+    product.brandIds.map((brandId) => brandNameById.get(brandId) ?? "").join(" "),
+    product.summary,
+    product.description,
+    product.badges.join(" "),
+    product.keywords.join(" "),
+  ].join(" ");
+---
+
+<div
+  class="space-y-8"
+  data-product-catalog
+  data-initial-category={validInitialCategory}
+>
+  <Card className="gap-0 overflow-hidden py-0 shadow-sm">
+    <CardContent className="p-0">
+      <div class="flex flex-col gap-5 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div class="flex min-w-0 items-center gap-4">
+          <div
+            data-default-catalog-mark
+            class="grid size-14 shrink-0 place-items-center rounded-lg border bg-white p-1.5"
+          >
+            <img
+              src="/logo/casa-do-medico.png"
+              alt="Casa do Médico"
+              class="size-full object-contain"
+            />
+          </div>
+
+          {productBrands.map((brand) => (
+            <div
+              data-active-brand-logo={brand.id}
+              hidden
+              class="grid min-h-14 min-w-40 shrink-0 place-items-center rounded-lg border bg-white px-4 py-2"
+            >
+              <img
+                src={brand.logo}
+                alt={brand.name}
+                class:list={[
+                  "h-8 max-w-40 object-contain",
+                  brand.darkInkOnLight && "brightness-0",
+                ]}
+              />
+            </div>
+          ))}
+
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-center gap-2">
+              <Badge data-active-type-badge className="hidden">
+                <span data-active-type-label></span>
+              </Badge>
+              <Badge
+                data-active-category-badge
+                className={initialCategoryDetails ? "" : "hidden"}
+              >
+                <span data-active-category-label>{initialCategoryDetails?.shortName}</span>
+              </Badge>
+              <Badge data-active-brand-badge variant="secondary" className="hidden">
+                <span data-active-brand-label></span>
+              </Badge>
+            </div>
+            <h2 data-catalog-heading class="mt-2 text-xl font-semibold sm:text-2xl">
+              {initialCategoryDetails?.name ?? "Todos os produtos"}
+            </h2>
+            <p data-catalog-count class="mt-1 text-sm text-muted-foreground">
+              {initialProductCount} {initialProductCount === 1 ? "produto" : "produtos"} no catálogo
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <details class="group border-t">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-3.5 transition-colors hover:bg-secondary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-6 [&::-webkit-details-marker]:hidden">
+          <span class="flex min-w-0 items-center gap-3">
+            <span class="grid size-8 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+              <SlidersHorizontal className="size-4" />
+            </span>
+            <span class="min-w-0">
+              <span class="block text-sm font-semibold">Filtrar o catálogo</span>
+              <span data-filter-summary class="block truncate text-xs text-muted-foreground">
+                {initialCategoryDetails?.shortName ?? "Todas as categorias"} · todas as marcas
+              </span>
+            </span>
+          </span>
+          <ChevronDown className="size-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
+        </summary>
+
+        <div class="space-y-5 border-t bg-secondary/40 px-5 py-5 sm:px-6">
+          <div>
+            <label for="catalog-product-search" class="mb-2 block text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+              Buscar produto
+            </label>
+            <div class="relative max-w-2xl">
+              <Search className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                id="catalog-product-search"
+                type="search"
+                placeholder="Nome do produto, marca ou finalidade..."
+                autocomplete="off"
+                className="h-10 bg-background pr-4 pl-10"
+              />
+            </div>
+          </div>
+
+          <fieldset>
+            <legend class="mb-2.5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+              Categoria
+            </legend>
+            <div class="flex flex-wrap gap-2">
+              <button
+                type="button"
+                data-filter-category=""
+                aria-pressed={String(!validInitialCategory)}
+                class={cn(
+                  buttonVariants({ variant: "outline", size: "sm" }),
+                  "rounded-full aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground"
+                )}
+              >
+                Todas
+              </button>
+              {catalogCategories.map((category) => (
+                <button
+                  type="button"
+                  data-filter-category={category.id}
+                  data-category-name={category.name}
+                  aria-pressed={String(category.id === validInitialCategory)}
+                  class={cn(
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                    "rounded-full aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground"
+                  )}
+                >
+                  {category.shortName}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="mb-2.5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+              Tipos mais buscados
+            </legend>
+            <div class="flex flex-wrap gap-2">
+              <button
+                type="button"
+                data-filter-type=""
+                aria-pressed="false"
+                class={cn(
+                  buttonVariants({ variant: "outline", size: "sm" }),
+                  "rounded-full aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground"
+                )}
+              >
+                Todos
+              </button>
+              {catalogPopularFilters.map((filter) => (
+                <button
+                  type="button"
+                  data-filter-type={filter.id}
+                  aria-pressed="false"
+                  class={cn(
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                    "rounded-full aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground"
+                  )}
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="mb-2.5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+              Marca
+            </legend>
+            <div class="flex flex-wrap gap-2">
+              <button
+                type="button"
+                data-filter-brand=""
+                aria-pressed="false"
+                class={cn(
+                  buttonVariants({ variant: "outline", size: "sm" }),
+                  "rounded-full aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground"
+                )}
+              >
+                Todas
+              </button>
+              {productBrands.map((brand) => (
+                <button
+                  type="button"
+                  data-filter-brand={brand.id}
+                  aria-pressed="false"
+                  class={cn(
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                    "rounded-full aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground"
+                  )}
+                >
+                  {brand.name}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+
+          <button
+            type="button"
+            data-clear-filters
+            hidden={!validInitialCategory}
+            class={cn(buttonVariants({ variant: "ghost", size: "sm" }), "px-0 text-muted-foreground")}
+          >
+            <X className="size-3.5" />
+            Limpar filtros
+          </button>
+
+          <p data-catalog-search-status class="sr-only" aria-live="polite"></p>
+        </div>
+      </details>
+    </CardContent>
+  </Card>
+
+  <div data-catalog-grid class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {catalogProducts.map((product) => (
+      <div
+        data-product-card
+        data-category={product.categoryId}
+        data-types={getCatalogPopularFilterIds(product.id).join(" ")}
+        data-brands={product.brandIds.join(" ")}
+        data-exclusive-image-brands={getCatalogExclusiveImageBrandIds(product).join(" ")}
+        data-search={getProductSearchText(product)}
+        hidden={Boolean(validInitialCategory && product.categoryId !== validInitialCategory)}
+      >
+        <CatalogProductCard product={product} />
+      </div>
+    ))}
+  </div>
+
+  <Card data-catalog-empty className="hidden border-dashed">
+    <CardContent className="py-12 text-center">
+      <Search className="mx-auto size-8 text-muted-foreground" />
+      <h2 class="mt-4 text-xl font-semibold">Nenhum produto encontrado</h2>
+      <p class="mt-2 text-sm text-muted-foreground">
+        Remova algum filtro ou tente pesquisar por outro termo.
+      </p>
+    </CardContent>
+  </Card>
+</div>
+
+<script is:inline>
+  // Runs inline and synchronously (not as a bundled module fetched over the
+  // network) so the initial category/type/brand/search filter from the URL
+  // is applied to the DOM before the browser's first paint. A bundled
+  // `type="module"` script is fetched async and only ever runs after the
+  // unfiltered grid has already painted, producing a visible flash of every
+  // product before narrowing down to the filtered set.
+  var catalogRoot = document.querySelector("[data-product-catalog]");
+
+  if (catalogRoot) {
+    var searchInput = catalogRoot.querySelector("#catalog-product-search");
+    var productCards = Array.from(
+      catalogRoot.querySelectorAll("[data-product-card]")
+    );
+    var categoryButtons = Array.from(
+      catalogRoot.querySelectorAll("[data-filter-category]")
+    );
+    var brandButtons = Array.from(
+      catalogRoot.querySelectorAll("[data-filter-brand]")
+    );
+    var typeButtons = Array.from(
+      catalogRoot.querySelectorAll("[data-filter-type]")
+    );
+    var clearButton = catalogRoot.querySelector("[data-clear-filters]");
+    var heading = catalogRoot.querySelector("[data-catalog-heading]");
+    var count = catalogRoot.querySelector("[data-catalog-count]");
+    var filterSummary = catalogRoot.querySelector("[data-filter-summary]");
+    var emptyState = catalogRoot.querySelector("[data-catalog-empty]");
+    var searchStatus = catalogRoot.querySelector("[data-catalog-search-status]");
+    var categoryBadge = catalogRoot.querySelector("[data-active-category-badge]");
+    var categoryLabel = catalogRoot.querySelector("[data-active-category-label]");
+    var typeBadge = catalogRoot.querySelector("[data-active-type-badge]");
+    var typeLabel = catalogRoot.querySelector("[data-active-type-label]");
+    var brandBadge = catalogRoot.querySelector("[data-active-brand-badge]");
+    var brandLabel = catalogRoot.querySelector("[data-active-brand-label]");
+    var defaultMark = catalogRoot.querySelector("[data-default-catalog-mark]");
+    var brandLogos = Array.from(
+      catalogRoot.querySelectorAll("[data-active-brand-logo]")
+    );
+    var initialCategory = catalogRoot.dataset.initialCategory || "";
+
+    // The server renders two different labels per category: the chip's own
+    // short name (used for the active badge and the "Filtrar o catálogo"
+    // summary line) and a longer descriptive name (used for the <h2>). Keep
+    // both here so the script's initial re-render matches exactly what was
+    // server-rendered for each spot — using only one of them would recompute
+    // the other elements with a different string right as this script
+    // applies state, producing a visible text swap.
+    var categories = new Map(
+      categoryButtons
+        .filter(function (button) { return button.dataset.filterCategory; })
+        .map(function (button) {
+          var short = (button.textContent || "").trim();
+          var long = button.dataset.categoryName || short;
+          return [button.dataset.filterCategory || "", { short: short, long: long }];
+        })
+    );
+    var brands = new Map(
+      brandButtons
+        .filter(function (button) { return button.dataset.filterBrand; })
+        .map(function (button) { return [button.dataset.filterBrand || "", (button.textContent || "").trim()]; })
+    );
+    var types = new Map(
+      typeButtons
+        .filter(function (button) { return button.dataset.filterType; })
+        .map(function (button) { return [button.dataset.filterType || "", (button.textContent || "").trim()]; })
+    );
+
+    var normalizeSearch = function (value) {
+      return value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("pt-BR")
+        .trim();
+    };
+
+    var searchableProducts = productCards.map(function (element) {
+      return { element: element, search: normalizeSearch(element.dataset.search || "") };
+    });
+
+    var state = { category: "", type: "", brand: "", query: "" };
+
+    var readUrlState = function () {
+      var params = new URLSearchParams(window.location.search);
+      var hasCategoryParam = params.has("categoria");
+      var category = params.get("categoria") || "";
+      var type = params.get("tipo") || "";
+      var brand = params.get("marca") || "";
+
+      // When there's no explicit ?categoria= in the URL (e.g. the static
+      // /produtos/categoria/[category] pages, which encode the category in
+      // the path instead), fall back to the server-rendered initialCategory
+      // rather than treating the absence of the param as "all categories".
+      // categories.has("") is always true (the "Todas" button is keyed by
+      // ""), so it can't be used to detect whether the param was present.
+      if (hasCategoryParam) {
+        state.category = categories.has(category) ? category : "";
+      } else {
+        state.category = categories.has(initialCategory) ? initialCategory : "";
+      }
+      state.type = types.has(type) ? type : "";
+      state.brand = brands.has(brand) ? brand : "";
+      state.query = params.get("busca") || "";
+
+      if (searchInput) searchInput.value = state.query;
+    };
+
+    var writeUrlState = function () {
+      var url = new URL(window.location.href);
+
+      if (url.pathname.indexOf("/produtos/categoria/") === 0) {
+        url.pathname = "/produtos";
+      }
+
+      if (state.category) url.searchParams.set("categoria", state.category);
+      else url.searchParams.delete("categoria");
+      if (state.type) url.searchParams.set("tipo", state.type);
+      else url.searchParams.delete("tipo");
+      if (state.brand) url.searchParams.set("marca", state.brand);
+      else url.searchParams.delete("marca");
+      if (state.query) url.searchParams.set("busca", state.query);
+      else url.searchParams.delete("busca");
+
+      window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+    };
+
+    var applyState = function (updateUrl) {
+      if (updateUrl === undefined) updateUrl = true;
+
+      var normalizedQuery = normalizeSearch(state.query);
+      var categoryNames = categories.get(state.category) || { short: "", long: "" };
+      var categoryShortName = categoryNames.short;
+      var categoryLongName = categoryNames.long;
+      var typeName = types.get(state.type) || "";
+      var brandName = brands.get(state.brand) || "";
+      var visibleProducts = 0;
+
+      searchableProducts.forEach(function (entry) {
+        var element = entry.element;
+        var search = entry.search;
+
+        var matchesCategory =
+          !state.category || element.dataset.category === state.category;
+        var matchesType =
+          !state.type || (element.dataset.types || "").split(" ").includes(state.type);
+        var matchesBrand =
+          !state.brand || (element.dataset.brands || "").split(" ").includes(state.brand);
+        var matchesSearch = !normalizedQuery || search.includes(normalizedQuery);
+        var visible = matchesCategory && matchesType && matchesBrand && matchesSearch;
+
+        element.hidden = !visible;
+        if (visible) visibleProducts += 1;
+
+        var exclusiveImageBrands = (element.dataset.exclusiveImageBrands || "")
+          .split(" ")
+          .filter(Boolean);
+        var matchingPlaceholder = state.brand
+          ? element.querySelector('[data-brand-product-placeholder="' + CSS.escape(state.brand) + '"]')
+          : null;
+        var useBrandPlaceholder = Boolean(
+          state.brand &&
+          exclusiveImageBrands.length > 0 &&
+          exclusiveImageBrands.indexOf(state.brand) === -1 &&
+          matchingPlaceholder
+        );
+
+        var productImages = element.querySelector("[data-product-images]");
+        if (productImages) productImages.toggleAttribute("hidden", useBrandPlaceholder);
+
+        element
+          .querySelectorAll("[data-brand-product-placeholder]")
+          .forEach(function (placeholder) {
+            placeholder.hidden = !(
+              useBrandPlaceholder &&
+              placeholder.dataset.brandProductPlaceholder === state.brand
+            );
+          });
+      });
+
+      categoryButtons.forEach(function (button) {
+        button.setAttribute(
+          "aria-pressed",
+          String((button.dataset.filterCategory || "") === state.category)
+        );
+      });
+      brandButtons.forEach(function (button) {
+        button.setAttribute(
+          "aria-pressed",
+          String((button.dataset.filterBrand || "") === state.brand)
+        );
+      });
+      typeButtons.forEach(function (button) {
+        button.setAttribute(
+          "aria-pressed",
+          String((button.dataset.filterType || "") === state.type)
+        );
+      });
+
+      brandLogos.forEach(function (logo) {
+        logo.hidden = logo.dataset.activeBrandLogo !== state.brand;
+      });
+      if (defaultMark) defaultMark.hidden = Boolean(state.brand);
+
+      if (categoryLabel) categoryLabel.textContent = categoryShortName;
+      if (categoryBadge) categoryBadge.classList.toggle("hidden", !categoryShortName);
+      if (typeLabel) typeLabel.textContent = typeName;
+      if (typeBadge) typeBadge.classList.toggle("hidden", !typeName);
+      if (brandLabel) brandLabel.textContent = brandName;
+      if (brandBadge) brandBadge.classList.toggle("hidden", !brandName);
+
+      if (heading) {
+        var productGroupName = typeName || categoryLongName;
+        heading.textContent = brandName && productGroupName
+          ? productGroupName + " · " + brandName
+          : brandName
+            ? "Produtos " + brandName
+            : productGroupName || "Todos os produtos";
+      }
+
+      if (count) {
+        count.textContent = visibleProducts + " " + (visibleProducts === 1 ? "produto" : "produtos") + " no catálogo";
+      }
+
+      if (filterSummary) {
+        var selections = [
+          typeName || categoryShortName || "Todas as categorias",
+          brandName || "todas as marcas",
+        ];
+        filterSummary.textContent = selections.join(" · ");
+      }
+
+      var hasActiveFilter = Boolean(state.category || state.type || state.brand || state.query);
+      if (clearButton) clearButton.hidden = !hasActiveFilter;
+      if (emptyState) emptyState.classList.toggle("hidden", visibleProducts !== 0);
+
+      if (searchStatus) {
+        searchStatus.textContent = visibleProducts === 0
+          ? "Nenhum produto encontrado"
+          : visibleProducts + " " + (visibleProducts === 1 ? "produto encontrado" : "produtos encontrados");
+      }
+
+      if (updateUrl) writeUrlState();
+    };
+
+    categoryButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        state.category = button.dataset.filterCategory || "";
+        applyState();
+      });
+    });
+
+    brandButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        state.brand = button.dataset.filterBrand || "";
+        applyState();
+      });
+    });
+
+    typeButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        state.type = button.dataset.filterType || "";
+        applyState();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener("input", function () {
+        state.query = searchInput.value;
+        applyState();
+      });
+    }
+
+    if (clearButton) {
+      clearButton.addEventListener("click", function () {
+        state.category = "";
+        state.type = "";
+        state.brand = "";
+        state.query = "";
+        if (searchInput) searchInput.value = "";
+        applyState();
+      });
+    }
+
+    window.addEventListener("popstate", function () {
+      readUrlState();
+      applyState(false);
+    });
+
+    // Apply the URL-derived filter synchronously, in the same task that
+    // parsed the grid above, so the browser never gets a chance to paint
+    // the unfiltered list first.
+    readUrlState();
+    applyState(false);
+  }
+</script>

@@ -5,6 +5,7 @@ import Layout from "@/layouts/Layout.astro";
 import CompressionProductCard from "@/components/CompressionProductCard.astro";
 import CompressionProductGallery from "@/components/CompressionProductGallery";
 import CompressionProductTabs from "@/components/CompressionProductTabs";
+import SiteHeader from "@/components/SiteHeader.astro";
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -60,30 +61,7 @@ const similarProducts = compressionStockingLines
   title={`${line.displayName} em BH · Casa do Médico BH`}
   description={`${line.summary} Consulte cores, medidas, modelos e disponibilidade da ${line.displayName} pelo WhatsApp.`}
 >
-  <header class="sticky top-0 z-30 border-b bg-background/95 backdrop-blur-md">
-    <div class="mx-auto flex min-h-[72px] w-full max-w-7xl items-center justify-between gap-6 px-5 sm:px-6">
-      <a href="/" class="flex items-center gap-3" aria-label="Casa do Médico BH">
-        <img src="/logo/casa-do-medico.png" alt="Casa do Médico BH" class="h-12 w-auto" />
-      </a>
-      <div class="flex items-center gap-2">
-        <a
-          href="/produtos"
-          class={cn(buttonVariants({ variant: "outline" }), "hidden sm:inline-flex")}
-        >
-          Produtos médicos
-        </a>
-        <a
-          href={productWhatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={buttonVariants()}
-        >
-          <img src="/icons/whatsapp.svg" alt="" class="size-4" />
-          Fale conosco
-        </a>
-      </div>
-    </div>
-  </header>
+  <SiteHeader whatsappUrl={productWhatsappUrl} />
 
   <main>
     <section class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-6 lg:py-10">

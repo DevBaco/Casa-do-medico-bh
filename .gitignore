@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+# playwright-cli session artifacts (screenshots, console/network logs)
+.playwright-cli/
+
 # dependencies
 node_modules/
 

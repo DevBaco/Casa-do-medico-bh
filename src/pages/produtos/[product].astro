@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import { ArrowLeft, Check, Info, PackageCheck } from "lucide-react";
 import CatalogProductCard from "@/components/CatalogProductCard.astro";
 import CatalogProductGallery from "@/components/CatalogProductGallery";
+import SiteHeader from "@/components/SiteHeader.astro";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -48,30 +49,7 @@ const detailObjectClass = product.imageFrame?.detailFit === "cover"
   title={`${product.name} em BH · Casa do Médico BH`}
   description={`${product.summary} Consulte marcas, modelos e disponibilidade de ${product.name} pelo WhatsApp.`}
 >
-  <header class="sticky top-0 z-30 border-b bg-background/95 backdrop-blur-md">
-    <div class="mx-auto flex min-h-[72px] w-full max-w-7xl items-center justify-between gap-5 px-5 sm:px-6">
-      <a href="/" aria-label="Casa do Médico BH">
-        <img src="/logo/casa-do-medico.png" alt="Casa do Médico BH" class="h-12 w-auto" />
-      </a>
-      <div class="flex items-center gap-2">
-        <a
-          href="/meias-compressivas"
-          class={cn(buttonVariants({ variant: "outline" }), "hidden sm:inline-flex")}
-        >
-          Catálogo de meias
-        </a>
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={buttonVariants()}
-        >
-          <img src="/icons/whatsapp.svg" alt="" class="size-4" />
-          Consultar produto
-        </a>
-      </div>
-    </div>
-  </header>
+  <SiteHeader whatsappUrl={whatsappUrl} whatsappLabel="Consultar produto" />
 
   <main>
     <section class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-6 lg:py-10">

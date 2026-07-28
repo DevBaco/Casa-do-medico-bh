@@ -197,7 +197,7 @@ export const catalogProducts: CatalogProduct[] = [
   {
     id: "termometro-digital",
     categoryId: "monitoramento",
-    brandIds: ["gtech", "accumed-glicomed"],
+    brandIds: ["gtech", "premium", "accumed-glicomed"],
     name: "Termômetro Digital",
     imageFrame: { detailAspectRatio: "landscape" },
     summary:
@@ -630,7 +630,7 @@ export const catalogProducts: CatalogProduct[] = [
   {
     id: "calcanheira-de-silicone",
     categoryId: "ortopedia-mobilidade",
-    brandIds: ["hidrolight", "kestal"],
+    brandIds: ["hidrolight"],
     name: "Calcanheiras de Silicone",
     imageFrame: { detailAspectRatio: "landscape" },
     summary:
@@ -1041,7 +1041,7 @@ export const catalogProducts: CatalogProduct[] = [
   {
     id: "faixa-elastica-para-exercicios",
     categoryId: "fisioterapia-recuperacao",
-    brandIds: ["hidrolight", "kestal"],
+    brandIds: ["hidrolight"],
     name: "Faixas Elásticas",
     imageFrame: {
       catalogScale: 1.55,
@@ -1075,4 +1075,21 @@ export function getCatalogCategory(categoryId: CatalogCategoryId) {
 
 export function getCatalogProductPath(product: CatalogProduct) {
   return `/produtos/${product.id}`;
+}
+
+/**
+ * Some supplied photos depict a specific manufacturer's product, even when the
+ * generic catalog group is sold under more than one brand. This lets the brand
+ * filter avoid presenting one manufacturer's photo as another manufacturer's
+ * model.
+ */
+export function getCatalogExclusiveImageBrandIds(product: CatalogProduct): StoreBrandId[] {
+  const detectedBrands = product.images.map((image) => {
+    if (image.src.startsWith(`${hidrolightBase}/`)) return "hidrolight" as const;
+    return null;
+  });
+
+  if (detectedBrands.some((brandId) => brandId === null)) return [];
+
+  return [...new Set(detectedBrands.filter((brandId) => brandId !== null))];
 }

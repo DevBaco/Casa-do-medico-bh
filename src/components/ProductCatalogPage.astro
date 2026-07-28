@@ -1,0 +1,44 @@
+---
+import ProductCatalog from "@/components/ProductCatalog.astro";
+import SiteHeader from "@/components/SiteHeader.astro";
+import { catalogCategories } from "@/data/catalog-products";
+import type { CatalogCategoryId } from "@/data/catalog-products";
+import Layout from "@/layouts/Layout.astro";
+
+interface Props {
+  initialCategory?: CatalogCategoryId;
+}
+
+const { initialCategory } = Astro.props;
+const category = catalogCategories.find((item) => item.id === initialCategory);
+const title = category
+  ? `${category.name} em BH · Casa do Médico BH`
+  : "Produtos Médicos e Ortopédicos em BH · Casa do Médico BH";
+const description = category
+  ? `${category.description} Consulte marcas, modelos e disponibilidade pelo WhatsApp.`
+  : "Catálogo de produtos médicos, ortopédicos, mobilidade, monitoramento e cuidados em casa em Belo Horizonte. Consulte marcas, modelos e disponibilidade pelo WhatsApp.";
+---
+
+<Layout title={title} description={description}>
+  <SiteHeader />
+
+  <main>
+    <h1 class="sr-only">
+      {category?.name ?? "Catálogo de produtos médicos e ortopédicos"}
+    </h1>
+    <section class="border-b bg-background">
+      <div class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-6 lg:py-8">
+        <ProductCatalog initialCategory={category?.id} />
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t bg-secondary">
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <p class="text-sm text-muted-foreground">
+        Casa do Médico BH — produtos médicos e atendimento consultivo desde 1954.
+      </p>
+      <img src="/logo/casa-do-medico-pb.png" alt="" class="h-10 w-auto opacity-60" />
+    </div>
+  </footer>
+</Layout>
