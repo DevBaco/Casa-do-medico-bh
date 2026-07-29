@@ -55,7 +55,7 @@ function MobileCatalogLinks({ items }: { items: HeaderCatalogItem[] }) {
         <SheetClose asChild key={item.id}>
           <a
             href={item.href}
-            className="rounded-lg border bg-background px-3 py-2.5 transition-colors hover:bg-muted"
+            className="block rounded-lg border bg-background px-3 py-2.5 no-underline transition-colors hover:bg-muted"
           >
             <span className="block font-medium text-foreground">{item.label}</span>
             <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">

@@ -44,7 +44,7 @@ const displayedBrands = compressionStockingBrands
   <Card className="gap-0 overflow-hidden py-0 shadow-sm">
     <CardContent className="p-0">
       <div class="flex flex-col gap-5 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <div class="flex min-w-0 items-center gap-4">
+        <div class="flex min-w-0 flex-col items-start gap-4 sm:flex-row sm:items-center">
           {selectedBrand ? (
             <div class="grid min-h-14 w-40 shrink-0 place-items-center overflow-hidden rounded-lg border bg-white px-4 py-2">
               <img
@@ -90,7 +90,7 @@ const displayedBrands = compressionStockingBrands
               <span class="block truncate text-xs text-muted-foreground">
                 {selectedBrand
                   ? `${selectedBrand.name}${selectedLineLabel ? ` · ${selectedLineLabel}` : " · escolha uma linha"}`
-                  : "Escolha uma marca para ver suas linhas"}
+                  : "Escolha uma marca"}
               </span>
             </span>
           </span>
