@@ -19,6 +19,7 @@ const href = getCompressionStockingPath(line);
 
 <Card
   id={line.id}
+  data-product-card
   className="h-full scroll-mt-24 gap-0 overflow-hidden rounded-lg p-0 transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lg"
 >
   <a
@@ -30,6 +31,7 @@ const href = getCompressionStockingPath(line);
       src={line.genericImage}
       alt={line.displayName}
       loading="lazy"
+      data-role="generic-image"
       class="h-full w-full shrink-0 snap-center object-contain object-center transition-opacity duration-200 md:absolute md:inset-0 md:group-hover:opacity-0"
     />
     <img
@@ -48,6 +50,18 @@ const href = getCompressionStockingPath(line);
   </a>
 
   <CardContent className="flex min-h-[270px] flex-1 flex-col gap-3 border-t p-4">
+    <div class="flex flex-wrap gap-1.5" role="group" aria-label="Cores disponíveis">
+      {line.colors.map((color) => (
+        <button
+          type="button"
+          class="color-swatch size-4.5 shrink-0 rounded-full border border-black/10 shadow-sm transition-transform hover:scale-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          style={`background-color:${color.swatch}`}
+          data-image={color.image}
+          aria-label={color.name}
+        />
+      ))}
+    </div>
+
     <div class="flex flex-wrap items-center gap-2">
       <Badge>{line.brandName}</Badge>
       {line.badges.slice(0, 2).map((badge) => <Badge variant="secondary">{badge}</Badge>)}
@@ -77,3 +91,16 @@ const href = getCompressionStockingPath(line);
     </div>
   </CardContent>
 </Card>
+
+<script>
+  document.addEventListener("click", (event) => {
+    const swatch = (event.target as HTMLElement).closest<HTMLButtonElement>(".color-swatch");
+    if (!swatch) return;
+
+    const card = swatch.closest<HTMLElement>("[data-product-card]");
+    const image = card?.querySelector<HTMLImageElement>('[data-role="generic-image"]');
+    if (image && swatch.dataset.image) {
+      image.src = swatch.dataset.image;
+    }
+  });
+</script>

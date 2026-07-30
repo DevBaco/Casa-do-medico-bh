@@ -78,37 +78,22 @@ export const compressionStockingBrands: StockingBrand[] = [
       "Linhas Venosan organizadas por linha e sublinha. Separação por feminino/masculino só aparece quando a linha não é apresentada como unissex nos assets.",
     lines: [
       {
-        id: "venosan-comfortline-feminina",
+        id: "venosan-comfortline-ad",
         brandId: "venosan",
         brandName: "Venosan",
         line: "Comfortline",
         audience: "Unissex",
-        displayName: "Venosan Comfortline · Unissex",
+        displayName: "Venosan Comfortline AD · Unissex",
         summary:
-          "Linha diária com toque macio, indicada para rotina, trabalho e longos períodos em pé ou sentado.",
+          "Linha diária com toque macio, modelo AD, indicada para rotina, trabalho e longos períodos em pé ou sentado.",
         description:
           "A Comfortline reúne modelos de compressão graduada para uso cotidiano, com variações de altura, ponteira e tamanho conforme estoque.",
         compression: ["20-30 mmHg", "30-40 mmHg"],
         colors: [
           {
-            name: "Bege · AD",
+            name: "Bege",
             swatch: colors.bege,
             image: `${venosanBase}/COMFORTLINE/16431149200351-adcomfortline.jpg`,
-          },
-          {
-            name: "Bege · AGG",
-            swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE/16431149201164-aggcomfortlinepernadireita.jpg`,
-          },
-          {
-            name: "Bege · AGH",
-            swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE/16431149205637-aghcomfortline.jpg`,
-          },
-          {
-            name: "Bege · AT",
-            swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE/16431149208895-atcomfortline.jpg`,
           },
         ],
         boxImage: `${venosanBase}/COMFORTLINE/COMFORTLINE - ESQUERDA.webp`,
@@ -116,19 +101,109 @@ export const compressionStockingBrands: StockingBrand[] = [
         sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
-            title: "Modelos oficiais",
-            items: [
-              "AD, pé aberto",
-              "AGG unilateral direita ou esquerda, pé aberto",
-              "AGH, pé aberto",
-              "AT, pé aberto",
-              "Cor bege",
-            ],
+            title: "Modelo oficial",
+            items: ["AD, pé aberto", "Cor bege"],
           },
         ],
         badges: ["Unissex", "Uso diário"],
-        keywords: ["comfortline", "unissex", "meia de compressão diária"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan Comfortline.",
+        keywords: ["comfortline", "unissex", "meia de compressão diária", "ad"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Comfortline AD.",
+      },
+      {
+        id: "venosan-comfortline-agh",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "Comfortline",
+        audience: "Unissex",
+        displayName: "Venosan Comfortline AGH · Unissex",
+        summary:
+          "Linha diária com toque macio, modelo AGH, indicada para rotina, trabalho e longos períodos em pé ou sentado.",
+        description:
+          "A Comfortline reúne modelos de compressão graduada para uso cotidiano, com variações de altura, ponteira e tamanho conforme estoque.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${venosanBase}/COMFORTLINE/16431149205637-aghcomfortline.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/COMFORTLINE/COMFORTLINE - ESQUERDA.webp`,
+        genericImage: `${venosanBase}/COMFORTLINE/16431149205637-aghcomfortline.jpg`,
+        sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["AGH, pé aberto", "Cor bege"],
+          },
+        ],
+        badges: ["Unissex", "Uso diário"],
+        keywords: ["comfortline", "unissex", "meia de compressão diária", "agh"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Comfortline AGH.",
+      },
+      {
+        id: "venosan-comfortline-at",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "Comfortline",
+        audience: "Unissex",
+        displayName: "Venosan Comfortline AT · Unissex",
+        summary:
+          "Linha diária com toque macio, modelo AT, indicada para rotina, trabalho e longos períodos em pé ou sentado.",
+        description:
+          "A Comfortline reúne modelos de compressão graduada para uso cotidiano, com variações de altura, ponteira e tamanho conforme estoque.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${venosanBase}/COMFORTLINE/16431149208895-atcomfortline.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/COMFORTLINE/COMFORTLINE - ESQUERDA.webp`,
+        genericImage: `${venosanBase}/COMFORTLINE/16431149208895-atcomfortline.jpg`,
+        sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["AT, pé aberto", "Cor bege"],
+          },
+        ],
+        badges: ["Unissex", "Uso diário"],
+        keywords: ["comfortline", "unissex", "meia de compressão diária", "at"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Comfortline AT.",
+      },
+      {
+        id: "venosan-comfortline-agg",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "Comfortline",
+        audience: "Unissex",
+        displayName: "Venosan Comfortline AGG · Unissex",
+        summary:
+          "Linha diária com toque macio, modelo AGG unilateral, indicada para rotina, trabalho e longos períodos em pé ou sentado.",
+        description:
+          "A Comfortline reúne modelos de compressão graduada para uso cotidiano, com variações de altura, ponteira e tamanho conforme estoque.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${venosanBase}/COMFORTLINE/16431149201164-aggcomfortlinepernadireita.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/COMFORTLINE/COMFORTLINE - ESQUERDA.webp`,
+        genericImage: `${venosanBase}/COMFORTLINE/16431149201164-aggcomfortlinepernadireita.jpg`,
+        sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["AGG unilateral direita ou esquerda, pé aberto", "Cor bege"],
+          },
+        ],
+        badges: ["Unissex", "Uso diário"],
+        keywords: ["comfortline", "unissex", "meia de compressão diária", "agg"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Comfortline AGG.",
       },
       {
         id: "venosan-comfortline-cotton",
@@ -201,47 +276,27 @@ export const compressionStockingBrands: StockingBrand[] = [
           "Olá! Tenho interesse na Venosan Comfortline Cotton com Zíper.",
       },
       {
-        id: "venosan-legline",
+        id: "venosan-legline-ad",
         brandId: "venosan",
         brandName: "Venosan",
         line: "Legline",
         audience: "Unissex",
-        displayName: "Venosan Legline · Unissex",
+        displayName: "Venosan Legline AD · Unissex",
         summary:
-          "Linha com variações de cores, compressões e modelos para diferentes rotinas.",
+          "Linha com variações de cores, modelo AD, para diferentes rotinas.",
         description:
           "A Legline é uma linha com opções discretas para o dia a dia. As cores e modelos variam conforme estoque e devem ser confirmados no atendimento.",
         compression: ["15-23 mmHg", "20-30 mmHg"],
         colors: [
           {
-            name: "Olinda · AD",
+            name: "Olinda",
             swatch: colors.olinda,
             image: `${venosanBase}/LEGLINE/16419946764369-leglineadpeabertoolinda.jpg`,
           },
           {
-            name: "Sahara · AD",
+            name: "Sahara",
             swatch: colors.sahara,
             image: `${venosanBase}/LEGLINE/16419955489835-leglineadpeabertosahara.jpg`,
-          },
-          {
-            name: "Olinda · AGH",
-            swatch: colors.olinda,
-            image: `${venosanBase}/LEGLINE/164199554985-leglineaghpeabertoolinda.jpg`,
-          },
-          {
-            name: "Sahara · AGH",
-            swatch: colors.sahara,
-            image: `${venosanBase}/LEGLINE/16419965153307-leglineaghpeabertosahara.jpg`,
-          },
-          {
-            name: "Olinda · AT",
-            swatch: colors.olinda,
-            image: `${venosanBase}/LEGLINE/16420072730389-leglineatpeabertoolinda.jpg`,
-          },
-          {
-            name: "Sahara · AT",
-            swatch: colors.sahara,
-            image: `${venosanBase}/LEGLINE/16420072731121-leglineatpeabertosahara.jpg`,
           },
         ],
         boxImage: `${venosanBase}/LEGLINE/LEGLINE 15-23 - ESQUERDA.webp`,
@@ -249,8 +304,8 @@ export const compressionStockingBrands: StockingBrand[] = [
         sizeChartImage: `${venosanBase}/LEGLINE/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
-            title: "Modelos oficiais",
-            items: ["AD, AGH e AT, com pé aberto"],
+            title: "Modelo oficial",
+            items: ["AD, com pé aberto"],
           },
           {
             title: "Cores oficiais",
@@ -258,41 +313,113 @@ export const compressionStockingBrands: StockingBrand[] = [
           },
         ],
         badges: ["Unissex", "Cores variadas"],
-        keywords: ["legline", "olinda", "sahara"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan Legline.",
+        keywords: ["legline", "olinda", "sahara", "ad"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Legline AD.",
       },
       {
-        id: "venosan-ultraline-feminina",
+        id: "venosan-legline-agh",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "Legline",
+        audience: "Unissex",
+        displayName: "Venosan Legline AGH · Unissex",
+        summary:
+          "Linha com variações de cores, modelo AGH, para diferentes rotinas.",
+        description:
+          "A Legline é uma linha com opções discretas para o dia a dia. As cores e modelos variam conforme estoque e devem ser confirmados no atendimento.",
+        compression: ["15-23 mmHg", "20-30 mmHg"],
+        colors: [
+          {
+            name: "Olinda",
+            swatch: colors.olinda,
+            image: `${venosanBase}/LEGLINE/164199554985-leglineaghpeabertoolinda.jpg`,
+          },
+          {
+            name: "Sahara",
+            swatch: colors.sahara,
+            image: `${venosanBase}/LEGLINE/16419965153307-leglineaghpeabertosahara.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/LEGLINE/LEGLINE 15-23 - ESQUERDA.webp`,
+        genericImage: `${venosanBase}/LEGLINE/164199554985-leglineaghpeabertoolinda.jpg`,
+        sizeChartImage: `${venosanBase}/LEGLINE/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["AGH, com pé aberto"],
+          },
+          {
+            title: "Cores oficiais",
+            items: ["Olinda", "Sahara"],
+          },
+        ],
+        badges: ["Unissex", "Cores variadas"],
+        keywords: ["legline", "olinda", "sahara", "agh"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Legline AGH.",
+      },
+      {
+        id: "venosan-legline-at",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "Legline",
+        audience: "Unissex",
+        displayName: "Venosan Legline AT · Unissex",
+        summary:
+          "Linha com variações de cores, modelo AT, para diferentes rotinas.",
+        description:
+          "A Legline é uma linha com opções discretas para o dia a dia. As cores e modelos variam conforme estoque e devem ser confirmados no atendimento.",
+        compression: ["15-23 mmHg", "20-30 mmHg"],
+        colors: [
+          {
+            name: "Olinda",
+            swatch: colors.olinda,
+            image: `${venosanBase}/LEGLINE/16420072730389-leglineatpeabertoolinda.jpg`,
+          },
+          {
+            name: "Sahara",
+            swatch: colors.sahara,
+            image: `${venosanBase}/LEGLINE/16420072731121-leglineatpeabertosahara.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/LEGLINE/LEGLINE 15-23 - ESQUERDA.webp`,
+        genericImage: `${venosanBase}/LEGLINE/16420072730389-leglineatpeabertoolinda.jpg`,
+        sizeChartImage: `${venosanBase}/LEGLINE/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["AT, com pé aberto"],
+          },
+          {
+            title: "Cores oficiais",
+            items: ["Olinda", "Sahara"],
+          },
+        ],
+        badges: ["Unissex", "Cores variadas"],
+        keywords: ["legline", "olinda", "sahara", "at"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Legline AT.",
+      },
+      {
+        id: "venosan-ultraline-ad",
         brandId: "venosan",
         brandName: "Venosan",
         line: "Ultraline",
         audience: "Unissex",
-        displayName: "Venosan Ultraline · Unissex",
+        displayName: "Venosan Ultraline AD · Unissex",
         summary:
-          "Linha Super Premium com opções em bege.",
+          "Linha Super Premium com opções em bege e preto, modelo AD.",
         description:
           "A Ultraline é voltada a necessidades de compressão mais firme, com acompanhamento criterioso de medidas e confirmação de modelo pelo atendimento.",
         compression: ["20-30 mmHg", "30-40 mmHg"],
         colors: [
           {
-            name: "Bege · AD",
+            name: "Bege",
             swatch: colors.bege,
             image: `${venosanBase}/ULTRALINE 4000/16420151769452-ultralineadpabertocorbege.jpg`,
           },
           {
-            name: "Bege · AGG",
-            swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/1642015178229-ultralineaggesquerdocorbege.jpg`,
-          },
-          {
-            name: "Bege · AGH",
-            swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/16420151784312-ultralineaghpabertocorbege.jpg`,
-          },
-          {
-            name: "Bege · AT",
-            swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/ultraline-400-at-aberta-bege.png`,
+            name: "Preta",
+            swatch: colors.preta,
+            image: `${venosanBase}/ULTRALINE 4000/AD-ULTRALINE-PRETA- PÉ ABERTO.webp`,
           },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
@@ -300,41 +427,154 @@ export const compressionStockingBrands: StockingBrand[] = [
         sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
-            title: "Modelos oficiais",
-            items: [
-              "AD, AGH e AT, com pé aberto",
-              "AGG unilateral direita ou esquerda, com pé aberto",
-            ],
+            title: "Modelo oficial",
+            items: ["AD, com pé aberto"],
+          },
+          {
+            title: "Cores oficiais",
+            items: ["Bege", "Preta"],
           },
         ],
         badges: ["Unissex", "Super Premium"],
-        keywords: ["ultraline", "unissex", "bege"],
-        whatsappMessage:
-          "Olá! Tenho interesse na Venosan Ultraline.",
+        keywords: ["ultraline", "unissex", "bege", "preta", "ad"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Ultraline AD.",
       },
       {
-        id: "venosan-ultraline-bracadeira",
+        id: "venosan-ultraline-agh",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "Ultraline",
+        audience: "Unissex",
+        displayName: "Venosan Ultraline AGH · Unissex",
+        summary:
+          "Linha Super Premium com opções em bege e preto, modelo AGH.",
+        description:
+          "A Ultraline é voltada a necessidades de compressão mais firme, com acompanhamento criterioso de medidas e confirmação de modelo pelo atendimento.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${venosanBase}/ULTRALINE 4000/16420151784312-ultralineaghpabertocorbege.jpg`,
+          },
+          {
+            name: "Preta",
+            swatch: colors.preta,
+            image: `${venosanBase}/ULTRALINE 4000/16420151785355-ultralineaghpabertocorpreta.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/16420151784312-ultralineaghpabertocorbege.jpg`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["AGH, com pé aberto"],
+          },
+          {
+            title: "Cores oficiais",
+            items: ["Bege", "Preta"],
+          },
+        ],
+        badges: ["Unissex", "Super Premium"],
+        keywords: ["ultraline", "unissex", "bege", "preta", "agh"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Ultraline AGH.",
+      },
+      {
+        id: "venosan-ultraline-at",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "Ultraline",
+        audience: "Unissex",
+        displayName: "Venosan Ultraline AT · Unissex",
+        summary:
+          "Linha Super Premium com opções em bege e preto, modelo AT.",
+        description:
+          "A Ultraline é voltada a necessidades de compressão mais firme, com acompanhamento criterioso de medidas e confirmação de modelo pelo atendimento.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${venosanBase}/ULTRALINE 4000/ultraline-400-at-aberta-bege.png`,
+          },
+          {
+            name: "Preta",
+            swatch: colors.preta,
+            image: `${venosanBase}/ULTRALINE 4000/16420151797121-ultralineatpfechadocorpreta.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/ultraline-400-at-aberta-bege.png`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["AT, com pé aberto", "AT em preta disponível apenas com pé fechado"],
+          },
+          {
+            title: "Cores oficiais",
+            items: ["Bege", "Preta"],
+          },
+        ],
+        badges: ["Unissex", "Super Premium"],
+        keywords: ["ultraline", "unissex", "bege", "preta", "at"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Ultraline AT.",
+      },
+      {
+        id: "venosan-ultraline-agg",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "Ultraline",
+        audience: "Unissex",
+        displayName: "Venosan Ultraline AGG · Unissex",
+        summary:
+          "Linha Super Premium com opções em bege, modelo AGG unilateral.",
+        description:
+          "A Ultraline é voltada a necessidades de compressão mais firme, com acompanhamento criterioso de medidas e confirmação de modelo pelo atendimento.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${venosanBase}/ULTRALINE 4000/1642015178229-ultralineaggesquerdocorbege.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/1642015178229-ultralineaggesquerdocorbege.jpg`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["AGG unilateral direita ou esquerda, com pé aberto"],
+          },
+          {
+            title: "Cores oficiais",
+            items: ["Bege"],
+          },
+        ],
+        badges: ["Unissex", "Super Premium"],
+        keywords: ["ultraline", "unissex", "bege", "agg"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Ultraline AGG.",
+      },
+      {
+        id: "venosan-ultraline-bracadeira-zh",
         brandId: "venosan",
         brandName: "Venosan",
         line: "Ultraline",
         subline: "Braçadeira",
         audience: "Unissex",
-        displayName: "Venosan Ultraline Braçadeira · Unissex",
+        displayName: "Venosan Ultraline Braçadeira ZH · Unissex",
         summary:
-          "Braçadeira da linha Ultraline, com tabela de medidas própria.",
+          "Braçadeira da linha Ultraline, modelo ZH até o metacarpo, com tabela de medidas própria.",
         description:
           "A braçadeira Ultraline possui tabela específica e variações confirmadas por tamanho, lado e configuração.",
         compression: ["30-40 mmHg"],
         colors: [
           {
-            name: "Bege · ZH",
+            name: "Bege",
             swatch: colors.bege,
             image: `${venosanBase}/ULTRALINE 4000/16420806755022-zhultralinecorbege.jpg`,
-          },
-          {
-            name: "Bege · BH",
-            swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/16420806755796-bhultralinecorbege.jpg`,
           },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE BRAÇADEIRA - DIREITA.webp`,
@@ -342,61 +582,69 @@ export const compressionStockingBrands: StockingBrand[] = [
         sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS - BRAÇADEIRA.jpg`,
         specifications: [
           {
-            title: "Variações para consulta",
-            items: [
-              "ZH: até o metacarpo, com polegar",
-              "BH: até o punho",
-              "Cor bege e tabela própria",
-            ],
+            title: "Modelo oficial",
+            items: ["ZH: até o metacarpo, com polegar", "Cor bege e tabela própria"],
           },
         ],
         badges: ["Braçadeira", "Alta compressão"],
-        keywords: ["ultraline", "braçadeira", "manga compressiva"],
-        whatsappMessage:
-          "Olá! Tenho interesse na Venosan Ultraline Braçadeira.",
+        keywords: ["ultraline", "braçadeira", "manga compressiva", "zh"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Ultraline Braçadeira ZH.",
       },
       {
-        id: "venosan-6000",
+        id: "venosan-ultraline-bracadeira-bh",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "Ultraline",
+        subline: "Braçadeira",
+        audience: "Unissex",
+        displayName: "Venosan Ultraline Braçadeira BH · Unissex",
+        summary:
+          "Braçadeira da linha Ultraline, modelo BH até o punho, com tabela de medidas própria.",
+        description:
+          "A braçadeira Ultraline possui tabela específica e variações confirmadas por tamanho, lado e configuração.",
+        compression: ["30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${venosanBase}/ULTRALINE 4000/16420806755796-bhultralinecorbege.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE BRAÇADEIRA - DIREITA.webp`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/16420806755796-bhultralinecorbege.jpg`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS - BRAÇADEIRA.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["BH: até o punho", "Cor bege e tabela própria"],
+          },
+        ],
+        badges: ["Braçadeira", "Alta compressão"],
+        keywords: ["ultraline", "braçadeira", "manga compressiva", "bh"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Ultraline Braçadeira BH.",
+      },
+      {
+        id: "venosan-6000-ad",
         brandId: "venosan",
         brandName: "Venosan",
         line: "6000",
         audience: "Unissex",
-        displayName: "Venosan 6000 · Unissex",
+        displayName: "Venosan 6000 AD · Unissex",
         summary:
-          "Linha unissex de textura fina e confortável, disponível em cores clássicas.",
+          "Linha unissex de textura fina e confortável, modelo AD, em cores clássicas.",
         description:
           "A Venosan 6000 é indicada para homens e mulheres, com variações de cor, ponteira, tamanho e compressão conforme estoque.",
         compression: ["20-30 mmHg", "30-40 mmHg"],
         colors: [
           {
-            name: "Bege · AD",
+            name: "Bege",
             swatch: colors.bege,
             image: `${venosanBase}/6000/16431198851026-02.ad6000bege.jpg`,
           },
           {
-            name: "Bronze · AD",
+            name: "Bronze",
             swatch: colors.bronze,
             image: `${venosanBase}/6000/16431198851415-03.ad6000bronze.jpg`,
-          },
-          {
-            name: "Bege · AGH",
-            swatch: colors.bege,
-            image: `${venosanBase}/6000/16431198859595-07.agh6000begepaberto.jpg`,
-          },
-          {
-            name: "Bronze · AGH",
-            swatch: colors.bronze,
-            image: `${venosanBase}/6000/16431198863246-08.agh6000bronzepaberto.jpg`,
-          },
-          {
-            name: "Bege · AT",
-            swatch: colors.bege,
-            image: `${venosanBase}/6000/16431198863726-09.at6000begepaberto.jpg`,
-          },
-          {
-            name: "Bronze · AT",
-            swatch: colors.bronze,
-            image: `${venosanBase}/6000/16431198866288-10.at6000bronzepaberto.jpg`,
           },
         ],
         boxImage: `${venosanBase}/6000/6000 - DIREITA.webp`,
@@ -404,12 +652,8 @@ export const compressionStockingBrands: StockingBrand[] = [
         sizeChartImage: `${venosanBase}/6000/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
-            title: "Modelos oficiais",
-            items: [
-              "AD com pé aberto",
-              "AGH com pé aberto",
-              "AT com pé aberto",
-            ],
+            title: "Modelo oficial",
+            items: ["AD com pé aberto"],
           },
           {
             title: "Cores oficiais",
@@ -417,8 +661,90 @@ export const compressionStockingBrands: StockingBrand[] = [
           },
         ],
         badges: ["Unissex", "Clássica"],
-        keywords: ["venosan 6000", "6000", "unissex", "bronze"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan 6000.",
+        keywords: ["venosan 6000", "6000", "unissex", "bronze", "ad"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan 6000 AD.",
+      },
+      {
+        id: "venosan-6000-agh",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "6000",
+        audience: "Unissex",
+        displayName: "Venosan 6000 AGH · Unissex",
+        summary:
+          "Linha unissex de textura fina e confortável, modelo AGH, em cores clássicas.",
+        description:
+          "A Venosan 6000 é indicada para homens e mulheres, com variações de cor, ponteira, tamanho e compressão conforme estoque.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${venosanBase}/6000/16431198859595-07.agh6000begepaberto.jpg`,
+          },
+          {
+            name: "Bronze",
+            swatch: colors.bronze,
+            image: `${venosanBase}/6000/16431198863246-08.agh6000bronzepaberto.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/6000/6000 - DIREITA.webp`,
+        genericImage: `${venosanBase}/6000/16431198859595-07.agh6000begepaberto.jpg`,
+        sizeChartImage: `${venosanBase}/6000/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["AGH com pé aberto"],
+          },
+          {
+            title: "Cores oficiais",
+            items: ["Bege", "Bronze"],
+          },
+        ],
+        badges: ["Unissex", "Clássica"],
+        keywords: ["venosan 6000", "6000", "unissex", "bronze", "agh"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan 6000 AGH.",
+      },
+      {
+        id: "venosan-6000-at",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "6000",
+        audience: "Unissex",
+        displayName: "Venosan 6000 AT · Unissex",
+        summary:
+          "Linha unissex de textura fina e confortável, modelo AT, em cores clássicas.",
+        description:
+          "A Venosan 6000 é indicada para homens e mulheres, com variações de cor, ponteira, tamanho e compressão conforme estoque.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${venosanBase}/6000/16431198863726-09.at6000begepaberto.jpg`,
+          },
+          {
+            name: "Bronze",
+            swatch: colors.bronze,
+            image: `${venosanBase}/6000/16431198866288-10.at6000bronzepaberto.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/6000/6000 - DIREITA.webp`,
+        genericImage: `${venosanBase}/6000/16431198863726-09.at6000begepaberto.jpg`,
+        sizeChartImage: `${venosanBase}/6000/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["AT com pé aberto"],
+          },
+          {
+            title: "Cores oficiais",
+            items: ["Bege", "Bronze"],
+          },
+        ],
+        badges: ["Unissex", "Clássica"],
+        keywords: ["venosan 6000", "6000", "unissex", "bronze", "at"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan 6000 AT.",
       },
       {
         id: "venosan-supportline-soft",
@@ -462,66 +788,22 @@ export const compressionStockingBrands: StockingBrand[] = [
         whatsappMessage: "Olá! Tenho interesse na Venosan Supportline Soft.",
       },
       {
-        id: "venosan-aes-feminina",
+        id: "venosan-aes-ad",
         brandId: "venosan",
         brandName: "Venosan",
         line: "AES / antiembolia",
         audience: "Unissex",
-        displayName: "Venosan AES Antiembolia · Unissex",
+        displayName: "Venosan AES Antiembolia AD · Unissex",
         summary:
-          "Meia antiembolia para uso hospitalar ou pós-procedimento, conforme orientação.",
+          "Meia antiembolia para uso hospitalar ou pós-procedimento, modelo AD, até o joelho. Disponível também em versão estéril.",
         description:
-          "A linha AES é voltada ao contexto hospitalar, pós-operatório ou prevenção de trombose conforme prescrição. Medidas e modelo são confirmados no atendimento.",
+          "A linha AES é voltada ao contexto hospitalar, pós-operatório ou prevenção de trombose conforme prescrição. Disponível na versão padrão e na versão estéril para cirurgia. Medidas e modelo são confirmados no atendimento.",
         compression: ["18 mmHg", "Antiembolia"],
         colors: [
           {
-            name: "Branca · AD",
+            name: "Branca",
             swatch: colors.branca,
             image: `${venosanBase}/AES/AD-AES-PERNA FEMININA.webp`,
-          },
-          {
-            name: "Branca · AGH",
-            swatch: colors.branca,
-            image: `${venosanBase}/AES/16431212039486-03.aghaes.jpg`,
-          },
-        ],
-        boxImage: `${venosanBase}/AES/AES - DIREITA.webp`,
-        genericImage: `${venosanBase}/AES/AD-AES-DEITADA-PERNA-FEMNINA.webp`,
-        sizeChartImage: `${venosanBase}/AES/TABELA DE MEDIDAS.jpg`,
-        specifications: [
-          {
-            title: "Modelos oficiais",
-            items: ["AD, até o joelho", "AGH, até a coxa", "Cor branca"],
-          },
-        ],
-        badges: ["Unissex", "Antiembolia"],
-        keywords: ["aes", "antiembolia", "unissex", "hospitalar"],
-        whatsappMessage:
-          "Olá! Tenho interesse na Venosan AES Antiembolia.",
-      },
-      {
-        id: "venosan-aes-esteril",
-        brandId: "venosan",
-        brandName: "Venosan",
-        line: "AES / antiembolia",
-        subline: "Estéril",
-        audience: "Unissex",
-        displayName: "Venosan AES Estéril · Unissex",
-        summary:
-          "Sublinha estéril da AES antiembolia, com disponibilidade confirmada no atendimento.",
-        description:
-          "A AES Estéril é uma sublinha específica para contexto hospitalar. Consulte disponibilidade por tamanho, embalagem e indicação.",
-        compression: ["18 mmHg", "Antiembolia"],
-        colors: [
-          {
-            name: "Branca · AD",
-            swatch: colors.branca,
-            image: `${venosanBase}/AES/AD-AES-PERNA FEMININA.webp`,
-          },
-          {
-            name: "Branca · AGH",
-            swatch: colors.branca,
-            image: `${venosanBase}/AES/16431212039486-03.aghaes.jpg`,
           },
         ],
         boxImage: `${venosanBase}/AES/AES ESTÉRIL - DIREITA.webp`,
@@ -529,18 +811,53 @@ export const compressionStockingBrands: StockingBrand[] = [
         sizeChartImage: `${venosanBase}/AES/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
-            title: "Apresentação oficial",
+            title: "Modelo oficial",
             items: [
-              "Versão estéril para uso durante cirurgia",
-              "AD, até o joelho, e AGH, até a coxa",
+              "AD, até o joelho",
               "Cor branca",
-              "Tamanho confirmado pela tabela",
+              "Disponível também em versão estéril para uso durante cirurgia",
             ],
           },
         ],
-        badges: ["Estéril", "Antiembolia"],
-        keywords: ["aes", "estéril", "antiembolia"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan AES Estéril.",
+        badges: ["Unissex", "Estéril disponível"],
+        keywords: ["aes", "antiembolia", "unissex", "hospitalar", "ad", "estéril"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan AES Antiembolia AD.",
+      },
+      {
+        id: "venosan-aes-agh",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "AES / antiembolia",
+        audience: "Unissex",
+        displayName: "Venosan AES Antiembolia AGH · Unissex",
+        summary:
+          "Meia antiembolia para uso hospitalar ou pós-procedimento, modelo AGH, até a coxa. Disponível também em versão estéril.",
+        description:
+          "A linha AES é voltada ao contexto hospitalar, pós-operatório ou prevenção de trombose conforme prescrição. Disponível na versão padrão e na versão estéril para cirurgia. Medidas e modelo são confirmados no atendimento.",
+        compression: ["18 mmHg", "Antiembolia"],
+        colors: [
+          {
+            name: "Branca",
+            swatch: colors.branca,
+            image: `${venosanBase}/AES/16431212039486-03.aghaes.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/AES/AES ESTÉRIL - DIREITA.webp`,
+        genericImage: `${venosanBase}/AES/16431212039486-03.aghaes.jpg`,
+        sizeChartImage: `${venosanBase}/AES/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: [
+              "AGH, até a coxa",
+              "Cor branca",
+              "Disponível também em versão estéril para uso durante cirurgia",
+            ],
+          },
+        ],
+        badges: ["Unissex", "Estéril disponível"],
+        keywords: ["aes", "antiembolia", "unissex", "hospitalar", "agh", "estéril"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan AES Antiembolia AGH.",
       },
       {
         id: "venosan-ulcercomfort",
@@ -696,14 +1013,14 @@ export const compressionStockingBrands: StockingBrand[] = [
         whatsappMessage: "Olá! Tenho interesse na Sigvaris Antitrombo.",
       },
       {
-        id: "sigvaris-dynaven-basic",
+        id: "sigvaris-dynaven-basic-panturrilha",
         brandId: "sigvaris",
         brandName: "Sigvaris",
         line: "Dynaven Basic",
         audience: "Unissex",
-        displayName: "Sigvaris Dynaven Basic · Unissex",
+        displayName: "Sigvaris Dynaven Basic Panturrilha · Unissex",
         summary:
-          "Meia medicinal com proposta de custo-benefício para tratamento compressivo no dia a dia.",
+          "Meia medicinal com proposta de custo-benefício para tratamento compressivo no dia a dia, modelo panturrilha.",
         description:
           "A Dynaven Basic combina compressão graduada, calcanhar anatômico e uma construção voltada ao uso cotidiano. Consulte o modelo disponível e confirme as medidas antes da compra.",
         compression: ["20-30 mmHg", "30-40 mmHg"],
@@ -711,67 +1028,85 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${sigvarisBase}/Dynaven/DYN_Basic_NWG_OT_honey_alt1_NA_SA.jpg`,
+            image: `${sigvarisBase}/Dynaven/dyn_basic_women_calf_ot_honey_na_sa.webp`,
           },
         ],
         boxImage: `${sigvarisBase}/Dynaven/DYN_BASIC_packing_calf_unisex_brazil_box.png`,
-        genericImage: `${sigvarisBase}/Dynaven/DYN_Basic_NWG_OT_honey_alt1_NA_SA.jpg`,
+        genericImage: `${sigvarisBase}/Dynaven/dyn_basic_women_calf_ot_honey_na_sa.webp`,
         sizeChartImage: `${sigvarisBase}/Dynaven/SIZE_CHART_DYN_BASIC_SA.jpg`,
         specifications: [
           {
-            title: "Apresentações da linha",
-            items: [
-              "Modelos panturrilha, meia-coxa e meia-calça",
-              "Ponteira aberta",
-              "Comprimentos normal e longo conforme modelo",
-            ],
+            title: "Apresentação",
+            items: ["Modelo panturrilha", "Ponteira aberta"],
           },
         ],
         badges: ["Unissex", "Custo-benefício"],
-        keywords: ["dynaven", "dynaven basic", "basic", "medicinal", "dia a dia"],
-        whatsappMessage: "Olá! Tenho interesse na Sigvaris Dynaven Basic.",
+        keywords: ["dynaven", "dynaven basic", "basic", "medicinal", "dia a dia", "panturrilha"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Dynaven Basic Panturrilha.",
       },
       {
-        id: "sigvaris-essencial-algodao-super-tech",
+        id: "sigvaris-dynaven-basic-meia-calca",
         brandId: "sigvaris",
         brandName: "Sigvaris",
-        line: "Essencial Fibras Naturais",
-        subline: "Algodão Super Tech",
+        line: "Dynaven Basic",
         audience: "Unissex",
-        displayName: "Sigvaris Essencial Algodão Super Tech",
+        displayName: "Sigvaris Dynaven Basic Meia-calça · Unissex",
         summary:
-          "Linha com toque macio, respirabilidade e controle climático para uso prolongado.",
+          "Meia medicinal com proposta de custo-benefício para tratamento compressivo no dia a dia, modelo meia-calça.",
         description:
-          "A Essencial Algodão Super Tech foi desenvolvida para oferecer conforto diário, especialmente para quem prefere contato mais macio com a pele. Compressão, ponteira e tamanho são confirmados no atendimento.",
+          "A Dynaven Basic combina compressão graduada, calcanhar anatômico e uma construção voltada ao uso cotidiano. Consulte o modelo disponível e confirme as medidas antes da compra.",
         compression: ["20-30 mmHg", "30-40 mmHg"],
         colors: [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_AlgodaoSuperTech_Unisex_Beige_SA.jpg`,
-          },
-          {
-            name: "Preta",
-            swatch: colors.preta,
-            image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_AlgodaoSuperTech_Unisex_CT_Black_SA_2.jpg`,
+            image: `${sigvarisBase}/Dynaven/dyn_basic_women_pantyhose_ot_honey_na_sa.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_AlgodaoSuperTech_packaging_SA_BR.png`,
-        genericImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_AlgodaoSuperTech_Unisex_Beige_SA.jpg`,
-        sizeChartImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/SIZE_CHART_ALGODAO_SUPER_TECH_CALF_SA_BR.jpg`,
+        boxImage: `${sigvarisBase}/Dynaven/DYN_BASIC_packing_calf_unisex_brazil_box.png`,
+        genericImage: `${sigvarisBase}/Dynaven/dyn_basic_women_pantyhose_ot_honey_na_sa.webp`,
+        sizeChartImage: `${sigvarisBase}/Dynaven/SIZE_CHART_DYN_BASIC_SA.jpg`,
         specifications: [
           {
-            title: "Características da linha",
-            items: [
-              "Modelo panturrilha",
-              "Opções de ponteira aberta e fechada conforme estoque",
-              "Cores bege e preta",
-            ],
+            title: "Apresentação",
+            items: ["Modelo meia-calça", "Ponteira aberta"],
           },
         ],
-        badges: ["Unissex", "Fibras naturais"],
-        keywords: ["essencial", "algodão", "algodao", "super tech", "fibras naturais"],
-        whatsappMessage: "Olá! Tenho interesse na Sigvaris Essencial Algodão Super Tech.",
+        badges: ["Unissex", "Custo-benefício"],
+        keywords: ["dynaven", "dynaven basic", "basic", "medicinal", "dia a dia", "meia-calça"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Dynaven Basic Meia-calça.",
+      },
+      {
+        id: "sigvaris-dynaven-basic-meia-coxa",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Dynaven Basic",
+        audience: "Unissex",
+        displayName: "Sigvaris Dynaven Basic Meia-coxa · Unissex",
+        summary:
+          "Meia medicinal com proposta de custo-benefício para tratamento compressivo no dia a dia, modelo meia-coxa.",
+        description:
+          "A Dynaven Basic combina compressão graduada, calcanhar anatômico e uma construção voltada ao uso cotidiano. Consulte o modelo disponível e confirme as medidas antes da compra.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Bege",
+            swatch: colors.bege,
+            image: `${sigvarisBase}/Dynaven/dyn_basic_nwg_ot_honey_na_sa.webp`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Dynaven/DYN_BASIC_packing_calf_unisex_brazil_box.png`,
+        genericImage: `${sigvarisBase}/Dynaven/dyn_basic_nwg_ot_honey_na_sa.webp`,
+        sizeChartImage: `${sigvarisBase}/Dynaven/SIZE_CHART_DYN_BASIC_SA.jpg`,
+        specifications: [
+          {
+            title: "Apresentação",
+            items: ["Modelo meia-coxa", "Ponteira aberta"],
+          },
+        ],
+        badges: ["Unissex", "Custo-benefício"],
+        keywords: ["dynaven", "dynaven basic", "basic", "medicinal", "dia a dia", "meia-coxa"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Dynaven Basic Meia-coxa.",
       },
       {
         id: "sigvaris-essencial-fibras-naturais",
@@ -792,16 +1127,6 @@ export const compressionStockingBrands: StockingBrand[] = [
             swatch: colors.bege,
             image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Beige_SA.jpg`,
           },
-          {
-            name: "Preta",
-            swatch: colors.preta,
-            image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Black_2_SA.jpg`,
-          },
-          {
-            name: "Chocolate",
-            swatch: colors.chocolate,
-            image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Brown_2_SA.jpg`,
-          },
         ],
         boxImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_ALGODÃO SUPER_PACKING_WOMAN_BRAZIL_BOX.png`,
         genericImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Beige_SA.jpg`,
@@ -812,7 +1137,7 @@ export const compressionStockingBrands: StockingBrand[] = [
             items: [
               "Modelo panturrilha",
               "Ponteiras aberta e fechada conforme configuração",
-              "Cores bege, preta e chocolate",
+              "Cor bege",
             ],
           },
         ],
@@ -821,15 +1146,15 @@ export const compressionStockingBrands: StockingBrand[] = [
         whatsappMessage: "Olá! Tenho interesse na Sigvaris Essencial Fibras Naturais.",
       },
       {
-        id: "sigvaris-essencial-conforto",
+        id: "sigvaris-essencial-conforto-panturrilha",
         brandId: "sigvaris",
         brandName: "Sigvaris",
         line: "Essencial Conforto",
         subline: "Select Comfort Premium",
         audience: "Unissex",
-        displayName: "Sigvaris Essencial Conforto Select Comfort Premium",
+        displayName: "Sigvaris Essencial Conforto Select Comfort Premium Panturrilha",
         summary:
-          "Linha premium com microfibra, controle climático e variedade de modelos para uso diário.",
+          "Linha premium com microfibra e controle climático para uso diário, modelo panturrilha.",
         description:
           "A Essencial Conforto Select Comfort Premium possui revestimento interno de microfibra e construção voltada à durabilidade e ao conforto. Consulte a combinação disponível de modelo, cor, ponteira e compressão.",
         compression: ["20-30 mmHg", "30-40 mmHg"],
@@ -837,25 +1162,87 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Natural",
             swatch: colors.natural,
-            image: `${sigvarisBase}/Essencial/Conforto/ESS_Confort_Pantyhouse_Sigvaris_Unisex_Suntan_SA.jpg`,
+            image: `${sigvarisBase}/Essencial/Conforto/ess_confort_calf_sigvaris_unisex_suntan_sa.webp`,
           },
         ],
         boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.jpg`,
-        genericImage: `${sigvarisBase}/Essencial/Conforto/ESS_Confort_Pantyhouse_Sigvaris_Unisex_Suntan_SA.jpg`,
+        genericImage: `${sigvarisBase}/Essencial/Conforto/ess_confort_calf_sigvaris_unisex_suntan_sa.webp`,
         sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.jpg`,
         specifications: [
           {
-            title: "Apresentações da linha",
-            items: [
-              "Modelos panturrilha, meia-coxa e meia-calça",
-              "Ponteiras aberta e fechada conforme modelo",
-              "Comprimentos normal, curto e longo conforme configuração",
-            ],
+            title: "Apresentação",
+            items: ["Modelo panturrilha", "Ponteira aberta"],
           },
         ],
         badges: ["Unissex", "Premium"],
-        keywords: ["essencial", "conforto", "select comfort", "premium", "microfibra"],
-        whatsappMessage: "Olá! Tenho interesse na Sigvaris Essencial Conforto.",
+        keywords: ["essencial", "conforto", "select comfort", "premium", "microfibra", "panturrilha"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Essencial Conforto Panturrilha.",
+      },
+      {
+        id: "sigvaris-essencial-conforto-meia-calca",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Essencial Conforto",
+        subline: "Select Comfort Premium",
+        audience: "Unissex",
+        displayName: "Sigvaris Essencial Conforto Select Comfort Premium Meia-calça",
+        summary:
+          "Linha premium com microfibra e controle climático para uso diário, modelo meia-calça.",
+        description:
+          "A Essencial Conforto Select Comfort Premium possui revestimento interno de microfibra e construção voltada à durabilidade e ao conforto. Consulte a combinação disponível de modelo, cor, ponteira e compressão.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Natural",
+            swatch: colors.natural,
+            image: `${sigvarisBase}/Essencial/Conforto/ess_confort_pantyhouse_sigvaris_unisex_suntan_sa.webp`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.jpg`,
+        genericImage: `${sigvarisBase}/Essencial/Conforto/ess_confort_pantyhouse_sigvaris_unisex_suntan_sa.webp`,
+        sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.jpg`,
+        specifications: [
+          {
+            title: "Apresentação",
+            items: ["Modelo meia-calça", "Ponteira aberta"],
+          },
+        ],
+        badges: ["Unissex", "Premium"],
+        keywords: ["essencial", "conforto", "select comfort", "premium", "microfibra", "meia-calça"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Essencial Conforto Meia-calça.",
+      },
+      {
+        id: "sigvaris-essencial-conforto-meia-coxa",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Essencial Conforto",
+        subline: "Select Comfort Premium",
+        audience: "Unissex",
+        displayName: "Sigvaris Essencial Conforto Select Comfort Premium Meia-coxa",
+        summary:
+          "Linha premium com microfibra e controle climático para uso diário, modelo meia-coxa.",
+        description:
+          "A Essencial Conforto Select Comfort Premium possui revestimento interno de microfibra e construção voltada à durabilidade e ao conforto. Consulte a combinação disponível de modelo, cor, ponteira e compressão.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Natural",
+            swatch: colors.natural,
+            image: `${sigvarisBase}/Essencial/Conforto/ess_confort_tighhigh_ct_sigvaris_unisex_beige_sa.webp`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.jpg`,
+        genericImage: `${sigvarisBase}/Essencial/Conforto/ess_confort_tighhigh_ct_sigvaris_unisex_beige_sa.webp`,
+        sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.jpg`,
+        specifications: [
+          {
+            title: "Apresentação",
+            items: ["Modelo meia-coxa", "Ponteira aberta"],
+          },
+        ],
+        badges: ["Unissex", "Premium"],
+        keywords: ["essencial", "conforto", "select comfort", "premium", "microfibra", "meia-coxa"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Essencial Conforto Meia-coxa.",
       },
       {
         id: "sigvaris-performance",
@@ -863,7 +1250,7 @@ export const compressionStockingBrands: StockingBrand[] = [
         brandName: "Sigvaris",
         line: "Performance",
         audience: "Unissex",
-        displayName: "Sigvaris Performance · Esportiva",
+        displayName: "Sigvaris Performance · Unissex",
         summary:
           "Meia de compressão para prática esportiva, com construção anatômica e variedade de cores.",
         description:
@@ -875,21 +1262,6 @@ export const compressionStockingBrands: StockingBrand[] = [
             swatch: colors.preta,
             image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CW_black.jpg`,
           },
-          {
-            name: "Azul",
-            swatch: colors.azul,
-            image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CW_blue.jpg`,
-          },
-          {
-            name: "Rosa",
-            swatch: colors.pink,
-            image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_women_calf_pink.jpg`,
-          },
-          {
-            name: "Branca",
-            swatch: colors.branca,
-            image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CM_white_1200x1200.jpg`,
-          },
         ],
         boxImage: `${sigvarisBase}/Performance (esportiva)/Performance_Sigvaris_Unisex_Packaging_BR.jpg`,
         genericImage: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CW_black.jpg`,
@@ -900,7 +1272,7 @@ export const compressionStockingBrands: StockingBrand[] = [
             items: [
               "Modelo panturrilha esportiva",
               "Formato anatômico",
-              "Cores preta, azul, rosa e branca conforme estoque",
+              "Cor preta",
             ],
           },
         ],
@@ -950,31 +1322,63 @@ export const compressionStockingBrands: StockingBrand[] = [
         whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Elegância Actitud.",
       },
       {
-        id: "sigvaris-style-audace",
+        id: "sigvaris-style-audace-panturrilha",
         brandId: "sigvaris",
         brandName: "Sigvaris",
         line: "Style Prevenção Audace",
         audience: "Unissex",
-        displayName: "Sigvaris Style Prevenção Audace · Unissex",
+        displayName: "Sigvaris Style Prevenção Audace Panturrilha · Unissex",
         summary:
-          "Linha transparente para prevenção, conforto e elegância no uso diário.",
+          "Linha transparente para prevenção, conforto e elegância no uso diário, modelo panturrilha.",
         description:
           "A Style Prevenção Audace foi desenvolvida para combinar transparência, elasticidade e compressão suave. Os modelos e as cores variam conforme disponibilidade.",
         compression: ["15-20 mmHg"],
         colors: [
           {
-            name: "Natural escura",
-            swatch: colors.naturalEscura,
-            image: `${sigvarisBase}/Style/Audace/STY_Preventive_Sigvaris_Woman_Pantyhouse_Open_NaturalEscura_alt3_SA.jpg`,
+            name: "Natural",
+            swatch: colors.natural,
+            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_calf_closed_taupe_sa.webp`,
           },
           {
-            name: "Preta",
-            swatch: colors.preta,
-            image: `${sigvarisBase}/Style/Audace/STY_Preventive_Sigvaris_Woman_Pantyhouse_Black_SA.jpg`,
+            name: "Natural escura",
+            swatch: colors.naturalEscura,
+            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_calf_open_suntan_sa.jpg`,
           },
+        ],
+        boxImage: `${sigvarisBase}/Style/Audace/STY_Audace_Sigvaris_Unisex_Calf_BOX_SA.png`,
+        genericImage: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_calf_closed_taupe_sa.webp`,
+        sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_Prevencao_Pantyhouse.jpg`,
+        specifications: [
+          {
+            title: "Apresentação",
+            items: ["Modelo panturrilha", "Tabela de medidas adaptada ao biótipo brasileiro"],
+          },
+        ],
+        badges: ["Unissex", "Prevenção"],
+        keywords: ["style", "audace", "prevenção", "prevencao", "transparente", "unissex", "panturrilha"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Prevenção Audace Panturrilha.",
+      },
+      {
+        id: "sigvaris-style-audace-meia-calca",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Style Prevenção Audace",
+        audience: "Unissex",
+        displayName: "Sigvaris Style Prevenção Audace Meia-calça · Unissex",
+        summary:
+          "Linha transparente para prevenção, conforto e elegância no uso diário, modelo meia-calça.",
+        description:
+          "A Style Prevenção Audace foi desenvolvida para combinar transparência, elasticidade e compressão suave. Os modelos e as cores variam conforme disponibilidade.",
+        compression: ["15-20 mmHg"],
+        colors: [
           {
             name: "Natural",
             swatch: colors.natural,
+            image: `${sigvarisBase}/Style/Audace/STY_Preventive_Sigvaris_Woman_Pantyhouse_Open_NaturalEscura_alt3_SA.jpg`,
+          },
+          {
+            name: "Natural escura",
+            swatch: colors.naturalEscura,
             image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_pantyhouse_suntan_alt1_SA.jpg`,
           },
         ],
@@ -983,27 +1387,92 @@ export const compressionStockingBrands: StockingBrand[] = [
         sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_Prevencao_Pantyhouse.jpg`,
         specifications: [
           {
-            title: "Apresentações da linha",
-            items: [
-              "Modelos panturrilha, meia-coxa e meia-calça",
-              "Ponteiras aberta e fechada conforme modelo",
-              "Tabela de medidas adaptada ao biótipo brasileiro",
-            ],
+            title: "Apresentação",
+            items: ["Modelo meia-calça", "Tabela de medidas adaptada ao biótipo brasileiro"],
           },
         ],
         badges: ["Unissex", "Prevenção"],
-        keywords: ["style", "audace", "prevenção", "prevencao", "transparente", "unissex"],
-        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Prevenção Audace.",
+        keywords: ["style", "audace", "prevenção", "prevencao", "transparente", "unissex", "meia-calça"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Prevenção Audace Meia-calça.",
       },
       {
-        id: "sigvaris-style-ever-sheer",
+        id: "sigvaris-style-audace-meia-coxa",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Style Prevenção Audace",
+        audience: "Unissex",
+        displayName: "Sigvaris Style Prevenção Audace Meia-coxa · Unissex",
+        summary:
+          "Linha transparente para prevenção, conforto e elegância no uso diário, modelo meia-coxa.",
+        description:
+          "A Style Prevenção Audace foi desenvolvida para combinar transparência, elasticidade e compressão suave. Os modelos e as cores variam conforme disponibilidade.",
+        compression: ["15-20 mmHg"],
+        colors: [
+          {
+            name: "Natural",
+            swatch: colors.natural,
+            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_th_open_taupe_sa.webp`,
+          },
+          {
+            name: "Natural escura",
+            swatch: colors.naturalEscura,
+            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_th_closed_natural_sa.webp`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Style/Audace/STY_Audace_Sigvaris_Unisex_Calf_BOX_SA.png`,
+        genericImage: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_th_open_taupe_sa.webp`,
+        sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_Prevencao_Pantyhouse.jpg`,
+        specifications: [
+          {
+            title: "Apresentação",
+            items: ["Modelo meia-coxa", "Tabela de medidas adaptada ao biótipo brasileiro"],
+          },
+        ],
+        badges: ["Unissex", "Prevenção"],
+        keywords: ["style", "audace", "prevenção", "prevencao", "transparente", "unissex", "meia-coxa"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Prevenção Audace Meia-coxa.",
+      },
+      {
+        id: "sigvaris-style-ever-sheer-panturrilha",
         brandId: "sigvaris",
         brandName: "Sigvaris",
         line: "Style Transparência Ever Sheer",
         audience: "Unissex",
-        displayName: "Sigvaris Style Transparência Ever Sheer · Unissex",
+        displayName: "Sigvaris Style Transparência Ever Sheer Panturrilha · Unissex",
         summary:
-          "Linha transparente com efeito natural e opções para diferentes tons de pele.",
+          "Linha transparente com efeito natural, modelo panturrilha.",
+        description:
+          "A Style Transparência Ever Sheer combina compressão graduada, transparência e variedade de tons. Consulte a cor, o modelo e o tamanho disponíveis.",
+        compression: ["20-30 mmHg"],
+        colors: [
+          {
+            name: "Natural",
+            swatch: colors.natural,
+            image: `${sigvarisBase}/Style/Eversheer/sty_transparent_nude_calf_ot_sigvaris_women_cappuccino_brazil_site4.webp`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Style/Eversheer/STY_EverSheer_Sigvaris_Unisex_Thigh_BOX_SA.png`,
+        genericImage: `${sigvarisBase}/Style/Eversheer/sty_transparent_nude_calf_ot_sigvaris_women_cappuccino_brazil_site4.webp`,
+        sizeChartImage: `${sigvarisBase}/Style/Eversheer/SIZE_CHART_STY_Transparencia_TH.jpg`,
+        specifications: [
+          {
+            title: "Apresentação",
+            items: ["Modelo panturrilha, com pé aberto", "Cor natural"],
+          },
+        ],
+        badges: ["Unissex", "Transparente"],
+        keywords: ["style", "ever sheer", "eversheer", "transparência", "transparencia", "nude", "panturrilha"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Transparência Ever Sheer Panturrilha.",
+      },
+      {
+        id: "sigvaris-style-ever-sheer-meia-calca",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Style Transparência Ever Sheer",
+        audience: "Unissex",
+        displayName: "Sigvaris Style Transparência Ever Sheer Meia-calça · Unissex",
+        summary:
+          "Linha transparente com efeito natural, modelo meia-calça.",
         description:
           "A Style Transparência Ever Sheer combina compressão graduada, transparência e variedade de tons. Consulte a cor, o modelo e o tamanho disponíveis.",
         compression: ["20-30 mmHg"],
@@ -1019,17 +1488,45 @@ export const compressionStockingBrands: StockingBrand[] = [
         sizeChartImage: `${sigvarisBase}/Style/Eversheer/SIZE_CHART_STY_Transparencia_TH.jpg`,
         specifications: [
           {
-            title: "Apresentações da linha",
-            items: [
-              "Modelos panturrilha, meia-coxa e meia-calça",
-              "Ponteiras aberta e fechada conforme modelo",
-              "Opções de tons de pele confirmadas no atendimento",
-            ],
+            title: "Apresentação",
+            items: ["Modelo meia-calça, com pé aberto", "Cor natural"],
           },
         ],
         badges: ["Unissex", "Transparente"],
-        keywords: ["style", "ever sheer", "eversheer", "transparência", "transparencia", "nude"],
-        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Transparência Ever Sheer.",
+        keywords: ["style", "ever sheer", "eversheer", "transparência", "transparencia", "nude", "meia-calça"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Transparência Ever Sheer Meia-calça.",
+      },
+      {
+        id: "sigvaris-style-ever-sheer-meia-coxa",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Style Transparência Ever Sheer",
+        audience: "Unissex",
+        displayName: "Sigvaris Style Transparência Ever Sheer Meia-coxa · Unissex",
+        summary:
+          "Linha transparente com efeito natural, modelo meia-coxa.",
+        description:
+          "A Style Transparência Ever Sheer combina compressão graduada, transparência e variedade de tons. Consulte a cor, o modelo e o tamanho disponíveis.",
+        compression: ["20-30 mmHg"],
+        colors: [
+          {
+            name: "Natural",
+            swatch: colors.natural,
+            image: `${sigvarisBase}/Style/Eversheer/sty_transparent_eversheer_th_ot_sigvaris_women_natural_brazil_site2.webp`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Style/Eversheer/STY_EverSheer_Sigvaris_Unisex_Thigh_BOX_SA.png`,
+        genericImage: `${sigvarisBase}/Style/Eversheer/sty_transparent_eversheer_th_ot_sigvaris_women_natural_brazil_site2.webp`,
+        sizeChartImage: `${sigvarisBase}/Style/Eversheer/SIZE_CHART_STY_Transparencia_TH.jpg`,
+        specifications: [
+          {
+            title: "Apresentação",
+            items: ["Modelo meia-coxa, com pé aberto", "Cor natural"],
+          },
+        ],
+        badges: ["Unissex", "Transparente"],
+        keywords: ["style", "ever sheer", "eversheer", "transparência", "transparencia", "nude", "meia-coxa"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Transparência Ever Sheer Meia-coxa.",
       },
     ],
   },
@@ -1056,11 +1553,11 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: "/Genoven/genoven-meias.webp",
+            image: "/Genoven/genoven-basic-recortado.webp",
           },
         ],
         boxImage: "/Genoven/genoven-meias.webp",
-        genericImage: "/Genoven/genoven-meias.webp",
+        genericImage: "/Genoven/genoven-basic-recortado.webp",
         specifications: [
           {
             title: "Variações para consulta",
