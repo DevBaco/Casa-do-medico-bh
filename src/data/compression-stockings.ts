@@ -488,7 +488,7 @@ export const compressionStockingBrands: StockingBrand[] = [
         audience: "Unissex",
         displayName: "Venosan Ultraline AT · Unissex",
         summary:
-          "Linha Super Premium com opções em bege e preto, modelo AT.",
+          "Linha Super Premium em bege, modelo AT.",
         description:
           "A Ultraline é voltada a necessidades de compressão mais firme, com acompanhamento criterioso de medidas e confirmação de modelo pelo atendimento.",
         compression: ["20-30 mmHg", "30-40 mmHg"],
@@ -498,11 +498,6 @@ export const compressionStockingBrands: StockingBrand[] = [
             swatch: colors.bege,
             image: `${venosanBase}/ULTRALINE 4000/ultraline-400-at-aberta-bege.png`,
           },
-          {
-            name: "Preta",
-            swatch: colors.preta,
-            image: `${venosanBase}/ULTRALINE 4000/16420151797121-ultralineatpfechadocorpreta.jpg`,
-          },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
         genericImage: `${venosanBase}/ULTRALINE 4000/ultraline-400-at-aberta-bege.png`,
@@ -510,16 +505,52 @@ export const compressionStockingBrands: StockingBrand[] = [
         specifications: [
           {
             title: "Modelo oficial",
-            items: ["AT, com pé aberto", "AT em preta disponível apenas com pé fechado"],
+            items: ["AT"],
           },
           {
             title: "Cores oficiais",
-            items: ["Bege", "Preta"],
+            items: ["Bege"],
           },
         ],
         badges: ["Unissex", "Super Premium"],
-        keywords: ["ultraline", "unissex", "bege", "preta", "at"],
+        keywords: ["ultraline", "unissex", "bege", "at"],
         whatsappMessage: "Olá! Tenho interesse na Venosan Ultraline AT.",
+      },
+      {
+        id: "venosan-ultraline-at-preta",
+        brandId: "venosan",
+        brandName: "Venosan",
+        line: "Ultraline",
+        audience: "Unissex",
+        displayName: "Venosan Ultraline AT Preta · Unissex",
+        summary:
+          "Linha Super Premium em preto, modelo AT, com ponteira fechada.",
+        description:
+          "A Ultraline é voltada a necessidades de compressão mais firme, com acompanhamento criterioso de medidas e confirmação de modelo pelo atendimento. Esta versão em preto do modelo AT é fabricada apenas com ponteira fechada.",
+        compression: ["20-30 mmHg", "30-40 mmHg"],
+        colors: [
+          {
+            name: "Preta",
+            swatch: colors.preta,
+            image: `${venosanBase}/ULTRALINE 4000/16420151797121-ultralineatpfechadocorpreta.jpg`,
+          },
+        ],
+        boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/16420151797121-ultralineatpfechadocorpreta.jpg`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
+        specifications: [
+          {
+            title: "Modelo oficial",
+            items: ["AT, com ponteira fechada"],
+          },
+          {
+            title: "Cores oficiais",
+            items: ["Preta"],
+          },
+        ],
+        badges: ["Unissex", "Ponteira fechada"],
+        keywords: ["ultraline", "unissex", "preta", "at", "ponteira fechada"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Ultraline AT Preta.",
       },
       {
         id: "venosan-ultraline-agg",
