@@ -1,5 +1,6 @@
 ---
 import ProductCatalog from "@/components/ProductCatalog.astro";
+import SiteFooter from "@/components/SiteFooter.astro";
 import SiteHeader from "@/components/SiteHeader.astro";
 import { catalogCategories } from "@/data/catalog-products";
 import type { CatalogCategoryId } from "@/data/catalog-products";
@@ -33,12 +34,5 @@ const description = category
     </section>
   </main>
 
-  <footer class="border-t bg-secondary">
-    <div class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-      <p class="text-sm text-muted-foreground">
-        Casa do Médico BH — produtos médicos e atendimento consultivo desde 1954.
-      </p>
-      <img src="/logo/casa-do-medico-pb.png" alt="" class="h-10 w-auto opacity-60" />
-    </div>
-  </footer>
+  <SiteFooter />
 </Layout>

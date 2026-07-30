@@ -221,7 +221,7 @@ export default function CompressionProductGallery({
       <div className="mt-5 border-t pt-4">
         <p className="mb-3 flex items-center gap-2 text-sm font-semibold">
           <Palette className="size-4 text-primary" />
-          Cores disponíveis
+          Modelos disponíveis
         </p>
         <div className="flex flex-wrap gap-3">
           {colors.map((color) => (
@@ -229,7 +229,7 @@ export default function CompressionProductGallery({
               key={color.name}
               type="button"
               variant="ghost"
-              aria-label={`Selecionar cor ${color.name}`}
+              aria-label={`Selecionar modelo ${color.name}`}
               aria-pressed={selectedColor.name === color.name}
               onClick={() => {
                 setSelectedColor(color);

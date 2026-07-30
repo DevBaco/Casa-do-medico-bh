@@ -63,7 +63,7 @@ const defaultSpecs: StockingSpecGroup[] = [
     title: "Variações para consulta",
     items: [
       "Modelo, tamanho, compressão e ponteira variam conforme estoque",
-      "Códigos como AD, AGH, AGG, AT e ATM são confirmados no atendimento",
+      "Códigos como AD, AGH, AGG e AT são confirmados no atendimento",
       "A numeração deve ser conferida pela tabela de medidas da linha",
     ],
   },
@@ -82,22 +82,37 @@ export const compressionStockingBrands: StockingBrand[] = [
         brandId: "venosan",
         brandName: "Venosan",
         line: "Comfortline",
-        audience: "Feminina",
-        displayName: "Venosan Comfortline Feminina",
+        audience: "Unissex",
+        displayName: "Venosan Comfortline · Unissex",
         summary:
           "Linha diária com toque macio, indicada para rotina, trabalho e longos períodos em pé ou sentado.",
         description:
-          "A Comfortline Feminina reúne modelos de compressão graduada para uso cotidiano, com variações de altura, ponteira e tamanho conforme estoque.",
+          "A Comfortline reúne modelos de compressão graduada para uso cotidiano, com variações de altura, ponteira e tamanho conforme estoque.",
         compression: ["20-30 mmHg", "30-40 mmHg"],
         colors: [
           {
-            name: "Bege",
+            name: "Bege · AD",
             swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE/AD-COMFORT PERNA FEMININA.webp`,
+            image: `${venosanBase}/COMFORTLINE/16431149200351-adcomfortline.jpg`,
+          },
+          {
+            name: "Bege · AGG",
+            swatch: colors.bege,
+            image: `${venosanBase}/COMFORTLINE/16431149201164-aggcomfortlinepernadireita.jpg`,
+          },
+          {
+            name: "Bege · AGH",
+            swatch: colors.bege,
+            image: `${venosanBase}/COMFORTLINE/16431149205637-aghcomfortline.jpg`,
+          },
+          {
+            name: "Bege · AT",
+            swatch: colors.bege,
+            image: `${venosanBase}/COMFORTLINE/16431149208895-atcomfortline.jpg`,
           },
         ],
         boxImage: `${venosanBase}/COMFORTLINE/COMFORTLINE - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/COMFORTLINE/AD-COMFORT PERNA FEMININA.webp`,
+        genericImage: `${venosanBase}/COMFORTLINE/16431149200351-adcomfortline.jpg`,
         sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
@@ -111,47 +126,9 @@ export const compressionStockingBrands: StockingBrand[] = [
             ],
           },
         ],
-        badges: ["Feminina", "Uso diário"],
-        keywords: ["comfortline", "feminina", "meia de compressão diária"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan Comfortline Feminina.",
-      },
-      {
-        id: "venosan-comfortline-masculina",
-        brandId: "venosan",
-        brandName: "Venosan",
-        line: "Comfortline",
-        audience: "Masculina",
-        displayName: "Venosan Comfortline Masculina",
-        summary:
-          "Versão masculina da Comfortline para uso diário, com visual discreto e compressão graduada.",
-        description:
-          "A Comfortline Masculina atende quem precisa de meia elástica para rotina, viagens ou permanência prolongada em pé/sentado. A disponibilidade é confirmada por tamanho e compressão.",
-        compression: ["20-30 mmHg", "30-40 mmHg"],
-        colors: [
-          {
-            name: "Bege",
-            swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE/AD-COMFORT PERNA MASCULINA.webp`,
-          },
-        ],
-        boxImage: `${venosanBase}/COMFORTLINE/COMFORTLINE - DIREITA.webp`,
-        genericImage: `${venosanBase}/COMFORTLINE/AD-COMFORT PERNA MASCULINA.webp`,
-        sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.jpg`,
-        specifications: [
-          {
-            title: "Modelos oficiais",
-            items: [
-              "AD, pé aberto",
-              "AGG unilateral direita ou esquerda, pé aberto",
-              "AGH, pé aberto",
-              "AT, pé aberto",
-              "Cor bege",
-            ],
-          },
-        ],
-        badges: ["Masculina", "Uso diário"],
-        keywords: ["comfortline", "masculina", "meia social compressiva"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan Comfortline Masculina.",
+        badges: ["Unissex", "Uso diário"],
+        keywords: ["comfortline", "unissex", "meia de compressão diária"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Comfortline.",
       },
       {
         id: "venosan-comfortline-cotton",
@@ -168,13 +145,13 @@ export const compressionStockingBrands: StockingBrand[] = [
         compression: ["20-30 mmHg", "30-40 mmHg"],
         colors: [
           {
-            name: "Bege",
+            name: "Bege · AD",
             swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE COTTON/AD-COMFORT COTTON - DEITADA.webp`,
+            image: `${venosanBase}/COMFORTLINE COTTON/AD-COMFORT COTTON C ZÍPER - FRENTE.webp`,
           },
         ],
         boxImage: `${venosanBase}/COMFORTLINE COTTON/COMFORTLINE COTTON - DIREITA.webp`,
-        genericImage: `${venosanBase}/COMFORTLINE COTTON/AD-COMFORT COTTON - DEITADA.webp`,
+        genericImage: `${venosanBase}/COMFORTLINE COTTON/AD-COMFORT COTTON C ZÍPER - FRENTE.webp`,
         sizeChartImage: `${venosanBase}/COMFORTLINE COTTON/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
@@ -204,13 +181,13 @@ export const compressionStockingBrands: StockingBrand[] = [
         compression: ["20-30 mmHg", "30-40 mmHg"],
         colors: [
           {
-            name: "Bege",
+            name: "Bege · AD",
             swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE COTTON/AD-COMFORT COTTON C ZÍPER - FRENTE.webp`,
+            image: `${venosanBase}/COMFORTLINE COTTON/16431111355127-02.adcomfortlinecottoncomziper.jpg`,
           },
         ],
         boxImage: `${venosanBase}/COMFORTLINE COTTON/COMFORTLINE COTTON COM ZÍPER - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/COMFORTLINE COTTON/AD-COMFORT COTTON C ZÍPER - FRENTE.webp`,
+        genericImage: `${venosanBase}/COMFORTLINE COTTON/16431111355127-02.adcomfortlinecottoncomziper.jpg`,
         sizeChartImage: `${venosanBase}/COMFORTLINE COTTON/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
@@ -224,263 +201,144 @@ export const compressionStockingBrands: StockingBrand[] = [
           "Olá! Tenho interesse na Venosan Comfortline Cotton com Zíper.",
       },
       {
-        id: "venosan-comfortline-cotton-bracadeira",
-        brandId: "venosan",
-        brandName: "Venosan",
-        line: "Comfortline Cotton",
-        subline: "Braçadeira",
-        audience: "Unissex",
-        displayName: "Venosan Comfortline Cotton Braçadeira · Unissex",
-        summary:
-          "Braçadeira da linha Comfortline Cotton, com tabela específica de medidas.",
-        description:
-          "A braçadeira Comfortline Cotton é uma sublinha própria e deve ser conferida com tabela específica. Disponibilidade sob consulta por lado, tamanho e configuração.",
-        compression: ["30-40 mmHg"],
-        colors: [
-          {
-            name: "Bege",
-            swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE COTTON/ZH-BRAÇADEIRA-COMFORT COTTON -EMBALAGEM - BAIXA.webp`,
-          },
-        ],
-        boxImage: `${venosanBase}/COMFORTLINE COTTON/COMFORTLINE COTTON - DIREITA.webp`,
-        genericImage: `${venosanBase}/COMFORTLINE COTTON/ZH-BRAÇADEIRA-COMFORT COTTON -EMBALAGEM - BAIXA.webp`,
-        sizeChartImage: `${venosanBase}/COMFORTLINE COTTON/TABELA DE MEDIDAS - BRAÇADEIRA.jpg`,
-        specifications: [
-          {
-            title: "Variações para consulta",
-            items: [
-              "ZH: até o metacarpo, com alça e polegar",
-              "BH: até o punho, com alça",
-              "Cor bege e tabela própria",
-            ],
-          },
-        ],
-        badges: ["Braçadeira", "Tabela própria"],
-        keywords: ["comfortline cotton", "braçadeira", "manga compressiva"],
-        whatsappMessage:
-          "Olá! Tenho interesse na Venosan Comfortline Cotton Braçadeira.",
-      },
-      {
         id: "venosan-legline",
         brandId: "venosan",
         brandName: "Venosan",
         line: "Legline",
-        audience: "Feminina",
-        displayName: "Venosan Legline Feminina",
+        audience: "Unissex",
+        displayName: "Venosan Legline · Unissex",
         summary:
-          "Linha feminina com variações de cores, compressões e modelos para diferentes rotinas.",
+          "Linha com variações de cores, compressões e modelos para diferentes rotinas.",
         description:
-          "A Legline é uma linha feminina com opções discretas para o dia a dia. As cores e modelos variam conforme estoque e devem ser confirmados no atendimento.",
+          "A Legline é uma linha com opções discretas para o dia a dia. As cores e modelos variam conforme estoque e devem ser confirmados no atendimento.",
         compression: ["15-23 mmHg", "20-30 mmHg"],
         colors: [
           {
-            name: "Olinda",
+            name: "Olinda · AD",
             swatch: colors.olinda,
-            image: `${venosanBase}/LEGLINE/AD-LEGLINE-PÉ FECHADO-OLINDA PERNA FEMININA.webp`,
+            image: `${venosanBase}/LEGLINE/16419946764369-leglineadpeabertoolinda.jpg`,
           },
           {
-            name: "Sahara",
+            name: "Sahara · AD",
             swatch: colors.sahara,
-            image: `${venosanBase}/LEGLINE/AD-LEGLINE-PÉ FECHADO-SAHARA PERNA FEMININA.webp`,
+            image: `${venosanBase}/LEGLINE/16419955489835-leglineadpeabertosahara.jpg`,
           },
           {
-            name: "Preta",
-            swatch: colors.preta,
-            image: `${venosanBase}/LEGLINE/AD-LEGLINE-PÉ FECHADO-PRETO PERNA FEMININA.webp`,
+            name: "Olinda · AGH",
+            swatch: colors.olinda,
+            image: `${venosanBase}/LEGLINE/164199554985-leglineaghpeabertoolinda.jpg`,
+          },
+          {
+            name: "Sahara · AGH",
+            swatch: colors.sahara,
+            image: `${venosanBase}/LEGLINE/16419965153307-leglineaghpeabertosahara.jpg`,
+          },
+          {
+            name: "Olinda · AT",
+            swatch: colors.olinda,
+            image: `${venosanBase}/LEGLINE/16420072730389-leglineatpeabertoolinda.jpg`,
+          },
+          {
+            name: "Sahara · AT",
+            swatch: colors.sahara,
+            image: `${venosanBase}/LEGLINE/16420072731121-leglineatpeabertosahara.jpg`,
           },
         ],
         boxImage: `${venosanBase}/LEGLINE/LEGLINE 15-23 - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/LEGLINE/AD-LEGLINE-PÉ FECHADO-OLINDA PERNA FEMININA.webp`,
+        genericImage: `${venosanBase}/LEGLINE/16419946764369-leglineadpeabertoolinda.jpg`,
         sizeChartImage: `${venosanBase}/LEGLINE/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
             title: "Modelos oficiais",
-            items: [
-              "AD e AGH, com pé aberto ou fechado",
-              "AT e ATM, com pé aberto ou fechado",
-            ],
+            items: ["AD, AGH e AT, com pé aberto"],
           },
           {
             title: "Cores oficiais",
-            items: ["Olinda", "Sahara", "Preta"],
+            items: ["Olinda", "Sahara"],
           },
         ],
-        badges: ["Feminina", "Cores variadas"],
-        keywords: ["legline", "olinda", "sahara", "preta"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan Legline Feminina.",
+        badges: ["Unissex", "Cores variadas"],
+        keywords: ["legline", "olinda", "sahara"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan Legline.",
       },
       {
-        id: "venosan-legline-gestante",
+        id: "venosan-ultraline-feminina",
         brandId: "venosan",
         brandName: "Venosan",
-        line: "Legline",
-        subline: "Gestante",
-        audience: "Feminina",
-        displayName: "Venosan Legline Gestante",
+        line: "Ultraline",
+        audience: "Unissex",
+        displayName: "Venosan Ultraline · Unissex",
         summary:
-          "Sublinha maternidade/gestante da Legline, com modelagem própria para consulta.",
+          "Linha Super Premium com opções em bege.",
         description:
-          "A Legline Gestante atende a necessidade de meia-calça maternidade. A indicação, tamanho e disponibilidade devem ser confirmados no atendimento.",
-        compression: ["Consulte disponibilidade por compressão"],
-        colors: [
-          {
-            name: "Preta",
-            swatch: colors.preta,
-            image: `${venosanBase}/LEGLINE/AGH-LEGLINE -PÉ FECHADA -PRETA - GRÁVIDA.jpg`,
-          },
-        ],
-        boxImage: `${venosanBase}/LEGLINE/LEGLINE 20-30 - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/LEGLINE/GRÁVIDA SEM FUNDO.webp`,
-        sizeChartImage: `${venosanBase}/LEGLINE/TABELA DE MEDIDAS.jpg`,
-        specifications: [
-          {
-            title: "Variações para consulta",
-            items: ["Modelagem gestante", "Ponteira conforme estoque", "Tamanho conferido pela tabela"],
-          },
-        ],
-        badges: ["Gestante", "Feminina"],
-        keywords: ["legline", "gestante", "maternidade", "grávida"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan Legline Gestante.",
-      },
-      {
-        id: "venosan-legline-queen",
-        brandId: "venosan",
-        brandName: "Venosan",
-        line: "Legline Queen",
-        audience: "Feminina",
-        displayName: "Venosan Legline Queen",
-        summary:
-          "Sublinha Queen da Legline para grade diferenciada, com cores Olinda e Sahara nos assets atuais.",
-        description:
-          "A Legline Queen atende quem precisa de grade diferenciada. A escolha correta depende da tabela de medidas e conferência de estoque por cor.",
-        compression: ["Consulte disponibilidade por compressão"],
-        colors: [
-          {
-            name: "Olinda",
-            swatch: colors.olinda,
-            image: `${venosanBase}/LEGLINE QUEEN/OLINDA (3) - GRANDE.webp`,
-          },
-          {
-            name: "Sahara",
-            swatch: colors.sahara,
-            image: `${venosanBase}/LEGLINE QUEEN/SAHARA (2) - GRANDE.webp`,
-          },
-        ],
-        boxImage: `${venosanBase}/LEGLINE/LEGLINE 20-30 - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/LEGLINE QUEEN/SAHARA (3) - GRANDE.webp`,
-        sizeChartImage: `${venosanBase}/LEGLINE QUEEN/TABELA DE MEDIDAS.jpg`,
-        specifications: defaultSpecs,
-        badges: ["Queen", "Feminina"],
-        keywords: ["legline queen", "queen", "olinda", "sahara"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan Legline Queen.",
-      },
-      {
-        id: "venosan-ultraline-4000-feminina",
-        brandId: "venosan",
-        brandName: "Venosan",
-        line: "Ultraline 4000",
-        audience: "Feminina",
-        displayName: "Venosan Ultraline 4000 Feminina",
-        summary:
-          "Linha Super Premium com opções femininas em bege e preto.",
-        description:
-          "A Ultraline 4000 Feminina é voltada a necessidades de compressão mais firme, com acompanhamento criterioso de medidas e confirmação de modelo pelo atendimento.",
+          "A Ultraline é voltada a necessidades de compressão mais firme, com acompanhamento criterioso de medidas e confirmação de modelo pelo atendimento.",
         compression: ["20-30 mmHg", "30-40 mmHg"],
         colors: [
           {
-            name: "Bege",
+            name: "Bege · AD",
             swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/AD-ULTRALINE-BEGE- PÉ FECHADO.webp`,
+            image: `${venosanBase}/ULTRALINE 4000/16420151769452-ultralineadpabertocorbege.jpg`,
           },
           {
-            name: "Preta",
-            swatch: colors.preta,
-            image: `${venosanBase}/ULTRALINE 4000/AD-ULTRALINE-PRETA- PÉ ABERTO.webp`,
+            name: "Bege · AGG",
+            swatch: colors.bege,
+            image: `${venosanBase}/ULTRALINE 4000/1642015178229-ultralineaggesquerdocorbege.jpg`,
+          },
+          {
+            name: "Bege · AGH",
+            swatch: colors.bege,
+            image: `${venosanBase}/ULTRALINE 4000/16420151784312-ultralineaghpabertocorbege.jpg`,
+          },
+          {
+            name: "Bege · AT",
+            swatch: colors.bege,
+            image: `${venosanBase}/ULTRALINE 4000/ultraline-400-at-aberta-bege.png`,
           },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
-        genericImage: `${venosanBase}/ULTRALINE 4000/AD-ULTRALINE-BEGE- PÉ FECHADO.webp`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/16420151769452-ultralineadpabertocorbege.jpg`,
         sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
             title: "Modelos oficiais",
             items: [
-              "AD e AGH, com pé aberto ou fechado",
-              "AT com pé fechado; ATM com pé aberto ou fechado",
+              "AD, AGH e AT, com pé aberto",
               "AGG unilateral direita ou esquerda, com pé aberto",
             ],
           },
         ],
-        badges: ["Feminina", "Super Premium"],
-        keywords: ["ultraline", "4000", "feminina", "bege", "preta"],
+        badges: ["Unissex", "Super Premium"],
+        keywords: ["ultraline", "unissex", "bege"],
         whatsappMessage:
-          "Olá! Tenho interesse na Venosan Ultraline 4000 Feminina.",
+          "Olá! Tenho interesse na Venosan Ultraline.",
       },
       {
-        id: "venosan-ultraline-4000-masculina",
+        id: "venosan-ultraline-bracadeira",
         brandId: "venosan",
         brandName: "Venosan",
-        line: "Ultraline 4000",
-        audience: "Masculina",
-        displayName: "Venosan Ultraline 4000 Masculina",
-        summary:
-          "Versão masculina da linha Super Premium, nas cores bege e preta.",
-        description:
-          "A Ultraline 4000 Masculina reúne opções de compressão firme para consulta por tamanho, cor, ponteira e modelo disponível em estoque.",
-        compression: ["20-30 mmHg", "30-40 mmHg"],
-        colors: [
-          {
-            name: "Preta",
-            swatch: colors.preta,
-            image: `${venosanBase}/ULTRALINE 4000/AD-ULTRALINE-PRETO- PÉ FECHADO PERNA MASCULINA.webp`,
-          },
-          {
-            name: "Bege",
-            swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/AD-ULTRALINE-BEGE- PÉ FECHADO PERNA MASCULINA.webp`,
-          },
-        ],
-        boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - DIREITA.webp`,
-        genericImage: `${venosanBase}/ULTRALINE 4000/AD-ULTRALINE-PRETO- PÉ FECHADO PERNA MASCULINA.webp`,
-        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
-        specifications: [
-          {
-            title: "Modelos para consulta",
-            items: [
-              "AD, meia 3/4 com pé fechado",
-              "AT, meia-calça com pé fechado",
-              "Cores bege e preta",
-            ],
-          },
-        ],
-        badges: ["Masculina", "Super Premium"],
-        keywords: ["ultraline", "4000", "masculina"],
-        whatsappMessage:
-          "Olá! Tenho interesse na Venosan Ultraline 4000 Masculina.",
-      },
-      {
-        id: "venosan-ultraline-4000-bracadeira",
-        brandId: "venosan",
-        brandName: "Venosan",
-        line: "Ultraline 4000",
+        line: "Ultraline",
         subline: "Braçadeira",
         audience: "Unissex",
-        displayName: "Venosan Ultraline 4000 Braçadeira · Unissex",
+        displayName: "Venosan Ultraline Braçadeira · Unissex",
         summary:
-          "Braçadeira da linha Ultraline 4000, com tabela de medidas própria.",
+          "Braçadeira da linha Ultraline, com tabela de medidas própria.",
         description:
-          "A braçadeira Ultraline 4000 possui tabela específica e variações confirmadas por tamanho, lado e configuração.",
+          "A braçadeira Ultraline possui tabela específica e variações confirmadas por tamanho, lado e configuração.",
         compression: ["30-40 mmHg"],
         colors: [
           {
-            name: "Bege",
+            name: "Bege · ZH",
             swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/ZH-BRAÇADEIRA-ULTRALINE  C DEDO - EMBALAGEM.webp`,
+            image: `${venosanBase}/ULTRALINE 4000/16420806755022-zhultralinecorbege.jpg`,
+          },
+          {
+            name: "Bege · BH",
+            swatch: colors.bege,
+            image: `${venosanBase}/ULTRALINE 4000/16420806755796-bhultralinecorbege.jpg`,
           },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE BRAÇADEIRA - DIREITA.webp`,
-        genericImage: `${venosanBase}/ULTRALINE 4000/ZH-BRAÇADEIRA-ULTRALINE  C DEDO - EMBALAGEM.webp`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/16420806755022-zhultralinecorbege.jpg`,
         sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS - BRAÇADEIRA.jpg`,
         specifications: [
           {
@@ -495,7 +353,7 @@ export const compressionStockingBrands: StockingBrand[] = [
         badges: ["Braçadeira", "Alta compressão"],
         keywords: ["ultraline", "braçadeira", "manga compressiva"],
         whatsappMessage:
-          "Olá! Tenho interesse na Venosan Ultraline 4000 Braçadeira.",
+          "Olá! Tenho interesse na Venosan Ultraline Braçadeira.",
       },
       {
         id: "venosan-6000",
@@ -511,36 +369,51 @@ export const compressionStockingBrands: StockingBrand[] = [
         compression: ["20-30 mmHg", "30-40 mmHg"],
         colors: [
           {
-            name: "Bege",
+            name: "Bege · AD",
             swatch: colors.bege,
-            image: `${venosanBase}/6000/AD-6000-PÉ FECHADO-BEGE-PERNA FEMININA.webp`,
+            image: `${venosanBase}/6000/16431198851026-02.ad6000bege.jpg`,
           },
           {
-            name: "Bronze",
+            name: "Bronze · AD",
             swatch: colors.bronze,
-            image: `${venosanBase}/6000/AD-6000-PÉ FECHADO BRONZE-PERNA FEMININA.webp`,
+            image: `${venosanBase}/6000/16431198851415-03.ad6000bronze.jpg`,
           },
           {
-            name: "Preta",
-            swatch: colors.preta,
-            image: `${venosanBase}/6000/AD-6000-PÉ FECHADO-PRETA-PERNA FEMININA.webp`,
+            name: "Bege · AGH",
+            swatch: colors.bege,
+            image: `${venosanBase}/6000/16431198859595-07.agh6000begepaberto.jpg`,
+          },
+          {
+            name: "Bronze · AGH",
+            swatch: colors.bronze,
+            image: `${venosanBase}/6000/16431198863246-08.agh6000bronzepaberto.jpg`,
+          },
+          {
+            name: "Bege · AT",
+            swatch: colors.bege,
+            image: `${venosanBase}/6000/16431198863726-09.at6000begepaberto.jpg`,
+          },
+          {
+            name: "Bronze · AT",
+            swatch: colors.bronze,
+            image: `${venosanBase}/6000/16431198866288-10.at6000bronzepaberto.jpg`,
           },
         ],
         boxImage: `${venosanBase}/6000/6000 - DIREITA.webp`,
-        genericImage: `${venosanBase}/6000/AD-6000-PÉ FECHADO-BEGE-PERNA FEMININA.webp`,
+        genericImage: `${venosanBase}/6000/16431198851026-02.ad6000bege.jpg`,
         sizeChartImage: `${venosanBase}/6000/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
             title: "Modelos oficiais",
             items: [
-              "AD com pé aberto ou fechado",
+              "AD com pé aberto",
               "AGH com pé aberto",
-              "AT com pé aberto ou fechado",
+              "AT com pé aberto",
             ],
           },
           {
             title: "Cores oficiais",
-            items: ["Bege", "Bronze", "Preta conforme o modelo"],
+            items: ["Bege", "Bronze"],
           },
         ],
         badges: ["Unissex", "Clássica"],
@@ -561,29 +434,14 @@ export const compressionStockingBrands: StockingBrand[] = [
         compression: ["18-22 mmHg"],
         colors: [
           {
-            name: "Preta",
+            name: "Preta · AD",
             swatch: colors.preta,
             image: `${venosanBase}/SUPPORTLINE SOFT/SUPPORTLINE SOFT - PRETA - DEITADA.webp`,
           },
           {
-            name: "Branca",
-            swatch: colors.branca,
-            image: `${venosanBase}/SUPPORTLINE SOFT/SUPPORTLINE SOFT - BRANCA - F.webp`,
-          },
-          {
-            name: "Marrom",
-            swatch: colors.marrom,
-            image: `${venosanBase}/SUPPORTLINE SOFT/SUPPORTLINE SOFT - MARROM - F.webp`,
-          },
-          {
-            name: "Cáqui",
+            name: "Cáqui · AD",
             swatch: colors.caqui,
             image: `${venosanBase}/SUPPORTLINE SOFT/SUPPORTLINE SOFT - CÁQUI - F.webp`,
-          },
-          {
-            name: "Azul",
-            swatch: colors.azul,
-            image: `${venosanBase}/SUPPORTLINE SOFT/SUPPORTLINE SOFT - AZUL - F.webp`,
           },
         ],
         boxImage: `${venosanBase}/SUPPORTLINE SOFT/SUPPORTLINE SOFT - DIREITA.webp`,
@@ -593,9 +451,9 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             title: "Apresentação oficial",
             items: [
-              "Modelo AD com pé fechado",
+              "Modelo AD com pé aberto",
               "Indicada para homens e mulheres",
-              "Cores azul, branca, cáqui, marrom e preta",
+              "Cores cáqui e preta",
             ],
           },
         ],
@@ -608,18 +466,23 @@ export const compressionStockingBrands: StockingBrand[] = [
         brandId: "venosan",
         brandName: "Venosan",
         line: "AES / antiembolia",
-        audience: "Feminina",
-        displayName: "Venosan AES Antiembolia Feminina",
+        audience: "Unissex",
+        displayName: "Venosan AES Antiembolia · Unissex",
         summary:
-          "Meia antiembolia feminina para uso hospitalar ou pós-procedimento, conforme orientação.",
+          "Meia antiembolia para uso hospitalar ou pós-procedimento, conforme orientação.",
         description:
-          "A linha AES Feminina é voltada ao contexto hospitalar, pós-operatório ou prevenção de trombose conforme prescrição. Medidas e modelo são confirmados no atendimento.",
+          "A linha AES é voltada ao contexto hospitalar, pós-operatório ou prevenção de trombose conforme prescrição. Medidas e modelo são confirmados no atendimento.",
         compression: ["18 mmHg", "Antiembolia"],
         colors: [
           {
-            name: "Branca",
+            name: "Branca · AD",
             swatch: colors.branca,
             image: `${venosanBase}/AES/AD-AES-PERNA FEMININA.webp`,
+          },
+          {
+            name: "Branca · AGH",
+            swatch: colors.branca,
+            image: `${venosanBase}/AES/16431212039486-03.aghaes.jpg`,
           },
         ],
         boxImage: `${venosanBase}/AES/AES - DIREITA.webp`,
@@ -631,43 +494,10 @@ export const compressionStockingBrands: StockingBrand[] = [
             items: ["AD, até o joelho", "AGH, até a coxa", "Cor branca"],
           },
         ],
-        badges: ["Feminina", "Antiembolia"],
-        keywords: ["aes", "antiembolia", "feminina", "hospitalar"],
+        badges: ["Unissex", "Antiembolia"],
+        keywords: ["aes", "antiembolia", "unissex", "hospitalar"],
         whatsappMessage:
-          "Olá! Tenho interesse na Venosan AES Antiembolia Feminina.",
-      },
-      {
-        id: "venosan-aes-masculina",
-        brandId: "venosan",
-        brandName: "Venosan",
-        line: "AES / antiembolia",
-        audience: "Masculina",
-        displayName: "Venosan AES Antiembolia Masculina",
-        summary:
-          "Meia antiembolia masculina para uso hospitalar ou pós-procedimento, conforme orientação.",
-        description:
-          "A linha AES Masculina é voltada ao contexto hospitalar, pós-operatório ou prevenção de trombose conforme prescrição. Medidas e modelo são confirmados no atendimento.",
-        compression: ["18 mmHg", "Antiembolia"],
-        colors: [
-          {
-            name: "Branca",
-            swatch: colors.branca,
-            image: `${venosanBase}/AES/AD-AES-PERNA MASCULINA.webp`,
-          },
-        ],
-        boxImage: `${venosanBase}/AES/AES - DIREITA.webp`,
-        genericImage: `${venosanBase}/AES/AD-AES-PERNA MASCULINA.webp`,
-        sizeChartImage: `${venosanBase}/AES/TABELA DE MEDIDAS.jpg`,
-        specifications: [
-          {
-            title: "Modelos oficiais",
-            items: ["AD, até o joelho", "AGH, até a coxa", "Cor branca"],
-          },
-        ],
-        badges: ["Masculina", "Antiembolia"],
-        keywords: ["aes", "antiembolia", "masculina", "hospitalar"],
-        whatsappMessage:
-          "Olá! Tenho interesse na Venosan AES Antiembolia Masculina.",
+          "Olá! Tenho interesse na Venosan AES Antiembolia.",
       },
       {
         id: "venosan-aes-esteril",
@@ -684,18 +514,28 @@ export const compressionStockingBrands: StockingBrand[] = [
         compression: ["18 mmHg", "Antiembolia"],
         colors: [
           {
-            name: "Branca",
+            name: "Branca · AD",
             swatch: colors.branca,
-            image: `${venosanBase}/AES/AD-AES-DEITADA-PERNA-FEMNINA.webp`,
+            image: `${venosanBase}/AES/AD-AES-PERNA FEMININA.webp`,
+          },
+          {
+            name: "Branca · AGH",
+            swatch: colors.branca,
+            image: `${venosanBase}/AES/16431212039486-03.aghaes.jpg`,
           },
         ],
         boxImage: `${venosanBase}/AES/AES ESTÉRIL - DIREITA.webp`,
-        genericImage: `${venosanBase}/AES/AD-AES-DEITADA-PERNA-FEMNINA.webp`,
+        genericImage: `${venosanBase}/AES/AD-AES-PERNA FEMININA.webp`,
         sizeChartImage: `${venosanBase}/AES/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
             title: "Apresentação oficial",
-            items: ["Versão estéril para uso durante cirurgia", "Cor branca", "Tamanho confirmado pela tabela"],
+            items: [
+              "Versão estéril para uso durante cirurgia",
+              "AD, até o joelho, e AGH, até a coxa",
+              "Cor branca",
+              "Tamanho confirmado pela tabela",
+            ],
           },
         ],
         badges: ["Estéril", "Antiembolia"],
@@ -716,13 +556,13 @@ export const compressionStockingBrands: StockingBrand[] = [
         compression: ["30-45 mmHg"],
         colors: [
           {
-            name: "Bege",
+            name: "Bege · AD",
             swatch: colors.bege,
-            image: `${venosanBase}/ULCERCOMFORT/ULCERCOMFORT DEITADA.webp`,
+            image: `${venosanBase}/ULCERCOMFORT/16431203901566-02.adulcercomfort.jpg`,
           },
         ],
         boxImage: `${venosanBase}/ULCERCOMFORT/ULCERCOMFORT COM ZIPER - DIREITA.webp`,
-        genericImage: `${venosanBase}/ULCERCOMFORT/ULCERCOMFORT DEITADA 2.webp`,
+        genericImage: `${venosanBase}/ULCERCOMFORT/16431203901566-02.adulcercomfort.jpg`,
         sizeChartImage: `${venosanBase}/ULCERCOMFORT/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
@@ -743,16 +583,16 @@ export const compressionStockingBrands: StockingBrand[] = [
         brandId: "venosan",
         brandName: "Venosan",
         line: "UlcerAid",
-        audience: "Feminina",
-        displayName: "Venosan UlcerAid Feminina",
+        audience: "Unissex",
+        displayName: "Venosan UlcerAid · Unissex",
         summary:
-          "Sistema feminino para suporte em tratamento de úlceras venosas, conforme indicação.",
+          "Sistema para suporte em tratamento de úlceras venosas, conforme indicação.",
         description:
-          "A UlcerAid Feminina é uma linha de cuidado específico. A escolha deve considerar tabela de medidas, indicação profissional e disponibilidade do kit.",
+          "A UlcerAid é uma linha de cuidado específico. A escolha deve considerar tabela de medidas, indicação profissional e disponibilidade do kit.",
         compression: ["30-45 mmHg", "Sistema para úlcera venosa"],
         colors: [
           {
-            name: "Bege",
+            name: "Bege · AD",
             swatch: colors.bege,
             image: `${venosanBase}/ULCERAID/AD-ULCERAID - PERNA FEMININA.webp`,
           },
@@ -765,50 +605,14 @@ export const compressionStockingBrands: StockingBrand[] = [
             title: "Composição do kit",
             items: [
               "2 meias internas Legline Silver brancas, 10-15 mmHg",
-              "1 meia externa Ultraline 4000 bege, 20-30 mmHg",
+              "1 meia externa Ultraline bege, 20-30 mmHg",
               "Modelo AD com pé aberto",
             ],
           },
         ],
-        badges: ["Feminina", "Úlcera venosa"],
-        keywords: ["ulceraid", "ulcer aid", "úlcera", "feminina"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan UlcerAid Feminina.",
-      },
-      {
-        id: "venosan-ulceraid-masculina",
-        brandId: "venosan",
-        brandName: "Venosan",
-        line: "UlcerAid",
-        audience: "Masculina",
-        displayName: "Venosan UlcerAid Masculina",
-        summary:
-          "Sistema masculino para suporte em tratamento de úlceras venosas, conforme indicação.",
-        description:
-          "A UlcerAid Masculina é uma linha de cuidado específico. A escolha deve considerar tabela de medidas, indicação profissional e disponibilidade do kit.",
-        compression: ["30-45 mmHg", "Sistema para úlcera venosa"],
-        colors: [
-          {
-            name: "Bege",
-            swatch: colors.bege,
-            image: `${venosanBase}/ULCERAID/AD-ULCERAID - PERNA MASCULINA.webp`,
-          },
-        ],
-        boxImage: `${venosanBase}/ULCERAID/ULCERAID - DIREITA.webp`,
-        genericImage: `${venosanBase}/ULCERAID/AD-ULCERAID - PERNA MASCULINA.webp`,
-        sizeChartImage: `${venosanBase}/ULCERAID/TABELA DE MEDIDAS.jpg`,
-        specifications: [
-          {
-            title: "Composição do kit",
-            items: [
-              "2 meias internas Legline Silver brancas, 10-15 mmHg",
-              "1 meia externa Ultraline 4000 bege, 20-30 mmHg",
-              "Modelo AD com pé aberto",
-            ],
-          },
-        ],
-        badges: ["Masculina", "Úlcera venosa"],
-        keywords: ["ulceraid", "ulcer aid", "úlcera", "masculina"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan UlcerAid Masculina.",
+        badges: ["Unissex", "Úlcera venosa"],
+        keywords: ["ulceraid", "ulcer aid", "úlcera", "unissex"],
+        whatsappMessage: "Olá! Tenho interesse na Venosan UlcerAid.",
       },
       {
         id: "venosan-sportactive",
@@ -824,35 +628,20 @@ export const compressionStockingBrands: StockingBrand[] = [
         compression: ["20-30 mmHg"],
         colors: [
           {
-            name: "Preta",
+            name: "Preta · BD",
             swatch: colors.preta,
-            image: `${venosanBase}/SPORTACTIVE/SPORTACTIVE PRETA - FRENTE - F.webp`,
-          },
-          {
-            name: "Branca",
-            swatch: colors.branca,
-            image: `${venosanBase}/SPORTACTIVE/SPORTACTIVE BRANCA - FRENTE - F.webp`,
-          },
-          {
-            name: "Rosa",
-            swatch: colors.pink,
-            image: `${venosanBase}/SPORTACTIVE/SPORTACTIVE PINK - FRENTE.webp`,
-          },
-          {
-            name: "Bege",
-            swatch: colors.bege,
-            image: `${venosanBase}/SPORTACTIVE/SPORTACTIVE BEGE - FRENTE.webp`,
+            image: `${venosanBase}/SPORTACTIVE/16431221946273-08.adsportactivecorpretafrente.jpg`,
           },
         ],
         boxImage: `${venosanBase}/SPORTACTIVE/SPORTACTIVE - DIREITA.webp`,
-        genericImage: `${venosanBase}/SPORTACTIVE/SPORTACTIVE PRETA DEITADA.webp`,
+        genericImage: `${venosanBase}/SPORTACTIVE/16431221946273-08.adsportactivecorpretafrente.jpg`,
         sizeChartImage: `${venosanBase}/SPORTACTIVE/TABELA DE MEDIDAS.jpg`,
         specifications: [
           {
             title: "Apresentação oficial",
             items: [
               "Modelo BD esportivo",
-              "Cores bege, branca, rosa e preta",
+              "Cor preta",
               "Tamanho confirmado pela tabela da linha",
             ],
           },
@@ -1046,23 +835,13 @@ export const compressionStockingBrands: StockingBrand[] = [
         compression: ["20-30 mmHg", "30-40 mmHg"],
         colors: [
           {
-            name: "Chocolate",
-            swatch: colors.chocolate,
-            image: `${sigvarisBase}/Essencial/Conforto/ESS_Confort_Pantyhouse_Sigvaris_UnisexChocolate_SA.jpg`,
-          },
-          {
-            name: "Preta",
-            swatch: colors.preta,
-            image: `${sigvarisBase}/Essencial/Conforto/ESS_Confort_Pantyhouse_Sigvaris_Unisex_Black_SA.jpg`,
-          },
-          {
             name: "Natural",
             swatch: colors.natural,
             image: `${sigvarisBase}/Essencial/Conforto/ESS_Confort_Pantyhouse_Sigvaris_Unisex_Suntan_SA.jpg`,
           },
         ],
         boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.jpg`,
-        genericImage: `${sigvarisBase}/Essencial/Conforto/ESS_Confort_Pantyhouse_Sigvaris_UnisexChocolate_SA.jpg`,
+        genericImage: `${sigvarisBase}/Essencial/Conforto/ESS_Confort_Pantyhouse_Sigvaris_Unisex_Suntan_SA.jpg`,
         sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.jpg`,
         specifications: [
           {
@@ -1175,10 +954,10 @@ export const compressionStockingBrands: StockingBrand[] = [
         brandId: "sigvaris",
         brandName: "Sigvaris",
         line: "Style Prevenção Audace",
-        audience: "Feminina",
-        displayName: "Sigvaris Style Prevenção Audace Feminina",
+        audience: "Unissex",
+        displayName: "Sigvaris Style Prevenção Audace · Unissex",
         summary:
-          "Linha feminina transparente para prevenção, conforto e elegância no uso diário.",
+          "Linha transparente para prevenção, conforto e elegância no uso diário.",
         description:
           "A Style Prevenção Audace foi desenvolvida para combinar transparência, elasticidade e compressão suave. Os modelos e as cores variam conforme disponibilidade.",
         compression: ["15-20 mmHg"],
@@ -1212,61 +991,19 @@ export const compressionStockingBrands: StockingBrand[] = [
             ],
           },
         ],
-        badges: ["Feminina", "Prevenção"],
-        keywords: ["style", "audace", "prevenção", "prevencao", "transparente", "feminina"],
+        badges: ["Unissex", "Prevenção"],
+        keywords: ["style", "audace", "prevenção", "prevencao", "transparente", "unissex"],
         whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Prevenção Audace.",
-      },
-      {
-        id: "sigvaris-style-audace-modeladora",
-        brandId: "sigvaris",
-        brandName: "Sigvaris",
-        line: "Style Prevenção Audace",
-        subline: "Modeladora",
-        audience: "Feminina",
-        displayName: "Sigvaris Style Audace Modeladora",
-        summary:
-          "Meia-calça de prevenção com modelagem corporal e compressão suave.",
-        description:
-          "A Style Audace Modeladora alia compressão graduada e modelagem na região abdominal e do quadril. Consulte cor e tamanho disponíveis antes da compra.",
-        compression: ["15-20 mmHg"],
-        colors: [
-          {
-            name: "Natural",
-            swatch: colors.natural,
-            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_pantyhouse_suntan_alt1_SA.jpg`,
-          },
-          {
-            name: "Preta",
-            swatch: colors.preta,
-            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_pantyhouse_black_alt3_SA.jpg`,
-          },
-        ],
-        boxImage: `${sigvarisBase}/Style/Audace/sty_preventive_audace modeladora_Sigvaris_Packaging_Unisex_BR.jpg`,
-        genericImage: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_pantyhouse_suntan_alt1_SA.jpg`,
-        sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_AUDACE_MODELADORA_2021_Prancheta 1.jpg`,
-        specifications: [
-          {
-            title: "Apresentação da linha",
-            items: [
-              "Modelo meia-calça",
-              "Ponteira fechada",
-              "Comprimentos curto e longo conforme tamanho",
-            ],
-          },
-        ],
-        badges: ["Feminina", "Modeladora"],
-        keywords: ["style", "audace", "modeladora", "meia-calça", "meia calça", "feminina"],
-        whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Audace Modeladora.",
       },
       {
         id: "sigvaris-style-ever-sheer",
         brandId: "sigvaris",
         brandName: "Sigvaris",
         line: "Style Transparência Ever Sheer",
-        audience: "Feminina",
-        displayName: "Sigvaris Style Transparência Ever Sheer",
+        audience: "Unissex",
+        displayName: "Sigvaris Style Transparência Ever Sheer · Unissex",
         summary:
-          "Linha feminina transparente com efeito natural e opções para diferentes tons de pele.",
+          "Linha transparente com efeito natural e opções para diferentes tons de pele.",
         description:
           "A Style Transparência Ever Sheer combina compressão graduada, transparência e variedade de tons. Consulte a cor, o modelo e o tamanho disponíveis.",
         compression: ["20-30 mmHg"],
@@ -1290,7 +1027,7 @@ export const compressionStockingBrands: StockingBrand[] = [
             ],
           },
         ],
-        badges: ["Feminina", "Transparente"],
+        badges: ["Unissex", "Transparente"],
         keywords: ["style", "ever sheer", "eversheer", "transparência", "transparencia", "nude"],
         whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Transparência Ever Sheer.",
       },

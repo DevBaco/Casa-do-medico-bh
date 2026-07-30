@@ -5,6 +5,7 @@ import Layout from "@/layouts/Layout.astro";
 import CompressionProductCard from "@/components/CompressionProductCard.astro";
 import CompressionProductGallery from "@/components/CompressionProductGallery";
 import CompressionProductTabs from "@/components/CompressionProductTabs";
+import SiteFooter from "@/components/SiteFooter.astro";
 import SiteHeader from "@/components/SiteHeader.astro";
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -195,14 +196,7 @@ const similarProducts = compressionStockingLines
     )}
   </main>
 
-  <footer class="border-t bg-secondary">
-    <div class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-      <p class="text-sm text-muted-foreground">
-        Casa do Médico BH — catálogo institucional com atendimento consultivo pelo WhatsApp.
-      </p>
-      <img src="/logo/casa-do-medico-pb.png" alt="" class="h-10 w-auto opacity-60" />
-    </div>
-  </footer>
+  <SiteFooter />
 
   <script>
     document.querySelectorAll<HTMLFormElement>("[data-product-whatsapp-form]").forEach((form) => {
