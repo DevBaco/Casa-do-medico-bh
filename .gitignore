@@ -28,3 +28,5 @@ pnpm-debug.log*
 
 # Local safety backups (never commit large Git bundles)
 .local-backups/
+
+fotos-enviadas/
