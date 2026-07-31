@@ -980,6 +980,21 @@ export const compressionStockingBrands: StockingBrand[] = [
             swatch: colors.preta,
             image: `${venosanBase}/SPORTACTIVE/16431221946273-08.adsportactivecorpretafrente.jpg`,
           },
+          {
+            name: "Branca · BD",
+            swatch: colors.branca,
+            image: `${venosanBase}/SPORTACTIVE/SPORTACTIVE BRANCA - FRENTE - F.webp`,
+          },
+          {
+            name: "Rosa · BD",
+            swatch: colors.pink,
+            image: `${venosanBase}/SPORTACTIVE/SPORTACTIVE PINK - FRENTE.webp`,
+          },
+          {
+            name: "Bege · BD",
+            swatch: colors.bege,
+            image: `${venosanBase}/SPORTACTIVE/SPORTACTIVE BEGE - FRENTE.webp`,
+          },
         ],
         boxImage: `${venosanBase}/SPORTACTIVE/SPORTACTIVE - DIREITA.webp`,
         genericImage: `${venosanBase}/SPORTACTIVE/16431221946273-08.adsportactivecorpretafrente.jpg`,
@@ -989,13 +1004,13 @@ export const compressionStockingBrands: StockingBrand[] = [
             title: "Apresentação oficial",
             items: [
               "Modelo BD esportivo",
-              "Cor preta",
+              "Cores bege, branca, rosa e preta",
               "Tamanho confirmado pela tabela da linha",
             ],
           },
         ],
         badges: ["Unissex", "Esportiva"],
-        keywords: ["sportactive", "sport active", "esportiva", "unissex"],
+        keywords: ["sportactive", "sport active", "esportiva", "unissex", "bege", "branca", "rosa", "preta"],
         whatsappMessage: "Olá! Tenho interesse na Venosan SportActive.",
       },
     ],
@@ -1319,11 +1334,16 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Preta",
             swatch: colors.preta,
-            image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CW_black.jpg`,
+            image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CW_black.webp`,
+          },
+          {
+            name: "Branca",
+            swatch: colors.branca,
+            image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_branca.webp`,
           },
         ],
         boxImage: `${sigvarisBase}/Performance (esportiva)/Performance_Sigvaris_Unisex_Packaging_BR.jpg`,
-        genericImage: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CW_black.jpg`,
+        genericImage: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CW_black.webp`,
         sizeChartImage: `${sigvarisBase}/Performance (esportiva)/SIZE_CHART_SPO_all sports.jpg`,
         specifications: [
           {
@@ -1331,12 +1351,12 @@ export const compressionStockingBrands: StockingBrand[] = [
             items: [
               "Modelo panturrilha esportiva",
               "Formato anatômico",
-              "Cor preta",
+              "Cores preta e branca",
             ],
           },
         ],
         badges: ["Unissex", "Esportiva"],
-        keywords: ["performance", "esportiva", "esporte", "atividade física", "corrida"],
+        keywords: ["performance", "esportiva", "esporte", "atividade física", "corrida", "branca"],
         whatsappMessage: "Olá! Tenho interesse na Sigvaris Performance.",
       },
       {
