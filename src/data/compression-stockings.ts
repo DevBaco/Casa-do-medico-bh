@@ -563,7 +563,7 @@ export const compressionStockingBrands: StockingBrand[] = [
           "Linha Super Premium com opções em bege, modelo AGG unilateral.",
         description:
           "A Ultraline é voltada a necessidades de compressão mais firme, com acompanhamento criterioso de medidas e confirmação de modelo pelo atendimento.",
-        compression: ["20-30 mmHg", "30-40 mmHg"],
+        compression: ["30-40 mmHg"],
         colors: [
           {
             name: "Bege",
@@ -1008,14 +1008,46 @@ export const compressionStockingBrands: StockingBrand[] = [
       "Linhas Sigvaris organizadas por coleção e finalidade, com modelos, cores, compressões e tamanhos confirmados no atendimento.",
     lines: [
       {
-        id: "sigvaris-antitrombo",
+        id: "sigvaris-antitrombo-panturrilha",
         brandId: "sigvaris",
         brandName: "Sigvaris",
         line: "Antitrombo",
         audience: "Unissex",
-        displayName: "Sigvaris Antitrombo · Unissex",
+        displayName: "Sigvaris Antitrombo Panturrilha · Unissex",
         summary:
-          "Linha hospitalar para profilaxia de tromboembolismo venoso em períodos pré, intra e pós-operatórios.",
+          "Linha hospitalar para profilaxia de tromboembolismo venoso, modelo panturrilha.",
+        description:
+          "A Sigvaris Antitrombo foi desenvolvida para contextos hospitalares e períodos de repouso prolongado. O modelo e o tamanho devem seguir orientação profissional e a tabela específica da linha.",
+        compression: ["18-23 mmHg"],
+        colors: [
+          {
+            name: "Branca",
+            swatch: colors.branca,
+            image: `${sigvarisBase}/Antitrombo/hos_antitrombo_sigvaris_unisex_calf_sa.jpg`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_Calf_BOX_ALT1_SA.png`,
+        genericImage: `${sigvarisBase}/Antitrombo/hos_antitrombo_sigvaris_unisex_calf_sa.jpg`,
+        sizeChartImage: `${sigvarisBase}/Antitrombo/SIZE_CHART_HOS_Antitrombo.jpg`,
+        specifications: [
+          {
+            title: "Apresentação",
+            items: ["Modelo panturrilha", "Ponteira aberta/rebatível", "Uso hospitalar conforme orientação profissional"],
+          },
+        ],
+        badges: ["Unissex", "Hospitalar"],
+        keywords: ["antitrombo", "antitrombose", "hospitalar", "cirurgia", "repouso", "panturrilha"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Antitrombo Panturrilha.",
+      },
+      {
+        id: "sigvaris-antitrombo-meia-coxa",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Antitrombo",
+        audience: "Unissex",
+        displayName: "Sigvaris Antitrombo Meia-coxa · Unissex",
+        summary:
+          "Linha hospitalar para profilaxia de tromboembolismo venoso, modelo meia-coxa.",
         description:
           "A Sigvaris Antitrombo foi desenvolvida para contextos hospitalares e períodos de repouso prolongado. O modelo e o tamanho devem seguir orientação profissional e a tabela específica da linha.",
         compression: ["18-23 mmHg"],
@@ -1031,17 +1063,13 @@ export const compressionStockingBrands: StockingBrand[] = [
         sizeChartImage: `${sigvarisBase}/Antitrombo/SIZE_CHART_HOS_Antitrombo.jpg`,
         specifications: [
           {
-            title: "Apresentações da linha",
-            items: [
-              "Modelos panturrilha e meia-coxa",
-              "Ponteira aberta/rebatível",
-              "Uso hospitalar conforme orientação profissional",
-            ],
+            title: "Apresentação",
+            items: ["Modelo meia-coxa", "Ponteira aberta/rebatível", "Uso hospitalar conforme orientação profissional"],
           },
         ],
         badges: ["Unissex", "Hospitalar"],
-        keywords: ["antitrombo", "antitrombose", "hospitalar", "cirurgia", "repouso"],
-        whatsappMessage: "Olá! Tenho interesse na Sigvaris Antitrombo.",
+        keywords: ["antitrombo", "antitrombose", "hospitalar", "cirurgia", "repouso", "meia-coxa"],
+        whatsappMessage: "Olá! Tenho interesse na Sigvaris Antitrombo Meia-coxa.",
       },
       {
         id: "sigvaris-dynaven-basic-panturrilha",
