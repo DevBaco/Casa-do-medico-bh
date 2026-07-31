@@ -1287,11 +1287,11 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Natural",
             swatch: colors.natural,
-            image: `${sigvarisBase}/Essencial/Conforto/ess_confort_tighhigh_ct_sigvaris_unisex_beige_sa.webp`,
+            image: `${sigvarisBase}/Essencial/Conforto/meia-coxa-ponteira-aberta.webp`,
           },
         ],
         boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.jpg`,
-        genericImage: `${sigvarisBase}/Essencial/Conforto/ess_confort_tighhigh_ct_sigvaris_unisex_beige_sa.webp`,
+        genericImage: `${sigvarisBase}/Essencial/Conforto/meia-coxa-ponteira-aberta.webp`,
         sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.jpg`,
         specifications: [
           {
