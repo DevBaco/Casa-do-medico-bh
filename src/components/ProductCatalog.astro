@@ -1,5 +1,5 @@
 ---
-import { ChevronDown, Search, SlidersHorizontal, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Search, SlidersHorizontal, X } from "lucide-react";
 import CatalogProductCard from "@/components/CatalogProductCard.astro";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -82,6 +82,15 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
             <p data-catalog-count class="mt-1 text-sm text-muted-foreground">
               {initialProductCount} {initialProductCount === 1 ? "produto" : "produtos"} no catálogo
             </p>
+            <a
+              data-catalog-all-link
+              href="/produtos"
+              hidden={!validInitialCategory}
+              class={cn(buttonVariants({ variant: "outline", size: "sm" }), "mt-4")}
+            >
+              Ver catálogo completo
+              <ArrowRight className="size-3.5" />
+            </a>
           </div>
         </div>
       </div>
@@ -239,6 +248,17 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
       </p>
     </CardContent>
   </Card>
+
+  <section data-catalog-related hidden class="border-t pt-10 sm:pt-14">
+    <div class="mb-6 max-w-3xl">
+      <Badge variant="secondary">Continue explorando</Badge>
+      <h2 class="mt-3 text-2xl font-bold sm:text-3xl">Produtos relacionados</h2>
+      <p class="mt-2 text-sm text-muted-foreground">
+        Outros itens que podem complementar sua escolha.
+      </p>
+    </div>
+    <div data-catalog-related-grid class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3"></div>
+  </section>
 </div>
 
 <script is:inline>
@@ -272,6 +292,9 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
     var count = catalogRoot.querySelector("[data-catalog-count]");
     var filterSummary = catalogRoot.querySelector("[data-filter-summary]");
     var emptyState = catalogRoot.querySelector("[data-catalog-empty]");
+    var catalogAllLink = catalogRoot.querySelector("[data-catalog-all-link]");
+    var relatedSection = catalogRoot.querySelector("[data-catalog-related]");
+    var relatedGrid = catalogRoot.querySelector("[data-catalog-related-grid]");
     var searchStatus = catalogRoot.querySelector("[data-catalog-search-status]");
     var categoryBadge = catalogRoot.querySelector("[data-active-category-badge]");
     var categoryLabel = catalogRoot.querySelector("[data-active-category-label]");
@@ -322,6 +345,12 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
     });
 
     var state = { category: "", type: "", query: "" };
+    var relatedCategoriesById = {
+      "monitoramento": ["cuidados-medico-hospitalares", "ortopedia-mobilidade"],
+      "ortopedia-mobilidade": ["fisioterapia-recuperacao", "cuidados-medico-hospitalares"],
+      "fisioterapia-recuperacao": ["ortopedia-mobilidade"],
+      "cuidados-medico-hospitalares": ["monitoramento", "ortopedia-mobilidade"],
+    };
 
     var readUrlState = function () {
       var params = new URLSearchParams(window.location.search);
@@ -381,6 +410,37 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
             : productUrl
         );
       });
+    };
+
+    var updateRelatedProducts = function () {
+      if (!relatedSection || !relatedGrid || !state.category) {
+        if (relatedSection) relatedSection.hidden = true;
+        return;
+      }
+
+      var relatedCategoryIds = relatedCategoriesById[state.category] || [];
+      var candidates = productCards.filter(function (card) {
+        var types = (card.dataset.types || "").split(" ");
+        return state.type
+          ? card.dataset.category === state.category && !types.includes(state.type)
+          : relatedCategoryIds.includes(card.dataset.category || "");
+      }).slice(0, 3);
+
+      relatedGrid.replaceChildren();
+      candidates.forEach(function (card) {
+        var relatedCard = card.cloneNode(true);
+        relatedCard.removeAttribute("id");
+        relatedCard.removeAttribute("hidden");
+        relatedCard.removeAttribute("data-product-card");
+        relatedCard.querySelectorAll("[id]").forEach(function (element) {
+          element.removeAttribute("id");
+        });
+        relatedCard.querySelectorAll("input[name]").forEach(function (input) {
+          input.name = "related-" + input.name;
+        });
+        relatedGrid.appendChild(relatedCard);
+      });
+      relatedSection.hidden = candidates.length === 0;
     };
 
     var applyState = function (updateUrl) {
@@ -454,6 +514,7 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
 
       var hasActiveFilter = Boolean(state.category || state.type || state.query);
       if (clearButton) clearButton.hidden = !hasActiveFilter;
+      if (catalogAllLink) catalogAllLink.hidden = !Boolean(state.category || state.type);
       if (emptyState) emptyState.classList.toggle("hidden", visibleProducts !== 0);
 
       if (searchStatus) {
@@ -464,6 +525,7 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
 
       if (updateUrl) writeUrlState();
       updateProductDetailLinks();
+      updateRelatedProducts();
     };
 
     categoryButtons.forEach(function (button) {
