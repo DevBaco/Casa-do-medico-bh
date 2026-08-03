@@ -1,10 +1,9 @@
 ---
-import { ArrowRight, ChevronDown, Search, SlidersHorizontal, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, Search, SlidersHorizontal, X } from "lucide-react";
 import CatalogProductCard from "@/components/CatalogProductCard.astro";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import {
   catalogSubcategories,
   getCatalogPopularFilterIds,
@@ -29,19 +28,6 @@ const initialProductCount = validInitialCategory
   ? catalogProducts.filter((product) => product.categoryId === validInitialCategory).length
   : catalogProducts.length;
 
-const categoryNameById = new Map(
-  catalogCategories.map((category) => [category.id, category.name])
-);
-
-const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
-  [
-    product.name,
-    categoryNameById.get(product.categoryId) ?? "",
-    product.summary,
-    product.description,
-    product.badges.join(" "),
-    product.keywords.join(" "),
-  ].join(" ");
 ---
 
 <div
@@ -49,6 +35,16 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
   data-product-catalog
   data-initial-category={validInitialCategory}
 >
+  <a
+    data-catalog-all-link
+    href="/produtos"
+    hidden={!validInitialCategory}
+    class={cn(buttonVariants({ variant: "outline", size: "sm" }), "inline-flex")}
+  >
+    <ArrowLeft className="size-3.5" />
+    Voltar ao catálogo completo
+  </a>
+
   <Card className="gap-0 overflow-hidden py-0 shadow-sm">
     <CardContent className="p-0">
       <div class="flex flex-col gap-5 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
@@ -82,15 +78,6 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
             <p data-catalog-count class="mt-1 text-sm text-muted-foreground">
               {initialProductCount} {initialProductCount === 1 ? "produto" : "produtos"} no catálogo
             </p>
-            <a
-              data-catalog-all-link
-              href="/produtos"
-              hidden={!validInitialCategory}
-              class={cn(buttonVariants({ variant: "outline", size: "sm" }), "mt-4")}
-            >
-              Ver catálogo completo
-              <ArrowRight className="size-3.5" />
-            </a>
           </div>
         </div>
       </div>
@@ -112,22 +99,6 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
         </summary>
 
         <div class="space-y-5 border-t bg-secondary/40 px-5 py-5 sm:px-6">
-          <div>
-            <label for="catalog-product-search" class="mb-2 block text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-              Buscar produto
-            </label>
-            <div class="relative max-w-2xl">
-              <Search className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                id="catalog-product-search"
-                type="search"
-                placeholder="Nome do produto ou finalidade..."
-                autocomplete="off"
-                className="h-10 bg-background pr-4 pl-10"
-              />
-            </div>
-          </div>
-
           <fieldset>
             <legend class="mb-2.5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
               Categoria
@@ -225,13 +196,28 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
     </CardContent>
   </Card>
 
+  <Card className="border-primary/20 bg-secondary/45">
+    <CardContent className="flex flex-col gap-5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+      <div>
+        <Badge variant="secondary">Meias compressivas</Badge>
+        <h2 class="mt-2 text-lg font-semibold">Também procura meias de compressão?</h2>
+        <p class="mt-1 text-sm leading-relaxed text-muted-foreground">
+          Explore as linhas disponíveis e encontre a opção mais adequada para sua necessidade.
+        </p>
+      </div>
+      <a href="/meias-de-compressão" class={cn(buttonVariants({ variant: "outline", size: "lg" }), "shrink-0")}>
+        Ver catálogo de meias
+        <ArrowRight className="size-4" />
+      </a>
+    </CardContent>
+  </Card>
+
   <div data-catalog-grid class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
     {catalogProducts.map((product) => (
       <div
         data-product-card
         data-category={product.categoryId}
         data-types={getCatalogPopularFilterIds(product.id).join(" ")}
-        data-search={getProductSearchText(product)}
         hidden={Boolean(validInitialCategory && product.categoryId !== validInitialCategory)}
       >
         <CatalogProductCard product={product} />
@@ -244,7 +230,7 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
       <Search className="mx-auto size-8 text-muted-foreground" />
       <h2 class="mt-4 text-xl font-semibold">Nenhum produto encontrado</h2>
       <p class="mt-2 text-sm text-muted-foreground">
-        Remova algum filtro ou tente pesquisar por outro termo.
+        Remova algum filtro ou selecione outra categoria.
       </p>
     </CardContent>
   </Card>
@@ -263,7 +249,7 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
 
 <script is:inline>
   // Runs inline and synchronously (not as a bundled module fetched over the
-  // network) so the initial category/type/search filter from the URL
+  // network) so the initial category/type filter from the URL
   // is applied to the DOM before the browser's first paint. A bundled
   // `type="module"` script is fetched async and only ever runs after the
   // unfiltered grid has already painted, producing a visible flash of every
@@ -271,7 +257,6 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
   var catalogRoot = document.querySelector("[data-product-catalog]");
 
   if (catalogRoot) {
-    var searchInput = catalogRoot.querySelector("#catalog-product-search");
     var productCards = Array.from(
       catalogRoot.querySelectorAll("[data-product-card]")
     );
@@ -332,19 +317,7 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
         })
     );
 
-    var normalizeSearch = function (value) {
-      return value
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLocaleLowerCase("pt-BR")
-        .trim();
-    };
-
-    var searchableProducts = productCards.map(function (element) {
-      return { element: element, search: normalizeSearch(element.dataset.search || "") };
-    });
-
-    var state = { category: "", type: "", query: "" };
+    var state = { category: "", type: "" };
     var relatedCategoriesById = {
       "monitoramento": ["cuidados-medico-hospitalares", "ortopedia-mobilidade"],
       "ortopedia-mobilidade": ["fisioterapia-recuperacao", "cuidados-medico-hospitalares"],
@@ -373,9 +346,6 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
       if (state.type) {
         state.category = typeCategoryById.get(state.type) || state.category;
       }
-      state.query = params.get("busca") || "";
-
-      if (searchInput) searchInput.value = state.query;
     };
 
     var writeUrlState = function () {
@@ -390,15 +360,14 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
       if (state.type) url.searchParams.set("tipo", state.type);
       else url.searchParams.delete("tipo");
       url.searchParams.delete("marca");
-      if (state.query) url.searchParams.set("busca", state.query);
-      else url.searchParams.delete("busca");
+      url.searchParams.delete("busca");
 
       window.history.replaceState({}, "", url.pathname + url.search + url.hash);
     };
 
     var updateProductDetailLinks = function () {
       var returnTo = window.location.pathname + window.location.search + window.location.hash;
-      var hasFilterState = Boolean(state.category || state.type || state.query);
+      var hasFilterState = Boolean(state.category || state.type);
 
       productDetailLinks.forEach(function (link) {
         var productUrl = link.dataset.productUrl || link.getAttribute("href") || "";
@@ -446,23 +415,18 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
     var applyState = function (updateUrl) {
       if (updateUrl === undefined) updateUrl = true;
 
-      var normalizedQuery = normalizeSearch(state.query);
       var categoryNames = categories.get(state.category) || { short: "", long: "" };
       var categoryShortName = categoryNames.short;
       var categoryLongName = categoryNames.long;
       var typeName = types.get(state.type) || "";
       var visibleProducts = 0;
 
-      searchableProducts.forEach(function (entry) {
-        var element = entry.element;
-        var search = entry.search;
-
+      productCards.forEach(function (element) {
         var matchesCategory =
           !state.category || element.dataset.category === state.category;
         var matchesType =
           !state.type || (element.dataset.types || "").split(" ").includes(state.type);
-        var matchesSearch = !normalizedQuery || search.includes(normalizedQuery);
-        var visible = matchesCategory && matchesType && matchesSearch;
+        var visible = matchesCategory && matchesType;
 
         element.hidden = !visible;
         if (visible) visibleProducts += 1;
@@ -512,7 +476,7 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
         filterSummary.textContent = typeName || categoryShortName || "Todas as categorias";
       }
 
-      var hasActiveFilter = Boolean(state.category || state.type || state.query);
+      var hasActiveFilter = Boolean(state.category || state.type);
       if (clearButton) clearButton.hidden = !hasActiveFilter;
       if (catalogAllLink) catalogAllLink.hidden = !Boolean(state.category || state.type);
       if (emptyState) emptyState.classList.toggle("hidden", visibleProducts !== 0);
@@ -548,19 +512,10 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
       });
     });
 
-    if (searchInput) {
-      searchInput.addEventListener("input", function () {
-        state.query = searchInput.value;
-        applyState();
-      });
-    }
-
     if (clearButton) {
       clearButton.addEventListener("click", function () {
         state.category = "";
         state.type = "";
-        state.query = "";
-        if (searchInput) searchInput.value = "";
         applyState();
       });
     }

@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { ArrowLeft, Check, Info, PackageCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Info, PackageCheck } from "lucide-react";
 import CatalogProductCard from "@/components/CatalogProductCard.astro";
 import CatalogProductGallery from "@/components/CatalogProductGallery";
 import SiteFooter from "@/components/SiteFooter.astro";
@@ -54,12 +54,16 @@ const detailObjectClass = product.imageFrame?.detailFit === "cover"
 
   <main>
     <section class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-6 lg:py-10">
+      <a
+        data-catalog-back-link
+        href="/produtos"
+        class={cn(buttonVariants({ variant: "outline", size: "sm" }), "mb-5")}
+      >
+        <ArrowLeft className="size-3.5" />
+        <span data-catalog-back-label>Voltar ao catálogo completo</span>
+      </a>
+
       <nav class="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted-foreground" aria-label="Navegação estrutural">
-        <a data-catalog-back-link href="/produtos" class="inline-flex items-center gap-1.5 font-medium hover:text-primary">
-          <ArrowLeft className="size-4" />
-          <span data-catalog-back-label>Produtos</span>
-        </a>
-        <span aria-hidden="true">/</span>
         <a href={`/produtos#${category.id}`} class="font-medium hover:text-primary">
           {category.shortName}
         </a>
@@ -201,6 +205,25 @@ const detailObjectClass = product.imageFrame?.detailFit === "cover"
             >
               <img src="/icons/whatsapp.svg" alt="" class="size-5" />
               Tirar dúvidas
+            </a>
+          </CardContent>
+        </Card>
+
+        <Card className="border-primary/20 bg-primary/5 md:col-span-2">
+          <CardContent className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <Badge variant="secondary">Meias compressivas</Badge>
+              <p class="mt-2 font-semibold">Também procura meias de compressão?</p>
+              <p class="mt-1 text-sm leading-relaxed text-muted-foreground">
+                Consulte as linhas disponíveis e receba orientação para encontrar a opção adequada.
+              </p>
+            </div>
+            <a
+              href="/meias-de-compressão"
+              class={cn(buttonVariants({ variant: "outline", size: "lg" }), "shrink-0")}
+            >
+              Ver catálogo de meias
+              <ArrowRight className="size-4" />
             </a>
           </CardContent>
         </Card>

@@ -1,5 +1,5 @@
 ---
-import { Check, ChevronDown, SlidersHorizontal, X } from "lucide-react";
+import { ArrowLeft, Check, ChevronDown, SlidersHorizontal, X } from "lucide-react";
 import CompressionProductCard from "@/components/CompressionProductCard.astro";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -41,6 +41,16 @@ const displayedBrands = compressionStockingBrands
 ---
 
 <div class="space-y-8">
+  {selectedBrand && (
+    <a
+      href="/meias-de-compressão"
+      class={cn(buttonVariants({ variant: "outline", size: "sm" }), "inline-flex")}
+    >
+      <ArrowLeft className="size-3.5" />
+      Voltar ao catálogo de meias
+    </a>
+  )}
+
   <Card className="gap-0 overflow-hidden py-0 shadow-sm">
     <CardContent className="p-0">
       <div class="flex flex-col gap-5 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">

@@ -1,15 +1,8 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 interface CompressionFinderBrand {
   id: string;
   name: string;
@@ -55,40 +48,46 @@ export default function CompressionFinder({ brands }: CompressionFinderProps) {
         <div className="grid gap-5 lg:grid-cols-2">
           <fieldset>
             <legend className="mb-2 text-sm font-semibold">1. Qual marca?</legend>
-            <Select
-              value={selectedBrand}
-              onValueChange={(value) => {
-                setSelectedBrand(value);
-                setSelectedLine("");
-              }}
-            >
-              <SelectTrigger className="h-12 w-full bg-background">
-                <SelectValue placeholder="Selecione a marca" />
-              </SelectTrigger>
-              <SelectContent>
+            <div className="relative">
+              <select
+                aria-label="Selecione a marca"
+                value={selectedBrand}
+                onChange={(event) => {
+                  setSelectedBrand(event.target.value);
+                  setSelectedLine("");
+                }}
+                className="h-12 w-full appearance-none rounded-lg border bg-background px-3 pr-10 text-sm outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <option value="" disabled>Selecione a marca</option>
                 {brands.map((item) => (
-                  <SelectItem key={item.id} value={item.id}>
+                  <option key={item.id} value={item.id}>
                     {item.name}
-                  </SelectItem>
+                  </option>
                 ))}
-              </SelectContent>
-            </Select>
+              </select>
+              <ChevronDown className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-muted-foreground" />
+            </div>
           </fieldset>
 
           <fieldset>
             <legend className="mb-2 text-sm font-semibold">2. Qual linha?</legend>
-            <Select value={selectedLine} disabled={!brand} onValueChange={setSelectedLine}>
-              <SelectTrigger className="h-12 w-full bg-background">
-                <SelectValue placeholder="Selecione a linha" />
-              </SelectTrigger>
-              <SelectContent>
+            <div className="relative">
+              <select
+                aria-label="Selecione a linha"
+                value={selectedLine}
+                disabled={!brand}
+                onChange={(event) => setSelectedLine(event.target.value)}
+                className="h-12 w-full appearance-none rounded-lg border bg-background px-3 pr-10 text-sm outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <option value="" disabled>Selecione a linha</option>
                 {lines.map((line) => (
-                  <SelectItem key={line.key} value={line.key}>
+                  <option key={line.key} value={line.key}>
                     {line.label}
-                  </SelectItem>
+                  </option>
                 ))}
-              </SelectContent>
-            </Select>
+              </select>
+              <ChevronDown className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-muted-foreground" />
+            </div>
           </fieldset>
         </div>
 
