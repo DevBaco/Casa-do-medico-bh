@@ -55,6 +55,17 @@ const produtosBase = "/Produtos";
 const hidrolightBase = `${produtosBase}/Hidrolight`;
 const acumedBase = `${produtosBase}/Acumed- G.Tech- premium`;
 
+const catalogCategoryOrder: CatalogCategoryId[] = [
+  "monitoramento",
+  "ortopedia-mobilidade",
+  "fisioterapia-recuperacao",
+  "cuidados-medico-hospitalares",
+];
+
+const catalogCategoryOrderMap = new Map(
+  catalogCategoryOrder.map((categoryId, index) => [categoryId, index] as const),
+);
+
 export const catalogCategories: CatalogCategory[] = [
   {
     id: "monitoramento",
@@ -86,7 +97,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
 ];
 
-export const catalogProducts: CatalogProduct[] = [
+const rawCatalogProducts: CatalogProduct[] = [
   {
     id: "oximetro-de-dedo",
     categoryId: "monitoramento",
@@ -1715,6 +1726,15 @@ export const catalogProducts: CatalogProduct[] = [
     keywords: ["sandalia gesso", "bota gessada", "imobilizacao", "chantal"],
   },
 ];
+
+export const catalogProducts = [...rawCatalogProducts].sort((a, b) => {
+  const categoryA = catalogCategoryOrderMap.get(a.categoryId) ?? catalogCategoryOrder.length;
+  const categoryB = catalogCategoryOrderMap.get(b.categoryId) ?? catalogCategoryOrder.length;
+
+  if (categoryA !== categoryB) return categoryA - categoryB;
+
+  return a.name.localeCompare(b.name, "pt-BR", { sensitivity: "base" });
+});
 
 export function getCatalogCategory(categoryId: CatalogCategoryId) {
   return catalogCategories.find((category) => category.id === categoryId)!;

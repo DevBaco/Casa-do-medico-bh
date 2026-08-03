@@ -28,6 +28,41 @@ const initialProductCount = validInitialCategory
   ? catalogProducts.filter((product) => product.categoryId === validInitialCategory).length
   : catalogProducts.length;
 
+const primarySubcategoryByProductId = new Map<string, string>();
+for (const subcategory of catalogSubcategories) {
+  for (const productId of subcategory.productIds) {
+    if (!primarySubcategoryByProductId.has(productId)) {
+      primarySubcategoryByProductId.set(productId, subcategory.id);
+    }
+  }
+}
+
+const groupedCatalogCategories = catalogCategories.map((category) => {
+  const subcategories = catalogSubcategories
+    .filter((subcategory) => subcategory.categoryId === category.id)
+    .map((subcategory) => ({
+      ...subcategory,
+      products: catalogProducts.filter(
+        (product) =>
+          product.categoryId === category.id &&
+          primarySubcategoryByProductId.get(product.id) === subcategory.id
+      ),
+    }))
+    .filter((subcategory) => subcategory.products.length > 0);
+
+  const uncategorizedProducts = catalogProducts.filter(
+    (product) =>
+      product.categoryId === category.id &&
+      !primarySubcategoryByProductId.has(product.id)
+  );
+
+  return {
+    category,
+    subcategories,
+    uncategorizedProducts,
+  };
+});
+
 ---
 
 <div
@@ -212,16 +247,82 @@ const initialProductCount = validInitialCategory
     </CardContent>
   </Card>
 
-  <div data-catalog-grid class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-    {catalogProducts.map((product) => (
-      <div
-        data-product-card
-        data-category={product.categoryId}
-        data-types={getCatalogPopularFilterIds(product.id).join(" ")}
-        hidden={Boolean(validInitialCategory && product.categoryId !== validInitialCategory)}
+  <div data-catalog-grid class="space-y-10">
+    {groupedCatalogCategories.map(({ category, subcategories, uncategorizedProducts }) => (
+      <section
+        data-catalog-category-block
+        data-category-id={category.id}
+        hidden={Boolean(validInitialCategory && category.id !== validInitialCategory)}
+        class="space-y-6"
       >
-        <CatalogProductCard product={product} />
-      </div>
+        <div class="space-y-2">
+          <Badge variant="secondary">{category.shortName}</Badge>
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">{category.name}</h2>
+          <p class="max-w-3xl text-sm text-muted-foreground">{category.description}</p>
+        </div>
+
+        <div class="space-y-8">
+          {subcategories.map((subcategory) => (
+            <section
+              data-catalog-subcategory-block
+              data-category-id={category.id}
+              data-subcategory-id={subcategory.id}
+              hidden={Boolean(validInitialCategory && category.id !== validInitialCategory)}
+              class="space-y-4"
+            >
+              <div class="space-y-1">
+                <h3 class="text-lg font-semibold">{subcategory.label}</h3>
+                <p class="text-sm text-muted-foreground">{subcategory.description}</p>
+              </div>
+
+              <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                {subcategory.products.map((product) => (
+                  <div
+                    data-product-card
+                    data-category={product.categoryId}
+                    data-types={getCatalogPopularFilterIds(product.id).join(" ")}
+                    data-subcategory-id={subcategory.id}
+                    hidden={Boolean(validInitialCategory && product.categoryId !== validInitialCategory)}
+                  >
+                    <CatalogProductCard product={product} />
+                  </div>
+                ))}
+              </div>
+            </section>
+          ))}
+
+          {uncategorizedProducts.length > 0 && (
+            <section
+              data-catalog-subcategory-block
+              data-category-id={category.id}
+              data-subcategory-id=""
+              hidden={Boolean(validInitialCategory && category.id !== validInitialCategory)}
+              class="space-y-4"
+            >
+              <div class="space-y-1">
+                <h3 class="text-lg font-semibold">Outros</h3>
+                <p class="text-sm text-muted-foreground">
+                  Produtos desta categoria que não entram em uma subcategoria específica.
+                </p>
+              </div>
+
+              <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                {uncategorizedProducts.map((product) => (
+                  <div
+                    data-product-card
+                    data-category={product.categoryId}
+                    data-types={getCatalogPopularFilterIds(product.id).join(" ")}
+                    data-subcategory-id=""
+                    hidden={Boolean(validInitialCategory && product.categoryId !== validInitialCategory)}
+                  >
+                    <CatalogProductCard product={product} />
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+      </section>
     ))}
   </div>
 
@@ -262,6 +363,12 @@ const initialProductCount = validInitialCategory
     );
     var productDetailLinks = Array.from(
       catalogRoot.querySelectorAll("[data-product-detail-link]")
+    );
+    var categoryBlocks = Array.from(
+      catalogRoot.querySelectorAll("[data-catalog-category-block]")
+    );
+    var subcategoryBlocks = Array.from(
+      catalogRoot.querySelectorAll("[data-catalog-subcategory-block]")
     );
     var categoryButtons = Array.from(
       catalogRoot.querySelectorAll("[data-filter-category]")
@@ -431,6 +538,16 @@ const initialProductCount = validInitialCategory
         element.hidden = !visible;
         if (visible) visibleProducts += 1;
 
+      });
+
+      subcategoryBlocks.forEach(function (block) {
+        var blockCategory = block.dataset.categoryId || "";
+        var visibleCards = block.querySelectorAll("[data-product-card]:not([hidden])");
+        block.hidden = !visibleCards.length || (state.category && blockCategory !== state.category);
+      });
+      categoryBlocks.forEach(function (block) {
+        var visibleCards = block.querySelectorAll("[data-product-card]:not([hidden])");
+        block.hidden = !visibleCards.length;
       });
 
       categoryButtons.forEach(function (button) {

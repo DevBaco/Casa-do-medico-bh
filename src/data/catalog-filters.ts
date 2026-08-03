@@ -1,3 +1,4 @@
+import { catalogProducts } from "@/data/catalog-products";
 import type { CatalogCategoryId, CatalogProduct } from "@/data/catalog-products";
 
 export interface CatalogSubcategory {
@@ -9,7 +10,26 @@ export interface CatalogSubcategory {
   featuredProductId: CatalogProduct["id"];
 }
 
-export const catalogSubcategories: CatalogSubcategory[] = [
+const catalogProductNameById = new Map(catalogProducts.map((product) => [product.id, product.name] as const));
+const catalogCategoryOrder: CatalogCategoryId[] = [
+  "monitoramento",
+  "ortopedia-mobilidade",
+  "fisioterapia-recuperacao",
+  "cuidados-medico-hospitalares",
+];
+const catalogCategoryOrderMap = new Map(
+  catalogCategoryOrder.map((categoryId, index) => [categoryId, index] as const),
+);
+
+function sortProductIdsByName(productIds: CatalogProduct["id"][]) {
+  return [...productIds].sort((a, b) => {
+    const nameA = catalogProductNameById.get(a) ?? a;
+    const nameB = catalogProductNameById.get(b) ?? b;
+    return nameA.localeCompare(nameB, "pt-BR", { sensitivity: "base" });
+  });
+}
+
+const rawCatalogSubcategories: CatalogSubcategory[] = [
   {
     id: "pressao-e-saturacao",
     categoryId: "monitoramento",
@@ -232,7 +252,20 @@ export const catalogSubcategories: CatalogSubcategory[] = [
     productIds: ["hand-grip", "faixa-elastica-para-exercicios"],
     featuredProductId: "faixa-elastica-para-exercicios",
   },
-];
+].map((subcategory) => ({
+  ...subcategory,
+  productIds: sortProductIdsByName(subcategory.productIds),
+}));
+
+export const catalogSubcategories = [...rawCatalogSubcategories].sort((a, b) =>
+  {
+    const categoryA = catalogCategoryOrderMap.get(a.categoryId) ?? catalogCategoryOrder.length;
+    const categoryB = catalogCategoryOrderMap.get(b.categoryId) ?? catalogCategoryOrder.length;
+
+    if (categoryA !== categoryB) return categoryA - categoryB;
+
+    return a.label.localeCompare(b.label, "pt-BR", { sensitivity: "base" });
+  });
 
 export const catalogPopularFilters = catalogSubcategories;
 
