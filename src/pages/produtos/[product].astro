@@ -55,9 +55,9 @@ const detailObjectClass = product.imageFrame?.detailFit === "cover"
   <main>
     <section class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-6 lg:py-10">
       <nav class="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted-foreground" aria-label="Navegação estrutural">
-        <a href="/produtos" class="inline-flex items-center gap-1.5 font-medium hover:text-primary">
+        <a data-catalog-back-link href="/produtos" class="inline-flex items-center gap-1.5 font-medium hover:text-primary">
           <ArrowLeft className="size-4" />
-          Produtos
+          <span data-catalog-back-label>Produtos</span>
         </a>
         <span aria-hidden="true">/</span>
         <a href={`/produtos#${category.id}`} class="font-medium hover:text-primary">
@@ -226,4 +226,15 @@ const detailObjectClass = product.imageFrame?.detailFit === "cover"
   </main>
 
   <SiteFooter />
+
+  <script is:inline>
+    var catalogBackLink = document.querySelector("[data-catalog-back-link]");
+    var catalogBackLabel = document.querySelector("[data-catalog-back-label]");
+    var returnTo = new URLSearchParams(window.location.search).get("retorno");
+
+    if (catalogBackLink && returnTo && /^\/produtos(?:\/|\?|$)/.test(returnTo)) {
+      catalogBackLink.setAttribute("href", returnTo);
+      if (catalogBackLabel) catalogBackLabel.textContent = "Voltar aos resultados";
+    }
+  </script>
 </Layout>

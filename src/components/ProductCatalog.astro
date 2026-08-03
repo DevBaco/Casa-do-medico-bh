@@ -255,6 +255,9 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
     var productCards = Array.from(
       catalogRoot.querySelectorAll("[data-product-card]")
     );
+    var productDetailLinks = Array.from(
+      catalogRoot.querySelectorAll("[data-product-detail-link]")
+    );
     var categoryButtons = Array.from(
       catalogRoot.querySelectorAll("[data-filter-category]")
     );
@@ -364,6 +367,22 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
       window.history.replaceState({}, "", url.pathname + url.search + url.hash);
     };
 
+    var updateProductDetailLinks = function () {
+      var returnTo = window.location.pathname + window.location.search + window.location.hash;
+      var hasFilterState = Boolean(state.category || state.type || state.query);
+
+      productDetailLinks.forEach(function (link) {
+        var productUrl = link.dataset.productUrl || link.getAttribute("href") || "";
+        if (!link.dataset.productUrl) link.dataset.productUrl = productUrl;
+        link.setAttribute(
+          "href",
+          hasFilterState
+            ? productUrl + "?retorno=" + encodeURIComponent(returnTo)
+            : productUrl
+        );
+      });
+    };
+
     var applyState = function (updateUrl) {
       if (updateUrl === undefined) updateUrl = true;
 
@@ -444,6 +463,7 @@ const getProductSearchText = (product: (typeof catalogProducts)[number]) =>
       }
 
       if (updateUrl) writeUrlState();
+      updateProductDetailLinks();
     };
 
     categoryButtons.forEach(function (button) {

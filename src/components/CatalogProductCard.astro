@@ -36,6 +36,7 @@ const swatchClass = {
 >
   <a
     href={href}
+    data-product-detail-link
     class="group/media relative flex aspect-[5/4] w-full snap-x snap-mandatory overflow-x-auto bg-white [scrollbar-width:none] md:grid md:place-items-center md:overflow-hidden [&::-webkit-scrollbar]:hidden"
     aria-label={`Ver detalhes de ${product.name}`}
   >
@@ -108,7 +109,7 @@ const swatchClass = {
     </div>
 
     <div>
-      <a href={href} class="hover:text-primary">
+      <a href={href} data-product-detail-link class="hover:text-primary">
         <h3 class="text-lg font-semibold leading-snug">{product.name}</h3>
       </a>
       <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
@@ -121,6 +122,7 @@ const swatchClass = {
     <div class="grid gap-2 sm:grid-cols-2">
       <a
         href={href}
+        data-product-detail-link
         class={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-full")}
       >
         Ver detalhes
