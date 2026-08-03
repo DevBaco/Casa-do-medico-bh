@@ -33,8 +33,15 @@ export interface HeaderCatalogItem {
   href: string;
 }
 
+export interface HeaderCatalogGroup {
+  id: string;
+  label: string;
+  href: string;
+  items: HeaderCatalogItem[];
+}
+
 interface Props {
-  productItems: HeaderCatalogItem[];
+  productGroups: HeaderCatalogGroup[];
   compressionItems: HeaderCatalogItem[];
   whatsappUrl: string;
   whatsappLabel: string;
@@ -42,7 +49,10 @@ interface Props {
 
 function DesktopCatalogLink({ item }: { item: HeaderCatalogItem }) {
   return (
-    <NavigationMenuLink href={item.href} className="block px-3 py-2.5 font-medium">
+    <NavigationMenuLink
+      href={item.href}
+      className="block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
+    >
       {item.label}
     </NavigationMenuLink>
   );
@@ -58,9 +68,6 @@ function MobileCatalogLinks({ items }: { items: HeaderCatalogItem[] }) {
             className="block rounded-lg border bg-background px-3 py-2.5 no-underline transition-colors hover:bg-muted"
           >
             <span className="block font-medium text-foreground">{item.label}</span>
-            <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">
-              {item.description}
-            </span>
           </a>
         </SheetClose>
       ))}
@@ -96,12 +103,17 @@ function MobileSectionLink({
 }
 
 export default function SiteHeaderClient({
-  productItems,
+  productGroups,
   compressionItems,
   whatsappUrl,
   whatsappLabel,
 }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeProductGroupId, setActiveProductGroupId] = useState(
+    productGroups[0]?.id ?? ""
+  );
+  const activeProductGroup =
+    productGroups.find((group) => group.id === activeProductGroupId) ?? productGroups[0];
 
   return (
     <header className="sticky top-0 z-30 border-b bg-background/95 backdrop-blur-md">
@@ -124,36 +136,14 @@ export default function SiteHeaderClient({
         <NavigationMenu viewport={false} className="hidden xl:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/" className={navigationMenuTriggerStyle()}>
-                Início
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Produtos médicos</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Meias compressivas</NavigationMenuTrigger>
               <NavigationMenuContent className="w-[360px] p-2">
                 <NavigationMenuLink
-                  href="/produtos"
-                  className="mb-1 block border bg-primary/5 px-3 py-2.5 font-semibold text-primary"
-                >
-                  Ver todos os produtos
-                </NavigationMenuLink>
-                <div className="grid gap-0.5">
-                  {productItems.map((item) => (
-                    <DesktopCatalogLink key={item.id} item={item} />
-                  ))}
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Meias compressivas</NavigationMenuTrigger>
-              <NavigationMenuContent className="w-[320px] p-2">
-                <NavigationMenuLink
                   href="/meias-de-compressão"
-                  className="mb-1 block border bg-primary/5 px-3 py-2.5 font-semibold text-primary"
+                  className="mb-1 flex items-center justify-between border bg-primary/5 px-3 py-2.5 font-semibold text-primary"
                 >
-                  Ver todas as meias
+                  Ver catálogo de meias
+                  <ArrowRight className="size-4" />
                 </NavigationMenuLink>
                 <div className="grid gap-0.5">
                   {compressionItems.map((item) => (
@@ -164,10 +154,53 @@ export default function SiteHeaderClient({
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/#nossa-historia"
-                className={navigationMenuTriggerStyle()}
+              <NavigationMenuTrigger>Produtos médicos</NavigationMenuTrigger>
+              <NavigationMenuContent
+                className="overflow-hidden p-0"
+                style={{ width: "min(640px, calc(100vw - 2rem))" }}
               >
+                <div className="grid grid-cols-[220px_minmax(0,1fr)]">
+                  <div className="border-r bg-secondary/35 p-2">
+                    <NavigationMenuLink
+                      href="/produtos"
+                      className="mb-1 flex items-center justify-between px-3 py-2.5 font-semibold text-primary"
+                    >
+                      Catálogo completo
+                      <ArrowRight className="size-4" />
+                    </NavigationMenuLink>
+                    {productGroups.map((group) => (
+                      <NavigationMenuLink
+                        key={group.id}
+                        href={group.href}
+                        onMouseEnter={() => setActiveProductGroupId(group.id)}
+                        onFocus={() => setActiveProductGroupId(group.id)}
+                        className={`flex items-center justify-between px-3 py-2.5 font-semibold ${
+                          activeProductGroup?.id === group.id
+                            ? "bg-primary/10 text-primary"
+                            : "text-foreground"
+                        }`}
+                      >
+                        {group.label}
+                        <ArrowRight className="size-4" />
+                      </NavigationMenuLink>
+                    ))}
+                  </div>
+
+                  <section className="min-h-64 p-3">
+                    {activeProductGroup && (
+                      <div className="grid grid-cols-1 gap-1">
+                        {activeProductGroup.items.map((item) => (
+                          <DesktopCatalogLink key={item.id} item={item} />
+                        ))}
+                      </div>
+                    )}
+                  </section>
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/#nossa-historia" className={navigationMenuTriggerStyle()}>
                 Nossa história
               </NavigationMenuLink>
             </NavigationMenuItem>
@@ -176,6 +209,7 @@ export default function SiteHeaderClient({
                 Visite a loja
               </NavigationMenuLink>
             </NavigationMenuItem>
+
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -202,51 +236,43 @@ export default function SiteHeaderClient({
               </SheetHeader>
 
               <nav className="px-4 pb-6" aria-label="Navegação principal">
-                <SheetClose asChild>
-                  <a
-                    href="/"
-                    className="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium hover:bg-muted"
-                  >
-                    Início
-                  </a>
-                </SheetClose>
-
                 <Accordion type="single" collapsible className="border-y">
-                  <AccordionItem value="produtos" className="border-b">
-                    <AccordionTrigger className="px-3 text-base no-underline hover:no-underline">
-                      Produtos médicos
-                    </AccordionTrigger>
-                    <AccordionContent className="space-y-2 pb-4">
-                      <SheetClose asChild>
-                        <a
-                          href="/produtos"
-                          className="flex items-center justify-between rounded-lg bg-primary/10 px-3 py-2.5 font-semibold text-primary no-underline"
-                        >
-                          Catálogo completo
-                          <ArrowRight className="size-4" />
-                        </a>
-                      </SheetClose>
-                      <MobileCatalogLinks items={productItems} />
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="meias" className="border-0">
+                  <AccordionItem value="meias">
                     <AccordionTrigger className="px-3 text-base no-underline hover:no-underline">
                       Meias compressivas
                     </AccordionTrigger>
-                    <AccordionContent className="space-y-2 pb-4">
+                    <AccordionContent className="pb-4">
                       <SheetClose asChild>
                         <a
                           href="/meias-de-compressão"
-                          className="flex items-center justify-between rounded-lg bg-primary/10 px-3 py-2.5 font-semibold text-primary no-underline"
+                          className="mb-2 flex items-center justify-between rounded-lg bg-primary/10 px-3 py-2.5 font-semibold text-primary no-underline"
                         >
-                          Catálogo de meias
+                          Ver catálogo de meias
                           <ArrowRight className="size-4" />
                         </a>
                       </SheetClose>
                       <MobileCatalogLinks items={compressionItems} />
                     </AccordionContent>
                   </AccordionItem>
+                  {productGroups.map((group) => (
+                    <AccordionItem key={group.id} value={group.id}>
+                      <AccordionTrigger className="px-3 text-base no-underline hover:no-underline">
+                        {group.label}
+                      </AccordionTrigger>
+                      <AccordionContent className="pb-4">
+                        <SheetClose asChild>
+                          <a
+                            href={group.href}
+                            className="mb-3 flex items-center justify-between gap-3 rounded-lg bg-primary/10 px-3 py-2.5 font-semibold leading-snug text-primary no-underline"
+                          >
+                            <span>Ver todos os itens de {group.label}</span>
+                            <ArrowRight className="size-4 shrink-0" />
+                          </a>
+                        </SheetClose>
+                        <MobileCatalogLinks items={group.items} />
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
                 </Accordion>
 
                 <MobileSectionLink sectionId="nossa-historia" onNavigate={() => setMenuOpen(false)}>

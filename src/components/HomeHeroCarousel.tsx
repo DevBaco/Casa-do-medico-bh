@@ -13,7 +13,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { getCatalogCategoryFilterPath } from "@/data/catalog-filters"
+import {
+  getCatalogCategoryFilterPath,
+  getCatalogPopularFilterPath,
+} from "@/data/catalog-filters"
 import { cn } from "@/lib/utils"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 
@@ -30,14 +33,25 @@ const slides = [
     action: "Ver marcas e linhas",
   },
   {
-    image: "/images/home/mobilidade-home-care.webp",
-    imageAlt: "Pessoa usando um andador com apoio durante a mobilidade em casa",
+    image: "/images/home/ortopedia-recuperacao.webp",
+    imageAlt: "Pessoa utilizando uma joelheira ortopédica ajustável",
     imagePosition: "object-center",
-    eyebrow: "Ortopedia e mobilidade",
-    title: "Mais apoio e segurança para se movimentar",
+    eyebrow: "Ortopedia",
+    title: "Suporte e proteção durante a recuperação",
     description:
-      "Encontre andadores, bengalas, muletas, cadeiras de banho e outros recursos para diferentes necessidades.",
-    href: getCatalogCategoryFilterPath("ortopedia-mobilidade"),
+      "Encontre joelheiras, tornozeleiras, talas, tipoias e outros suportes para diferentes necessidades.",
+    href: getCatalogPopularFilterPath("ortopedia"),
+    action: "Ver produtos ortopédicos",
+  },
+  {
+    image: "/images/home/mobilidade-home-care.webp",
+    imageAlt: "Pessoa utilizando um andador durante a mobilidade em casa",
+    imagePosition: "object-center",
+    eyebrow: "Mobilidade",
+    title: "Mais segurança e autonomia para se movimentar",
+    description:
+      "Conheça andadores, cadeiras de banho, bengalas, muletas e acessórios para a rotina de mobilidade.",
+    href: getCatalogPopularFilterPath("mobilidade"),
     action: "Ver produtos de mobilidade",
   },
   {

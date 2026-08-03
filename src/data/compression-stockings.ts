@@ -1607,6 +1607,37 @@ export const compressionStockingBrands: StockingBrand[] = [
         keywords: ["style", "ever sheer", "eversheer", "transparência", "transparencia", "nude", "meia-coxa"],
         whatsappMessage: "Olá! Tenho interesse na Sigvaris Style Transparência Ever Sheer Meia-coxa.",
       },
+      {
+        id: "sigvaris-calcador",
+        brandId: "sigvaris",
+        brandName: "Sigvaris",
+        line: "Calçador",
+        audience: "Unissex",
+        displayName: "Sigvaris Calçador de Meias · Unissex",
+        summary:
+          "Acessório para facilitar a colocação de meias de compressão sem esforço nas mãos.",
+        description:
+          "O calçador Sigvaris auxilia a vestir a meia de compressão com mais facilidade e conforto, reduzindo o esforço nas mãos e nas costas. Indicado para uso diário ou para quem tem dificuldade de mobilidade.",
+        compression: ["Acessório"],
+        colors: [
+          {
+            name: "Branca",
+            swatch: colors.branca,
+            image: `${sigvarisBase}/calçador.webp`,
+          },
+        ],
+        boxImage: `${sigvarisBase}/calçador.webp`,
+        genericImage: `${sigvarisBase}/calçador.webp`,
+        specifications: [
+          {
+            title: "Apresentação",
+            items: ["Estrutura em metal", "Compatível com meias panturrilha, meia-coxa e meia-calça"],
+          },
+        ],
+        badges: ["Unissex", "Acessório"],
+        keywords: ["calçador", "calçador de meias", "acessório", "vestir meia", "sigvaris"],
+        whatsappMessage: "Olá! Tenho interesse no Calçador de Meias Sigvaris.",
+      },
     ],
   },
   {

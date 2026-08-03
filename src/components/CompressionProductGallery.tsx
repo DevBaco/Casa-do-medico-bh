@@ -143,7 +143,9 @@ export default function CompressionProductGallery({
           },
         ]
       : []),
-    { image: boxImage, label: `Embalagem ${displayName}`, type: "package" },
+    ...(boxImage === selectedColor.image
+      ? []
+      : [{ image: boxImage, label: `Embalagem ${displayName}`, type: "package" }]),
   ];
 
   useEffect(() => {

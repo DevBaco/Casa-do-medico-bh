@@ -21,11 +21,18 @@ const href = getCatalogProductPath(product);
 const whatsappUrl = buildCatalogProductWhatsAppUrl(product.name);
 const catalogImageStyle = `transform: translateX(${product.imageFrame?.catalogTranslateX ?? 0}%) scale(${product.imageFrame?.catalogScale ?? 1});`;
 const hasMultipleImages = product.images.length > 1;
+const hasColorOptions = Boolean(product.colorOptions?.length);
+const swatchClass = {
+  clear: "bg-product-swatch-clear",
+  amber: "bg-product-swatch-amber",
+  white: "bg-product-swatch-white",
+  black: "bg-product-swatch-black",
+} as const;
 ---
 
 <Card
   id={product.id}
-  className="group h-full scroll-mt-24 gap-0 overflow-hidden rounded-lg p-0 transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lg"
+  className="group product-card h-full scroll-mt-24 gap-0 overflow-hidden rounded-lg p-0 transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lg"
 >
   <a
     href={href}
@@ -39,10 +46,12 @@ const hasMultipleImages = product.images.length > 1;
           alt={image.alt}
           loading="lazy"
           data-image-brand={image.brandId ?? ""}
+          data-image-color={image.colorSwatch ?? ""}
           class:list={[
             "h-full w-full shrink-0 snap-center object-contain object-center transition-opacity duration-200 md:absolute md:inset-0",
-            index === 0 && hasMultipleImages && "md:group-hover/media:opacity-0",
-            index === 1 && "md:opacity-0 md:group-hover/media:opacity-100",
+            hasColorOptions && "absolute inset-0 opacity-0",
+            !hasColorOptions && index === 0 && hasMultipleImages && "md:group-hover/media:opacity-0",
+            !hasColorOptions && index === 1 && "md:opacity-0 md:group-hover/media:opacity-100",
             index > 1 && "md:hidden",
           ]}
           style={index === 0 ? catalogImageStyle : undefined}
@@ -63,6 +72,34 @@ const hasMultipleImages = product.images.length > 1;
   </a>
 
   <CardContent className="flex min-h-[310px] flex-1 flex-col gap-3 border-t p-4 sm:p-5">
+    {product.colorOptions && (
+      <fieldset
+        class="flex flex-wrap gap-1.5"
+        aria-label={`Cores disponíveis: ${product.colorOptions.map((color) => color.label).join(", ")}`}
+      >
+        <legend class="sr-only">Selecione uma cor</legend>
+        {product.colorOptions.map((color, index) => (
+          <label class="group/swatch cursor-pointer">
+            <input
+              class="sr-only"
+              type="radio"
+              name={`${product.id}-color`}
+              value={color.swatch}
+              checked={index === 0}
+            />
+            <span
+              class:list={[
+                "block size-4.5 shrink-0 rounded-full border border-black/10 shadow-sm transition-transform group-hover/swatch:scale-125 group-has-[:checked]/swatch:ring-2 group-has-[:checked]/swatch:ring-primary group-has-[:checked]/swatch:ring-offset-2",
+                swatchClass[color.swatch],
+              ]}
+              title={color.label}
+            ></span>
+            <span class="sr-only">{color.label}</span>
+          </label>
+        ))}
+      </fieldset>
+    )}
+
     <div class="flex flex-wrap gap-2">
       <Badge variant="outline">{category.shortName}</Badge>
       {product.badges.slice(0, 1).map((badge) => (
@@ -101,3 +138,12 @@ const hasMultipleImages = product.images.length > 1;
     </div>
   </CardContent>
 </Card>
+
+<style>
+  .product-card:has(input[value="clear"]:checked) [data-image-color="clear"],
+  .product-card:has(input[value="amber"]:checked) [data-image-color="amber"],
+  .product-card:has(input[value="white"]:checked) [data-image-color="white"],
+  .product-card:has(input[value="black"]:checked) [data-image-color="black"] {
+    opacity: 1;
+  }
+</style>

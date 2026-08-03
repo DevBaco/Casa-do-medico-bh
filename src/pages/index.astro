@@ -3,9 +3,7 @@ import {
   ArrowDown,
   ArrowRight,
   HeartHandshake,
-  MapPin,
   PackageCheck,
-  Phone,
   Star,
 } from "lucide-react";
 import BrandCarousel from "@/components/BrandCarousel";
@@ -23,7 +21,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { getCatalogPopularFilterPath } from "@/data/catalog-filters";
+import {
+  catalogSubcategories,
+  getCatalogCategoryFilterPath,
+  getCatalogPopularFilterPath,
+} from "@/data/catalog-filters";
 import { catalogProducts } from "@/data/catalog-products";
 import { compressionStockingBrands } from "@/data/compression-stockings";
 import Layout from "@/layouts/Layout.astro";
@@ -47,16 +49,35 @@ const compressionFinderBrands = compressionStockingBrands.map((brand) => ({
   ),
 }));
 
-function categoryShortcut(productId: string, label: string, filterId: string) {
+function categoryShortcut(subcategoryId: string, labelOverride?: string) {
+  const subcategory = catalogSubcategories.find((item) => item.id === subcategoryId);
+  const product = catalogProducts.find((item) => item.id === subcategory?.featuredProductId);
+
+  if (!subcategory || !product) {
+    throw new Error(`Grupo ou produto de destaque não encontrado: ${subcategoryId}`);
+  }
+
+  return {
+    label: labelOverride ?? subcategory.label,
+    href: getCatalogPopularFilterPath(subcategory.id),
+    image: product.images[0],
+  };
+}
+
+function broadCategoryShortcut(
+  productId: string,
+  label: string,
+  categoryId: "monitoramento" | "ortopedia-mobilidade" | "cuidados-medico-hospitalares" | "fisioterapia-recuperacao"
+) {
   const product = catalogProducts.find((item) => item.id === productId);
 
   if (!product) {
-    throw new Error(`Produto não encontrado para o atalho da home: ${productId}`);
+    throw new Error(`Produto de destaque não encontrado: ${productId}`);
   }
 
   return {
     label,
-    href: getCatalogPopularFilterPath(filterId),
+    href: getCatalogCategoryFilterPath(categoryId),
     image: product.images[0],
   };
 }
@@ -70,15 +91,14 @@ const categoryShortcuts = [
       alt: "Meia de compressão até o joelho",
     },
   },
-  categoryShortcut("aparelho-de-pressao-digital", "Pressão arterial", "pressao-arterial"),
-  categoryShortcut("oximetro-de-dedo", "Oxímetros", "oximetros"),
-  categoryShortcut("glicometro", "Glicemia", "glicemia"),
-  categoryShortcut("joelheiras", "Joelheiras", "joelheiras"),
-  categoryShortcut("andador", "Andadores", "andadores"),
-  categoryShortcut("cadeira-de-banho", "Cadeiras de banho", "cadeiras-de-banho"),
-  categoryShortcut("curativos", "Curativos", "curativos"),
-  categoryShortcut("luvas-descartaveis", "Luvas", "luvas"),
-  categoryShortcut("faixa-elastica-para-exercicios", "Fisioterapia", "fisioterapia"),
+  categoryShortcut("pressao-e-saturacao"),
+  categoryShortcut("glicemia"),
+  broadCategoryShortcut("joelheira-ajustavel-hastes-aco", "Ortopedia e mobilidade", "ortopedia-mobilidade"),
+  categoryShortcut("descartaveis-e-protecao"),
+  categoryShortcut("curativos-e-coberturas"),
+  categoryShortcut("capas-e-protetores-de-colchao"),
+  categoryShortcut("injecao-e-acesso", "Seringas, agulhas e cateteres"),
+  broadCategoryShortcut("fita-kinesio-5cm-5m", "Fisioterapia", "fisioterapia-recuperacao"),
 ];
 
 const compressionLineCount = compressionStockingBrands.reduce(
@@ -116,25 +136,6 @@ const localBusinessSchema = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
 
-  <div class="border-b border-primary-foreground/15 bg-primary text-primary-foreground">
-    <div class="mx-auto flex min-h-9 w-full max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-1 px-5 py-2 text-xs sm:px-6 sm:text-sm">
-      <a
-        href="https://www.google.com/maps/search/?api=1&query=Av.%20Afonso%20Pena%2C%20981%2C%20Belo%20Horizonte"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-1.5 hover:underline"
-      >
-        <MapPin className="size-3.5" />
-        <span class="hidden sm:inline">Av. Afonso Pena, 981 · Centro · Belo Horizonte</span>
-        <span class="sm:hidden">Loja no Centro de BH</span>
-      </a>
-      <a href="tel:+553132244407" class="inline-flex shrink-0 items-center gap-1.5 font-medium hover:underline">
-        <Phone className="size-3.5" />
-        (31) 3224-4407
-      </a>
-    </div>
-  </div>
-
   <SiteHeader />
 
   <main>
@@ -145,7 +146,7 @@ const localBusinessSchema = {
           <h2 class="mt-1 text-lg font-bold tracking-tight sm:text-xl">Categorias em destaque</h2>
         </div>
 
-        <div class="mt-5 flex snap-x gap-4 overflow-x-auto pb-1 [scrollbar-width:none] lg:grid lg:grid-cols-10 lg:overflow-visible [&::-webkit-scrollbar]:hidden">
+        <div class="mt-5 flex snap-x gap-4 overflow-x-auto pb-1 [scrollbar-width:none] lg:grid lg:grid-cols-9 lg:overflow-visible [&::-webkit-scrollbar]:hidden">
           {categoryShortcuts.map((category) => (
             <a href={category.href} class="group block w-24 shrink-0 snap-start sm:w-28 lg:w-auto">
               <Card className="h-full gap-0 border-0 bg-transparent py-0 shadow-none">
@@ -440,6 +441,12 @@ const localBusinessSchema = {
 
         <div class="mt-9">
           <BrandCarousel client:visible />
+        </div>
+
+        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <a href="#categorias" class={cn(buttonVariants({ size: "lg" }), "h-12 px-6")}>
+            Conheça nosso catálogo
+          </a>
         </div>
       </div>
     </section>
