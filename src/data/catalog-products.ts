@@ -220,15 +220,15 @@ export const catalogProducts: CatalogProduct[] = [
     consultation: ["Compatibilidade", "Tipo de conexão", "Disponibilidade"], keywords: ["pera pressao", "pera esfigmomanometro", "insuflador"],
   },
   {
-    id: "estetoscopio-classic-iii-5620",
+    id: "estetoscopio-littmann-classic-iii",
     categoryId: "monitoramento",
     brandIds: ["3m"],
-    name: "Estetoscópio Classic III 5620",
+    name: "Estetoscópio Littmann Classic III",
     summary: "Estetoscópio preto de dupla face para ausculta clínica de adultos e crianças.",
-    description: "O modelo 5620 possui tubo preto, olivas macias e auscultador de dupla face. O lado pediátrico pode ser usado como campânula aberta com o aro apropriado. Consulte a disponibilidade antes da compra.",
-    images: [{ src: "/Produtos/estetoscopio-classic-iii-5620.png", alt: "Estetoscópio preto Classic III com auscultador metálico", brandId: "3m" }],
-    highlights: ["Modelo 5620", "Auscultador de dupla face", "Tubo preto"], badges: ["Ausculta", "Clínico"],
-    consultation: ["Modelo", "Cor", "Disponibilidade"], keywords: ["estetoscopio classic iii", "5620", "estetoscopio preto"],
+    description: "Possui tubo preto, olivas macias e auscultador de dupla face. O lado pediátrico pode ser usado como campânula aberta com o aro apropriado. Consulte a disponibilidade antes da compra.",
+    images: [{ src: "/Produtos/estetoscopio-littmann-classic-iii.png", alt: "Estetoscópio preto Littmann Classic III com auscultador metálico", brandId: "3m" }],
+    highlights: ["Dupla face", "Auscultador de dupla face", "Tubo preto"], badges: ["Ausculta", "Clínico"],
+    consultation: ["Modelo", "Cor", "Disponibilidade"], keywords: ["estetoscopio littmann", "classic iii", "estetoscopio preto"],
   },
   {
     id: "estetoscopio-rappaport",
@@ -257,24 +257,12 @@ export const catalogProducts: CatalogProduct[] = [
     categoryId: "monitoramento",
     brandIds: ["premium", "accumed-glicomed"],
     name: "Estetoscópio Simples",
-    imageFrame: { detailAspectRatio: "landscape" },
-    summary:
-      "Estetoscópio para ausculta em diferentes rotinas de atendimento.",
-    description:
-      "O estetoscópio é um instrumento de ausculta utilizado por profissionais de saúde. Os modelos simples podem variar em auscultador, olivas e tubo. Consulte as opções disponíveis para encontrar a configuração adequada à sua rotina.",
-    images: [
-      {
-        src: `${produtosBase}/estetoscopio.jpg`,
-        alt: "Estetoscópio preto com acessórios",
-      },
-    ],
-    highlights: [
-      "Modelo para ausculta",
-      "Configurações para diferentes rotinas",
-      "Disponibilidade sob consulta",
-    ],
-    badges: ["Ausculta", "Profissional"],
-    consultation: ["Tipo de estetoscópio", "Peças e acessórios", "Cores e disponibilidade"],
+    summary: "Estetoscópio clínico para ausculta em diferentes rotinas de atendimento.",
+    description: "Estetoscópio com auscultador de face única, hastes metálicas, olivas macias e tubo flexível. Consulte as opções disponíveis para encontrar a configuração adequada à sua rotina.",
+    images: [{ src: "/Produtos/estetoscopio-simples.png", alt: "Estetoscópio clínico simples preto com auscultador metálico" }],
+    highlights: ["Auscultador de face única", "Tubo flexível", "Olivas macias"],
+    badges: ["Ausculta", "Clínico"],
+    consultation: ["Tipo de estetoscópio", "Cor", "Disponibilidade"],
     keywords: ["estetoscopio", "simples", "ausculta"],
   },
   {
@@ -508,15 +496,40 @@ export const catalogProducts: CatalogProduct[] = [
     keywords: ["imobilizador joelho", "tala joelho", "ortese joelho"],
   },
   {
-    id: "munhequeiras-e-talas-para-punho",
+    id: "protetor-para-punho",
     categoryId: "ortopedia-mobilidade",
-    brandIds: ["hidrolight", "kestal", "medi"],
-    name: "Munhequeiras e Talas para Punho",
+    brandIds: ["hidrolight"],
+    name: "Protetor para Punho",
     imageInset: "medium",
     summary:
-      "Suportes elásticos, ajustáveis e imobilizadores para punho, mão e polegar.",
+      "Indicado para prevenção e tratamento de contusões, distensões e tendinites, sem limitar os movimentos.",
     description:
-      "Munhequeiras e talas para punho estão disponíveis em diferentes construções: faixas simples de compressão, suportes com polegar e órteses mais estruturadas. O lado, a medida da mão e o grau de estabilização necessário devem ser confirmados antes da escolha.",
+      "O Protetor para Punho é indicado para a prevenção e tratamento de contusões, distensões e tendinites; alívio de dores agudas e crônicas; prevenção de lesões durante a prática de exercícios; auxílio no tratamento fisioterapêutico; L.E.R. e D.O.R.T. Comprime a região do punho sem limitar seus movimentos, oferecendo suporte leve e conforto durante atividades físicas ou no dia a dia.",
+    images: [
+      {
+        src: `${hidrolightBase}/_MTS9119_.jpg`,
+        alt: "Protetor para punho ajustável",
+      },
+    ],
+    highlights: [
+      "Suporte leve para o punho",
+      "Comprime sem limitar os movimentos",
+      "Uso no dia a dia ou em exercícios",
+    ],
+    badges: ["Punho", "Ajustável"],
+    consultation: ["Lado de uso", "Medida do punho", "Finalidade"],
+    keywords: ["protetor para punho", "punho", "contusao", "distensao", "tendinite"],
+  },
+  {
+    id: "munhequeira-ajustavel",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight"],
+    name: "Munhequeira Ajustável",
+    imageInset: "medium",
+    summary:
+      "Munhequeira com orifício para o polegar que promove alívio da dor e melhora da estabilidade.",
+    description:
+      "A Munhequeira Ajustável possui orifício para o polegar em sua extremidade e aba que envolve o punho promovendo alívio da dor e melhora da estabilidade. É indicada para prevenção e tratamento de contusões, distensões e tendinites; alívio de dores agudas e crônicas; prevenção de lesões durante a prática de exercícios; auxílio no tratamento fisioterapêutico; L.E.R. e D.O.R.T.",
     images: [
       {
         src: `${hidrolightBase}/Hidrolight_1215_edit_flat Lucas 2.png`,
@@ -524,25 +537,42 @@ export const catalogProducts: CatalogProduct[] = [
       },
       {
         src: `${hidrolightBase}/_MTS0330__edit_preview.jpg`,
-        alt: "Suporte estruturado para punho e mão",
-      },
-      {
-        src: `${hidrolightBase}/_MTS9119_.jpg`,
-        alt: "Faixa ajustável para o punho",
-      },
-      {
-        src: `${hidrolightBase}/_MTS9456_.png`,
-        alt: "Órtese ventilada para punho e polegar",
+        alt: "Munhequeira ajustável com estrutura para punho e mão",
       },
     ],
     highlights: [
-      "Opções de compressão ou imobilização",
-      "Modelos para punho, mão e polegar",
-      "Variações para lado direito ou esquerdo",
+      "Orifício para o polegar",
+      "Ajuste com estabilidade",
+      "Uso preventivo e terapêutico",
     ],
-    badges: ["Punho", "Várias opções"],
-    consultation: ["Lado direito ou esquerdo", "Medida da mão e do punho", "Nível de suporte"],
-    keywords: ["munhequeira", "tala punho", "ortese mao", "polegar"],
+    badges: ["Punho", "Ajustável"],
+    consultation: ["Lado de uso", "Medida do punho", "Finalidade"],
+    keywords: ["munhequeira ajustavel", "munhequeira", "punho", "polegar", "dort"],
+  },
+  {
+    id: "ortese-comfort-air-com-polegar",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight"],
+    name: "Órtese Comfort Air com Polegar",
+    imageInset: "medium",
+    summary:
+      "Órtese com duas talas, tecido respirável e ajuste extra no polegar para maior estabilidade.",
+    description:
+      "A Órtese Comfort Air com Polegar foi desenvolvida com tecido que permite a transpiração, favorece o conforto térmico através dos microfuros e possui duas talas para maior estabilidade e proteção, além de ajuste extra no polegar. É indicada para imobilização e alinhamento da articulação, período pré e pós-operatório, reabilitação de fraturas de punho, L.E.R., D.O.R.T., tendinites, tenossinovites, lesões ligamentares, síndrome do túnel do carpo e rizartrose.",
+    images: [
+      {
+        src: `${hidrolightBase}/_MTS9456_.png`,
+        alt: "Órtese Comfort Air com polegar",
+      },
+    ],
+    highlights: [
+      "Tecido respirável com microfuros",
+      "Duas talas para estabilidade",
+      "Ajuste extra no polegar",
+    ],
+    badges: ["Punho", "Órtese"],
+    consultation: ["Lado de uso", "Medida do punho", "Indicação clínica"],
+    keywords: ["ortese comfort air", "punho", "polegar", "tala", "carpo"],
   },
   {
     id: "cotoveleira",
@@ -594,12 +624,12 @@ export const catalogProducts: CatalogProduct[] = [
     id: "tipoias-e-suportes-de-ombro",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["hidrolight", "kestal", "medi"],
-    name: "Tipoias e Suportes de Ombro",
+    name: "Tipoia de Abdução",
     imageInset: "medium",
     summary:
-      "Tipoias para sustentação do braço, incluindo opções com apoio de abdução e ajustes no tronco.",
+      "A Tipoia de Abdução é utilizada para posicionar, estabilizar e sustentar o membro superior.",
     description:
-      "As tipoias mantêm o braço sustentado e ajudam a limitar movimentos conforme a necessidade de recuperação. Existem modelos simples, imobilizadores e opções com apoio para abdução do ombro. A configuração deve seguir a orientação recebida, considerando lado e tamanho.",
+      "A Tipoia de Abdução é utilizada para posicionar, estabilizar e sustentar o membro superior. Desenvolvida com design ergonômico e tecido com toque suave, oferece estabilização, sustentação e conforto durante o uso. É indicada para o pós-operatório e para patologias que exigem o posicionamento do membro em abdução. O tempo de uso deve ser determinado conforme avaliação e indicação médica.",
     images: [
       {
         src: `${hidrolightBase}/tipoia abdução lateral - Quadrado.png`,
@@ -607,13 +637,13 @@ export const catalogProducts: CatalogProduct[] = [
       },
     ],
     highlights: [
-      "Sustentação do braço e do ombro",
-      "Opções simples ou com apoio de abdução",
-      "Ajustes de alça e faixa corporal",
+      "Posiciona e estabiliza o membro superior",
+      "Tecido com toque suave",
+      "Indicação pós-operatória",
     ],
     badges: ["Ombro", "Imobilização"],
-    consultation: ["Lado de uso", "Tipo de suporte", "Tamanho e ajuste"],
-    keywords: ["tipoia", "ombro", "abducao", "imobilizador ombro"],
+    consultation: ["Lado de uso", "Tempo de uso", "Indicação médica"],
+    keywords: ["tipoia de abducao", "ombro", "abducao", "imobilizador ombro"],
   },
   {
     id: "colar-cervical",
@@ -751,12 +781,12 @@ export const catalogProducts: CatalogProduct[] = [
     id: "sandalia-pos-operatoria",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["hidrolight"],
-    name: "Sandália Pós-operatória",
+    name: "Sandália de Barouk",
     imageFrame: { detailAspectRatio: "landscape" },
     summary:
-      "Calçado ortopédico com abertura ampla e fechos ajustáveis para períodos de recuperação do pé.",
+      "Calçado ortopédico indicado para proteção e apoio em períodos de recuperação do pé.",
     description:
-      "A sandália pós-operatória acomoda curativos e adaptações de volume com fechamento regulável. O formato do solado e a área de descarga podem variar conforme o modelo; confirme a indicação, o lado e a numeração antes da compra.",
+      "A sandália de Barouk acomoda curativos e adaptações de volume com fechamento regulável. O formato do solado e a área de descarga podem variar conforme o modelo; confirme a indicação e o lado antes da compra.",
     images: [
       {
         src: `${hidrolightBase}/_MTS9534_.jpg`,
@@ -766,11 +796,11 @@ export const catalogProducts: CatalogProduct[] = [
     highlights: [
       "Abertura ampla com fechos ajustáveis",
       "Modelos com diferentes formatos de solado",
-      "Numeração e lado conforme a necessidade",
+      "Lado conforme a necessidade",
     ],
     badges: ["Pé", "Pós-operatório"],
-    consultation: ["Tipo de solado", "Lado de uso", "Numeração"],
-    keywords: ["sandalia pos operatoria", "calcado ortopedico", "sandalia barouk"],
+    consultation: ["Tipo de solado", "Lado de uso", "Indicação clínica"],
+    keywords: ["sandalia barouk", "calcado ortopedico", "sandalia pos operatoria"],
   },
   {
     id: "calcanheira-de-silicone",
@@ -925,26 +955,26 @@ export const catalogProducts: CatalogProduct[] = [
     id: "sonda-uretral-n08",
     categoryId: "cuidados-medico-hospitalares",
     brandIds: [],
-    name: "Sonda Uretral nº 08",
+    name: "Sonda Uretral",
     imageFrame: { catalogScale: 1, detailScale: 1, detailFit: "contain" },
     summary:
-      "Sonda uretral descartável, estéril e de uso único, numeração 08.",
+      "Sonda uretral descartável, estéril e de uso único.",
     description:
-      "A sonda uretral nº 08 é um dispositivo estéril, descartável e de uso único. A escolha da numeração e a utilização devem seguir a orientação de um profissional habilitado.",
+      "A sonda uretral é um dispositivo estéril, descartável e de uso único. A escolha da medida e a utilização devem seguir a orientação de um profissional habilitado.",
     images: [
       {
         src: "/Produtos/sonda-uretral-n08-produto.png",
-        alt: "Sonda uretral número 08 em PVC com conector azul",
+        alt: "Sonda uretral em PVC com conector azul",
       },
       {
         src: "/Produtos/sonda-uretral-n08.png",
-        alt: "Sonda uretral número 08 em embalagem estéril azul-clara",
+        alt: "Sonda uretral em embalagem estéril azul-clara",
       },
     ],
-    highlights: ["Numeração 08", "Embalagem individual estéril", "Descartável e de uso único"],
+    highlights: ["Embalagem individual estéril", "Descartável e de uso único", "Uso único"],
     badges: ["Uso profissional", "Estéril"],
-    consultation: ["Numeração indicada", "Tipo de sonda", "Orientação profissional"],
-    keywords: ["sonda uretral", "sonda n 08", "cateter uretral", "material hospitalar"],
+    consultation: ["Tipo de sonda", "Orientação profissional", "Comprimento"],
+    keywords: ["sonda uretral", "cateter uretral", "material hospitalar"],
   },
   {
     id: "ponteira-22mm-muleta-axilar",
@@ -1321,16 +1351,16 @@ export const catalogProducts: CatalogProduct[] = [
     keywords: ["fita kinesio", "bandagem adesiva", "kinesio tape", "5cm 5m"],
   },
   {
-    id: "escalpe-21g", categoryId: "cuidados-medico-hospitalares", brandIds: ["descarpack"], name: "Escalpe Descartável 21G",
-    summary: "Dispositivo com agulha alada e tubo flexível, apresentado na numeração 21G.",
-    description: "O escalpe 21G é um dispositivo estéril e descartável para procedimentos conforme orientação profissional.",
-    images: [{ src: "/Produtos/escalpe-21g.png", alt: "Escalpe descartável verde 21G com tubo flexível" }], highlights: ["Numeração 21G", "Estéril", "Uso único"], badges: ["Uso profissional", "Descartável"], consultation: ["Numeração", "Quantidade", "Orientação profissional"], keywords: ["escalpe 21g", "agulha alada", "butterfly"],
+    id: "escalpe-21g", categoryId: "cuidados-medico-hospitalares", brandIds: ["descarpack"], name: "Escalpe Descartável",
+    summary: "Dispositivo com agulha alada e tubo flexível para procedimentos.",
+    description: "O escalpe é um dispositivo estéril e descartável para procedimentos conforme orientação profissional.",
+    images: [{ src: "/Produtos/escalpe-21g.png", alt: "Escalpe descartável com tubo flexível" }], highlights: ["Estéril", "Uso único", "Tubo flexível"], badges: ["Uso profissional", "Descartável"], consultation: ["Quantidade", "Orientação profissional"], keywords: ["escalpe", "agulha alada", "butterfly"],
   },
   {
-    id: "cateter-periferico-iv-14g", categoryId: "cuidados-medico-hospitalares", brandIds: ["descarpack"], name: "Cateter Periférico IV 14G",
-    summary: "Cateter periférico intravenoso estéril, apresentado na numeração 14G.",
-    description: "O cateter periférico IV 14G é um dispositivo de uso único para procedimentos conforme orientação de profissional habilitado.",
-    images: [{ src: "/Produtos/cateter-periferico-iv-14g.png", alt: "Cateter periférico intravenoso 14G com componente laranja" }], highlights: ["Numeração 14G", "Estéril", "Uso único"], badges: ["Uso profissional", "Descartável"], consultation: ["Numeração", "Tipo de cateter", "Orientação profissional"], keywords: ["cateter iv 14g", "cateter periferico", "acesso venoso"],
+    id: "cateter-periferico-iv-14g", categoryId: "cuidados-medico-hospitalares", brandIds: ["descarpack"], name: "Cateter Periférico IV",
+    summary: "Cateter periférico intravenoso estéril para acesso venoso.",
+    description: "O cateter periférico intravenoso é um dispositivo de uso único para procedimentos conforme orientação de profissional habilitado.",
+    images: [{ src: "/Produtos/cateter-periferico-iv-14g.png", alt: "Cateter periférico intravenoso com componente laranja" }], highlights: ["Estéril", "Uso único", "Acesso venoso"], badges: ["Uso profissional", "Descartável"], consultation: ["Tipo de cateter", "Orientação profissional"], keywords: ["cateter iv", "cateter periferico", "acesso venoso"],
   },
   {
     id: "equipo-nutricao-enteral", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Equipo para Nutrição Enteral",
@@ -1350,6 +1380,34 @@ export const catalogProducts: CatalogProduct[] = [
     description: "Solução de cloreto de sódio 0,9% apresentada em frasco de 100 mL. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
     images: [{ src: "/Produtos/solucao-cloreto-sodio-09-100ml.png", alt: "Frasco de solução de cloreto de sódio 0,9% de 100 mililitros" }],
     highlights: ["Concentração 0,9%", "Frasco de 100 mL", "Para inalação"], badges: ["Cuidados", "100 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "100ml", "inalacao"],
+  },
+  {
+    id: "solucao-cloreto-sodio-09-250ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Solução de Cloreto de Sódio 0,9% 250 mL",
+    summary: "Solução de cloreto de sódio 0,9% em frasco de 250 mL para inalação.",
+    description: "Solução de cloreto de sódio 0,9% apresentada em frasco de 250 mL. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
+    images: [{ src: "/Produtos/solucao-cloreto-sodio-09-250ml.png", alt: "Frasco de solução de cloreto de sódio 0,9% de 250 mililitros" }],
+    highlights: ["Concentração 0,9%", "Frasco de 250 mL", "Para inalação"], badges: ["Cuidados", "250 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "250ml", "inalacao"],
+  },
+  {
+    id: "solucao-cloreto-sodio-09-500ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Solução de Cloreto de Sódio 0,9% 500 mL",
+    summary: "Solução de cloreto de sódio 0,9% em frasco de 500 mL para inalação.",
+    description: "Solução de cloreto de sódio 0,9% apresentada em frasco de 500 mL. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
+    images: [{ src: "/Produtos/solucao-cloreto-sodio-09-500ml.png", alt: "Frasco de solução de cloreto de sódio 0,9% de 500 mililitros" }],
+    highlights: ["Concentração 0,9%", "Frasco de 500 mL", "Para inalação"], badges: ["Cuidados", "500 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "500ml", "inalacao"],
+  },
+  {
+    id: "solucao-cloreto-sodio-09-10ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Solução de Cloreto de Sódio 0,9% 10 mL",
+    summary: "Solução de cloreto de sódio 0,9% em ampolas monodose de 10 mL.",
+    description: "Solução de cloreto de sódio 0,9% apresentada em ampolas monodose de 10 mL. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
+    images: [{ src: "/Produtos/solucao-cloreto-sodio-09-10ml.png", alt: "Três ampolas monodose de solução de cloreto de sódio 0,9% de 10 mililitros" }],
+    highlights: ["Concentração 0,9%", "Ampolas de 10 mL", "Uso monodose"], badges: ["Cuidados", "10 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "10ml", "ampola", "monodose"],
+  },
+  {
+    id: "agua-para-injecao-10ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Água para Injeção 10 mL",
+    summary: "Água para injeção em ampolas monodose de 10 mL.",
+    description: "Água para injeção apresentada em ampolas monodose de 10 mL. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
+    images: [{ src: "/Produtos/agua-para-injecao-10ml.png", alt: "Cinco ampolas monodose de água para injeção de 10 mililitros" }],
+    highlights: ["Ampolas de 10 mL", "Uso monodose", "Para preparo"], badges: ["Cuidados", "10 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["agua para injecao", "10ml", "ampola", "monodose", "preparo"],
   },
   {
     id: "bolsa-coletora-urina-sistema-fechado", categoryId: "cuidados-medico-hospitalares", brandIds: ["premium"], name: "Bolsa Coletora de Urina – Sistema Fechado",
