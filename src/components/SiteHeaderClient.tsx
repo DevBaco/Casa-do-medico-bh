@@ -254,25 +254,43 @@ export default function SiteHeaderClient({
                       <MobileCatalogLinks items={compressionItems} />
                     </AccordionContent>
                   </AccordionItem>
-                  {productGroups.map((group) => (
-                    <AccordionItem key={group.id} value={group.id}>
-                      <AccordionTrigger className="px-3 text-base no-underline hover:no-underline">
-                        {group.label}
-                      </AccordionTrigger>
-                      <AccordionContent className="pb-4">
-                        <SheetClose asChild>
-                          <a
-                            href={group.href}
-                            className="mb-3 flex items-center justify-between gap-3 rounded-lg bg-primary/10 px-3 py-2.5 font-semibold leading-snug text-primary no-underline"
-                          >
-                            <span>Ver todos os itens de {group.label}</span>
-                            <ArrowRight className="size-4 shrink-0" />
-                          </a>
-                        </SheetClose>
-                        <MobileCatalogLinks items={group.items} />
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
+                  <AccordionItem value="produtos-medicos">
+                    <AccordionTrigger className="px-3 text-base no-underline hover:no-underline">
+                      Produtos médicos
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-4">
+                      <SheetClose asChild>
+                        <a
+                          href="/produtos"
+                          className="mb-3 flex items-center justify-between gap-3 rounded-lg bg-primary/10 px-3 py-2.5 font-semibold leading-snug text-primary no-underline"
+                        >
+                          <span>Ver catálogo completo</span>
+                          <ArrowRight className="size-4 shrink-0" />
+                        </a>
+                      </SheetClose>
+                      <Accordion type="single" collapsible className="border-y">
+                        {productGroups.map((group) => (
+                          <AccordionItem key={group.id} value={group.id}>
+                            <AccordionTrigger className="px-3 text-sm no-underline hover:no-underline">
+                              {group.label}
+                            </AccordionTrigger>
+                            <AccordionContent className="pb-4">
+                              <SheetClose asChild>
+                                <a
+                                  href={group.href}
+                                  className="mb-3 flex items-center justify-between gap-3 rounded-lg bg-primary/10 px-3 py-2.5 font-semibold leading-snug text-primary no-underline"
+                                >
+                                  <span>Ver todos os itens de {group.label}</span>
+                                  <ArrowRight className="size-4 shrink-0" />
+                                </a>
+                              </SheetClose>
+                              <MobileCatalogLinks items={group.items} />
+                            </AccordionContent>
+                          </AccordionItem>
+                        ))}
+                      </Accordion>
+                    </AccordionContent>
+                  </AccordionItem>
                 </Accordion>
 
                 <MobileSectionLink sectionId="nossa-historia" onNavigate={() => setMenuOpen(false)}>
