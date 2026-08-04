@@ -1416,7 +1416,7 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Natural",
             swatch: colors.natural,
-            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_calf_closed_taupe_sa.webp`,
+            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_calf_open_taupe_sa.webp`,
           },
           {
             name: "Natural escura",
@@ -1425,7 +1425,7 @@ export const compressionStockingBrands: StockingBrand[] = [
           },
         ],
         boxImage: `${sigvarisBase}/Style/Audace/STY_Audace_Sigvaris_Unisex_Calf_BOX_SA.png`,
-        genericImage: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_calf_closed_taupe_sa.webp`,
+        genericImage: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_calf_open_taupe_sa.webp`,
         sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_Prevencao_Pantyhouse.jpg`,
         specifications: [
           {
