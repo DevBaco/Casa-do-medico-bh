@@ -56,11 +56,11 @@ const detailObjectClass = product.imageFrame?.detailFit === "cover"
     <section class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-6 lg:py-10">
       <a
         data-catalog-back-link
-        href="/produtos"
+        href={`/produtos#${category.id}`}
         class={cn(buttonVariants({ variant: "outline", size: "sm" }), "mb-5")}
       >
         <ArrowLeft className="size-3.5" />
-        <span data-catalog-back-label>Voltar ao catálogo completo</span>
+        <span data-catalog-back-label>Voltar a {category.shortName}</span>
       </a>
 
       <nav class="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted-foreground" aria-label="Navegação estrutural">

@@ -174,38 +174,6 @@ export const compressionStockingBrands: StockingBrand[] = [
         whatsappMessage: "Olá! Tenho interesse na Venosan Comfortline AT.",
       },
       {
-        id: "venosan-comfortline-agg",
-        brandId: "venosan",
-        brandName: "Venosan",
-        line: "Comfortline",
-        audience: "Unissex",
-        displayName: "Venosan Comfortline AGG · Unissex",
-        summary:
-          "Linha diária com toque macio, modelo AGG unilateral, indicada para rotina, trabalho e longos períodos em pé ou sentado.",
-        description:
-          "A Comfortline reúne modelos de compressão graduada para uso cotidiano, com variações de altura, ponteira e tamanho conforme estoque.",
-        compression: ["20-30 mmHg", "30-40 mmHg"],
-        colors: [
-          {
-            name: "Bege",
-            swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE/16431149201164-aggcomfortlinepernadireita.jpg`,
-          },
-        ],
-        boxImage: `${venosanBase}/COMFORTLINE/COMFORTLINE - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/COMFORTLINE/16431149201164-aggcomfortlinepernadireita.jpg`,
-        sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.jpg`,
-        specifications: [
-          {
-            title: "Modelo oficial",
-            items: ["AGG unilateral direita ou esquerda, pé aberto", "Cor bege"],
-          },
-        ],
-        badges: ["Unissex", "Uso diário"],
-        keywords: ["comfortline", "unissex", "meia de compressão diária", "agg"],
-        whatsappMessage: "Olá! Tenho interesse na Venosan Comfortline AGG.",
-      },
-      {
         id: "venosan-comfortline-cotton",
         brandId: "venosan",
         brandName: "Venosan",

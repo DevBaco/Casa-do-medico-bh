@@ -40,6 +40,7 @@ const rawCatalogSubcategories: CatalogSubcategory[] = [
       "aparelho-de-pressao-digital",
       "aparelho-de-pressao-manual",
       "manguito-adulto-esfigmomanometro",
+      "bracadeira-modelo-universal-gtech",
       "valvula-deflacao-esfigmomanometro",
       "pera-esfigmomanometro",
     ],
@@ -57,6 +58,14 @@ const rawCatalogSubcategories: CatalogSubcategory[] = [
       "olivas-pretas-para-estetoscopio",
     ],
     featuredProductId: "estetoscopio-rappaport",
+  },
+  {
+    id: "instrumentos-clinicos",
+    categoryId: "monitoramento",
+    label: "Instrumentos clínicos",
+    description: "Martelos e acessórios para avaliação clínica",
+    productIds: ["martelo-buck-neurologico"],
+    featuredProductId: "martelo-buck-neurologico",
   },
   {
     id: "termometros",
@@ -100,7 +109,8 @@ const rawCatalogSubcategories: CatalogSubcategory[] = [
     label: "Pés e calçados ortopédicos",
     description: "Botas, sandálias, palmilhas e proteção para os pés",
     productIds: [
-      "bota-imobilizadora",
+      "bota-imobilizadora-curta",
+      "bota-imobilizadora-longa",
       "sandalia-pos-operatoria",
       "calcanheira-de-silicone",
       "tubo-recortavel-calos-malha-gel",
@@ -108,7 +118,7 @@ const rawCatalogSubcategories: CatalogSubcategory[] = [
       "forracao-ortopedica-para-calcanhar",
       "sandalia-para-gesso",
     ],
-    featuredProductId: "bota-imobilizadora",
+    featuredProductId: "bota-imobilizadora-longa",
   },
   {
     id: "coluna-e-postura",
@@ -131,6 +141,7 @@ const rawCatalogSubcategories: CatalogSubcategory[] = [
     description: "Andadores, cadeiras, bengalas e muletas",
     productIds: [
       "andador",
+      "assento-elevado-sanitario",
       "cadeira-de-banho",
       "bengala",
       "muleta-canadense",
@@ -145,7 +156,9 @@ const rawCatalogSubcategories: CatalogSubcategory[] = [
     label: "Descartáveis e proteção",
     description: "Luvas, máscaras, toucas, propés e algodão",
     productIds: [
-      "luvas-descartaveis",
+      "luva-de-latex",
+      "luva-de-vinil",
+      "luva-nitrilica",
       "mascara-tripla-descartavel-50",
       "touca-descartavel-100",
       "prope-descartavel",
@@ -176,8 +189,17 @@ const rawCatalogSubcategories: CatalogSubcategory[] = [
       "solucao-cloreto-sodio-09-10ml",
       "agua-para-injecao-10ml",
       "garrote",
+      "tubo-de-latex-200",
     ],
     featuredProductId: "seringas",
+  },
+  {
+    id: "laminas-e-instrumentos",
+    categoryId: "cuidados-medico-hospitalares",
+    label: "Lâminas e instrumentos",
+    description: "Lâminas e materiais para procedimentos clínicos",
+    productIds: ["laminas-de-bisturi", "cabos-de-bisturi"],
+    featuredProductId: "laminas-de-bisturi",
   },
   {
     id: "nutricao-enteral",
@@ -223,9 +245,9 @@ const rawCatalogSubcategories: CatalogSubcategory[] = [
   {
     id: "higiene-e-recipientes",
     categoryId: "cuidados-medico-hospitalares",
-    label: "Higiene e recipientes",
-    description: "Soluções e recipientes de apoio",
-    productIds: ["solucao-cloreto-sodio-09-100ml", "solucao-cloreto-sodio-09-250ml", "solucao-cloreto-sodio-09-500ml", "alcool-70-100ml", "almotolias"],
+    label: "Higiene, antissepsia e recipientes",
+    description: "Produtos para higiene, antissepsia e apoio",
+    productIds: ["solucao-cloreto-sodio-09-100ml", "solucao-cloreto-sodio-09-250ml", "solucao-cloreto-sodio-09-500ml", "alcool-70-100ml", "esponja-com-escova-clorexidina", "almotolias"],
     featuredProductId: "alcool-70-100ml",
   },
   {
@@ -249,7 +271,7 @@ const rawCatalogSubcategories: CatalogSubcategory[] = [
     categoryId: "fisioterapia-recuperacao",
     label: "Exercícios e fortalecimento",
     description: "Faixas elásticas e acessórios para exercícios",
-    productIds: ["hand-grip", "faixa-elastica-para-exercicios"],
+    productIds: ["hand-grip", "bolas-de-fisioterapia", "kit-mini-band-hidrolight", "faixa-elastica-para-exercicios"],
     featuredProductId: "faixa-elastica-para-exercicios",
   },
 ].map((subcategory) => ({

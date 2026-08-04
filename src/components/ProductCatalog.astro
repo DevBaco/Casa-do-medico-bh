@@ -252,6 +252,7 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
   <div data-catalog-grid class="space-y-10">
     {groupedCatalogCategories.map(({ category, subcategories, uncategorizedProducts }) => (
       <section
+        id={category.id}
         data-catalog-category-block
         data-category-id={category.id}
         hidden={Boolean(validInitialCategory && category.id !== validInitialCategory)}

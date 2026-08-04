@@ -9,9 +9,6 @@ export type CatalogCategoryId =
 export interface CatalogProductImage {
   src: string;
   alt: string;
-  /** Set when the photo depicts one specific manufacturer's product, even though this
-   * catalog entry is also sold under other brands — lets the brand filter avoid showing
-   * a competitor's device as if it were generic. */
   brandId?: StoreBrandId;
   colorSwatch?: "clear" | "amber" | "white" | "black";
 }
@@ -211,6 +208,31 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["manguito adulto", "bracadeira pressao", "esfigmomanometro", "reposicao"],
   },
   {
+    id: "bracadeira-modelo-universal-gtech",
+    categoryId: "monitoramento",
+    brandIds: ["gtech"],
+    name: "Braçadeira Modelo Universal",
+    summary:
+      "Braçadeira reutilizável para aparelhos digitais de braço, com circunferência de 23 a 43 cm.",
+    description:
+      "Braçadeira modelo universal para aparelho digital de braço, compatível com LA250, LA800, LA850, BSP11, MA100 e AA1 da G-Tech. Para uso exclusivo em aparelho de pressão digital. Possui revestimento antibacteriano, bordas dobradas, velcro de alta qualidade e construção leve e resistente. Cor: preta. Circunferência de braço: 23 a 43 cm.",
+    images: [
+      {
+        src: "/Produtos/-bracadeira-adulto-universal-23-a-43-cm-gtech.webp",
+        alt: "Braçadeira universal G-Tech preta com mangueira para braço de 23 a 43 cm",
+        brandId: "gtech",
+      },
+    ],
+    highlights: [
+      "Compatível com aparelhos digitais de braço selecionados",
+      "Circunferência de braço de 23 a 43 cm",
+      "Reutilizável, leve e resistente",
+    ],
+    badges: ["G-Tech", "Reposição"],
+    consultation: ["Modelo do aparelho", "Circunferência do braço", "Disponibilidade"],
+    keywords: ["bracadeira universal", "bracadeira gtech", "manguito gtech", "LA250", "LA800", "LA850", "BSP11", "MA100", "AA1", "23 a 43 cm"],
+  },
+  {
     id: "valvula-deflacao-esfigmomanometro",
     categoryId: "monitoramento", brandIds: ["premium", "accumed-glicomed"],
     name: "Válvula de Deflação para Esfigmomanômetro",
@@ -234,12 +256,12 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "estetoscopio-littmann-classic-iii",
     categoryId: "monitoramento",
     brandIds: ["3m"],
-    name: "Estetoscópio Littmann Classic III",
-    summary: "Estetoscópio preto de dupla face para ausculta clínica de adultos e crianças.",
-    description: "Possui tubo preto, olivas macias e auscultador de dupla face. O lado pediátrico pode ser usado como campânula aberta com o aro apropriado. Consulte a disponibilidade antes da compra.",
-    images: [{ src: "/Produtos/estetoscopio-littmann-classic-iii.png", alt: "Estetoscópio preto Littmann Classic III com auscultador metálico", brandId: "3m" }],
-    highlights: ["Dupla face", "Auscultador de dupla face", "Tubo preto"], badges: ["Ausculta", "Clínico"],
-    consultation: ["Modelo", "Cor", "Disponibilidade"], keywords: ["estetoscopio littmann", "classic iii", "estetoscopio preto"],
+    name: "Estetoscópio Littmann Classic III Profissional Original – 3M",
+    summary: "Estetoscópio de dupla face para ausculta clínica de adultos e crianças.",
+    description: "Possui olivas macias e auscultador de dupla face. O lado pediátrico pode ser usado como campânula aberta com o aro apropriado. Consulte a disponibilidade antes da compra.",
+    images: [{ src: "/Produtos/estetoscopio-littmann-classic-iii.png", alt: "Estetoscópio Littmann Classic III com auscultador metálico", brandId: "3m" }],
+    highlights: ["Dupla face", "Auscultador de dupla face", "Olivas macias"], badges: ["Ausculta", "Clínico"],
+    consultation: ["Modelo", "Disponibilidade"], keywords: ["estetoscopio littmann", "classic iii"],
   },
   {
     id: "estetoscopio-rappaport",
@@ -251,6 +273,30 @@ const rawCatalogProducts: CatalogProduct[] = [
     images: [{ src: "/Produtos/RAPPAPORT_1-800x800-accumed-glicomed.webp", alt: "Estetoscópio Rappaport preto com acessórios de reposição", brandId: "accumed-glicomed" }],
     highlights: ["Dupla via", "Conjunto com acessórios", "Tubo preto"], badges: ["Ausculta", "Profissional"],
     consultation: ["Modelo", "Peças e acessórios", "Disponibilidade"], keywords: ["estetoscopio", "rappaport", "ausculta", "dupla via", "acessorios"],
+  },
+  {
+    id: "martelo-buck-neurologico",
+    categoryId: "monitoramento",
+    brandIds: [],
+    name: "Martelo Buck Neurológico",
+    summary:
+      "Martelo neurológico para avaliação de reflexos, acompanhado de ponta e pincel para estímulos complementares.",
+    description:
+      "O martelo Buck neurológico é utilizado em avaliações clínicas de reflexos. Possui cabeça com extremidades emborrachadas e acompanha acessórios para estímulos complementares, como ponta e pincel. O uso deve ser realizado por profissional habilitado.",
+    images: [
+      {
+        src: "/Produtos/martelo-buck-neurologico.png",
+        alt: "Martelo Buck neurológico preto e metálico com ponta e pincel",
+      },
+    ],
+    highlights: [
+      "Cabeça com extremidades emborrachadas",
+      "Acompanha ponta e pincel",
+      "Para avaliação clínica de reflexos",
+    ],
+    badges: ["Exame neurológico", "Instrumento clínico"],
+    consultation: ["Modelo", "Acessórios incluídos", "Disponibilidade"],
+    keywords: ["martelo buck", "martelo neurologico", "martelo de reflexos", "reflexos", "instrumento clinico"],
   },
   {
     id: "olivas-pretas-para-estetoscopio",
@@ -764,15 +810,40 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["colete putti", "putti baixo", "putti basic", "or2011", "colete lombar", "hidrolight"],
   },
   {
-    id: "bota-imobilizadora",
+    id: "bota-imobilizadora-curta",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["hidrolight", "kestal"],
-    name: "Botas Imobilizadoras",
+    name: "Bota Imobilizadora Curta",
     imageInset: "medium",
     summary:
-      "Bota ortopédica com estrutura e fechos ajustáveis para imobilização do tornozelo e do pé.",
+      "Bota ortopédica curta com estrutura e fechos ajustáveis para imobilização do pé e tornozelo.",
     description:
-      "A bota imobilizadora ajuda a limitar movimentos do pé e tornozelo durante a recuperação. Há versões curtas e longas, com diferenças em solado, estrutura e acolchoamento. O modelo e o tamanho devem seguir a indicação recebida.",
+      "A bota imobilizadora curta ajuda a limitar movimentos do pé e tornozelo durante a recuperação. O modelo e o tamanho devem seguir a indicação recebida.",
+    images: [
+      {
+        src: "/Produtos/bota-imobilizadora-curta.png",
+        alt: "Bota imobilizadora ortopédica curta",
+      },
+    ],
+    highlights: [
+      "Modelo curto",
+      "Fechos ajustáveis e estrutura acolchoada",
+      "Para pé e tornozelo",
+    ],
+    badges: ["Pé e tornozelo", "Imobilização"],
+    consultation: ["Numeração do calçado", "Lado e indicação", "Disponibilidade"],
+    keywords: ["bota imobilizadora curta", "bota ortopedica", "robofoot"],
+  },
+  {
+    id: "bota-imobilizadora-longa",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight", "kestal"],
+    name: "Bota Imobilizadora Longa",
+    imageInset: "medium",
+    summary:
+      "Bota ortopédica longa com estrutura e fechos ajustáveis para imobilização do pé, tornozelo e perna.",
+    description:
+      "A bota imobilizadora longa ajuda a limitar movimentos do pé, tornozelo e parte da perna durante a recuperação. O modelo e o tamanho devem seguir a indicação recebida.",
     images: [
       {
         src: `${hidrolightBase}/OR1030 - Bota Imobilizadora Longa diagonal.jpg`,
@@ -780,13 +851,13 @@ const rawCatalogProducts: CatalogProduct[] = [
       },
     ],
     highlights: [
-      "Opções curtas e longas",
+      "Modelo longo",
       "Fechos ajustáveis e estrutura acolchoada",
-      "Solados e níveis de imobilização variados",
+      "Para pé, tornozelo e perna",
     ],
     badges: ["Pé e tornozelo", "Imobilização"],
-    consultation: ["Modelo curto ou longo", "Numeração do calçado", "Lado e indicação"],
-    keywords: ["bota imobilizadora", "bota ortopedica", "robofoot"],
+    consultation: ["Numeração do calçado", "Lado e indicação", "Disponibilidade"],
+    keywords: ["bota imobilizadora longa", "bota ortopedica", "robofoot"],
   },
   {
     id: "sandalia-pos-operatoria",
@@ -861,6 +932,37 @@ const rawCatalogProducts: CatalogProduct[] = [
     badges: ["Mobilidade", "Regulável"],
     consultation: ["Tipo de andador", "Altura do usuário", "Capacidade suportada"],
     keywords: ["andador", "auxiliar marcha", "mobilidade"],
+  },
+  {
+    id: "assento-elevado-sanitario",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: [],
+    name: "Assento Elevado Sanitário com Tampa",
+    summary:
+      "Assento elevado para vaso sanitário, com tampa e base de apoio em plástico resistente.",
+    description:
+      "O assento elevado sanitário com tampa auxilia o uso do vaso sanitário por pessoas que precisam de mais conforto, segurança e facilidade durante a higiene. Possui formato anatômico, tampa articulada e sistema de fixação para manter o assento estável durante o uso. Consulte a disponibilidade do modelo.",
+    images: [
+      {
+        src: "/Produtos/assento-elevado-sanitario.png",
+        alt: "Assento elevado sanitário branco com tampa, sem marca",
+      },
+    ],
+    highlights: [
+      "Com tampa articulada",
+      "Formato anatômico",
+      "Base de apoio estável",
+    ],
+    badges: ["Higiene", "Acessibilidade"],
+    consultation: ["Modelo", "Sistema de fixação", "Disponibilidade"],
+    keywords: [
+      "assento elevado sanitario",
+      "assento para vaso sanitario",
+      "assento com tampa",
+      "acessibilidade banheiro",
+      "higiene",
+      "apoio sanitario",
+    ],
   },
   {
     id: "cadeira-de-banho",
@@ -1129,29 +1231,46 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["mascara dormir", "mascara sono", "tapa olho", "kestal", "ksn055"],
   },
   {
-    id: "luvas-descartaveis",
+    id: "luva-de-latex",
     categoryId: "cuidados-medico-hospitalares",
-    brandIds: ["medix", "descarpack"],
-    name: "Luvas Descartáveis",
-    imageFrame: { detailAspectRatio: "standard" },
-    summary:
-      "Luvas para proteção e higiene em diferentes materiais, tamanhos e apresentações.",
+    brandIds: [],
+    name: "Luva de Látex",
+    summary: "Luva descartável de látex para proteção e procedimentos de rotina.",
     description:
-      "As luvas descartáveis atendem rotinas de cuidado, higiene e procedimentos conforme a especificação de cada modelo. Há opções em látex, nitrila ou vinil, com ou sem pó e em diferentes tamanhos. Informe a finalidade para conferir o material mais adequado.",
-    images: [
-      {
-        src: `${produtosBase}/luvas-descartaveis.webp`,
-        alt: "Par de luvas descartáveis claras",
-      },
-    ],
-    highlights: [
-      "Opções em látex, nitrila ou vinil",
-      "Diversos tamanhos e apresentações",
-      "Modelos com ou sem pó",
-    ],
+      "A luva de látex é indicada para proteção das mãos em rotinas de cuidado, higiene e procedimentos não cirúrgicos, conforme a finalidade de uso. Modelo ambidestro, descartável e de uso único. Tamanho, apresentação e demais informações devem ser consultados.",
+    images: [{ src: "/Produtos/luva-latex.png", alt: "Caixa genérica e luva descartável de látex amarelada" }],
+    highlights: ["Látex", "Ambidestra", "Descartável e de uso único"],
     badges: ["Proteção", "Descartável"],
-    consultation: ["Material", "Tamanho", "Quantidade por embalagem"],
-    keywords: ["luvas", "latex", "nitrila", "vinil", "descartavel"],
+    consultation: ["Tamanho", "Quantidade por embalagem", "Disponibilidade"],
+    keywords: ["luva latex", "luva descartavel", "luva ambidestra", "protecao", "procedimentos"],
+  },
+  {
+    id: "luva-de-vinil",
+    categoryId: "cuidados-medico-hospitalares",
+    brandIds: [],
+    name: "Luva de Vinil",
+    summary: "Luva descartável de vinil para proteção e procedimentos de rotina.",
+    description:
+      "A luva de vinil é confeccionada em PVC e indicada para proteção das mãos em atividades de cuidado, higiene e procedimentos não cirúrgicos, conforme a finalidade de uso. É lisa, ambidestra, descartável e de uso único. Tamanho, apresentação e demais informações devem ser consultados.",
+    images: [{ src: "/Produtos/luva-vinil.png", alt: "Caixa genérica e luva descartável de vinil transparente" }],
+    highlights: ["Vinil em PVC", "Ambidestra", "Descartável e de uso único"],
+    badges: ["Proteção", "Descartável"],
+    consultation: ["Tamanho", "Quantidade por embalagem", "Disponibilidade"],
+    keywords: ["luva vinil", "luva pvc", "luva descartavel", "ambidestra", "protecao"],
+  },
+  {
+    id: "luva-nitrilica",
+    categoryId: "cuidados-medico-hospitalares",
+    brandIds: [],
+    name: "Luva Nitrílica",
+    summary: "Luva descartável de nitrila para proteção em procedimentos não cirúrgicos.",
+    description:
+      "A luva nitrílica é indicada para proteção das mãos em procedimentos não cirúrgicos, exames e rotinas de cuidado, conforme a finalidade de uso. É ambidestra, descartável e de uso único. Tamanho, apresentação e demais informações devem ser consultados.",
+    images: [{ src: "/Produtos/luva-nitrilica.png", alt: "Caixa genérica e luva descartável nitrílica azul" }],
+    highlights: ["Nitrila", "Ambidestra", "Descartável e de uso único"],
+    badges: ["Proteção", "Descartável"],
+    consultation: ["Tamanho", "Quantidade por embalagem", "Disponibilidade"],
+    keywords: ["luva nitrilica", "luva nitrila", "luva azul", "luva descartavel", "procedimentos"],
   },
   {
     id: "prope-descartavel",
@@ -1328,6 +1447,62 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["agulha", "hipodermica", "descartavel", "esteril", "seringa"],
   },
   {
+    id: "laminas-de-bisturi",
+    categoryId: "cuidados-medico-hospitalares",
+    brandIds: [],
+    name: "Lâminas de Bisturi de Aço Carbono Estéril",
+    summary:
+      "Lâminas de bisturi estéreis e descartáveis para procedimentos cirúrgicos e odontológicos.",
+    description:
+      "Alta precisão, corte afiado e confiabilidade são essenciais em procedimentos cirúrgicos odontológicos. A Lâmina de Bisturi de Aço Carbono Estéril Solidor reúne esses atributos com excelência. É estéril e segura, com esterilização por raio gama. Há diversos tamanhos e modelos para cada necessidade clínica. De uso único e prático, oferece corte afiado, preciso e durável. Indicada para cirurgia e periodontia, atende desde procedimentos simples até os mais específicos. Consulte modelos, numerações, apresentação e disponibilidade.",
+    images: [
+      {
+        src: "/Produtos/laminas-bisturi-aco-carbono.png",
+        alt: "Lâminas de bisturi de aço carbono estéreis em diferentes formatos, sem numeração",
+      },
+    ],
+    highlights: [
+      "Aço carbono estéril",
+      "Esterilização por raio gama",
+      "Uso único com corte preciso e durável",
+    ],
+    badges: ["Estéril", "Uso único"],
+    consultation: ["Modelo e numeração", "Apresentação", "Disponibilidade"],
+    keywords: ["lamina bisturi", "lamina de bisturi", "aco carbono", "solidor", "esteril", "cirurgia", "periodontia"],
+  },
+  {
+    id: "cabos-de-bisturi",
+    categoryId: "cuidados-medico-hospitalares",
+    brandIds: [],
+    name: "Cabo de Bisturi em Aço Inox",
+    summary:
+      "Instrumento cirúrgico reutilizável para fixação de lâminas descartáveis com firmeza e precisão.",
+    description:
+      "O cabo de bisturi em aço inox é um instrumento cirúrgico reutilizável, autoclavável e resistente à corrosão, usado para fixar lâminas descartáveis com firmeza e precisão. Disponível nos modelos compatíveis com lâminas nº 3 e nº 4, conforme consulta e disponibilidade.",
+    images: [
+      {
+        src: "/Produtos/cabos-bisturi-inox.png",
+        alt: "Cabos de bisturi em aço inox para lâminas nº 3 e nº 4",
+      },
+    ],
+    highlights: [
+      "Aço inox reutilizável",
+      "Autoclavável e resistente à corrosão",
+      "Modelos para lâminas nº 3 e nº 4",
+    ],
+    badges: ["Reutilizável", "Instrumento cirúrgico"],
+    consultation: ["Modelo nº 3 ou nº 4", "Compatibilidade com a lâmina", "Disponibilidade"],
+    keywords: [
+      "cabo bisturi",
+      "cabo de bisturi",
+      "cabo bisturi numero 3",
+      "cabo bisturi numero 4",
+      "aco inox",
+      "autoclavavel",
+      "instrumento cirurgico",
+    ],
+  },
+  {
     id: "torneira-3-vias-luer-lock",
     categoryId: "cuidados-medico-hospitalares",
     brandIds: ["descarpack"],
@@ -1350,7 +1525,7 @@ const rawCatalogProducts: CatalogProduct[] = [
   },
   {
     id: "fita-kinesio-5cm-5m",
-    categoryId: "fisioterapia-recuperacao",
+    categoryId: "cuidados-medico-hospitalares",
     brandIds: [],
     name: "Fita Kinesio 5 cm × 5 m",
     summary: "Bandagem adesiva elástica em rolo, com 5 cm de largura e 5 m de comprimento.",
@@ -1426,6 +1601,38 @@ const rawCatalogProducts: CatalogProduct[] = [
     description: "Bolsa coletora de urina em sistema fechado, com tubo de conexão, graduação e válvula de drenagem. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
     images: [{ src: "/Produtos/bolsa-coletora-urina-sistema-fechado.png", alt: "Bolsa coletora de urina em sistema fechado" }],
     highlights: ["Sistema fechado", "Válvula antirrefluxo", "Com graduação"], badges: ["Cuidados", "Descartável"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["bolsa coletora", "urina", "sistema fechado", "antirrefluxo", "drenagem"],
+  },
+  {
+    id: "esponja-com-escova-clorexidina",
+    categoryId: "cuidados-medico-hospitalares",
+    brandIds: [],
+    name: "Esponja com Escova",
+    summary:
+      "Esponja médica estéril e descartável para antissepsia cirúrgica das mãos, braços e preparo da pele.",
+    description:
+      "A esponja com escova é um produto médico estéril e descartável indicado para a antissepsia cirúrgica das mãos, braços e preparo da pele de profissionais da saúde antes de procedimentos invasivos. Cada unidade vem impregnada com 22 ml de digliconato de clorexidina a 2% com tensoativos.",
+    images: [
+      {
+        src: "/Produtos/esponja-com-escova-clorexidina.png",
+        alt: "Esponja estéril com escova para antissepsia cirúrgica, sem marca",
+      },
+    ],
+    highlights: [
+      "Clorexidina 2% com tensoativos",
+      "Estéril e descartável",
+      "Esponja com escova integrada",
+    ],
+    badges: ["Estéril", "Uso único"],
+    consultation: ["Apresentação", "Quantidade", "Disponibilidade"],
+    keywords: [
+      "esponja com escova",
+      "clorexidina 2%",
+      "antissepsia cirurgica",
+      "escova cirurgica",
+      "preparo da pele",
+      "esteril",
+      "descartavel",
+    ],
   },
   {
     id: "alcool-70-100ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Álcool Líquido 70% INPM 100 mL",
@@ -1542,6 +1749,71 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["bolsa termica", "gel", "compressa fria", "compressa quente"],
   },
   {
+    id: "bolas-de-fisioterapia",
+    categoryId: "fisioterapia-recuperacao",
+    brandIds: [],
+    name: "Bolas de Fisioterapia",
+    summary:
+      "Bolas para exercícios de preensão, fortalecimento e estímulo sensorial das mãos.",
+    description:
+      "As bolas de fisioterapia podem ser utilizadas em exercícios de preensão, fortalecimento, coordenação motora e estímulo sensorial. Disponíveis em modelos com superfície lisa ou texturizada, conforme a necessidade do exercício e a disponibilidade.",
+    images: [
+      {
+        src: "/Produtos/bolas-fisioterapia-lisa-texturizada.png",
+        alt: "Bolas de fisioterapia azuis, uma lisa e outra texturizada",
+      },
+    ],
+    highlights: [
+      "Modelos liso e texturizado",
+      "Exercícios de preensão e fortalecimento",
+      "Auxilia na coordenação motora",
+    ],
+    badges: ["Fisioterapia", "Exercícios"],
+    consultation: ["Modelo", "Textura", "Disponibilidade"],
+    keywords: [
+      "bola fisioterapia",
+      "bola exercicio mao",
+      "bola lisa",
+      "bola texturizada",
+      "fortalecimento mao",
+      "preensao",
+      "coordenacao motora",
+    ],
+  },
+  {
+    id: "tubo-de-latex-200",
+    categoryId: "cuidados-medico-hospitalares",
+    brandIds: [],
+    name: "Tubo de Látex nº 200",
+    summary:
+      "Tubo de látex para garroteamento, condução de oxigênio e fluidos, além de usos leves em fisioterapia.",
+    description:
+      "O tubo de látex número 200 serve para garroteamento em exames de sangue, condução de oxigênio e fluidos em hospitais, além de exercícios leves de fisioterapia e confecção de estilingues. Ele possui cerca de 3 mm de diâmetro interno e 5,5 mm de diâmetro externo.",
+    images: [
+      {
+        src: "/Produtos/tubo-de-latex-200.png",
+        alt: "Tubo de látex nº 200 enrolado, sem marca",
+      },
+    ],
+    highlights: [
+      "Para garroteamento em exames de sangue",
+      "Condução de oxigênio e fluidos",
+      "Diâmetro interno de aproximadamente 3 mm",
+    ],
+    badges: ["Uso hospitalar", "Látex"],
+    consultation: ["Comprimento", "Medidas", "Disponibilidade"],
+    keywords: [
+      "tubo de latex 200",
+      "tubo latex n 200",
+      "tubo elastico",
+      "garroteamento",
+      "oxigenio",
+      "fluidos hospitalares",
+      "fisioterapia",
+      "garrote latex",
+    ],
+  },
+  {
     id: "hand-grip",
     categoryId: "fisioterapia-recuperacao",
     brandIds: ["hidrolight"],
@@ -1569,6 +1841,31 @@ const rawCatalogProducts: CatalogProduct[] = [
     badges: ["Fortalecimento", "Portátil"],
     consultation: ["Nível de resistência", "Modelo fixo ou ajustável", "Finalidade do exercício"],
     keywords: ["hand grip", "fortalecimento mao", "exercicio antebraco"],
+  },
+  {
+    id: "kit-mini-band-hidrolight",
+    categoryId: "fisioterapia-recuperacao",
+    brandIds: ["hidrolight"],
+    name: "Kit Mini Band Hidrolight",
+    summary:
+      "Kit com 3 ou 5 faixas elásticas circulares para exercícios de força, mobilidade e reabilitação.",
+    description:
+      "O Kit Mini Band pode ser composto por 3 ou 5 faixas elásticas circulares, com tensões diferentes, que podem ser utilizadas individualmente ou sobrepostas para aumentar a resistência durante os exercícios. Treinos funcionais, reabilitação, yoga, pilates e academias.",
+    images: [
+      {
+        src: "/Produtos/FL72-Mini-Band-kit-5-logo-vertical-1024x1024.webp",
+        alt: "Kit Hidrolight com cinco faixas elásticas circulares Mini Band",
+        brandId: "hidrolight",
+      },
+    ],
+    highlights: [
+      "Opções com 3 ou 5 faixas",
+      "Uso individual ou sobreposto",
+      "Para treinos, reabilitação, yoga e pilates",
+    ],
+    badges: ["Hidrolight", "Exercícios"],
+    consultation: ["Nível de resistência", "Quantidade de faixas", "Disponibilidade"],
+    keywords: ["mini band", "kit mini band", "faixa elastica circular", "hidrolight", "FL72", "resistencia"],
   },
   {
     id: "faixa-elastica-para-exercicios",
