@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronUp, Menu } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -112,6 +112,7 @@ export default function SiteHeaderClient({
   const [activeProductGroupId, setActiveProductGroupId] = useState(
     productGroups[0]?.id ?? ""
   );
+  const [mobileCategoryOpenId, setMobileCategoryOpenId] = useState<string | null>(null);
   const activeProductGroup =
     productGroups.find((group) => group.id === activeProductGroupId) ?? productGroups[0];
 
@@ -241,7 +242,10 @@ export default function SiteHeaderClient({
                     <AccordionTrigger className="px-3 text-base no-underline hover:no-underline">
                       Meias compressivas
                     </AccordionTrigger>
-                    <AccordionContent className="pb-4">
+                    <AccordionContent
+                      className="!h-auto pb-4"
+                      contentClassName="data-open:!h-auto data-closed:!h-0"
+                    >
                       <SheetClose asChild>
                         <a
                           href="/meias-de-compressão"
@@ -258,7 +262,10 @@ export default function SiteHeaderClient({
                     <AccordionTrigger className="px-3 text-base no-underline hover:no-underline">
                       Produtos médicos
                     </AccordionTrigger>
-                    <AccordionContent className="pb-4">
+                    <AccordionContent
+                      className="!h-auto pb-4"
+                      contentClassName="data-open:!h-auto data-closed:!h-0"
+                    >
                       <SheetClose asChild>
                         <a
                           href="/produtos"
@@ -268,27 +275,44 @@ export default function SiteHeaderClient({
                           <ArrowRight className="size-4 shrink-0" />
                         </a>
                       </SheetClose>
-                      <Accordion type="single" collapsible className="border-y">
+                      <div className="divide-y rounded-lg border">
                         {productGroups.map((group) => (
-                          <AccordionItem key={group.id} value={group.id}>
-                            <AccordionTrigger className="px-3 text-sm no-underline hover:no-underline">
-                              {group.label}
-                            </AccordionTrigger>
-                            <AccordionContent className="pb-4">
-                              <SheetClose asChild>
-                                <a
-                                  href={group.href}
-                                  className="mb-3 flex items-center justify-between gap-3 rounded-lg bg-primary/10 px-3 py-2.5 font-semibold leading-snug text-primary no-underline"
-                                >
-                                  <span>Ver todos os itens de {group.label}</span>
-                                  <ArrowRight className="size-4 shrink-0" />
-                                </a>
-                              </SheetClose>
-                              <MobileCatalogLinks items={group.items} />
-                            </AccordionContent>
-                          </AccordionItem>
+                          <div key={group.id}>
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              className="flex h-auto min-h-11 w-full items-center justify-between rounded-none px-3 py-2.5 text-left text-sm font-medium hover:bg-muted"
+                              aria-expanded={mobileCategoryOpenId === group.id}
+                              onClick={() =>
+                                setMobileCategoryOpenId((current) =>
+                                  current === group.id ? null : group.id,
+                                )
+                              }
+                            >
+                              <span>{group.label}</span>
+                              {mobileCategoryOpenId === group.id ? (
+                                <ChevronUp className="size-4 text-muted-foreground" />
+                              ) : (
+                                <ChevronDown className="size-4 text-muted-foreground" />
+                              )}
+                            </Button>
+                            {mobileCategoryOpenId === group.id && (
+                              <div className="space-y-3 px-3 pb-4">
+                                <SheetClose asChild>
+                                  <a
+                                    href={group.href}
+                                    className="flex items-center justify-between gap-3 rounded-lg bg-primary/10 px-3 py-2.5 font-semibold leading-snug text-primary no-underline"
+                                  >
+                                    <span>Ver todos os itens de {group.label}</span>
+                                    <ArrowRight className="size-4 shrink-0" />
+                                  </a>
+                                </SheetClose>
+                                <MobileCatalogLinks items={group.items} />
+                              </div>
+                            )}
+                          </div>
                         ))}
-                      </Accordion>
+                      </div>
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
