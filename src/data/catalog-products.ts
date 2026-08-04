@@ -784,6 +784,27 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["cinta lombar", "colete lombar", "suporte coluna"],
   },
   {
+    id: "cinta-modeladora-kestal-pink",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["kestal"],
+    name: "Cinta Modeladora Kestal Pink",
+    summary:
+      "Cinta modeladora com compressão abdominal e hastes para suporte e ajuste.",
+    description:
+      "A Cinta Modeladora Kestal Pink proporciona suporte ao abdômen por meio das hastes distribuídas pela cinta e da compressão que ela exerce.",
+    images: [
+      {
+        src: "/Produtos/cinta-modeladora-kestal-pink.png",
+        alt: "Pessoa usando cinta modeladora Kestal Pink preta com faixas rosas",
+        brandId: "kestal",
+      },
+    ],
+    highlights: ["Compressão abdominal", "Hastes distribuídas", "Faixas de ajuste"],
+    badges: ["Kestal", "Modeladora"],
+    consultation: ["Tamanho", "Circunferência abdominal", "Disponibilidade"],
+    keywords: ["cinta modeladora", "kestal pink", "compressao abdominal", "cinta abdominal"],
+  },
+  {
     id: "colete-putti-basic-baixo",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["hidrolight"],
@@ -1292,7 +1313,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     summary:
       "Compressas e rolos de gaze para limpeza, proteção e composição de curativos.",
     description:
-      "A gaze é utilizada em diferentes etapas de cuidado e curativo, conforme a orientação recebida. Trabalhamos com compressas e rolos, opções estéreis ou não estéreis e diferentes medidas e quantidades por embalagem.",
+      "A gaze é utilizada em diferentes etapas de cuidado e curativo, conforme a orientação recebida. Trabalhamos com compressas e rolos, opções estéreis ou não estéreis, diferentes medidas e apresentação com 500 unidades.",
     images: [
       {
         src: `${produtosBase}/gaze.webp`,
@@ -1302,10 +1323,10 @@ const rawCatalogProducts: CatalogProduct[] = [
     highlights: [
       "Compressas ou rolos",
       "Opções estéreis e não estéreis",
-      "Medidas e quantidades variadas",
+      "Apresentação com 500 unidades",
     ],
-    badges: ["Curativos", "Várias medidas"],
-    consultation: ["Tipo de gaze", "Medida", "Quantidade por embalagem"],
+    badges: ["Curativos", "500 unidades"],
+    consultation: ["Tipo de gaze", "Medida", "Disponibilidade"],
     keywords: ["gaze", "compressa", "curativo"],
   },
   {

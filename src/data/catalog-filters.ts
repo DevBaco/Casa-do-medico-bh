@@ -129,6 +129,7 @@ const rawCatalogSubcategories: CatalogSubcategory[] = [
       "colar-cervical",
       "faixa-elastica-basic-3-paineis",
       "cinta-lombar",
+      "cinta-modeladora-kestal-pink",
       "colete-putti-basic-baixo",
       "corretor-postural-boost",
     ],
