@@ -1235,6 +1235,39 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["cadeira banho", "higiene", "cadeira sanitaria"],
   },
   {
+    id: "cadeira-de-rodas-simples",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: [],
+    name: "Cadeira de Rodas Dobrável para Passeio",
+    imageInset: "large",
+    summary:
+      "Cadeira de rodas dobrável em aço, com pneus maciços e freios bilaterais, para passeios e deslocamentos do dia a dia.",
+    description:
+      "Cadeira de rodas indicada para passeios e deslocamentos do dia a dia de quem tem mobilidade reduzida. A estrutura é de aço com pintura epóxi e assento e encosto em nylon, combinação que mantém o conjunto resistente sem pesar demais. Os pneus maciços dispensam calibragem e não furam, e os freios bilaterais travam a cadeira nas paradas e nas transferências. Dobra em X, o que reduz o volume para guardar em casa ou levar no porta-malas. Os apoios de pés acompanham o produto. Largura do assento, capacidade suportada e altura total variam conforme o modelo — confirme antes da compra para garantir o ajuste ao usuário e às portas do ambiente.",
+    images: [
+      {
+        src: `${produtosBase}/cadeira-de-rodas-simples.png`,
+        alt: "Cadeira de rodas simples preta, dobrável, com rodas traseiras grandes e apoios para os pés",
+      },
+    ],
+    highlights: [
+      "Dobrável em X para transporte e armazenamento",
+      "Pneus maciços — não furam e não precisam de calibragem",
+      "Freios bilaterais",
+      "Estrutura em aço com assento e encosto em nylon",
+    ],
+    badges: ["Mobilidade", "Dobrável"],
+    consultation: ["Largura do assento", "Capacidade suportada", "Dimensões e peso"],
+    keywords: [
+      "cadeira de rodas",
+      "cadeira rodas simples",
+      "dobravel",
+      "passeio",
+      "pneu macico",
+      "mobilidade",
+    ],
+  },
+  {
     id: "bengala",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["dellamed"],

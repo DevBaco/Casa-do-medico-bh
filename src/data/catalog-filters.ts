@@ -152,6 +152,7 @@ const rawCatalogSubcategories: CatalogSubcategory[] = [
       "andador-com-rodas",
       "assento-elevado-sanitario",
       "cadeira-de-banho",
+      "cadeira-de-rodas-simples",
       "bengala",
       "muleta-canadense",
       "muleta-canadense-fixa",
