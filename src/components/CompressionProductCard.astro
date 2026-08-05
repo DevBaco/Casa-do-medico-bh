@@ -7,6 +7,7 @@ import {
   getCompressionStockingPath,
   type StockingLine,
 } from "@/data/compression-stockings";
+import { buildSearchText, normalizeSearchText } from "@/lib/catalog-search";
 import { cn } from "@/lib/utils";
 import { buildProductWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -17,11 +18,27 @@ interface Props {
 const { line } = Astro.props;
 const href = getCompressionStockingPath(line);
 const whatsappUrl = buildProductWhatsAppUrl(line.displayName);
+const searchName = normalizeSearchText(line.displayName);
+const searchText = buildSearchText([
+  line.displayName,
+  line.brandName,
+  line.line,
+  line.subline,
+  line.audience,
+  line.summary,
+  line.badges,
+  line.keywords,
+  line.compression,
+  line.colors.map((color) => color.name),
+]);
 ---
 
 <Card
   id={line.id}
   data-product-card
+  data-catalog-item
+  data-search-name={searchName}
+  data-search-text={searchText}
   className="h-full scroll-mt-24 gap-0 overflow-hidden rounded-lg p-0 transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lg"
 >
   <a

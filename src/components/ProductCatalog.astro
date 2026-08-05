@@ -1,6 +1,7 @@
 ---
 import { ArrowLeft, ArrowRight, ChevronDown, Search, SlidersHorizontal, X } from "lucide-react";
 import CatalogProductCard from "@/components/CatalogProductCard.astro";
+import CatalogSearchField from "@/components/CatalogSearchField.astro";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -80,6 +81,11 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
     Voltar ao catálogo completo
   </a>
 
+  <CatalogSearchField
+    label="Buscar no catálogo de produtos"
+    placeholder="Buscar produto…"
+  />
+
   <Card className="gap-0 overflow-hidden py-0 shadow-sm">
     <CardContent className="p-0">
       <div class="flex flex-col gap-5 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
@@ -110,14 +116,18 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
             <h2 data-catalog-heading class="mt-2 text-xl font-semibold sm:text-2xl">
               {initialCategoryDetails?.name ?? "Todos os produtos"}
             </h2>
-            <p data-catalog-count class="mt-1 text-sm text-muted-foreground">
+            <p
+              data-catalog-count
+              hidden={Boolean(validInitialCategory)}
+              class="mt-1 text-sm text-muted-foreground"
+            >
               {initialProductCount} {initialProductCount === 1 ? "produto" : "produtos"} no catálogo
             </p>
           </div>
         </div>
       </div>
 
-      <details class="group border-t">
+      <details hidden class="group border-t">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-3.5 transition-colors hover:bg-secondary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-6 [&::-webkit-details-marker]:hidden">
           <span class="flex min-w-0 items-center gap-3">
             <span class="grid size-8 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
@@ -248,6 +258,13 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
       </a>
     </CardContent>
   </Card>
+
+  <!--
+    While a search is active the category/subcategory headings are meaningless
+    (most would hold a single hit), so matching cards are moved here and shown
+    flat, ordered by relevance. Clearing the search puts them back.
+  -->
+  <div data-catalog-search-grid hidden class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3"></div>
 
   <div data-catalog-grid class="space-y-10">
     {groupedCatalogCategories.map(({ category, subcategories, uncategorizedProducts }) => (
@@ -427,7 +444,18 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
         })
     );
 
-    var state = { category: "", type: "" };
+    var searchGrid = catalogRoot.querySelector("[data-catalog-search-grid]");
+    var state = { category: "", type: "", query: "", raw: "", matches: null, ordered: [] };
+    // Where each card lives when no search is running, so it can be put back.
+    var cardHomes = new Map();
+    // The searchable element is the inner Card; the filtered element is this
+    // wrapper. Keep the link between them for translating search hits.
+    var searchItemToCard = new Map();
+    productCards.forEach(function (card) {
+      cardHomes.set(card, { parent: card.parentNode });
+      var searchItem = card.querySelector("[data-catalog-item]");
+      if (searchItem) searchItemToCard.set(searchItem, card);
+    });
     var relatedCategoriesById = {
       "monitoramento": ["cuidados-medico-hospitalares", "ortopedia-mobilidade"],
       "ortopedia-mobilidade": ["fisioterapia-recuperacao", "cuidados-medico-hospitalares"],
@@ -469,8 +497,9 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
       else url.searchParams.delete("categoria");
       if (state.type) url.searchParams.set("tipo", state.type);
       else url.searchParams.delete("tipo");
+      if (state.query) url.searchParams.set("busca", state.query);
+      else url.searchParams.delete("busca");
       url.searchParams.delete("marca");
-      url.searchParams.delete("busca");
 
       window.history.replaceState({}, "", url.pathname + url.search + url.hash);
     };
@@ -492,6 +521,11 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
     };
 
     var updateRelatedProducts = function () {
+      // "Related" is derived from the active category, which a search ignores.
+      if (state.query && relatedSection) {
+        relatedSection.hidden = true;
+        return;
+      }
       if (!relatedSection || !relatedGrid || !state.category) {
         if (relatedSection) relatedSection.hidden = true;
         return;
@@ -531,26 +565,59 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
       var typeName = types.get(state.type) || "";
       var visibleProducts = 0;
 
+      // Both halves must be present: a query with no match set would hide every
+      // card and render an empty "Resultados para …" grid.
+      var searching = Boolean(state.query && state.matches);
+
       productCards.forEach(function (element) {
-        var matchesCategory =
-          !state.category || element.dataset.category === state.category;
-        var matchesType =
-          !state.type || (element.dataset.types || "").split(" ").includes(state.type);
-        var visible = matchesCategory && matchesType;
+        var visible;
+
+        if (searching) {
+          // A search spans the whole catalog: narrowing it by the category
+          // chips as well is how you end up staring at an empty grid.
+          var searchItem = element.querySelector("[data-catalog-item]");
+          visible = Boolean(searchItem && state.matches.has(searchItem));
+        } else {
+          var matchesCategory =
+            !state.category || element.dataset.category === state.category;
+          var matchesType =
+            !state.type || (element.dataset.types || "").split(" ").includes(state.type);
+          visible = matchesCategory && matchesType;
+        }
 
         element.hidden = !visible;
         if (visible) visibleProducts += 1;
-
       });
+
+      if (searching) {
+        state.ordered.forEach(function (searchItem) {
+          var wrapper = searchItemToCard.get(searchItem);
+          if (wrapper && searchGrid) searchGrid.appendChild(wrapper);
+        });
+      } else {
+        // Re-append in original document order. Anchoring on a saved
+        // nextSibling instead would throw once that sibling had itself been
+        // moved into the results grid, aborting the loop and stranding every
+        // card after it.
+        productCards.forEach(function (card) {
+          var home = cardHomes.get(card);
+          if (home) home.parent.appendChild(card);
+        });
+      }
+
+      if (searchGrid) searchGrid.hidden = !searching;
 
       subcategoryBlocks.forEach(function (block) {
         var blockCategory = block.dataset.categoryId || "";
         var visibleCards = block.querySelectorAll("[data-product-card]:not([hidden])");
-        block.hidden = !visibleCards.length || (state.category && blockCategory !== state.category);
+        block.hidden =
+          searching ||
+          !visibleCards.length ||
+          (state.category && blockCategory !== state.category);
       });
       categoryBlocks.forEach(function (block) {
         var visibleCards = block.querySelectorAll("[data-product-card]:not([hidden])");
-        block.hidden = !visibleCards.length;
+        block.hidden = searching || !visibleCards.length;
       });
 
       categoryButtons.forEach(function (button) {
@@ -585,11 +652,17 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
 
       if (heading) {
         var productGroupName = typeName || categoryLongName;
-        heading.textContent = productGroupName || "Todos os produtos";
+        heading.textContent = searching
+          ? 'Resultados para “' + state.raw + '”'
+          : productGroupName || "Todos os produtos";
       }
 
+      var plural = visibleProducts === 1 ? "produto" : "produtos";
       if (count) {
-        count.textContent = visibleProducts + " " + (visibleProducts === 1 ? "produto" : "produtos") + " no catálogo";
+        count.hidden = !searching && Boolean(state.category || state.type);
+        count.textContent = searching
+          ? visibleProducts + " " + plural + " " + (visibleProducts === 1 ? "encontrado" : "encontrados")
+          : visibleProducts + " " + plural + " no catálogo";
       }
 
       if (filterSummary) {
@@ -598,22 +671,46 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
 
       var hasActiveFilter = Boolean(state.category || state.type);
       if (clearButton) clearButton.hidden = !hasActiveFilter;
-      if (catalogAllLink) catalogAllLink.hidden = !Boolean(state.category || state.type);
+      if (catalogAllLink) catalogAllLink.hidden = !(hasActiveFilter || searching);
       if (emptyState) emptyState.classList.toggle("hidden", visibleProducts !== 0);
 
-      if (searchStatus) {
-        searchStatus.textContent = visibleProducts === 0
+      var announcement =
+        visibleProducts === 0
           ? "Nenhum produto encontrado"
-          : visibleProducts + " " + (visibleProducts === 1 ? "produto encontrado" : "produtos encontrados");
-      }
+          : visibleProducts + " " + plural + " " + (visibleProducts === 1 ? "encontrado" : "encontrados");
+      if (searchStatus) searchStatus.textContent = announcement;
+
+      document.dispatchEvent(
+        new CustomEvent("catalog:search-feedback", {
+          detail: {
+            message: searching
+              ? visibleProducts === 0
+                ? "Nada encontrado. Tente outra palavra."
+                : announcement
+              : "",
+          },
+        })
+      );
 
       if (updateUrl) writeUrlState();
       updateProductDetailLinks();
       updateRelatedProducts();
     };
 
+    // Picking a filter means the visitor is browsing again, not searching, so
+    // the query steps aside instead of silently intersecting with the filter.
+    var dropSearch = function () {
+      if (!state.query) return;
+      state.query = "";
+      state.raw = "";
+      state.matches = null;
+      state.ordered = [];
+      document.dispatchEvent(new CustomEvent("catalog:search-reset"));
+    };
+
     categoryButtons.forEach(function (button) {
       button.addEventListener("click", function () {
+        dropSearch();
         state.category = button.dataset.filterCategory || "";
         if (state.type && typeCategoryById.get(state.type) !== state.category) {
           state.type = "";
@@ -624,6 +721,7 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
 
     typeButtons.forEach(function (button) {
       button.addEventListener("click", function () {
+        dropSearch();
         state.type = button.dataset.filterType || "";
         if (button.dataset.categoryScope) {
           state.category = button.dataset.categoryScope;
@@ -634,11 +732,31 @@ const groupedCatalogCategories = catalogCategories.map((category) => {
 
     if (clearButton) {
       clearButton.addEventListener("click", function () {
+        dropSearch();
         state.category = "";
         state.type = "";
         applyState();
       });
     }
+
+    document.addEventListener("catalog:search", function (event) {
+      state.query = event.detail.query;
+      state.raw = event.detail.raw;
+      state.matches = event.detail.matches;
+      state.ordered = event.detail.ordered;
+      if (!state.query) {
+        state.raw = "";
+        state.matches = null;
+        state.ordered = [];
+      }
+      // Searching looks across the whole catalog, so any active filter is
+      // cleared rather than quietly hiding valid hits.
+      if (state.query) {
+        state.category = "";
+        state.type = "";
+      }
+      applyState();
+    });
 
     window.addEventListener("popstate", function () {
       readUrlState();

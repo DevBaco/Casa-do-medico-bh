@@ -1,4 +1,6 @@
 ---
+import CatalogSearchEngine from "@/components/CatalogSearchEngine.astro";
+import CatalogReturnMemory from "@/components/CatalogReturnMemory.astro";
 import CompressionCatalog from "@/components/CompressionCatalog.astro";
 import SiteFooter from "@/components/SiteFooter.astro";
 import SiteHeader from "@/components/SiteHeader.astro";
@@ -46,4 +48,6 @@ const description = selectedLine
   </main>
 
   <SiteFooter />
+  <CatalogReturnMemory />
+  <CatalogSearchEngine />
 </Layout>

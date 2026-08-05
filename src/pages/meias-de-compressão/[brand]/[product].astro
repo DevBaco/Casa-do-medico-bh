@@ -1,7 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { ArrowLeft, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
+import CatalogBackLink from "@/components/CatalogBackLink.astro";
 import CompressionProductCard from "@/components/CompressionProductCard.astro";
 import CompressionProductGallery from "@/components/CompressionProductGallery";
 import CompressionProductTabs from "@/components/CompressionProductTabs";
@@ -66,13 +67,11 @@ const similarProducts = compressionStockingLines
 
   <main>
     <section class="mx-auto w-full max-w-7xl px-5 py-6 sm:px-6 lg:py-10">
-      <a
-        href="/meias-de-compressão"
-        class={cn(buttonVariants({ variant: "outline", size: "sm" }), "mb-5")}
-      >
-        <ArrowLeft className="size-3.5" />
-        Voltar ao catálogo de meias
-      </a>
+      <CatalogBackLink
+        fallbackHref={`/meias-de-compressão#${line.id}`}
+        label="Voltar ao catálogo de meias"
+        class="mb-5"
+      />
 
       <nav class="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted-foreground" aria-label="Navegação estrutural">
         <a href={`/meias-de-compressão#${brand.id}`} class="font-medium hover:text-primary">

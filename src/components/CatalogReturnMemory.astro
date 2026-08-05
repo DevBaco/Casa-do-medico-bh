@@ -1,0 +1,29 @@
+---
+// Listing-page half of the "voltar para onde eu estava" flow.
+//
+// Records which catalog page the visitor left from whenever they open a
+// product card. The detail page pairs that with document.referrer to decide
+// whether it can go back through history (see CatalogBackLink.astro), which
+// lets the browser restore the previous scroll position natively — no
+// re-scroll, no animation, no route per subcategory.
+---
+
+<script is:inline>
+  document.addEventListener("click", function (event) {
+    var target = event.target;
+    var link = target && target.closest ? target.closest("a[href]") : null;
+    if (!link || !link.closest("[data-catalog-item]")) return;
+    // Ignore WhatsApp and other absolute links inside the card.
+    if ((link.getAttribute("href") || "").charAt(0) !== "/") return;
+
+    try {
+      sessionStorage.setItem(
+        "catalog:from",
+        window.location.pathname + window.location.search
+      );
+    } catch (error) {
+      // Storage blocked (private mode): the detail page falls back to its
+      // server-rendered anchor.
+    }
+  });
+</script>

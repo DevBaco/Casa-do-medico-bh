@@ -1,0 +1,268 @@
+---
+// Runtime half of the catalog search. Rendered at the end of the body so the
+// whole grid is parsed by the time it indexes, which also lets an incoming
+// ?busca= apply before the browser paints.
+---
+
+<script is:inline>
+  // Typo-tolerant catalog search. Stays inline vanilla JS (no framework island,
+  // no search library) because it has to run on a shared-hosting static build
+  // where every kilobyte shipped is a kilobyte the visitor downloads.
+  //
+  // Cards opt in with `data-catalog-item` plus two pre-normalized haystacks:
+  // `data-search-name` (the title, weighted higher) and `data-search-text`
+  // (everything else). Matching results are broadcast as a `catalog:search`
+  // event so each catalog decides how to render them.
+  (function () {
+    var root = document.querySelector("[data-catalog-search-root]");
+    if (!root) return;
+
+    var input = root.querySelector("[data-catalog-search]");
+    var clearButton = root.querySelector("[data-catalog-search-clear]");
+    var feedback = root.querySelector("[data-catalog-search-feedback]");
+    if (!input) return;
+
+    var items = Array.prototype.map.call(
+      document.querySelectorAll("[data-catalog-item]"),
+      function (element) {
+        var name = element.getAttribute("data-search-name") || "";
+        var text = element.getAttribute("data-search-text") || "";
+        return {
+          element: element,
+          name: name,
+          text: text,
+          nameWords: name ? name.split(" ") : [],
+          textWords: text ? text.split(" ") : [],
+        };
+      }
+    );
+    if (!items.length) return;
+
+    var normalize = function (value) {
+      return value
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim();
+    };
+
+    // How many typos to forgive. Two edits on a short word stops being a typo
+    // and starts being a different word — at six characters it let "mascar"
+    // reach "marca". Only long words, where two slips are plausible and the
+    // remaining letters still pin the word down, get the wider budget.
+    var toleranceFor = function (length) {
+      if (length <= 3) return 0;
+      if (length <= 6) return 1;
+      return 2;
+    };
+
+    // scoreField returns at least this much for a literal hit, and less for a
+    // fuzzy one — the boundary between "found it" and "guessed it".
+    var EXACT_SCORE = 55;
+
+    // Optimal string alignment distance — Levenshtein plus adjacent
+    // transpositions, so "joelehira" still finds "joelheira". Bails out as soon
+    // as every cell in a row exceeds `max`, which is the common case.
+    var editDistance = function (a, b, max) {
+      var aLength = a.length;
+      var bLength = b.length;
+      if (Math.abs(aLength - bLength) > max) return max + 1;
+
+      var beforePrevious = [];
+      var previous = [];
+      var current = [];
+
+      for (var column = 0; column <= bLength; column++) previous[column] = column;
+
+      for (var row = 1; row <= aLength; row++) {
+        current[0] = row;
+        var rowBest = row;
+
+        for (var index = 1; index <= bLength; index++) {
+          var substitution =
+            a.charCodeAt(row - 1) === b.charCodeAt(index - 1) ? 0 : 1;
+          var value = Math.min(
+            current[index - 1] + 1,
+            previous[index] + 1,
+            previous[index - 1] + substitution
+          );
+
+          if (
+            row > 1 &&
+            index > 1 &&
+            a.charCodeAt(row - 1) === b.charCodeAt(index - 2) &&
+            a.charCodeAt(row - 2) === b.charCodeAt(index - 1)
+          ) {
+            value = Math.min(value, beforePrevious[index - 2] + 1);
+          }
+
+          current[index] = value;
+          if (value < rowBest) rowBest = value;
+        }
+
+        if (rowBest > max) return max + 1;
+
+        var recycled = beforePrevious;
+        beforePrevious = previous;
+        previous = current;
+        current = recycled;
+      }
+
+      return previous[bLength];
+    };
+
+    // Exact hits are resolved with indexOf over the whole haystack; the fuzzy
+    // word-by-word scan only runs when that fails, keeping typing responsive.
+    var scoreField = function (haystack, words, term) {
+      if (!haystack) return 0;
+
+      // Word-start test has to look past the first hit: indexOf("de") lands
+      // inside "cadeiras" and would mask the real " de " that follows.
+      if (haystack.indexOf(term) === 0 || haystack.indexOf(" " + term) >= 0) return 100;
+
+      // Matching mid-word only helps once a term is specific enough. For one or
+      // two letters it drags in half the catalog ("es" inside "descarpack").
+      if (term.length >= 3 && haystack.indexOf(term) > 0) return 55;
+
+      var max = toleranceFor(term.length);
+      if (!max) return 0;
+
+      var best = 0;
+      for (var index = 0; index < words.length; index++) {
+        var word = words[index];
+        if (Math.abs(word.length - term.length) > max) continue;
+        var distance = editDistance(term, word, max);
+        if (distance <= max) {
+          var score = 45 - distance * 12;
+          if (score > best) best = score;
+        }
+      }
+      return best;
+    };
+
+    // Every term must land somewhere (AND), so "meia masculina" can't be
+    // satisfied by "meia" alone. A hit in the title counts double. Returns null
+    // for a miss, otherwise the score plus whether any term needed fuzzy help.
+    var scoreItem = function (item, terms) {
+      var total = 0;
+      var fuzzy = false;
+
+      for (var index = 0; index < terms.length; index++) {
+        var term = terms[index];
+        var nameScore = scoreField(item.name, item.nameWords, term);
+        var textScore = scoreField(item.text, item.textWords, term);
+        var termScore = Math.max(nameScore * 2, textScore);
+        if (!termScore) return null;
+        if (Math.max(nameScore, textScore) < EXACT_SCORE) fuzzy = true;
+        total += termScore;
+      }
+
+      return { score: total, fuzzy: fuzzy };
+    };
+
+    var lastQuery = null;
+
+    // A single character can't discriminate between 100+ products; treating it
+    // as a live search just blanks the catalog on the first keystroke of every
+    // word. Below this length the catalog stays in its normal browsing state.
+    var MIN_QUERY_LENGTH = 2;
+
+    var run = function () {
+      var query = normalize(input.value);
+      if (query.length < MIN_QUERY_LENGTH) query = "";
+      // The empty query is always dispatched, so clearing the field always
+      // restores the catalog even if the previous keystroke was also empty.
+      if (query && query === lastQuery) return;
+      lastQuery = query;
+
+      if (clearButton) clearButton.hidden = !input.value;
+
+      var matches = null;
+      var ordered = [];
+
+      if (query) {
+        var terms = query.split(" ");
+        matches = new Map();
+        var scored = [];
+        var hasExact = false;
+
+        for (var index = 0; index < items.length; index++) {
+          var result = scoreItem(items[index], terms);
+          if (!result) continue;
+          if (!result.fuzzy) hasExact = true;
+          scored.push({ item: items[index], score: result.score, fuzzy: result.fuzzy });
+        }
+
+        // Typo correction is a fallback, not a peer. Once something matches
+        // what was actually typed, guesses are dropped — otherwise searching
+        // "mascar" lists Máscara alongside whatever sits two edits from "marca".
+        if (hasExact) {
+          scored = scored.filter(function (entry) {
+            return !entry.fuzzy;
+          });
+        }
+
+        scored.sort(function (a, b) {
+          return b.score - a.score;
+        });
+
+        for (var position = 0; position < scored.length; position++) {
+          matches.set(scored[position].item.element, scored[position].score);
+          ordered.push(scored[position].item.element);
+        }
+      }
+
+      document.dispatchEvent(
+        new CustomEvent("catalog:search", {
+          detail: {
+            query: query,
+            raw: query ? input.value : "",
+            matches: matches,
+            ordered: ordered,
+          },
+        })
+      );
+    };
+
+    input.addEventListener("input", run);
+    input.addEventListener("search", run);
+
+    // A stray Enter would submit/reload; results are already live.
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") event.preventDefault();
+      if (event.key === "Escape" && input.value) {
+        input.value = "";
+        run();
+      }
+    });
+
+    if (clearButton) {
+      clearButton.addEventListener("click", function () {
+        input.value = "";
+        run();
+        input.focus();
+      });
+    }
+
+    document.addEventListener("catalog:search-feedback", function (event) {
+      if (feedback) feedback.textContent = event.detail.message || "";
+    });
+
+    // The catalog dropped the query on its side (a filter chip was picked).
+    document.addEventListener("catalog:search-reset", function () {
+      if (!input.value) return;
+      input.value = "";
+      lastQuery = "";
+      if (clearButton) clearButton.hidden = true;
+      if (feedback) feedback.textContent = "";
+    });
+
+    // Restore ?busca= (shared links, and the back button after a product view).
+    var initialQuery = new URLSearchParams(window.location.search).get("busca");
+    if (initialQuery) {
+      input.value = initialQuery;
+      run();
+    }
+  })();
+</script>

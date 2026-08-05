@@ -1,0 +1,82 @@
+---
+import { ArrowLeft } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  // Anchors straight at the product's own card, so even without JS the
+  // visitor lands on the product instead of the top of a category.
+  fallbackHref: string;
+  label: string;
+  // When set, a `?retorno=` param starting with this prefix is honored, so a
+  // filtered catalog keeps its filters if we can't use history.
+  returnPrefix?: string;
+  class?: string;
+}
+
+const { fallbackHref, label, returnPrefix = "", class: className } = Astro.props;
+---
+
+<a
+  data-catalog-back-link
+  href={fallbackHref}
+  class={cn(buttonVariants({ variant: "outline", size: "sm" }), className)}
+>
+  <ArrowLeft className="size-3.5" />
+  {label}
+</a>
+
+<script is:inline define:vars={{ returnPrefix }}>
+  (function () {
+    var link = document.querySelector("[data-catalog-back-link]");
+    if (!link) return;
+
+    if (returnPrefix) {
+      var returnTo = new URLSearchParams(window.location.search).get("retorno");
+      if (returnTo && returnTo.indexOf(returnPrefix) === 0) {
+        link.setAttribute("href", returnTo);
+      }
+    }
+
+    var from = null;
+    try {
+      from = sessionStorage.getItem("catalog:from");
+    } catch (error) {
+      return;
+    }
+    if (!from || !document.referrer) return;
+
+    var referrer;
+    try {
+      referrer = new URL(document.referrer);
+    } catch (error) {
+      return;
+    }
+
+    // Only step back through history when the entry we'd land on really is
+    // the catalog page the visitor left from. Then the browser reuses that
+    // entry and restores its scroll position itself — the visitor returns to
+    // the exact spot, with no jump and no smooth-scroll animation.
+    if (referrer.origin !== window.location.origin) return;
+    if (referrer.pathname + referrer.search !== from) return;
+
+    link.setAttribute("href", from);
+
+    // A tab opened straight into the product page has no entry to go back to.
+    if (window.history.length <= 1) return;
+
+    link.addEventListener("click", function (event) {
+      if (
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+      event.preventDefault();
+      window.history.back();
+    });
+  })();
+</script>

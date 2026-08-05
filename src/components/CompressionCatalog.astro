@@ -1,5 +1,6 @@
 ---
 import { ArrowLeft, Check, ChevronDown, SlidersHorizontal, X } from "lucide-react";
+import CatalogSearchField from "@/components/CatalogSearchField.astro";
 import CompressionProductCard from "@/components/CompressionProductCard.astro";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -50,6 +51,11 @@ const displayedBrands = compressionStockingBrands
       Voltar ao catálogo de meias
     </a>
   )}
+
+  <CatalogSearchField
+    label="Buscar no catálogo de meias compressivas"
+    placeholder="Buscar meia…"
+  />
 
   <Card className="gap-0 overflow-hidden py-0 shadow-sm">
     <CardContent className="p-0">
@@ -187,8 +193,30 @@ const displayedBrands = compressionStockingBrands
     </CardContent>
   </Card>
 
+  <!-- Search hits are shown flat here, ordered by relevance, instead of under
+       the per-brand headings they normally live in. -->
+  <div data-compression-search-grid hidden class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3"></div>
+
+  <Card data-compression-search-empty hidden className="border-dashed">
+    <CardContent className="py-12 text-center">
+      <p class="font-semibold">Nenhuma meia encontrada</p>
+      <p class="mt-2 text-sm text-muted-foreground">
+        Tente outra palavra ou consulte nossa equipe pelo WhatsApp.
+      </p>
+      {selectedBrand && (
+        <a
+          data-compression-search-all
+          href="/meias-de-compressão"
+          class={cn(buttonVariants({ variant: "outline", size: "sm" }), "mt-5")}
+        >
+          Buscar em todas as marcas
+        </a>
+      )}
+    </CardContent>
+  </Card>
+
   {displayedBrands.map((brand) => (
-    <section id={brand.id} class="scroll-mt-24">
+    <section id={brand.id} data-compression-brand-block class="scroll-mt-24">
       {!selectedBrand && (
         <div class="mb-6 border-b pb-5">
           <img src={brand.logo} alt={brand.name} class="h-9 max-w-44 object-contain" />
@@ -201,3 +229,79 @@ const displayedBrands = compressionStockingBrands
     </section>
   ))}
 </div>
+
+<script is:inline>
+  (function () {
+    var searchGrid = document.querySelector("[data-compression-search-grid]");
+    var emptyState = document.querySelector("[data-compression-search-empty]");
+    var searchAllLink = document.querySelector("[data-compression-search-all]");
+    var brandBlocks = Array.prototype.slice.call(
+      document.querySelectorAll("[data-compression-brand-block]")
+    );
+    if (!searchGrid) return;
+
+    var cards = Array.prototype.slice.call(
+      document.querySelectorAll("[data-catalog-item]")
+    );
+    var homes = new Map();
+    cards.forEach(function (card) {
+      homes.set(card, card.parentNode);
+    });
+
+    document.addEventListener("catalog:search", function (event) {
+      var detail = event.detail;
+      var searching = Boolean(detail.query && detail.matches);
+
+      if (!searching) {
+        // Re-append in original document order; a saved nextSibling would
+        // already have moved into the results grid and throw on insertBefore.
+        cards.forEach(function (card) {
+          card.hidden = false;
+          var home = homes.get(card);
+          if (home) home.appendChild(card);
+        });
+        brandBlocks.forEach(function (block) { block.hidden = false; });
+        searchGrid.hidden = true;
+        if (emptyState) emptyState.hidden = true;
+        // Clear the result count too, or it keeps reporting the search the
+        // visitor just erased.
+        document.dispatchEvent(
+          new CustomEvent("catalog:search-feedback", { detail: { message: "" } })
+        );
+        return;
+      }
+
+      cards.forEach(function (card) {
+        card.hidden = !detail.matches.has(card);
+      });
+      detail.ordered.forEach(function (card) {
+        searchGrid.appendChild(card);
+      });
+
+      var found = detail.ordered.length;
+      brandBlocks.forEach(function (block) { block.hidden = true; });
+      searchGrid.hidden = found === 0;
+      if (emptyState) emptyState.hidden = found !== 0;
+
+      // On a brand/line page only that subset is in the DOM, so offer the full
+      // catalog rather than leaving the visitor at a dead end.
+      if (searchAllLink) {
+        searchAllLink.setAttribute(
+          "href",
+          "/meias-de-compressão?busca=" + encodeURIComponent(detail.raw)
+        );
+      }
+
+      document.dispatchEvent(
+        new CustomEvent("catalog:search-feedback", {
+          detail: {
+            message:
+              found === 0
+                ? "Nada encontrado. Tente outra palavra."
+                : found + (found === 1 ? " meia encontrada" : " meias encontradas"),
+          },
+        })
+      );
+    });
+  })();
+</script>

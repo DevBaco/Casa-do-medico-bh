@@ -1,4 +1,6 @@
 ---
+import CatalogSearchEngine from "@/components/CatalogSearchEngine.astro";
+import CatalogReturnMemory from "@/components/CatalogReturnMemory.astro";
 import ProductCatalog from "@/components/ProductCatalog.astro";
 import SiteFooter from "@/components/SiteFooter.astro";
 import SiteHeader from "@/components/SiteHeader.astro";
@@ -35,4 +37,6 @@ const description = category
   </main>
 
   <SiteFooter />
+  <CatalogReturnMemory />
+  <CatalogSearchEngine />
 </Layout>

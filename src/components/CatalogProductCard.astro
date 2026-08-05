@@ -8,6 +8,9 @@ import {
   getCatalogProductPath,
   type CatalogProduct,
 } from "@/data/catalog-products";
+import { catalogSubcategories, getCatalogPopularFilterIds } from "@/data/catalog-filters";
+import { storeBrands } from "@/data/brands";
+import { buildSearchText, normalizeSearchText } from "@/lib/catalog-search";
 import { buildCatalogProductWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +20,28 @@ interface Props {
 
 const { product } = Astro.props;
 const category = getCatalogCategory(product.categoryId);
+
+// Searchable haystack: what someone would plausibly type looking for this
+// product, including the groupings it sits under and the brands we carry it in.
+const subcategoryLabels = getCatalogPopularFilterIds(product.id).map(
+  (filterId) =>
+    catalogSubcategories.find((subcategory) => subcategory.id === filterId)?.label ?? ""
+);
+const brandNames = product.brandIds.map(
+  (brandId) => storeBrands.find((brand) => brand.id === brandId)?.name ?? ""
+);
+const searchName = normalizeSearchText(product.name);
+const searchText = buildSearchText([
+  product.name,
+  product.summary,
+  product.badges,
+  product.keywords,
+  product.highlights,
+  subcategoryLabels,
+  brandNames,
+  category.name,
+  category.shortName,
+]);
 const href = getCatalogProductPath(product);
 const whatsappUrl = buildCatalogProductWhatsAppUrl(product.name);
 const catalogImageStyle = `transform: translateX(${product.imageFrame?.catalogTranslateX ?? 0}%) scale(${product.imageFrame?.catalogScale ?? 1});`;
@@ -32,6 +57,9 @@ const swatchClass = {
 
 <Card
   id={product.id}
+  data-catalog-item
+  data-search-name={searchName}
+  data-search-text={searchText}
   className="group product-card h-full scroll-mt-24 gap-0 overflow-hidden rounded-lg p-0 transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lg"
 >
   <a

@@ -257,8 +257,8 @@ const rawCatalogProducts: CatalogProduct[] = [
     categoryId: "monitoramento",
     brandIds: ["3m"],
     name: "Estetoscópio Littmann Classic III Profissional Original – 3M",
-    summary: "Estetoscópio de dupla face para ausculta clínica de adultos e crianças.",
-    description: "Possui olivas macias e auscultador de dupla face. O lado pediátrico pode ser usado como campânula aberta com o aro apropriado. Consulte a disponibilidade antes da compra.",
+    summary: "Estetoscópio de dupla face para ausculta clínica adulto e pediátrico.",
+    description: "Experimente a precisão e o conforto dos Estetoscópios Littmann Classic III, disponível nas versões adulto e pediátrica. Com alta sensibilidade acústica para desempenho excepcional, o estetoscópio Classic III é usado por estudantes e profissionais médicos para identificar, ouvir e estudar sons do coração, pulmões e outros sons corporais para avaliação física, monitoramento do paciente e diagnóstico. Possui olivas macias e auscultador de dupla face; o lado pediátrico pode ser usado como campânula aberta com o aro apropriado. Consulte a disponibilidade antes da compra.",
     images: [{ src: "/Produtos/estetoscopio-littmann-classic-iii.png", alt: "Estetoscópio Littmann Classic III com auscultador metálico", brandId: "3m" }],
     highlights: ["Dupla face", "Auscultador de dupla face", "Olivas macias"], badges: ["Ausculta", "Clínico"],
     consultation: ["Modelo", "Disponibilidade"], keywords: ["estetoscopio littmann", "classic iii"],
@@ -406,29 +406,54 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["tiras glicose", "fitas glicemia", "tiras reagentes"],
   },
   {
-    id: "lancetas",
+    id: "lanceta-caneta-lancetadora",
     categoryId: "monitoramento",
-    brandIds: ["gtech", "accumed-glicomed"],
-    name: "Lancetas",
+    brandIds: ["gtech"],
+    name: "Lanceta para Caneta Lancetadora",
     imageFrame: { detailAspectRatio: "standard" },
     summary:
-      "Lancetas descartáveis para obtenção da amostra capilar em testes de glicemia.",
+      "Lanceta de ponta ultrafina para punção capilar indolor em testes de glicemia.",
     description:
-      "As lancetas são utilizadas para a punção capilar durante o monitoramento da glicemia. Existem opções avulsas, universais e modelos próprios para determinados lancetadores, com diferentes calibres e apresentações. Consulte a compatibilidade antes da compra.",
+      "Lanceta com espessura ultrafina e ponta triangular, desenvolvida para uma punção mais indolor e com penetração consistente. Esterilizada por radiação gama, tem formato universal, compatível com a maioria das canetas lancetadoras disponíveis no mercado. Disponível nas espessuras 28G e 30G. Consulte a disponibilidade antes da compra.",
     images: [
       {
-        src: `${produtosBase}/lancetas.webp`,
-        alt: "Conjunto de lancetas descartáveis",
+        src: `${produtosBase}/LANCETA.webp`,
+        alt: "Lanceta para caneta lancetadora",
       },
     ],
     highlights: [
-      "Uso individual e descartável",
-      "Calibres e formatos variados",
-      "Compatibilidade conforme o lancetador",
+      "Ponta ultrafina triangular, punção indolor",
+      "Esterilizada por radiação gama",
+      "Formato universal, espessuras 28G e 30G",
     ],
     badges: ["Descartável", "Glicemia"],
-    consultation: ["Compatibilidade", "Calibre", "Quantidade por embalagem"],
+    consultation: ["Compatibilidade", "Espessura", "Quantidade por embalagem"],
     keywords: ["lanceta", "lancetador", "punção capilar"],
+  },
+  {
+    id: "caneta-lancetadora",
+    categoryId: "monitoramento",
+    brandIds: ["gtech"],
+    name: "Caneta Lancetadora",
+    imageFrame: { detailAspectRatio: "standard" },
+    summary:
+      "Caneta lancetadora com ajuste de profundidade para punção capilar em testes de glicemia.",
+    description:
+      "Caneta lancetadora de acionamento suave, ideal para uso com lancetas universais. Possui 10 (dez) níveis de ajuste de profundidade de punção, permitindo adequar o procedimento ao tipo de pele do paciente. Consulte a disponibilidade antes da compra.",
+    images: [
+      {
+        src: `${produtosBase}/CANETA_LANCETADORA.webp`,
+        alt: "Caneta lancetadora para punção capilar",
+      },
+    ],
+    highlights: [
+      "Acionamento suave",
+      "10 níveis de ajuste de profundidade",
+      "Compatível com lancetas universais",
+    ],
+    badges: ["Glicemia", "Reutilizável"],
+    consultation: ["Compatibilidade", "Disponibilidade"],
+    keywords: ["caneta lancetadora", "lancetador", "punção capilar"],
   },
   {
     id: "coxal-elastico",
@@ -483,7 +508,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "joelheiras",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["hidrolight", "kestal", "medi"],
-    name: "Joelheiras",
+    name: "Joelheira",
     imageInset: "medium",
     summary:
       "Modelos lisos, com reforço patelar ou ajustes para diferentes necessidades de suporte no joelho.",
@@ -509,17 +534,32 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["joelheira", "patela", "suporte joelho"],
   },
   {
+    id: "joelheira-articulada-ajustavel",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight"],
+    name: "Joelheira Articulada Ajustável",
+    summary: "Joelheira articulada com talas laterais rígidas e compressão ajustável para suporte do joelho.",
+    description:
+      "A Joelheira Articulada Ajustável é indicada na prevenção e tratamento de lesões graves na região do joelho; Prevenção da recorrência de lesões durante a prática de exercícios; Auxílio no tratamento fisioterapêutico; Período pré e pós-operatório; Entorses, contusões, instabilidade rotatória, luxações, reabilitação de fraturas, lesões de ligamentos e tendões, artrite reumatoide, entre outras. A função ajustável permite graduar a compressão conforme o edema diminui. Possui talas laterais rígidas e articuladas com trava na hiperextensão permitindo movimento fisiológico (normal) do joelho.",
+    images: [{ src: "/Produtos/joelheira-ajustavel-hidrolight.webp", alt: "Joelheira articulada ajustável preta com talas laterais rígidas" }],
+    highlights: ["Talas laterais rígidas e articuladas", "Trava na hiperextensão", "Compressão ajustável"],
+    badges: ["Joelho", "Tamanho único"],
+    consultation: ["Medidas", "Finalidade de uso", "Orientação profissional"],
+    keywords: ["joelheira articulada", "hastes aco", "joelho", "OR70"],
+  },
+  {
     id: "joelheira-ajustavel-hastes-aco",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["hidrolight"],
     name: "Joelheira Ajustável com Hastes de Aço Flexíveis",
-    summary: "Joelheira ajustável com orifício patelar e hastes laterais flexíveis para suporte do joelho.",
-    description: "Joelheira de tamanho único com abas de fecho aderente que permitem graduar a compressão. O orifício patelar e as hastes laterais flexíveis auxiliam na estabilidade da articulação conforme orientação profissional.",
-    images: [{ src: "/Produtos/joelheira-ajustavel-hidrolight.webp", alt: "Joelheira ajustável preta com orifício patelar e hastes laterais" }],
-    highlights: ["Hastes laterais flexíveis", "Compressão ajustável", "Orifício patelar"],
+    summary: "Joelheira ajustável com hastes de aço flexíveis para suporte do joelho.",
+    description:
+      "A Joelheira Ajustável com Hastes de Aço Flexíveis é indicada na prevenção e tratamento de lesões graves na região do joelho; prevenção de lesões durante a prática de exercícios; auxílio no tratamento fisioterapêutico; entorses, contusões, condromalácia, edemas, distensões, tendinites, bursites, instabilidade patelar, luxações, periartrite, pré e pós-artroscopia, reabilitação de fraturas, lesões de ligamentos e tendões, artrite reumatoide, entre outras.",
+    images: [{ src: "/Produtos/joelheira-ajustavel-com-hastes.webp", alt: "Joelheira ajustável preta com hastes de aço flexíveis" }],
+    highlights: ["Hastes de aço flexíveis", "Compressão ajustável", "Indicada para fisioterapia"],
     badges: ["Joelho", "Tamanho único"],
     consultation: ["Medidas", "Finalidade de uso", "Orientação profissional"],
-    keywords: ["joelheira ajustavel", "hastes aco", "orificio patelar", "joelho", "OR59"],
+    keywords: ["joelheira ajustavel", "hastes aco", "joelho"],
   },
   {
     id: "imobilizador-de-joelho",
@@ -613,9 +653,9 @@ const rawCatalogProducts: CatalogProduct[] = [
     name: "Órtese Comfort Air com Polegar",
     imageInset: "medium",
     summary:
-      "Órtese com duas talas, tecido respirável e ajuste extra no polegar para maior estabilidade.",
+      "Órtese com duas talas, tecido respirável e abertura com ajuste extra no polegar para maior estabilidade.",
     description:
-      "A Órtese Comfort Air com Polegar foi desenvolvida com tecido que permite a transpiração, favorece o conforto térmico através dos microfuros e possui duas talas para maior estabilidade e proteção, além de ajuste extra no polegar. É indicada para imobilização e alinhamento da articulação, período pré e pós-operatório, reabilitação de fraturas de punho, L.E.R., D.O.R.T., tendinites, tenossinovites, lesões ligamentares, síndrome do túnel do carpo e rizartrose.",
+      "A Órtese Comfort Air com Polegar foi desenvolvida com tecido que permite a transpiração, favorece o conforto térmico através dos microfuros e possui duas talas para maior estabilidade e proteção, além de abertura com ajuste extra no polegar (diferente da versão longa sem polegar). É indicada para imobilização e alinhamento da articulação, período pré e pós-operatório, reabilitação de fraturas de punho, L.E.R., D.O.R.T., tendinites, tenossinovites, lesões ligamentares, síndrome do túnel do carpo e rizartrose.",
     images: [
       {
         src: `${hidrolightBase}/_MTS9456_.png`,
@@ -625,11 +665,36 @@ const rawCatalogProducts: CatalogProduct[] = [
     highlights: [
       "Tecido respirável com microfuros",
       "Duas talas para estabilidade",
-      "Ajuste extra no polegar",
+      "Possui abertura com ajuste extra no polegar",
     ],
-    badges: ["Punho", "Órtese"],
+    badges: ["Punho", "Órtese", "Com polegar"],
     consultation: ["Lado de uso", "Medida do punho", "Indicação clínica"],
-    keywords: ["ortese comfort air", "punho", "polegar", "tala", "carpo"],
+    keywords: ["ortese comfort air", "punho", "polegar", "tala", "carpo", "com polegar"],
+  },
+  {
+    id: "ortese-comfort-air-longa-sem-polegar",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight"],
+    name: "Órtese Comfort Air Longa Sem Polegar",
+    imageInset: "medium",
+    summary:
+      "Órtese longa, sem abertura para o polegar, com tecido respirável para imobilização do punho.",
+    description:
+      "A Órtese Comfort Air Longa Sem Polegar foi desenvolvida com tecido que permite a transpiração, favorece o conforto térmico através dos seus microfuros. Imobilização e alinhamento da articulação; Período pré e pós-operatório; Reabilitação de fraturas de punho; L.E.R. (lesões por esforços repetitivos) e D.O.R.T. (distúrbios osteomusculares relacionados ao trabalho); Tendinites, tenossinovites, lesões ligamentares e síndrome do túnel do carpo.",
+    images: [
+      {
+        src: "/Produtos/ortese-comfort-air.webp",
+        alt: "Órtese Comfort Air longa sem polegar",
+      },
+    ],
+    highlights: [
+      "Tecido respirável com microfuros",
+      "Modelo longo, sem abertura para o polegar",
+      "Imobilização e alinhamento do punho",
+    ],
+    badges: ["Punho", "Órtese", "Sem polegar"],
+    consultation: ["Lado de uso", "Medida do punho", "Indicação clínica"],
+    keywords: ["ortese comfort air", "punho", "sem polegar", "longa", "carpo"],
   },
   {
     id: "cotoveleira",
@@ -703,6 +768,31 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["tipoia de abducao", "ombro", "abducao", "imobilizador ombro"],
   },
   {
+    id: "tipoia-estofada-imobilizadora-velpeau",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight"],
+    name: "Tipoia Estofada Imobilizadora Velpeau",
+    imageInset: "medium",
+    summary:
+      "Tipoia acolchoada com espuma interna e revestimento em algodão para imobilização de clavícula e braço.",
+    description:
+      "A Tipoia Estofada Imobilizadora Velpeau é acolchoada, com espuma interna de 5 mm e revestimento em algodão, proporciona conforto, sustentação e imobilização. Possui sistema de fixação prático e seguro, com fácil regulagem. Indicada para imobilização da clavícula e braço, sustentação do membro com instabilidade da artrite reumatoide, fratura do colo do úmero e cotovelo, contusões, luxações, sequelas de AVE e pós-operatório e apoio para gesso.",
+    images: [
+      {
+        src: "/Produtos/tipoia-imobilizadora.webp",
+        alt: "Tipoia estofada imobilizadora Velpeau",
+      },
+    ],
+    highlights: [
+      "Acolchoada com espuma interna de 5 mm",
+      "Revestimento em algodão",
+      "Fixação prática com fácil regulagem",
+    ],
+    badges: ["Ombro", "Imobilização"],
+    consultation: ["Lado de uso", "Tempo de uso", "Indicação médica"],
+    keywords: ["tipoia velpeau", "tipoia estofada", "ombro", "clavicula", "imobilizador braço"],
+  },
+  {
     id: "colar-cervical",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["kestal", "hidrolight", "medi"],
@@ -731,7 +821,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "faixa-elastica-basic-3-paineis",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["hidrolight"],
-    name: "Faixa Elástica Basic – 3 Painéis",
+    name: "Faixa Elástica – 3 Painéis",
     imageFrame: {
       catalogScale: 1.3,
       detailScale: 1.1,
@@ -744,7 +834,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     images: [
       {
         src: "/Produtos/faixa-elastica-basic-3-paineis-hidrolight.webp",
-        alt: "Pessoa usando a Faixa Elástica Basic Hidrolight de 3 painéis",
+        alt: "Pessoa usando a Faixa Elástica Hidrolight de 3 painéis",
         brandId: "hidrolight",
       },
     ],
@@ -755,19 +845,49 @@ const rawCatalogProducts: CatalogProduct[] = [
     ],
     badges: ["Hidrolight", "3 painéis"],
     consultation: ["Circunferência abdominal", "Tamanho", "Orientação de uso"],
-    keywords: ["faixa elastica basic", "or2007", "faixa 3 paineis", "hidrolight"],
+    keywords: ["faixa elastica", "or2007", "faixa 3 paineis", "hidrolight"],
+  },
+  {
+    id: "faixa-elastica-4-paineis",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight"],
+    name: "Faixa Elástica – 4 Painéis",
+    imageFrame: {
+      catalogScale: 1.3,
+      detailScale: 1.1,
+      detailFit: "cover",
+    },
+    summary:
+      "Faixa com quatro painéis e fechamento ajustável para suporte do tronco.",
+    description:
+      "Possui quatro painéis. Sua estrutura modular acompanha os movimentos do corpo e o fechamento ajustável permite regular a compressão conforme a medida indicada.",
+    images: [
+      {
+        src: "/Produtos/faixa-elastica-4-paineis.webp",
+        alt: "Pessoa usando a Faixa Elástica Hidrolight de 4 painéis",
+        brandId: "hidrolight",
+      },
+    ],
+    highlights: [
+      "4 painéis",
+      "Estrutura modular para o tronco",
+      "Fechamento ajustável",
+    ],
+    badges: ["Hidrolight", "4 painéis"],
+    consultation: ["Circunferência abdominal", "Tamanho", "Orientação de uso"],
+    keywords: ["faixa elastica", "faixa 4 paineis", "hidrolight"],
   },
   {
     id: "cinta-lombar",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["hidrolight", "kestal", "medi"],
-    name: "Cintas Lombares",
+    name: "Cinta Lombar com Hastes de Aço Flexíveis",
     imageInset: "medium",
     imageFrame: { detailFit: "cover" },
     summary:
-      "Cintas ajustáveis para suporte da região lombar, com diferentes estruturas e reforços.",
+      "Cinta lombar com hastes de aço flexíveis para apoio compressivo e alívio de dores.",
     description:
-      "A cinta lombar envolve a região inferior das costas e pode combinar tecido elástico, hastes flexíveis e faixas de ajuste. Os modelos oferecem diferentes níveis de contenção, e a escolha deve considerar medida, conforto e orientação de uso.",
+      "A Cinta Lombar com Hastes de Aço Flexíveis é indicada na prevenção de lesões durante atividade física e/ou laboral, no alívio de dores agudas e crônicas, no pré e pós-operatório, como apoio compressivo e como auxílio no tratamento fisioterapêutico.",
     images: [
       {
         src: `${hidrolightBase}/_MTS9331_.png`,
@@ -775,49 +895,49 @@ const rawCatalogProducts: CatalogProduct[] = [
       },
     ],
     highlights: [
-      "Suporte da região lombar",
-      "Faixas adicionais de ajuste",
-      "Estruturas e alturas variadas",
+      "Hastes de aço flexíveis",
+      "Apoio compressivo",
+      "Pré e pós-operatório",
     ],
     badges: ["Lombar", "Ajustável"],
     consultation: ["Circunferência da cintura", "Altura da cinta", "Nível de suporte"],
-    keywords: ["cinta lombar", "colete lombar", "suporte coluna"],
+    keywords: ["cinta lombar", "hastes de aço", "colete lombar", "suporte coluna"],
   },
   {
     id: "cinta-modeladora-kestal-pink",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["kestal"],
-    name: "Cinta Modeladora Kestal Pink",
+    name: "Cinta Modeladora",
     summary:
       "Cinta modeladora com compressão abdominal e hastes para suporte e ajuste.",
     description:
-      "A Cinta Modeladora Kestal Pink proporciona suporte ao abdômen por meio das hastes distribuídas pela cinta e da compressão que ela exerce.",
+      "A Cinta Modeladora proporciona suporte ao abdômen por meio das hastes distribuídas pela cinta e da compressão que ela exerce.",
     images: [
       {
         src: "/Produtos/cinta-modeladora-kestal-pink.png",
-        alt: "Pessoa usando cinta modeladora Kestal Pink preta com faixas rosas",
+        alt: "Pessoa usando cinta modeladora Kestal preta com faixas rosas",
         brandId: "kestal",
       },
     ],
     highlights: ["Compressão abdominal", "Hastes distribuídas", "Faixas de ajuste"],
     badges: ["Kestal", "Modeladora"],
     consultation: ["Tamanho", "Circunferência abdominal", "Disponibilidade"],
-    keywords: ["cinta modeladora", "kestal pink", "compressao abdominal", "cinta abdominal"],
+    keywords: ["cinta modeladora", "kestal", "compressao abdominal", "cinta abdominal"],
   },
   {
     id: "colete-putti-basic-baixo",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["hidrolight"],
-    name: "Colete Putti Basic Baixo",
+    name: "Colete Putti Baixo",
     imageFrame: { detailAspectRatio: "landscape" },
     summary:
       "Colete lombar com talas moldáveis e compressão ajustável para suporte da região lombossacra.",
     description:
-      "O Colete Putti Basic Baixo (OR2011) combina tecido elástico, hastes flexíveis e talas semirrígidas moldáveis para oferecer estabilização e compressão na região lombar. O tamanho adequado deve ser definido pela circunferência abdominal e o uso deve seguir orientação profissional.",
+      "O Colete Putti Baixo (OR2011) combina tecido elástico, hastes flexíveis e talas semirrígidas moldáveis para oferecer estabilização e compressão na região lombar. O tamanho adequado deve ser definido pela circunferência abdominal e o uso deve seguir orientação profissional.",
     images: [
       {
         src: "/Produtos/colete-putti-basic-baixo-hidrolight.webp",
-        alt: "Colete Putti Basic Baixo Hidrolight para suporte lombar",
+        alt: "Colete Putti Baixo Hidrolight para suporte lombar",
         brandId: "hidrolight",
       },
     ],
@@ -828,7 +948,85 @@ const rawCatalogProducts: CatalogProduct[] = [
     ],
     badges: ["Lombar", "Ajustável"],
     consultation: ["Circunferência abdominal", "Tamanho P, M, G ou GG", "Orientação de uso"],
-    keywords: ["colete putti", "putti baixo", "putti basic", "or2011", "colete lombar", "hidrolight"],
+    keywords: ["colete putti", "putti baixo", "or2011", "colete lombar", "hidrolight"],
+  },
+  {
+    id: "colete-putti-alto",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight"],
+    name: "Colete Putti Alto",
+    imageFrame: { detailAspectRatio: "landscape" },
+    summary:
+      "Colete lombar com talas moldáveis e compressão ajustável, versão alta para maior sustentação do tronco.",
+    description:
+      "O Colete Putti Alto combina tecido elástico, hastes flexíveis e talas semirrígidas moldáveis para oferecer estabilização e compressão na região lombar, com corte mais alto para maior sustentação do tronco. O tamanho adequado deve ser definido pela circunferência abdominal e o uso deve seguir orientação profissional.",
+    images: [
+      {
+        src: "/Produtos/colete_putti_basic_alto_hidrolight_1.webp",
+        alt: "Colete Putti Alto Hidrolight para suporte lombar",
+        brandId: "hidrolight",
+      },
+    ],
+    highlights: [
+      "Talas semirrígidas moldáveis em alumínio",
+      "Corte alto para maior sustentação do tronco",
+      "Fecho aderente com compressão ajustável",
+    ],
+    badges: ["Lombar", "Ajustável"],
+    consultation: ["Circunferência abdominal", "Tamanho P, M, G ou GG", "Orientação de uso"],
+    keywords: ["colete putti", "putti alto", "colete lombar", "hidrolight"],
+  },
+  {
+    id: "colete-putti-max-baixo",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight"],
+    name: "Colete Putti Max Baixo",
+    imageFrame: { detailAspectRatio: "landscape" },
+    summary:
+      "Colete lombar reforçado para estabilização da coluna lombossacra em quadros de maior gravidade.",
+    description:
+      "O Colete Putti Max Baixo (OR1063) é indicado para estabilização da coluna lombossacra em casos de fraturas, contraturas e lesões nos discos vertebrais, artroses, espondilólises, espondilolisteses, lordoses e outras afecções da região. O tamanho adequado deve ser definido pela circunferência abdominal e o uso deve seguir orientação profissional.",
+    images: [
+      {
+        src: "/Produtos/colete-putti-max-baixo.webp",
+        alt: "Colete Putti Max Baixo Hidrolight para suporte lombossacro",
+        brandId: "hidrolight",
+      },
+    ],
+    highlights: [
+      "Talas semirrígidas moldáveis em alumínio",
+      "Indicado para fraturas, artroses e lesões discais",
+      "Fecho aderente com compressão ajustável",
+    ],
+    badges: ["Lombar", "Ajustável"],
+    consultation: ["Circunferência abdominal", "Tamanho P, M, G ou GG", "Orientação de uso"],
+    keywords: ["colete putti", "putti max", "putti baixo", "or1063", "colete lombar", "hidrolight"],
+  },
+  {
+    id: "colete-putti-max-alto",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight"],
+    name: "Colete Putti Max Alto",
+    imageFrame: { detailAspectRatio: "landscape" },
+    summary:
+      "Colete toracolombossacro reforçado para estabilização em quadros de maior gravidade.",
+    description:
+      "O Colete Putti Max Alto (OR1064) é indicado para estabilização da coluna toracolombossacra em casos de hérnias, traumatismos, fraturas osteoporóticas, artroses, lesão medular e pós-operatório. Produto não invasivo. O tamanho adequado deve ser definido pela circunferência abdominal e o uso deve seguir orientação profissional.",
+    images: [
+      {
+        src: "/Produtos/colete-putti-max-alto.webp",
+        alt: "Colete Putti Max Alto Hidrolight para suporte toracolombossacro",
+        brandId: "hidrolight",
+      },
+    ],
+    highlights: [
+      "Talas semirrígidas moldáveis em alumínio",
+      "Indicado para hérnias, fraturas e pós-operatório",
+      "Corte alto para maior sustentação do tronco",
+    ],
+    badges: ["Lombar", "Ajustável"],
+    consultation: ["Circunferência abdominal", "Tamanho P, M, G ou GG", "Orientação de uso"],
+    keywords: ["colete putti", "putti max", "putti alto", "or1064", "colete lombar", "hidrolight"],
   },
   {
     id: "bota-imobilizadora-curta",
@@ -934,25 +1132,51 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "andador",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["dellamed"],
-    name: "Andadores",
+    name: "Andador Articulado – 3 Barras",
     summary:
-      "Auxiliar de marcha em versões fixas, articuladas, dobráveis ou com rodas.",
+      "Andador articulado que amplia a base de apoio e melhora o equilíbrio durante a marcha.",
     description:
-      "O andador amplia a base de apoio durante a marcha e está disponível em diferentes configurações. Modelos fixos, articulados, dobráveis ou com rodas atendem rotinas distintas. Altura, capacidade suportada e modo de uso devem ser conferidos antes da escolha.",
+      "O andador articulado 03 barras é indicado para aumentar a base de apoio, facilitando o equilíbrio durante a deambulação. Serve também para maior estabilidade anterior e lateral e suporte do peso do usuário, em casos de fraqueza muscular, déficit de equilíbrio, pós-cirúrgico, entre outros.",
     images: [
       {
-        src: `${produtosBase}/andador.jpg`,
-        alt: "Andador de alumínio com regulagem de altura",
+        src: `${produtosBase}/andador-articulado-3-barras.webp`,
+        alt: "Andador articulado de 3 barras",
       },
     ],
+    imageFrame: { catalogScale: 1.5, detailScale: 1.5 },
     highlights: [
-      "Modelos fixos, articulados ou com rodas",
-      "Regulagem de altura",
-      "Opções dobráveis para transporte",
+      "Amplia a base de apoio",
+      "Estabilidade anterior e lateral",
+      "Indicado para pós-cirúrgico e déficit de equilíbrio",
     ],
-    badges: ["Mobilidade", "Regulável"],
-    consultation: ["Tipo de andador", "Altura do usuário", "Capacidade suportada"],
-    keywords: ["andador", "auxiliar marcha", "mobilidade"],
+    badges: ["Mobilidade", "Articulado"],
+    consultation: ["Altura do usuário", "Capacidade suportada"],
+    keywords: ["andador", "andador articulado", "3 barras", "auxiliar marcha", "mobilidade"],
+  },
+  {
+    id: "andador-com-rodas",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["dellamed"],
+    name: "Andador Articulado – 3 Barras com Rodas",
+    summary:
+      "Andador articulado com rodas dianteiras que amplia a base de apoio e melhora o equilíbrio durante a marcha.",
+    description:
+      "O andador articulado 03 barras com rodas é indicado para aumentar a base de apoio, facilitando o equilíbrio durante a deambulação. Serve também para maior estabilidade anterior e lateral e suporte do peso do usuário, em casos de fraqueza muscular, déficit de equilíbrio, pós-cirúrgico, entre outros. As rodas facilitam o deslocamento, reduzindo o esforço a cada passo.",
+    images: [
+      {
+        src: `${produtosBase}/andador-articulado-3-barras-com-rodas.webp`,
+        alt: "Andador articulado de 3 barras com rodas",
+      },
+    ],
+    imageFrame: { catalogScale: 1.5, detailScale: 1.5 },
+    highlights: [
+      "Rodas dianteiras para facilitar o deslocamento",
+      "Amplia a base de apoio",
+      "Indicado para pós-cirúrgico e déficit de equilíbrio",
+    ],
+    badges: ["Mobilidade", "Articulado"],
+    consultation: ["Altura do usuário", "Capacidade suportada"],
+    keywords: ["andador", "andador articulado", "3 barras", "andador com rodas", "auxiliar marcha", "mobilidade"],
   },
   {
     id: "assento-elevado-sanitario",
@@ -1039,26 +1263,51 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "muleta-canadense",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["dellamed"],
-    name: "Muletas Canadenses",
+    name: "Muleta Canadense Articulada",
     imageFrame: { detailAspectRatio: "standard" },
     summary:
-      "Muleta com apoio no antebraço e regulagens para diferentes alturas e necessidades de marcha.",
+      "Muleta com apoio no antebraço, articulada, com regulagens para diferentes alturas e necessidades de marcha.",
     description:
-      "A muleta canadense utiliza braçadeira no antebraço e empunhadura para distribuir o apoio durante a marcha. Pode ter regulagem inferior e superior, além de diferentes formatos de braçadeira. Confirme altura, capacidade e uso unilateral ou em par.",
+      "A muleta canadense articulada utiliza braçadeira no antebraço e empunhadura para distribuir o apoio durante a marcha. A articulação acompanha o movimento do braço, e a muleta pode ter regulagem inferior e superior, além de diferentes formatos de braçadeira. Confirme altura, capacidade e uso unilateral ou em par.",
     images: [
       {
         src: `${produtosBase}/muleta-canadense.webp`,
-        alt: "Par de muletas canadenses com apoio de antebraço",
+        alt: "Muleta canadense articulada com apoio de antebraço",
       },
     ],
     highlights: [
+      "Articulação que acompanha o movimento",
       "Apoio de antebraço",
       "Regulagens conforme o modelo",
-      "Venda unitária ou em par conforme estoque",
     ],
     badges: ["Mobilidade", "Antebraço"],
     consultation: ["Altura do usuário", "Capacidade suportada", "Quantidade necessária"],
-    keywords: ["muleta canadense", "muleta antebraco", "mobilidade"],
+    keywords: ["muleta canadense", "muleta canadense articulada", "muleta antebraco", "mobilidade"],
+  },
+  {
+    id: "muleta-canadense-fixa",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["dellamed"],
+    name: "Muleta Canadense Fixa",
+    imageFrame: { detailAspectRatio: "standard" },
+    summary:
+      "Muleta com apoio no antebraço, estrutura fixa, com regulagem de altura para marcha.",
+    description:
+      "A muleta canadense fixa utiliza braçadeira no antebraço e empunhadura para distribuir o apoio durante a marcha. Possui estrutura fixa, sem articulação, com regulagem de altura, além de diferentes formatos de braçadeira. Confirme altura, capacidade e uso unilateral ou em par.",
+    images: [
+      {
+        src: `${produtosBase}/muleta-canadense-fixa.webp`,
+        alt: "Muleta canadense fixa com apoio de antebraço",
+      },
+    ],
+    highlights: [
+      "Estrutura fixa",
+      "Apoio de antebraço",
+      "Regulagem de altura",
+    ],
+    badges: ["Mobilidade", "Antebraço"],
+    consultation: ["Altura do usuário", "Capacidade suportada", "Quantidade necessária"],
+    keywords: ["muleta canadense", "muleta canadense fixa", "muleta antebraco", "mobilidade"],
   },
   {
     id: "muleta-axilar",
@@ -1308,12 +1557,12 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "gaze",
     categoryId: "cuidados-medico-hospitalares",
     brandIds: ["medix", "descarpack"],
-    name: "Gazes",
+    name: "Gaze Estéril - 10 unidades",
     imageFrame: { detailAspectRatio: "standard" },
     summary:
-      "Compressas e rolos de gaze para limpeza, proteção e composição de curativos.",
+      "Compressas de gaze estéril para limpeza, proteção e composição de curativos.",
     description:
-      "A gaze é utilizada em diferentes etapas de cuidado e curativo, conforme a orientação recebida. Trabalhamos com compressas e rolos, opções estéreis ou não estéreis, diferentes medidas e apresentação com 500 unidades.",
+      "A gaze é utilizada em diferentes etapas de cuidado e curativo, conforme a orientação recebida. Trabalhamos com compressas estéreis, em diferentes medidas, com apresentação em pacote de 10 unidades.",
     images: [
       {
         src: `${produtosBase}/gaze.webp`,
@@ -1321,13 +1570,38 @@ const rawCatalogProducts: CatalogProduct[] = [
       },
     ],
     highlights: [
-      "Compressas ou rolos",
-      "Opções estéreis e não estéreis",
-      "Apresentação com 500 unidades",
+      "Compressas de gaze",
+      "Produto estéril",
+      "Apresentação com 10 unidades",
     ],
-    badges: ["Curativos", "500 unidades"],
+    badges: ["Curativos", "Estéril", "10 unidades"],
     consultation: ["Tipo de gaze", "Medida", "Disponibilidade"],
-    keywords: ["gaze", "compressa", "curativo"],
+    keywords: ["gaze", "compressa", "curativo", "esteril", "10 unidades"],
+  },
+  {
+    id: "gaze-karina-500-unidades",
+    categoryId: "cuidados-medico-hospitalares",
+    brandIds: ["medix"],
+    name: "Gaze Não-Estéril - 500 unidades",
+    imageFrame: { detailAspectRatio: "standard" },
+    summary:
+      "Compressa de gaze Linha Soft, não estéril, confeccionada em 100% algodão, 9/11/13 fios/cm², em pacote com 500 unidades.",
+    description:
+      "A Compressa de Gaze Karina — Linha Soft é confeccionada em tecido 100% algodão, de baixa densidade de fios por centímetro quadrado, embalada em embalagem plástica. Produto não estéril, disponível nas gramaturas de 9, 11 e 13 fios/cm², em pacote com 500 unidades.",
+    images: [
+      {
+        src: "/Produtos/gaze-karina.webp",
+        alt: "Pacote de compressas de gaze Karina com 500 unidades",
+      },
+    ],
+    highlights: [
+      "100% algodão — Linha Soft",
+      "Produto não estéril",
+      "Pacote com 500 unidades",
+    ],
+    badges: ["Curativos", "Não estéril", "500 unidades"],
+    consultation: ["Gramatura (9, 11 ou 13 fios/cm²)", "Medida", "Disponibilidade"],
+    keywords: ["gaze karina", "compressa", "curativo", "nao esteril", "500 unidades", "linha soft"],
   },
   {
     id: "ataduras",
@@ -1405,29 +1679,54 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["micropore", "fita microporosa", "fita cirurgica"],
   },
   {
-    id: "curativos",
+    id: "curativo-hidrocoloide",
     categoryId: "cuidados-medico-hospitalares",
-    brandIds: ["3m", "medix"],
-    name: "Curativos e Coberturas",
+    brandIds: [],
+    name: "Curativo Hidrocoloide",
     imageFrame: { detailAspectRatio: "standard" },
     summary:
-      "Coberturas em diferentes tamanhos, formatos e materiais para rotinas de cuidado da pele.",
+      "Curativo hidrocoloide extra fino que forma gel em contato com a ferida, acelerando a cicatrização.",
     description:
-      "Curativos e coberturas variam conforme a área, o tipo de cuidado e a frequência de troca. Trabalhamos com opções adesivas, absorventes e apresentações específicas. Informe a medida e a orientação recebida para que a equipe possa verificar alternativas compatíveis.",
+      "O Curativo Hidrocoloide é formado por partículas de hidrocoloides (gelatina, pectina e carboximetilcelulose sódica) inseridas em polímeros elastoméricos, que formam gel ao interagir com a umidade da ferida, favorecendo a cicatrização. Sua estrutura extra fina e flexível se adapta a diferentes áreas do corpo. Indicado para feridas superficiais com baixa exsudação, feridas cirúrgicas, lesões por atrito, úlceras de pressão, queimaduras superficiais, abrasões e incisões cirúrgicas.",
     images: [
       {
-        src: `${produtosBase}/curativos.webp`,
-        alt: "Curativos adesivos e cobertura absorvente",
+        src: "/Produtos/curativo-hidrocoloide.webp",
+        alt: "Curativo hidrocoloide extra fino",
       },
     ],
     highlights: [
-      "Formatos e medidas variadas",
-      "Opções adesivas ou não adesivas",
-      "Diferentes níveis de absorção",
+      "Forma gel em contato com a ferida",
+      "Estrutura extra fina e flexível",
+      "Baixa exsudação e feridas superficiais",
     ],
     badges: ["Coberturas", "Cuidados"],
-    consultation: ["Medida necessária", "Tipo de cobertura", "Apresentação"],
-    keywords: ["curativo", "cobertura", "adesivo", "ferida"],
+    consultation: ["Medida necessária", "Tipo de ferida", "Apresentação"],
+    keywords: ["curativo hidrocoloide", "cobertura", "cicatrizacao", "ferida"],
+  },
+  {
+    id: "curativo-esteril-petrolatum",
+    categoryId: "cuidados-medico-hospitalares",
+    brandIds: [],
+    name: "Curativo Estéril com Emulsão de Petrolatum",
+    imageFrame: { detailAspectRatio: "standard" },
+    summary:
+      "Compressa estéril e não aderente, impregnada com emulsão de petrolatum, para tratamento de feridas.",
+    description:
+      "O Curativo Estéril com Emulsão de Petrolatum é uma compressa não aderente, impregnada com emulsão de petrolatum de origem mineral, esterilizada por radiação gama. Protege e auxilia na cicatrização mantendo o ambiente úmido ideal, sem aderir à lesão, permitindo remoção sem dor. Indicado para feridas não infectadas com pouco ou nenhum exsudato, como úlceras, queimaduras de primeiro e segundo grau, áreas doadoras e receptoras, e exposição de ossos e tendões. Pode permanecer na ferida por até 72 horas.",
+    images: [
+      {
+        src: "/Produtos/curativo-estéril.webp",
+        alt: "Curativo estéril com emulsão de petrolatum",
+      },
+    ],
+    highlights: [
+      "Não aderente — mantém o ambiente úmido",
+      "Esterilizado por radiação gama",
+      "Pode permanecer na ferida por até 72 horas",
+    ],
+    badges: ["Coberturas", "Estéril"],
+    consultation: ["Medida necessária", "Tipo de ferida", "Apresentação"],
+    keywords: ["curativo esteril", "petrolatum", "compressa", "cobertura", "ferida"],
   },
   {
     id: "seringas",
@@ -1546,16 +1845,17 @@ const rawCatalogProducts: CatalogProduct[] = [
   },
   {
     id: "fita-kinesio-5cm-5m",
-    categoryId: "cuidados-medico-hospitalares",
+    categoryId: "fisioterapia-recuperacao",
     brandIds: [],
     name: "Fita Kinesio 5 cm × 5 m",
-    summary: "Bandagem adesiva elástica em rolo, com 5 cm de largura e 5 m de comprimento.",
-    description: "A fita kinesio é uma bandagem adesiva elástica utilizada conforme técnicas de aplicação específicas. A apresentação fotografada mede 5 cm por 5 m. Consulte a orientação de profissional habilitado para a aplicação adequada.",
-    images: [{ src: "/Produtos/fita-kinesio-5cm-5m.png", alt: "Rolo azul de fita kinesio com uma faixa desenrolada" }],
-    highlights: ["5 cm de largura", "Rolo de 5 m", "Bandagem adesiva elástica"],
+    imageFrame: { detailAspectRatio: "standard" },
+    summary: "Bandagem elástica adesiva em rolo de 5 cm × 5 m, para aplicações funcionais.",
+    description: "A fita kinesio é uma bandagem elástica adesiva desenvolvida para acompanhar a textura e a elasticidade da pele, oferecendo suporte sem restringir a amplitude de movimento. Confeccionada em algodão com elastano e adesivo hipoalergênico, é resistente à água e ao suor. É utilizada em aplicações orientadas para suporte muscular e articular, edemas, pós-operatório, prevenção de lesões e acompanhamento fisioterapêutico. A técnica de aplicação e o tempo de uso devem seguir orientação de profissional habilitado. Disponível em cores variadas; consulte a disponibilidade.",
+    images: [{ src: "/Produtos/fita-kinesio-5cm-5m.png", alt: "Rolos de fita kinesio nas cores preta, bege, rosa e azul" }],
+    highlights: ["Rolo de 5 cm × 5 m", "Elástica e hipoalergênica, resistente à água", "Preserva a amplitude de movimento"],
     badges: ["Fisioterapia", "Bandagem"],
-    consultation: ["Cor disponível", "Medida", "Orientação de aplicação"],
-    keywords: ["fita kinesio", "bandagem adesiva", "kinesio tape", "5cm 5m"],
+    consultation: ["Cor desejada", "Quantidade", "Orientação de aplicação"],
+    keywords: ["fita kinesio", "kinesio tape", "kinesiology tape", "bandagem elastica", "bandagem adesiva", "bandagem funcional", "5cm 5m"],
   },
   {
     id: "escalpe-21g", categoryId: "cuidados-medico-hospitalares", brandIds: ["descarpack"], name: "Escalpe Descartável",
@@ -1582,25 +1882,25 @@ const rawCatalogProducts: CatalogProduct[] = [
     images: [{ src: "/Produtos/tubo-extensor-luer-lock-40cm.png", alt: "Tubo extensor transparente de 40 centímetros com conectores Luer Lock" }], highlights: ["40 cm", "Conexão Luer Lock", "Tubo transparente"], badges: ["Conexão", "Uso profissional"], consultation: ["Compatibilidade", "Tipo de conexão", "Orientação profissional"], keywords: ["tubo extensor", "luer lock", "40cm", "extensor"],
   },
   {
-    id: "solucao-cloreto-sodio-09-100ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Solução de Cloreto de Sódio 0,9% 100 mL",
-    summary: "Solução de cloreto de sódio 0,9% em frasco de 100 mL para inalação.",
-    description: "Solução de cloreto de sódio 0,9% apresentada em frasco de 100 mL. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
-    images: [{ src: "/Produtos/solucao-cloreto-sodio-09-100ml.png", alt: "Frasco de solução de cloreto de sódio 0,9% de 100 mililitros" }],
-    highlights: ["Concentração 0,9%", "Frasco de 100 mL", "Para inalação"], badges: ["Cuidados", "100 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "100ml", "inalacao"],
+    id: "solucao-cloreto-sodio-09-100ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Soro Fisiológico 0,9% Estéril e Injetável — Sistema Fechado, 100 mL",
+    summary: "Soro fisiológico 0,9% estéril e injetável, sistema fechado, 100 mL.",
+    description: "Soro fisiológico 0,9% estéril e apirogênico, em sistema fechado que preserva a esterilidade e facilita o manuseio seguro. Indicado para uso venoso injetável, diluição de medicamentos, fluidoterapia e outros procedimentos médicos. Frasco de 100 mL.",
+    images: [{ src: "/Produtos/soro-100ml.jpg", alt: "Frasco de soro fisiológico estéril de 100 mililitros" }],
+    highlights: ["Estéril e injetável", "Sistema fechado", "Frasco de 100 mL"], badges: ["Cuidados", "Estéril", "100 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "100ml", "esteril", "injetavel", "sistema fechado"],
   },
   {
-    id: "solucao-cloreto-sodio-09-250ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Solução de Cloreto de Sódio 0,9% 250 mL",
-    summary: "Solução de cloreto de sódio 0,9% em frasco de 250 mL para inalação.",
-    description: "Solução de cloreto de sódio 0,9% apresentada em frasco de 250 mL. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
-    images: [{ src: "/Produtos/solucao-cloreto-sodio-09-250ml.png", alt: "Frasco de solução de cloreto de sódio 0,9% de 250 mililitros" }],
-    highlights: ["Concentração 0,9%", "Frasco de 250 mL", "Para inalação"], badges: ["Cuidados", "250 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "250ml", "inalacao"],
+    id: "solucao-cloreto-sodio-09-250ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Soro Fisiológico 0,9% Estéril e Injetável — Sistema Fechado, 250 mL",
+    summary: "Soro fisiológico 0,9% estéril e injetável, sistema fechado, 250 mL.",
+    description: "Soro fisiológico 0,9% estéril e apirogênico, em sistema fechado que preserva a esterilidade e facilita o manuseio seguro. Indicado para uso venoso injetável, diluição de medicamentos, fluidoterapia e outros procedimentos médicos. Frasco de 250 mL.",
+    images: [{ src: "/Produtos/soro-fisiologico-250.webp", alt: "Frasco de soro fisiológico estéril de 250 mililitros" }],
+    highlights: ["Estéril e injetável", "Sistema fechado", "Frasco de 250 mL"], badges: ["Cuidados", "Estéril", "250 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "250ml", "esteril", "injetavel", "sistema fechado"],
   },
   {
-    id: "solucao-cloreto-sodio-09-500ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Solução de Cloreto de Sódio 0,9% 500 mL",
-    summary: "Solução de cloreto de sódio 0,9% em frasco de 500 mL para inalação.",
-    description: "Solução de cloreto de sódio 0,9% apresentada em frasco de 500 mL. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
-    images: [{ src: "/Produtos/solucao-cloreto-sodio-09-500ml.png", alt: "Frasco de solução de cloreto de sódio 0,9% de 500 mililitros" }],
-    highlights: ["Concentração 0,9%", "Frasco de 500 mL", "Para inalação"], badges: ["Cuidados", "500 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "500ml", "inalacao"],
+    id: "solucao-cloreto-sodio-09-500ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Soro Fisiológico 0,9% Estéril e Injetável — Sistema Fechado, 500 mL",
+    summary: "Soro fisiológico 0,9% estéril e injetável, sistema fechado, 500 mL.",
+    description: "Soro fisiológico 0,9% estéril e apirogênico, em sistema fechado que preserva a esterilidade e facilita o manuseio seguro. Indicado para uso venoso injetável, diluição de medicamentos, fluidoterapia e outros procedimentos médicos. Frasco de 500 mL.",
+    images: [{ src: "/Produtos/soro-fisiologico-500ml.webp", alt: "Frasco de soro fisiológico estéril de 500 mililitros" }],
+    highlights: ["Estéril e injetável", "Sistema fechado", "Frasco de 500 mL"], badges: ["Cuidados", "Estéril", "500 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "500ml", "esteril", "injetavel", "sistema fechado"],
   },
   {
     id: "solucao-cloreto-sodio-09-10ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Solução de Cloreto de Sódio 0,9% 10 mL",
@@ -1613,7 +1913,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "agua-para-injecao-10ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Água para Injeção 10 mL",
     summary: "Água para injeção em ampolas monodose de 10 mL.",
     description: "Água para injeção apresentada em ampolas monodose de 10 mL. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
-    images: [{ src: "/Produtos/agua-para-injecao-10ml.png", alt: "Cinco ampolas monodose de água para injeção de 10 mililitros" }],
+    images: [{ src: "/Produtos/agua-injecao.webp", alt: "Cinco ampolas monodose de água para injeção de 10 mililitros" }],
     highlights: ["Ampolas de 10 mL", "Uso monodose", "Para preparo"], badges: ["Cuidados", "10 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["agua para injecao", "10ml", "ampola", "monodose", "preparo"],
   },
   {
@@ -1659,7 +1959,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "alcool-70-100ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Álcool Líquido 70% INPM 100 mL",
     summary: "Álcool líquido 70% INPM em frasco de 100 mL para higienização.",
     description: "Álcool líquido com graduação de 70% INPM, apresentado em frasco de 100 mL. Utilize conforme as orientações de segurança indicadas no rótulo.",
-    images: [{ src: "/Produtos/alcool-70-100ml.png", alt: "Frasco de álcool líquido 70% INPM de 100 mililitros" }],
+    images: [{ src: "/Produtos/alcool.png", alt: "Frasco de álcool líquido 70% INPM de 100 mililitros" }],
     highlights: ["70% INPM", "Frasco de 100 mL", "Uso externo"], badges: ["Higienização", "100 mL"], consultation: ["Apresentação", "Quantidade", "Orientações de uso"], keywords: ["alcool", "70", "inpm", "100ml", "higienizacao"],
   },
   {
@@ -1682,6 +1982,20 @@ const rawCatalogProducts: CatalogProduct[] = [
     description: "Bolas de algodão macias para cuidados e higienização. Apresentação em embalagem de 100 g.",
     images: [{ src: "/Produtos/bolas-algodao-100g.png", alt: "Embalagem com bolas de algodão branco" }],
     highlights: ["Algodão branco", "Embalagem de 100 g", "Uso para cuidados"], badges: ["Cuidados", "100 g"], consultation: ["Apresentação", "Quantidade", "Disponibilidade"], keywords: ["algodao", "bolas de algodao", "100g", "higienizacao"],
+  },
+  {
+    id: "caixa-descarpack-7-litros-perfuro-cortante", categoryId: "cuidados-medico-hospitalares", brandIds: ["descarpack"], name: "Caixa para Descarte de Perfuro Cortantes 7 Litros",
+    summary: "Caixa coletora para descarte de material perfuro cortante, capacidade de 7 litros.",
+    description: "Caixa composta de papel resistente e saco plástico resistente, com capacidade para 7 litros e alça dupla para transporte. Produzida de acordo com a norma NBR 13853.",
+    images: [{ src: "/Produtos/caixa-descarpack-7-litros-perfuro-cortante.webp", alt: "Caixa coletora Descarpack para descarte de perfuro cortantes de 7 litros" }],
+    highlights: ["Capacidade para 7 litros", "Alça dupla para transporte", "Conforme NBR 13853"], badges: ["Descarte", "7 litros"], consultation: ["Quantidade", "Disponibilidade"], keywords: ["caixa perfuro cortante", "descarpack", "coletor", "7 litros", "nbr 13853"],
+  },
+  {
+    id: "caixa-descarpack-3-litros-perfuro-cortante", categoryId: "cuidados-medico-hospitalares", brandIds: ["descarpack"], name: "Caixa para Descarte de Perfuro Cortantes 3 Litros",
+    summary: "Caixa coletora para descarte de material perfuro cortante, capacidade de 3 litros.",
+    description: "Caixa composta de papel resistente e saco plástico resistente, com capacidade para 3 litros e alça dupla para transporte. Produzida de acordo com a norma NBR 13853.",
+    images: [{ src: "/Produtos/caixa-perfurocortantes-3L.jpeg", alt: "Caixa coletora Descarpack para descarte de perfuro cortantes de 3 litros" }],
+    highlights: ["Capacidade para 3 litros", "Alça dupla para transporte", "Conforme NBR 13853"], badges: ["Descarte", "3 litros"], consultation: ["Quantidade", "Disponibilidade"], keywords: ["caixa perfuro cortante", "descarpack", "coletor", "3 litros", "nbr 13853"],
   },
   {
     id: "tubo-recortavel-calos-malha-gel", categoryId: "ortopedia-mobilidade", brandIds: ["hidrolight"], name: "Tubo Recortável para Calos – Malha Revestida com Gel",
@@ -1805,7 +2119,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "tubo-de-latex-200",
     categoryId: "cuidados-medico-hospitalares",
     brandIds: [],
-    name: "Tubo de Látex nº 200",
+    name: "Tubo de Látex",
     summary:
       "Tubo de látex para garroteamento, condução de oxigênio e fluidos, além de usos leves em fisioterapia.",
     description:
