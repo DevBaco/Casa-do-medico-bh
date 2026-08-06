@@ -349,6 +349,69 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["termometro", "temperatura", "febre"],
   },
   {
+    id: "lanterna-clinica",
+    categoryId: "monitoramento",
+    brandIds: [],
+    name: "Lanterna Clínica",
+    summary:
+      "Lanterna clínica em formato de caneta, com corpo de alumínio e presilha de bolso, para exame físico.",
+    description:
+      "Lanterna clínica em formato de caneta, usada no exame físico do dia a dia: avaliação do reflexo pupilar, inspeção de boca, garganta e ouvidos. O corpo é de alumínio, leve e resistente, com presilha para prender no bolso do jaleco. Confirme com a equipe o tipo de acionamento, a alimentação e se as pilhas acompanham o modelo disponível.",
+    images: [
+      {
+        src: `${produtosBase}/lanterna-clinica.webp`,
+        alt: "Lanterna clínica em formato de caneta com corpo de alumínio e presilha de bolso",
+      },
+    ],
+    highlights: [
+      "Formato caneta, com presilha de bolso",
+      "Corpo em alumínio",
+      "Para reflexo pupilar e inspeção clínica",
+    ],
+    badges: ["Exame físico", "Portátil"],
+    consultation: ["Alimentação e pilhas", "Tipo de acionamento", "Disponibilidade"],
+    keywords: [
+      "lanterna clinica",
+      "caneta lanterna",
+      "pupilar",
+      "exame fisico",
+      "diagnostico",
+      "led",
+    ],
+  },
+  {
+    id: "termometro-infravermelho-easy-sensor",
+    categoryId: "monitoramento",
+    brandIds: ["gtech"],
+    name: "Termômetro Infravermelho sem Contato Easy Sensor",
+    summary:
+      "Medição de temperatura por infravermelho, sem encostar na pele, com display retroiluminado.",
+    description:
+      "O termômetro infravermelho Easy Sensor mede a temperatura sem contato com a pele, o que torna a aferição mais rápida e higiênica — útil para crianças, pessoas dormindo e locais com fluxo de pessoas. O display retroiluminado facilita a leitura mesmo em condições de pouca luz. Confirme com a equipe a distância de medição e os recursos do modelo disponível.",
+    images: [
+      {
+        src: `${produtosBase}/termometro-infravermelho.webp`,
+        alt: "Termômetro infravermelho sem contato G-Tech Easy Sensor ao lado da caixa do produto",
+        brandId: "gtech",
+      },
+    ],
+    highlights: [
+      "Medição sem contato com a pele",
+      "Display retroiluminado para leitura com pouca luz",
+      "Leitura rápida e higiênica",
+    ],
+    badges: ["Infravermelho", "Sem contato"],
+    consultation: ["Distância de medição", "Recursos do modelo", "Disponibilidade"],
+    keywords: [
+      "termometro infravermelho",
+      "sem contato",
+      "easy sensor",
+      "gtech",
+      "temperatura",
+      "febre",
+    ],
+  },
+  {
     id: "glicometro",
     categoryId: "monitoramento",
     brandIds: ["gtech", "accumed-glicomed"],
@@ -695,6 +758,56 @@ const rawCatalogProducts: CatalogProduct[] = [
     badges: ["Punho", "Órtese", "Sem polegar"],
     consultation: ["Lado de uso", "Medida do punho", "Indicação clínica"],
     keywords: ["ortese comfort air", "punho", "sem polegar", "longa", "carpo"],
+  },
+  {
+    id: "ortese-comfort-air-longa-com-polegar",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight"],
+    name: "Órtese Comfort Air Longa com Polegar",
+    imageInset: "medium",
+    summary:
+      "Órtese longa com abertura para o polegar, duas talas e tecido respirável para imobilização do punho.",
+    description:
+      "A Órtese Comfort Air Longa com Polegar foi desenvolvida com tecido que permite a transpiração, favorece o conforto térmico através dos seus microfuros. Possui duas talas para maior estabilidade e proteção. Imobilização e alinhamento da articulação; Período pré e pós-operatório; Reabilitação de fraturas de punho; L.E.R. (lesões por esforços repetitivos) e D.O.R.T. (distúrbios osteomusculares relacionados ao trabalho); Tendinites, tenossinovites, lesões ligamentares, síndrome do túnel do carpo e rizartrose.",
+    images: [
+      {
+        src: "/Produtos/ortese-confort-air-longa-com-polegar.webp",
+        alt: "Órtese Comfort Air longa com polegar em uso no antebraço",
+      },
+    ],
+    highlights: [
+      "Tecido respirável com microfuros",
+      "Duas talas para estabilidade",
+      "Modelo longo, com abertura para o polegar",
+    ],
+    badges: ["Punho", "Órtese", "Com polegar"],
+    consultation: ["Lado de uso", "Medida do punho", "Indicação clínica"],
+    keywords: ["ortese comfort air", "punho", "polegar", "longa", "tala", "rizartrose", "carpo"],
+  },
+  {
+    id: "ortese-comfort-air-sem-polegar",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: ["hidrolight"],
+    name: "Órtese Comfort Air Sem Polegar",
+    imageInset: "medium",
+    summary:
+      "Órtese com duas talas e tecido respirável, sem abertura para o polegar, para imobilização do punho.",
+    description:
+      "A Órtese Comfort Air Sem Polegar é indicada na imobilização e alinhamento da articulação; Período pré e pós-operatório; Reabilitação de fraturas de punho; L.E.R. (lesões por esforços repetitivos) e D.O.R.T. (distúrbios osteomusculares relacionados ao trabalho); Tendinites, tenossinovites, lesões ligamentares e síndrome do túnel do carpo. Desenvolvida com tecido que permite a transpiração, favorece o conforto térmico através dos seus microfuros. Possui duas talas para maior estabilidade e proteção.",
+    images: [
+      {
+        src: "/Produtos/ortese-confort-air-sem-polegar.webp",
+        alt: "Órtese Comfort Air sem polegar em uso no punho",
+      },
+    ],
+    highlights: [
+      "Tecido respirável com microfuros",
+      "Duas talas para estabilidade",
+      "Sem abertura para o polegar",
+    ],
+    badges: ["Punho", "Órtese", "Sem polegar"],
+    consultation: ["Lado de uso", "Medida do punho", "Indicação clínica"],
+    keywords: ["ortese comfort air", "punho", "sem polegar", "tala", "tunel do carpo"],
   },
   {
     id: "cotoveleira",
@@ -1241,29 +1354,31 @@ const rawCatalogProducts: CatalogProduct[] = [
     name: "Cadeira de Rodas Dobrável para Passeio",
     imageInset: "large",
     summary:
-      "Cadeira de rodas dobrável em aço, com pneus maciços e freios bilaterais, para passeios e deslocamentos do dia a dia.",
+      "Cadeira de rodas dobrável em aço, com rodas de alumínio e pneus de ar, para passeios e deslocamentos do dia a dia.",
     description:
-      "Cadeira de rodas indicada para passeios e deslocamentos do dia a dia de quem tem mobilidade reduzida. A estrutura é de aço com pintura epóxi e assento e encosto em nylon, combinação que mantém o conjunto resistente sem pesar demais. Os pneus maciços dispensam calibragem e não furam, e os freios bilaterais travam a cadeira nas paradas e nas transferências. Dobra em X, o que reduz o volume para guardar em casa ou levar no porta-malas. Os apoios de pés acompanham o produto. Largura do assento, capacidade suportada e altura total variam conforme o modelo — confirme antes da compra para garantir o ajuste ao usuário e às portas do ambiente.",
+      "Cadeira de rodas para passeios e deslocamentos do dia a dia, com estrutura em aço resistente e rodas de alumínio, leves e duráveis. Suporta até 150 kg, dobra para facilitar o transporte e o armazenamento e tem apoio de pés ajustável. Os pneus de ar absorvem melhor os impactos do percurso.",
     images: [
       {
-        src: `${produtosBase}/cadeira-de-rodas-simples.png`,
-        alt: "Cadeira de rodas simples preta, dobrável, com rodas traseiras grandes e apoios para os pés",
+        src: `${produtosBase}/cadeira-de-rodas.webp`,
+        alt: "Cadeira de rodas dobrável com assento estofado e apoios de pés articulados",
       },
     ],
     highlights: [
-      "Dobrável em X para transporte e armazenamento",
-      "Pneus maciços — não furam e não precisam de calibragem",
-      "Freios bilaterais",
-      "Estrutura em aço com assento e encosto em nylon",
+      "Suporta até 150 kg",
+      "Estrutura em aço resistente",
+      "Rodas de alumínio, leves e duráveis",
+      "Dobrável para transporte e armazenamento",
+      "Apoio de pés ajustável",
+      "Pneus de ar para absorver impactos",
     ],
-    badges: ["Mobilidade", "Dobrável"],
-    consultation: ["Largura do assento", "Capacidade suportada", "Dimensões e peso"],
+    badges: ["Mobilidade", "Até 150 kg"],
+    consultation: ["Largura do assento", "Dimensões e peso", "Disponibilidade"],
     keywords: [
       "cadeira de rodas",
       "cadeira rodas simples",
       "dobravel",
       "passeio",
-      "pneu macico",
+      "pneu de ar",
       "mobilidade",
     ],
   },
@@ -2043,6 +2158,13 @@ const rawCatalogProducts: CatalogProduct[] = [
     description: "Caixa composta de papel resistente e saco plástico resistente, com capacidade para 3 litros e alça dupla para transporte. Produzida de acordo com a norma NBR 13853.",
     images: [{ src: "/Produtos/caixa-perfurocortantes-3L.jpeg", alt: "Caixa coletora Descarpack para descarte de perfuro cortantes de 3 litros" }],
     highlights: ["Capacidade para 3 litros", "Alça dupla para transporte", "Conforme NBR 13853"], badges: ["Descarte", "3 litros"], consultation: ["Quantidade", "Disponibilidade"], keywords: ["caixa perfuro cortante", "descarpack", "coletor", "3 litros", "nbr 13853"],
+  },
+  {
+    id: "oculos-de-protecao", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Óculos de Proteção Incolor",
+    summary: "Óculos de proteção com lente incolor e hastes ajustáveis, para procedimentos e atividades esportivas.",
+    description: "Óculos de proteção com lente incolor, que preserva a visibilidade natural e protege os olhos contra respingos e partículas. A lente tem tratamento de proteção, as laterais são fechadas e as hastes ajustáveis permitem adequar o encaixe ao rosto. Serve tanto para procedimentos e limpeza quanto para proteção esportiva.",
+    images: [{ src: "/Produtos/oculos-protecao.png", alt: "Óculos de proteção com lente incolor e hastes ajustáveis" }],
+    highlights: ["Lente incolor com tratamento de proteção", "Hastes ajustáveis", "Proteção lateral", "Uso clínico ou esportivo"], badges: ["Proteção", "Incolor"], consultation: ["Modelo", "Quantidade", "Disponibilidade"], keywords: ["oculos de protecao", "epi", "incolor", "protecao ocular", "respingos", "esportivo"],
   },
   {
     id: "tubo-recortavel-calos-malha-gel", categoryId: "ortopedia-mobilidade", brandIds: ["hidrolight"], name: "Tubo Recortável para Calos – Malha Revestida com Gel",
