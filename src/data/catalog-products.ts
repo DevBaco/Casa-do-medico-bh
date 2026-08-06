@@ -310,6 +310,70 @@ const rawCatalogProducts: CatalogProduct[] = [
     consultation: ["Modelo do estetoscópio", "Compatibilidade", "Disponibilidade"], keywords: ["olivas estetoscopio", "oliva preta", "reposicao estetoscopio"],
   },
   {
+    id: "tubo-y-para-estetoscopio",
+    categoryId: "monitoramento",
+    brandIds: [],
+    name: "Tubo Y para Estetoscópio",
+    summary: "Tubo binauricular em Y para reposição em estetoscópios de dupla via.",
+    description:
+      "O tubo em Y é a peça que liga o auscultador às duas hastes auriculares do estetoscópio. Em PVC preto flexível, serve como reposição para tubos ressecados, trincados ou que perderam a vedação — situação que compromete a qualidade da ausculta. Confirme a compatibilidade com o modelo do seu estetoscópio antes da compra.",
+    images: [
+      {
+        src: "/Produtos/tubo--y--para-estetoscopio.webp",
+        alt: "Tubo preto em formato de Y para estetoscópio",
+      },
+    ],
+    highlights: ["Peça de reposição", "PVC preto flexível", "Formato em Y para dupla via"],
+    badges: ["Reposição", "Ausculta"],
+    consultation: ["Modelo do estetoscópio", "Compatibilidade", "Disponibilidade"],
+    keywords: ["tubo y", "tubo estetoscopio", "tubo binauricular", "reposicao estetoscopio", "ausculta"],
+  },
+  {
+    id: "membrana-para-estetoscopio-premium",
+    categoryId: "monitoramento",
+    brandIds: [],
+    name: "Membrana para Estetoscópio Premium",
+    summary: "Diafragma de reposição para o auscultador do estetoscópio.",
+    description:
+      "A membrana, ou diafragma, é o disco que fecha o auscultador e vibra para transmitir os sons corporais. Com o uso, ressecamento e trincas abafam a ausculta e tornam a troca necessária. Peça de reposição translúcida, compatível com auscultadores da linha Premium. Confirme o diâmetro do seu auscultador antes da compra.",
+    images: [
+      {
+        src: "/Produtos/membrana-estetoscopio.webp",
+        alt: "Membrana translúcida circular para estetoscópio com a inscrição Premium",
+      },
+    ],
+    highlights: ["Peça de reposição", "Diafragma translúcido", "Restaura a qualidade da ausculta"],
+    badges: ["Reposição", "Ausculta"],
+    consultation: ["Diâmetro do auscultador", "Modelo do estetoscópio", "Disponibilidade"],
+    keywords: ["membrana estetoscopio", "diafragma estetoscopio", "membrana premium", "reposicao estetoscopio", "ausculta"],
+  },
+  {
+    id: "kit-reposicao-estetoscopio-rappaport",
+    categoryId: "monitoramento",
+    brandIds: [],
+    name: "Kit Reposição para Estetoscópio Rappaport",
+    summary: "Conjunto com olivas, diafragmas e anéis de vedação para estetoscópios Rappaport.",
+    description:
+      "Conjunto de peças de reposição para estetoscópios do tipo Rappaport, que trabalham com auscultador de dupla via e acessórios intercambiáveis. Reúne olivas macias, diafragmas com aro e anéis de vedação em diâmetros diferentes, permitindo recompor o estetoscópio conforme o tipo de ausculta — adulto, pediátrica ou campânula aberta. Confirme o conteúdo do kit e a compatibilidade com o seu modelo antes da compra.",
+    images: [
+      {
+        src: "/Produtos/kit-reposicao-rappaport.webp",
+        alt: "Kit com olivas, diafragmas e anéis de vedação para estetoscópio Rappaport",
+      },
+    ],
+    highlights: [
+      "Olivas, diafragmas e anéis de vedação",
+      "Diâmetros para ausculta adulta e pediátrica",
+      "Para estetoscópios do tipo Rappaport",
+    ],
+    badges: ["Reposição", "Ausculta"],
+    consultation: ["Modelo do estetoscópio", "Peças necessárias", "Disponibilidade"],
+    keywords: [
+      "kit reposicao rappaport", "reparo estetoscopio", "diafragma rappaport",
+      "oliva rappaport", "anel vedacao estetoscopio", "reposicao estetoscopio",
+    ],
+  },
+  {
     id: "estetoscopio",
     categoryId: "monitoramento",
     brandIds: ["premium", "accumed-glicomed"],
