@@ -810,6 +810,68 @@ const rawCatalogProducts: CatalogProduct[] = [
     keywords: ["ortese comfort air", "punho", "sem polegar", "tala", "tunel do carpo"],
   },
   {
+    id: "cinta-hernia-inguinal-simples",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: [],
+    name: "Cinta para Hérnia Inguinal Simples",
+    summary:
+      "Funda elástica com uma pelota anatômica, para contenção de hérnia inguinal de um lado.",
+    description:
+      "A cinta (ou funda) para hérnia inguinal simples faz a contenção de hérnia em um dos lados, direito ou esquerdo. Tem cinto elástico ajustável na cintura, tira que passa pela virilha e uma pelota anatômica acolchoada, posicionada sobre a hérnia para manter a compressão. O uso deve seguir orientação médica: confirme com a equipe o lado de uso e a medida da cintura para escolher o tamanho.",
+    images: [
+      {
+        src: "/Produtos/cinta-hernia.webp",
+        alt: "Cinta para hérnia inguinal simples, com cinto elástico e uma pelota anatômica",
+      },
+    ],
+    highlights: [
+      "Contenção de um lado (direito ou esquerdo)",
+      "Pelota anatômica acolchoada",
+      "Cinto elástico com ajuste na cintura",
+    ],
+    badges: ["Hérnia inguinal", "Simples"],
+    consultation: ["Lado de uso", "Medida da cintura", "Orientação médica"],
+    keywords: [
+      "cinta para hernia",
+      "funda inguinal",
+      "hernia inguinal",
+      "simples",
+      "pelota",
+      "contencao",
+    ],
+  },
+  {
+    id: "cinta-hernia-inguinal-dupla",
+    categoryId: "ortopedia-mobilidade",
+    brandIds: [],
+    name: "Cinta para Hérnia Inguinal Dupla",
+    summary:
+      "Funda elástica com duas pelotas anatômicas, para contenção de hérnia inguinal bilateral.",
+    description:
+      "A cinta (ou funda) para hérnia inguinal dupla faz a contenção nos dois lados ao mesmo tempo, indicada para hérnia inguinal bilateral. Tem cinto elástico ajustável na cintura, tiras que passam pela virilha e duas pelotas anatômicas acolchoadas, posicionadas sobre as hérnias para manter a compressão. O uso deve seguir orientação médica: confirme com a equipe a medida da cintura para escolher o tamanho.",
+    images: [
+      {
+        src: "/Produtos/cinta-hernia-dupla.webp",
+        alt: "Cinta para hérnia inguinal dupla, com cinto elástico e duas pelotas anatômicas",
+      },
+    ],
+    highlights: [
+      "Contenção nos dois lados",
+      "Duas pelotas anatômicas acolchoadas",
+      "Cinto elástico com ajuste na cintura",
+    ],
+    badges: ["Hérnia inguinal", "Dupla"],
+    consultation: ["Medida da cintura", "Tamanho disponível", "Orientação médica"],
+    keywords: [
+      "cinta para hernia",
+      "funda inguinal",
+      "hernia inguinal",
+      "dupla",
+      "bilateral",
+      "pelota",
+    ],
+  },
+  {
     id: "cotoveleira",
     categoryId: "ortopedia-mobilidade",
     brandIds: ["hidrolight", "kestal", "medi"],
@@ -2165,6 +2227,20 @@ const rawCatalogProducts: CatalogProduct[] = [
     description: "Óculos de proteção com lente incolor, que preserva a visibilidade natural e protege os olhos contra respingos e partículas. A lente tem tratamento de proteção, as laterais são fechadas e as hastes ajustáveis permitem adequar o encaixe ao rosto. Serve tanto para procedimentos e limpeza quanto para proteção esportiva.",
     images: [{ src: "/Produtos/oculos-protecao.png", alt: "Óculos de proteção com lente incolor e hastes ajustáveis" }],
     highlights: ["Lente incolor com tratamento de proteção", "Hastes ajustáveis", "Proteção lateral", "Uso clínico ou esportivo"], badges: ["Proteção", "Incolor"], consultation: ["Modelo", "Quantidade", "Disponibilidade"], keywords: ["oculos de protecao", "epi", "incolor", "protecao ocular", "respingos", "esportivo"],
+  },
+  {
+    id: "avental-descartavel", categoryId: "cuidados-medico-hospitalares", brandIds: ["descarpack"], name: "Avental Descartável – 10 Unidades",
+    summary: "Avental descartável em polipropileno, com mangas longas, em pacote com 10 unidades.",
+    description: "Avental descartável confeccionado em 100% polipropileno, com mangas longas e amarração nas costas. Serve como barreira contra respingos e sujidades em procedimentos, atendimentos e rotinas de limpeza. Apresentação em pacote com 10 unidades.",
+    images: [{ src: "/Produtos/avental.webp", alt: "Pacote com 10 aventais descartáveis brancos Descarpack" }],
+    highlights: ["100% polipropileno", "Mangas longas com amarração nas costas", "Pacote com 10 unidades"], badges: ["Descartável", "10 unidades"], consultation: ["Gramatura", "Tamanho", "Disponibilidade"], keywords: ["avental descartavel", "polipropileno", "descarpack", "epi", "10 unidades", "capote"],
+  },
+  {
+    id: "luva-plastica-descartavel", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Luva Plástica Descartável Estéril",
+    summary: "Luva plástica descartável estéril, de uso único.",
+    description: "Luva plástica descartável estéril, indicada para procedimentos de uso único em que é preciso uma barreira rápida entre as mãos e o material manipulado. Deve ser descartada após cada aplicação.",
+    images: [{ src: "/Produtos/luva-plastica.webp", alt: "Embalagem de luva plástica descartável estéril" }],
+    highlights: ["Estéril", "Uso único", "Barreira contra contato direto"], badges: ["Descartável", "Estéril"], consultation: ["Tamanho", "Quantidade por pacote", "Disponibilidade"], keywords: ["luva plastica", "descartavel", "esteril", "uso unico", "luplast", "protecao"],
   },
   {
     id: "tubo-recortavel-calos-malha-gel", categoryId: "ortopedia-mobilidade", brandIds: ["hidrolight"], name: "Tubo Recortável para Calos – Malha Revestida com Gel",

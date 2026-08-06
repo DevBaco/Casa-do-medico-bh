@@ -7,6 +7,7 @@ import {
   Star,
 } from "lucide-react";
 import BrandCarousel from "@/components/BrandCarousel";
+import GoogleReviewCta from "@/components/GoogleReviewCta.astro";
 import CompressionFinder from "@/components/CompressionFinder";
 import GoogleReviewsCarousel from "@/components/GoogleReviewsCarousel";
 import HomeHeroCarousel from "@/components/HomeHeroCarousel";
@@ -29,6 +30,7 @@ import {
 import { catalogProducts } from "@/data/catalog-products";
 import { compressionStockingBrands } from "@/data/compression-stockings";
 import Layout from "@/layouts/Layout.astro";
+import { GOOGLE_REVIEW_URL } from "@/lib/google";
 import { cn } from "@/lib/utils";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
@@ -473,13 +475,14 @@ const localBusinessSchema = {
         </div>
 
         <a
-          href="https://www.google.com/search?q=casa+do+medico+bh&oq=casa+do+medico+bh&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgoIARAAGBMYFhgeMgcIAhAAGO8FMgcIAxAAGO8FMgcIBBAAGO8FMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEIMzE1MWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0xa699e4dd983f7b:0x9122992094dd8c9b,1,,,,"
+          href={GOOGLE_REVIEW_URL}
           target="_blank"
           rel="noopener noreferrer"
+          data-review-cta
           class={cn(buttonVariants({ variant: "outline", size: "lg" }), "mt-8 gap-2 rounded-full")}
         >
           <img src="/icons/google.svg" alt="" class="size-4" />
-          Ver mais avaliações no Google
+          Avalie a gente
         </a>
       </div>
     </section>
@@ -518,6 +521,8 @@ const localBusinessSchema = {
               <ArrowRight className="size-4" />
             </a>
           </div>
+
+          <GoogleReviewCta />
         </div>
 
         <Card className="aspect-[16/10] gap-0 overflow-hidden bg-background py-0 text-foreground shadow-2xl sm:aspect-[16/9]">
