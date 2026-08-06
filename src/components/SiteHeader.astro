@@ -13,16 +13,6 @@ import {
 } from "@/data/compression-stockings";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
-interface Props {
-  whatsappUrl?: string;
-  whatsappLabel?: string;
-}
-
-const {
-  whatsappUrl = WHATSAPP_URL,
-  whatsappLabel = "Fale conosco",
-} = Astro.props;
-
 const productGroups = catalogCategories.map((category) => ({
   id: category.id,
   label: category.shortName,
@@ -86,6 +76,4 @@ const compressionItems = compressionStockingBrands.map((brand) => {
   client:idle
   productGroups={productGroups}
   compressionItems={compressionItems}
-  whatsappUrl={whatsappUrl}
-  whatsappLabel={whatsappLabel}
 />

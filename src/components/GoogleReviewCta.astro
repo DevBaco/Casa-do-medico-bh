@@ -5,20 +5,31 @@ import { GOOGLE_REVIEW_URL } from "@/lib/google";
 import { cn } from "@/lib/utils";
 
 interface Props {
+  // "dark" acompanha a seção de contato da home (fundo escuro);
+  // "light" é a versão para fundos claros (página de contato).
+  theme?: "dark" | "light";
   class?: string;
 }
 
-const { class: className } = Astro.props;
+const { theme = "dark", class: className } = Astro.props;
+
+const isDark = theme === "dark";
 ---
 
-<div class={cn("mt-8 border-t border-background/20 pt-7", className)}>
+<div
+  class={cn(
+    "border-t pt-7",
+    isDark ? "mt-8 border-background/20" : "mt-0 rounded-xl border bg-muted/40 p-6 sm:p-7",
+    className
+  )}
+>
   <div class="flex gap-1 text-accent" aria-hidden="true">
     {Array.from({ length: 5 }).map(() => <Star className="size-4 fill-current" />)}
   </div>
   <h3 class="mt-3 text-xl font-semibold tracking-tight text-balance sm:text-2xl">
     Como foi sua experiência com a Casa do Médico?
   </h3>
-  <p class="mt-3 leading-relaxed text-pretty text-background/70">
+  <p class={cn("mt-3 leading-relaxed text-pretty", isDark ? "text-background/70" : "text-muted-foreground")}>
     Sua opinião é muito importante para nós e ajuda outras pessoas de Belo Horizonte a encontrarem
     atendimento especializado e produtos médicos com mais confiança. Conte como foi sua experiência
     com a Casa do Médico.

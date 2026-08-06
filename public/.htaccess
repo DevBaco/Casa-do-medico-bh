@@ -13,7 +13,7 @@ RewriteRule ^venosan-e-sigvaris-em-belo-horizonte/?$ /meias-de-compressão [R=30
 
 # Páginas "blank" do Wix (sem conteúdo reaproveitável)
 RewriteRule ^blank-1/?$ /#nossa-historia [R=301,L,NC]
-RewriteRule ^blank-2/?$ /#contato [R=301,L,NC]
+RewriteRule ^blank-2/?$ /contato [R=301,L,NC]
 RewriteRule ^blank-3/?$ / [R=301,L,NC]
 
 # Blog (não recriado)

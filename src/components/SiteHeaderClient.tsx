@@ -43,8 +43,6 @@ export interface HeaderCatalogGroup {
 interface Props {
   productGroups: HeaderCatalogGroup[];
   compressionItems: HeaderCatalogItem[];
-  whatsappUrl: string;
-  whatsappLabel: string;
 }
 
 function DesktopCatalogLink({ item }: { item: HeaderCatalogItem }) {
@@ -105,8 +103,6 @@ function MobileSectionLink({
 export default function SiteHeaderClient({
   productGroups,
   compressionItems,
-  whatsappUrl,
-  whatsappLabel,
 }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProductGroupId, setActiveProductGroupId] = useState(
@@ -206,8 +202,8 @@ export default function SiteHeaderClient({
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/#contato" className={navigationMenuTriggerStyle()}>
-                Visite a loja
+              <NavigationMenuLink href="/contato" className={navigationMenuTriggerStyle()}>
+                Contato
               </NavigationMenuLink>
             </NavigationMenuItem>
 
@@ -215,14 +211,6 @@ export default function SiteHeaderClient({
         </NavigationMenu>
 
         <div className="flex items-center gap-2">
-          <Button asChild className="h-10 px-3 sm:px-4">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              <img src="/icons/whatsapp.svg" alt="" className="size-4" />
-              <span className="hidden sm:inline">{whatsappLabel}</span>
-              <span className="sm:hidden">WhatsApp</span>
-            </a>
-          </Button>
-
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon-lg" className="xl:hidden">
@@ -320,9 +308,13 @@ export default function SiteHeaderClient({
                 <MobileSectionLink sectionId="nossa-historia" onNavigate={() => setMenuOpen(false)}>
                   Nossa história
                 </MobileSectionLink>
-                <MobileSectionLink sectionId="contato" onNavigate={() => setMenuOpen(false)}>
-                  Visite a loja
-                </MobileSectionLink>
+                <a
+                  href="/contato"
+                  className="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium hover:bg-muted"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Contato
+                </a>
               </nav>
             </SheetContent>
           </Sheet>

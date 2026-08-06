@@ -30,6 +30,7 @@ import {
 import { catalogProducts } from "@/data/catalog-products";
 import { compressionStockingBrands } from "@/data/compression-stockings";
 import Layout from "@/layouts/Layout.astro";
+import { OPENING_HOURS_SCHEMA } from "@/lib/business";
 import { GOOGLE_REVIEW_URL } from "@/lib/google";
 import { cn } from "@/lib/utils";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
@@ -125,6 +126,7 @@ const localBusinessSchema = {
     postalCode: "30130-907",
     addressCountry: "BR",
   },
+  openingHoursSpecification: OPENING_HOURS_SCHEMA,
   sameAs: [
     "https://www.instagram.com/casadomedico_/",
     "https://www.facebook.com/profile.php?id=100090896740956",

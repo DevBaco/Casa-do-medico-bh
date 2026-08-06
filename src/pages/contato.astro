@@ -1,0 +1,233 @@
+---
+import { ArrowRight, Clock, Mail, MapPin, Phone } from "lucide-react";
+import GoogleReviewCta from "@/components/GoogleReviewCta.astro";
+import SiteFooter from "@/components/SiteFooter.astro";
+import SiteHeader from "@/components/SiteHeader.astro";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Layout from "@/layouts/Layout.astro";
+import { OPENING_HOURS, OPENING_HOURS_SCHEMA } from "@/lib/business";
+import { cn } from "@/lib/utils";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
+
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Av.%20Afonso%20Pena%2C%20981%2C%20Belo%20Horizonte";
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  name: "Casa do Médico BH",
+  image: "https://www.casadomedicobh.com.br/images/home/logo-casa-do-medico-wordmark.webp",
+  url: "https://www.casadomedicobh.com.br/contato",
+  telephone: "+55 31 3224-4446",
+  email: "bramelbrasilmedica@gmail.com",
+  foundingDate: "1954-12-28",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Av. Afonso Pena, 981",
+    addressLocality: "Belo Horizonte",
+    addressRegion: "MG",
+    postalCode: "30130-907",
+    addressCountry: "BR",
+  },
+  openingHoursSpecification: OPENING_HOURS_SCHEMA,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      telephone: "+55 31 3224-4446",
+      availableLanguage: "Portuguese",
+    },
+  ],
+  sameAs: [
+    "https://www.instagram.com/casadomedico_/",
+    "https://www.facebook.com/profile.php?id=100090896740956",
+    "https://wa.me/553132244407",
+  ],
+};
+
+const channels = [
+  {
+    id: "whatsapp",
+    label: "WhatsApp",
+    value: "(31) 3224-4407",
+    note: "Este número não aceita ligações.",
+    href: WHATSAPP_URL,
+    external: true,
+  },
+  {
+    id: "telefone",
+    label: "Telefone",
+    value: "(31) 3224-4446",
+    note: "Ligue durante o horário de funcionamento da loja.",
+    href: "tel:+553132244446",
+    external: false,
+  },
+  {
+    id: "email",
+    label: "E-mail",
+    value: "bramelbrasilmedica@gmail.com",
+    note: "Para orçamentos e pedidos com mais detalhes.",
+    href: "mailto:bramelbrasilmedica@gmail.com",
+    external: false,
+  },
+];
+---
+
+<Layout
+  title="Contato | Casa do Médico BH — Av. Afonso Pena, 981, Belo Horizonte"
+  description="Fale com a Casa do Médico BH: WhatsApp, telefone, e-mail e endereço da loja na Av. Afonso Pena, 981, Centro de Belo Horizonte."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+
+  <SiteHeader />
+
+  <main>
+    <section class="border-b bg-background">
+      <div class="mx-auto w-full max-w-7xl px-5 py-12 sm:px-6 lg:py-16">
+        <Badge variant="secondary">Estamos no Centro de BH</Badge>
+        <h1 class="mt-4 max-w-2xl text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+          Fale com a Casa do Médico BH
+        </h1>
+        <p class="mt-4 max-w-2xl leading-relaxed text-pretty text-muted-foreground">
+          Conte o que você procura. A equipe confirma modelos, tamanhos e disponibilidade e ajuda a
+          preparar seu atendimento. Contato pelo WhatsApp, por telefone ou na loja, na Av. Afonso Pena.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={cn(buttonVariants({ size: "lg" }), "h-11 px-4")}
+          >
+            <img src="/icons/whatsapp.svg" alt="" class="size-5" />
+            Falar no WhatsApp
+          </a>
+          <a
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 px-4")}
+          >
+            Como chegar
+            <ArrowRight className="size-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background">
+      <div class="mx-auto w-full max-w-7xl px-5 py-12 sm:px-6 lg:py-16">
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+          <div>
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Canais de atendimento</h2>
+
+            <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+              {
+                channels.map((channel) => (
+                  <Card className="gap-0 py-0">
+                    <CardContent className="flex items-start gap-3 px-4 py-4">
+                      {channel.id === "whatsapp" ? (
+                        <img src="/icons/whatsapp.svg" alt="" class="mt-0.5 size-5 shrink-0" />
+                      ) : channel.id === "telefone" ? (
+                        <Phone className="mt-0.5 size-5 shrink-0 text-primary" />
+                      ) : (
+                        <Mail className="mt-0.5 size-5 shrink-0 text-primary" />
+                      )}
+                      <div class="min-w-0">
+                        <p class="text-sm font-semibold">{channel.label}</p>
+                        <a
+                          href={channel.href}
+                          target={channel.external ? "_blank" : undefined}
+                          rel={channel.external ? "noopener noreferrer" : undefined}
+                          class="mt-0.5 block break-all text-sm text-muted-foreground hover:text-primary"
+                        >
+                          {channel.value}
+                        </a>
+                        <p class="mt-1 text-xs text-muted-foreground/80">{channel.note}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))
+              }
+
+              <Card className="gap-0 py-0">
+                <CardContent className="flex items-start gap-3 px-4 py-4">
+                  <MapPin className="mt-0.5 size-5 shrink-0 text-primary" />
+                  <div class="min-w-0">
+                    <p class="text-sm font-semibold">Endereço</p>
+                    <a
+                      href={MAPS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="mt-0.5 block text-sm text-muted-foreground hover:text-primary"
+                    >
+                      Av. Afonso Pena, 981 · Centro · Belo Horizonte/MG
+                    </a>
+                    <p class="mt-1 text-xs text-muted-foreground/80">
+                      Loja física no Centro de BH, atendendo desde 1954.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="gap-0 py-0 sm:col-span-2 lg:col-span-1">
+                <CardContent className="flex items-start gap-3 px-4 py-4">
+                  <Clock className="mt-0.5 size-5 shrink-0 text-primary" />
+                  <div class="min-w-0 flex-1">
+                    <p class="text-sm font-semibold">Horário de funcionamento</p>
+                    <dl class="mt-1.5 grid gap-1 text-sm">
+                      {
+                        OPENING_HOURS.map((entry) => (
+                          <div class="flex flex-wrap justify-between gap-x-4 gap-y-0.5">
+                            <dt class="text-muted-foreground">{entry.label}</dt>
+                            <dd class="font-medium">{entry.value}</dd>
+                          </div>
+                        ))
+                      }
+                    </dl>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <div>
+              <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Onde estamos</h2>
+              <Card
+                className="mt-6 aspect-[16/11] gap-0 overflow-hidden py-0 shadow-lg sm:aspect-[16/9]"
+              >
+                <iframe
+                  src="https://www.google.com/maps?q=Av.+Afonso+Pena,+981,+Belo+Horizonte,+MG&output=embed"
+                  title="Localização da Casa do Médico BH no mapa"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  class="h-full w-full border-0"></iframe>
+              </Card>
+            </div>
+
+            <GoogleReviewCta theme="light" class="mt-8" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+
+  <a
+    href={WHATSAPP_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com a Casa do Médico BH pelo WhatsApp"
+    class={cn(
+      buttonVariants({ size: "icon-lg" }),
+      "fixed right-4 bottom-4 z-40 size-14 rounded-full shadow-xl ring-4 ring-background/80 sm:right-6 sm:bottom-6"
+    )}
+  >
+    <img src="/icons/whatsapp.svg" alt="" class="size-7" />
+  </a>
+</Layout>
