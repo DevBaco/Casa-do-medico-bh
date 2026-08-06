@@ -1,0 +1,42 @@
+# Redirects 301 — migração Wix → Astro (ver docs/migracao/plano-migracao.md)
+# Formato do Cloudflare Pages: <origem> <destino> <status>
+#
+# Os destinos acentuados vão percent-encoded porque o valor entra no header
+# Location. As origens acentuadas aparecem nas duas formas (UTF-8 cru e
+# percent-encoded) porque links antigos do Wix circulam das duas maneiras.
+#
+# A 404 personalizada NÃO precisa de regra: o Pages serve /404.html
+# automaticamente para qualquer rota não encontrada.
+
+# /meias-compressivas (slug antigo do site Astro) -> /meias-de-compressão
+/meias-compressivas    /meias-de-compress%C3%A3o/    301
+/meias-compressivas/   /meias-de-compress%C3%A3o/    301
+
+# /venosan-e-sigvaris-em-belo-horizonte -> /meias-de-compressão
+/venosan-e-sigvaris-em-belo-horizonte    /meias-de-compress%C3%A3o/    301
+/venosan-e-sigvaris-em-belo-horizonte/   /meias-de-compress%C3%A3o/    301
+
+# Páginas "blank" do Wix (sem conteúdo reaproveitável)
+/blank-1    /#nossa-historia    301
+/blank-1/   /#nossa-historia    301
+/blank-2    /contato/            301
+/blank-2/   /contato/            301
+/blank-3    /                   301
+/blank-3/   /                   301
+
+# Blog (não recriado)
+/blog     /    301
+/blog/    /    301
+
+# Posts do blog -> catálogo de meias de compressão
+/post/como-saber-o-tamanho-ideal-da-sua-meia-de-compressão         /meias-de-compress%C3%A3o/    301
+/post/como-saber-o-tamanho-ideal-da-sua-meia-de-compress%C3%A3o    /meias-de-compress%C3%A3o/    301
+
+/post/meias-de-compressão-em-bh-qual-o-modelo-ideal-para-você               /meias-de-compress%C3%A3o/    301
+/post/meias-de-compress%C3%A3o-em-bh-qual-o-modelo-ideal-para-voc%C3%AA     /meias-de-compress%C3%A3o/    301
+
+/post/produtos-médico-hospitalares-em-belo-horizonte-conheça-a-casa-do-médico-bh                        /meias-de-compress%C3%A3o/    301
+/post/produtos-m%C3%A9dico-hospitalares-em-belo-horizonte-conhe%C3%A7a-a-casa-do-m%C3%A9dico-bh         /meias-de-compress%C3%A3o/    301
+
+# Qualquer outro post do blog cai no catálogo de meias
+/post/*    /meias-de-compress%C3%A3o/    301
