@@ -10,37 +10,37 @@ export interface GoogleReview {
 export const googleReviews: GoogleReview[] = [
   {
     name: "Miguel Lima",
-    avatar: "/Google-reviews/miguel.png",
+    avatar: "/Google-reviews/miguel.webp",
     rating: 5,
     text: "Fui muito bem atendido na loja, especialmente pelo Sr. Guilherme. Ele foi super atencioso, educado e tirou todas as minhas dúvidas com muita paciência. Dá pra ver que entende do que está falando e realmente se importa em ajudar. Atendimento assim faz toda a diferença! Recomendo demais, principalmente se puder ser atendido por ele.",
   },
   {
     name: "Vitórya Lopes",
-    avatar: "/Google-reviews/vitorya.png",
+    avatar: "/Google-reviews/vitorya.webp",
     rating: 5,
     text: "Atendimento Maravilhoso, preços Ótimos ☺️",
   },
   {
     name: "Raimundo Barbalho",
-    avatar: "/Google-reviews/raimundo.png",
+    avatar: "/Google-reviews/raimundo.webp",
     rating: 5,
     text: "Excelente atendimento, produtos de qualidade",
   },
   {
     name: "Caroline Rodrigues",
-    avatar: "/Google-reviews/caroline.png",
+    avatar: "/Google-reviews/caroline.webp",
     rating: 5,
     text: "Super recomendo. Muito atenciosos e os preços excelente.",
   },
   {
     name: "Thiago Bones",
-    avatar: "/Google-reviews/thiago.png",
+    avatar: "/Google-reviews/thiago.webp",
     rating: 5,
     text: "Loja de família com tradição e qualidade... atendimento de primeira qualidade e preço excelente! Super recomendo!",
   },
   {
     name: "Adriano Machado",
-    avatar: "/Google-reviews/adriano.png",
+    avatar: "/Google-reviews/adriano.webp",
     rating: 5,
     text: "Excelente atendimento. E melhor preço do mercado. Parabéns a loja e toda a sua equipe.",
   },

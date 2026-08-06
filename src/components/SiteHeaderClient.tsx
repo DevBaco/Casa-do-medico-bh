@@ -124,7 +124,7 @@ export default function SiteHeaderClient({
             className="hidden h-11 w-auto sm:block"
           />
           <img
-            src="/logo/casa-do-medico.png"
+            src="/logo/casa-do-medico.webp"
             alt="Casa do Médico BH"
             className="h-11 w-auto sm:hidden"
           />

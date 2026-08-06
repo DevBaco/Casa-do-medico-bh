@@ -26,14 +26,14 @@ export const storeBrands: StoreBrand[] = [
   {
     id: "accumed-glicomed",
     name: "Accumed-Glicomed",
-    logo: "/Marcas/Logo Glicomed 2011.jpg",
+    logo: "/Marcas/Logo Glicomed 2011.webp",
     catalog: "products",
     href: "/produtos?marca=accumed-glicomed",
   },
   {
     id: "premium",
     name: "Premium",
-    logo: "/Marcas/Logo Premium.png",
+    logo: "/Marcas/Logo Premium.webp",
     catalog: "products",
     href: "/produtos?marca=premium",
   },
@@ -47,7 +47,7 @@ export const storeBrands: StoreBrand[] = [
   {
     id: "gtech",
     name: "G-Tech",
-    logo: "/Marcas/Logo_Gtech_Nova_sem outline.png",
+    logo: "/Marcas/Logo_Gtech_Nova_sem outline.webp",
     catalog: "products",
     href: "/produtos?marca=gtech",
   },
@@ -83,7 +83,7 @@ export const storeBrands: StoreBrand[] = [
   {
     id: "kestal",
     name: "Kestal",
-    logo: "/Marcas/kestal.png",
+    logo: "/Marcas/kestal.webp",
     catalog: "products",
     href: "/produtos?marca=kestal",
   },

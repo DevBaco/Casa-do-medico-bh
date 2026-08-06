@@ -93,12 +93,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE/16431149200351-adcomfortline.jpg`,
+            image: `${venosanBase}/COMFORTLINE/16431149200351-adcomfortline.webp`,
           },
         ],
         boxImage: `${venosanBase}/COMFORTLINE/COMFORTLINE - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/COMFORTLINE/16431149200351-adcomfortline.jpg`,
-        sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/COMFORTLINE/16431149200351-adcomfortline.webp`,
+        sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -125,12 +125,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE/16431149205637-aghcomfortline.jpg`,
+            image: `${venosanBase}/COMFORTLINE/16431149205637-aghcomfortline.webp`,
           },
         ],
         boxImage: `${venosanBase}/COMFORTLINE/COMFORTLINE - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/COMFORTLINE/16431149205637-aghcomfortline.jpg`,
-        sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/COMFORTLINE/16431149205637-aghcomfortline.webp`,
+        sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -157,12 +157,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE/16431149208895-atcomfortline.jpg`,
+            image: `${venosanBase}/COMFORTLINE/16431149208895-atcomfortline.webp`,
           },
         ],
         boxImage: `${venosanBase}/COMFORTLINE/COMFORTLINE - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/COMFORTLINE/16431149208895-atcomfortline.jpg`,
-        sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/COMFORTLINE/16431149208895-atcomfortline.webp`,
+        sizeChartImage: `${venosanBase}/COMFORTLINE/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -195,7 +195,7 @@ export const compressionStockingBrands: StockingBrand[] = [
         ],
         boxImage: `${venosanBase}/COMFORTLINE COTTON/COMFORTLINE COTTON - DIREITA.webp`,
         genericImage: `${venosanBase}/COMFORTLINE COTTON/AD-COMFORT COTTON C ZÍPER - FRENTE.webp`,
-        sizeChartImage: `${venosanBase}/COMFORTLINE COTTON/TABELA DE MEDIDAS.jpg`,
+        sizeChartImage: `${venosanBase}/COMFORTLINE COTTON/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelos oficiais",
@@ -226,12 +226,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege · AD",
             swatch: colors.bege,
-            image: `${venosanBase}/COMFORTLINE COTTON/16431111355127-02.adcomfortlinecottoncomziper.jpg`,
+            image: `${venosanBase}/COMFORTLINE COTTON/16431111355127-02.adcomfortlinecottoncomziper.webp`,
           },
         ],
         boxImage: `${venosanBase}/COMFORTLINE COTTON/COMFORTLINE COTTON COM ZÍPER - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/COMFORTLINE COTTON/16431111355127-02.adcomfortlinecottoncomziper.jpg`,
-        sizeChartImage: `${venosanBase}/COMFORTLINE COTTON/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/COMFORTLINE COTTON/16431111355127-02.adcomfortlinecottoncomziper.webp`,
+        sizeChartImage: `${venosanBase}/COMFORTLINE COTTON/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Apresentação oficial",
@@ -259,17 +259,17 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Olinda",
             swatch: colors.olinda,
-            image: `${venosanBase}/LEGLINE/16419946764369-leglineadpeabertoolinda.jpg`,
+            image: `${venosanBase}/LEGLINE/16419946764369-leglineadpeabertoolinda.webp`,
           },
           {
             name: "Sahara",
             swatch: colors.sahara,
-            image: `${venosanBase}/LEGLINE/16419955489835-leglineadpeabertosahara.jpg`,
+            image: `${venosanBase}/LEGLINE/16419955489835-leglineadpeabertosahara.webp`,
           },
         ],
         boxImage: `${venosanBase}/LEGLINE/LEGLINE 15-23 - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/LEGLINE/16419946764369-leglineadpeabertoolinda.jpg`,
-        sizeChartImage: `${venosanBase}/LEGLINE/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/LEGLINE/16419946764369-leglineadpeabertoolinda.webp`,
+        sizeChartImage: `${venosanBase}/LEGLINE/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -300,17 +300,17 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Olinda",
             swatch: colors.olinda,
-            image: `${venosanBase}/LEGLINE/164199554985-leglineaghpeabertoolinda.jpg`,
+            image: `${venosanBase}/LEGLINE/164199554985-leglineaghpeabertoolinda.webp`,
           },
           {
             name: "Sahara",
             swatch: colors.sahara,
-            image: `${venosanBase}/LEGLINE/16419965153307-leglineaghpeabertosahara.jpg`,
+            image: `${venosanBase}/LEGLINE/16419965153307-leglineaghpeabertosahara.webp`,
           },
         ],
         boxImage: `${venosanBase}/LEGLINE/LEGLINE 15-23 - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/LEGLINE/164199554985-leglineaghpeabertoolinda.jpg`,
-        sizeChartImage: `${venosanBase}/LEGLINE/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/LEGLINE/164199554985-leglineaghpeabertoolinda.webp`,
+        sizeChartImage: `${venosanBase}/LEGLINE/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -341,17 +341,17 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Olinda",
             swatch: colors.olinda,
-            image: `${venosanBase}/LEGLINE/16420072730389-leglineatpeabertoolinda.jpg`,
+            image: `${venosanBase}/LEGLINE/16420072730389-leglineatpeabertoolinda.webp`,
           },
           {
             name: "Sahara",
             swatch: colors.sahara,
-            image: `${venosanBase}/LEGLINE/16420072731121-leglineatpeabertosahara.jpg`,
+            image: `${venosanBase}/LEGLINE/16420072731121-leglineatpeabertosahara.webp`,
           },
         ],
         boxImage: `${venosanBase}/LEGLINE/LEGLINE 15-23 - ESQUERDA.webp`,
-        genericImage: `${venosanBase}/LEGLINE/16420072730389-leglineatpeabertoolinda.jpg`,
-        sizeChartImage: `${venosanBase}/LEGLINE/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/LEGLINE/16420072730389-leglineatpeabertoolinda.webp`,
+        sizeChartImage: `${venosanBase}/LEGLINE/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -382,7 +382,7 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/16420151769452-ultralineadpabertocorbege.jpg`,
+            image: `${venosanBase}/ULTRALINE 4000/16420151769452-ultralineadpabertocorbege.webp`,
           },
           {
             name: "Preta",
@@ -391,8 +391,8 @@ export const compressionStockingBrands: StockingBrand[] = [
           },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
-        genericImage: `${venosanBase}/ULTRALINE 4000/16420151769452-ultralineadpabertocorbege.jpg`,
-        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/16420151769452-ultralineadpabertocorbege.webp`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -423,17 +423,17 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/16420151784312-ultralineaghpabertocorbege.jpg`,
+            image: `${venosanBase}/ULTRALINE 4000/16420151784312-ultralineaghpabertocorbege.webp`,
           },
           {
             name: "Preta",
             swatch: colors.preta,
-            image: `${venosanBase}/ULTRALINE 4000/16420151785355-ultralineaghpabertocorpreta.jpg`,
+            image: `${venosanBase}/ULTRALINE 4000/16420151785355-ultralineaghpabertocorpreta.webp`,
           },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
-        genericImage: `${venosanBase}/ULTRALINE 4000/16420151784312-ultralineaghpabertocorbege.jpg`,
-        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/16420151784312-ultralineaghpabertocorbege.webp`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -464,12 +464,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/ultraline-400-at-aberta-bege.png`,
+            image: `${venosanBase}/ULTRALINE 4000/ultraline-400-at-aberta-bege.webp`,
           },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
-        genericImage: `${venosanBase}/ULTRALINE 4000/ultraline-400-at-aberta-bege.png`,
-        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/ultraline-400-at-aberta-bege.webp`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -500,12 +500,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Preta",
             swatch: colors.preta,
-            image: `${venosanBase}/ULTRALINE 4000/16420151797121-ultralineatpfechadocorpreta.jpg`,
+            image: `${venosanBase}/ULTRALINE 4000/16420151797121-ultralineatpfechadocorpreta.webp`,
           },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
-        genericImage: `${venosanBase}/ULTRALINE 4000/16420151797121-ultralineatpfechadocorpreta.jpg`,
-        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/16420151797121-ultralineatpfechadocorpreta.webp`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -536,12 +536,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/1642015178229-ultralineaggesquerdocorbege.jpg`,
+            image: `${venosanBase}/ULTRALINE 4000/1642015178229-ultralineaggesquerdocorbege.webp`,
           },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE - FRENTE.webp`,
-        genericImage: `${venosanBase}/ULTRALINE 4000/1642015178229-ultralineaggesquerdocorbege.jpg`,
-        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/1642015178229-ultralineaggesquerdocorbege.webp`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -573,12 +573,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/16420806755022-zhultralinecorbege.jpg`,
+            image: `${venosanBase}/ULTRALINE 4000/16420806755022-zhultralinecorbege.webp`,
           },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE BRAÇADEIRA - DIREITA.webp`,
-        genericImage: `${venosanBase}/ULTRALINE 4000/16420806755022-zhultralinecorbege.jpg`,
-        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS - BRAÇADEIRA.jpg`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/16420806755022-zhultralinecorbege.webp`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS - BRAÇADEIRA.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -606,12 +606,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/ULTRALINE 4000/16420806755796-bhultralinecorbege.jpg`,
+            image: `${venosanBase}/ULTRALINE 4000/16420806755796-bhultralinecorbege.webp`,
           },
         ],
         boxImage: `${venosanBase}/ULTRALINE 4000/ULTRALINE BRAÇADEIRA - DIREITA.webp`,
-        genericImage: `${venosanBase}/ULTRALINE 4000/16420806755796-bhultralinecorbege.jpg`,
-        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS - BRAÇADEIRA.jpg`,
+        genericImage: `${venosanBase}/ULTRALINE 4000/16420806755796-bhultralinecorbege.webp`,
+        sizeChartImage: `${venosanBase}/ULTRALINE 4000/TABELA DE MEDIDAS - BRAÇADEIRA.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -638,17 +638,17 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/6000/16431198851026-02.ad6000bege.jpg`,
+            image: `${venosanBase}/6000/16431198851026-02.ad6000bege.webp`,
           },
           {
             name: "Bronze",
             swatch: colors.bronze,
-            image: `${venosanBase}/6000/16431198851415-03.ad6000bronze.jpg`,
+            image: `${venosanBase}/6000/16431198851415-03.ad6000bronze.webp`,
           },
         ],
         boxImage: `${venosanBase}/6000/6000 - DIREITA.webp`,
-        genericImage: `${venosanBase}/6000/16431198851026-02.ad6000bege.jpg`,
-        sizeChartImage: `${venosanBase}/6000/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/6000/16431198851026-02.ad6000bege.webp`,
+        sizeChartImage: `${venosanBase}/6000/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -679,17 +679,17 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/6000/16431198859595-07.agh6000begepaberto.jpg`,
+            image: `${venosanBase}/6000/16431198859595-07.agh6000begepaberto.webp`,
           },
           {
             name: "Bronze",
             swatch: colors.bronze,
-            image: `${venosanBase}/6000/16431198863246-08.agh6000bronzepaberto.jpg`,
+            image: `${venosanBase}/6000/16431198863246-08.agh6000bronzepaberto.webp`,
           },
         ],
         boxImage: `${venosanBase}/6000/6000 - DIREITA.webp`,
-        genericImage: `${venosanBase}/6000/16431198859595-07.agh6000begepaberto.jpg`,
-        sizeChartImage: `${venosanBase}/6000/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/6000/16431198859595-07.agh6000begepaberto.webp`,
+        sizeChartImage: `${venosanBase}/6000/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -720,17 +720,17 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${venosanBase}/6000/16431198863726-09.at6000begepaberto.jpg`,
+            image: `${venosanBase}/6000/16431198863726-09.at6000begepaberto.webp`,
           },
           {
             name: "Bronze",
             swatch: colors.bronze,
-            image: `${venosanBase}/6000/16431198866288-10.at6000bronzepaberto.jpg`,
+            image: `${venosanBase}/6000/16431198866288-10.at6000bronzepaberto.webp`,
           },
         ],
         boxImage: `${venosanBase}/6000/6000 - DIREITA.webp`,
-        genericImage: `${venosanBase}/6000/16431198863726-09.at6000begepaberto.jpg`,
-        sizeChartImage: `${venosanBase}/6000/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/6000/16431198863726-09.at6000begepaberto.webp`,
+        sizeChartImage: `${venosanBase}/6000/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -771,7 +771,7 @@ export const compressionStockingBrands: StockingBrand[] = [
         ],
         boxImage: `${venosanBase}/SUPPORTLINE SOFT/SUPPORTLINE SOFT - DIREITA.webp`,
         genericImage: `${venosanBase}/SUPPORTLINE SOFT/SUPPORTLINE SOFT - PRETA - DEITADA.webp`,
-        sizeChartImage: `${venosanBase}/SUPPORTLINE SOFT/TABELA DE MEDIDAS.jpg`,
+        sizeChartImage: `${venosanBase}/SUPPORTLINE SOFT/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Apresentação oficial",
@@ -807,7 +807,7 @@ export const compressionStockingBrands: StockingBrand[] = [
         ],
         boxImage: `${venosanBase}/AES/AES ESTÉRIL - DIREITA.webp`,
         genericImage: `${venosanBase}/AES/AD-AES-PERNA FEMININA.webp`,
-        sizeChartImage: `${venosanBase}/AES/TABELA DE MEDIDAS.jpg`,
+        sizeChartImage: `${venosanBase}/AES/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -838,12 +838,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Branca",
             swatch: colors.branca,
-            image: `${venosanBase}/AES/16431212039486-03.aghaes.jpg`,
+            image: `${venosanBase}/AES/16431212039486-03.aghaes.webp`,
           },
         ],
         boxImage: `${venosanBase}/AES/AES ESTÉRIL - DIREITA.webp`,
-        genericImage: `${venosanBase}/AES/16431212039486-03.aghaes.jpg`,
-        sizeChartImage: `${venosanBase}/AES/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/AES/16431212039486-03.aghaes.webp`,
+        sizeChartImage: `${venosanBase}/AES/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Modelo oficial",
@@ -874,12 +874,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege · AD",
             swatch: colors.bege,
-            image: `${venosanBase}/ULCERCOMFORT/16431203901566-02.adulcercomfort.jpg`,
+            image: `${venosanBase}/ULCERCOMFORT/16431203901566-02.adulcercomfort.webp`,
           },
         ],
         boxImage: `${venosanBase}/ULCERCOMFORT/ULCERCOMFORT COM ZIPER - DIREITA.webp`,
-        genericImage: `${venosanBase}/ULCERCOMFORT/16431203901566-02.adulcercomfort.jpg`,
-        sizeChartImage: `${venosanBase}/ULCERCOMFORT/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/ULCERCOMFORT/16431203901566-02.adulcercomfort.webp`,
+        sizeChartImage: `${venosanBase}/ULCERCOMFORT/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Variações para consulta",
@@ -915,7 +915,7 @@ export const compressionStockingBrands: StockingBrand[] = [
         ],
         boxImage: `${venosanBase}/ULCERAID/ULCERAID - ESQUERDA.webp`,
         genericImage: `${venosanBase}/ULCERAID/AD-ULCERAID - PERNA FEMININA.webp`,
-        sizeChartImage: `${venosanBase}/ULCERAID/TABELA DE MEDIDAS.jpg`,
+        sizeChartImage: `${venosanBase}/ULCERAID/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Composição do kit",
@@ -946,7 +946,7 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Preta · BD",
             swatch: colors.preta,
-            image: `${venosanBase}/SPORTACTIVE/16431221946273-08.adsportactivecorpretafrente.jpg`,
+            image: `${venosanBase}/SPORTACTIVE/16431221946273-08.adsportactivecorpretafrente.webp`,
           },
           {
             name: "Branca · BD",
@@ -965,8 +965,8 @@ export const compressionStockingBrands: StockingBrand[] = [
           },
         ],
         boxImage: `${venosanBase}/SPORTACTIVE/SPORTACTIVE - DIREITA.webp`,
-        genericImage: `${venosanBase}/SPORTACTIVE/16431221946273-08.adsportactivecorpretafrente.jpg`,
-        sizeChartImage: `${venosanBase}/SPORTACTIVE/TABELA DE MEDIDAS.jpg`,
+        genericImage: `${venosanBase}/SPORTACTIVE/16431221946273-08.adsportactivecorpretafrente.webp`,
+        sizeChartImage: `${venosanBase}/SPORTACTIVE/TABELA DE MEDIDAS.webp`,
         specifications: [
           {
             title: "Apresentação oficial",
@@ -1006,12 +1006,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Branca",
             swatch: colors.branca,
-            image: `${sigvarisBase}/Antitrombo/hos_antitrombo_sigvaris_unisex_calf_sa.jpg`,
+            image: `${sigvarisBase}/Antitrombo/hos_antitrombo_sigvaris_unisex_calf_sa.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_Calf_BOX_ALT1_SA.png`,
-        genericImage: `${sigvarisBase}/Antitrombo/hos_antitrombo_sigvaris_unisex_calf_sa.jpg`,
-        sizeChartImage: `${sigvarisBase}/Antitrombo/SIZE_CHART_HOS_Antitrombo.jpg`,
+        boxImage: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_Calf_BOX_ALT1_SA.webp`,
+        genericImage: `${sigvarisBase}/Antitrombo/hos_antitrombo_sigvaris_unisex_calf_sa.webp`,
+        sizeChartImage: `${sigvarisBase}/Antitrombo/SIZE_CHART_HOS_Antitrombo.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1038,12 +1038,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Branca",
             swatch: colors.branca,
-            image: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_TighHigh_SA.jpg`,
+            image: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_TighHigh_SA.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_Calf_BOX_ALT1_SA.png`,
-        genericImage: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_TighHigh_SA.jpg`,
-        sizeChartImage: `${sigvarisBase}/Antitrombo/SIZE_CHART_HOS_Antitrombo.jpg`,
+        boxImage: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_Calf_BOX_ALT1_SA.webp`,
+        genericImage: `${sigvarisBase}/Antitrombo/HOS_Antitrombo_Sigvaris_Unisex_TighHigh_SA.webp`,
+        sizeChartImage: `${sigvarisBase}/Antitrombo/SIZE_CHART_HOS_Antitrombo.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1073,9 +1073,9 @@ export const compressionStockingBrands: StockingBrand[] = [
             image: `${sigvarisBase}/Dynaven/dyn_basic_women_calf_ot_honey_na_sa.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Dynaven/DYN_BASIC_packing_calf_unisex_brazil_box.png`,
+        boxImage: `${sigvarisBase}/Dynaven/DYN_BASIC_packing_calf_unisex_brazil_box.webp`,
         genericImage: `${sigvarisBase}/Dynaven/dyn_basic_women_calf_ot_honey_na_sa.webp`,
-        sizeChartImage: `${sigvarisBase}/Dynaven/SIZE_CHART_DYN_BASIC_SA.jpg`,
+        sizeChartImage: `${sigvarisBase}/Dynaven/SIZE_CHART_DYN_BASIC_SA.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1105,9 +1105,9 @@ export const compressionStockingBrands: StockingBrand[] = [
             image: `${sigvarisBase}/Dynaven/dyn_basic_women_pantyhose_ot_honey_na_sa.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Dynaven/DYN_BASIC_packing_calf_unisex_brazil_box.png`,
+        boxImage: `${sigvarisBase}/Dynaven/DYN_BASIC_packing_calf_unisex_brazil_box.webp`,
         genericImage: `${sigvarisBase}/Dynaven/dyn_basic_women_pantyhose_ot_honey_na_sa.webp`,
-        sizeChartImage: `${sigvarisBase}/Dynaven/SIZE_CHART_DYN_BASIC_SA.jpg`,
+        sizeChartImage: `${sigvarisBase}/Dynaven/SIZE_CHART_DYN_BASIC_SA.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1137,9 +1137,9 @@ export const compressionStockingBrands: StockingBrand[] = [
             image: `${sigvarisBase}/Dynaven/dyn_basic_nwg_ot_honey_na_sa.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Dynaven/DYN_BASIC_packing_calf_unisex_brazil_box.png`,
+        boxImage: `${sigvarisBase}/Dynaven/DYN_BASIC_packing_calf_unisex_brazil_box.webp`,
         genericImage: `${sigvarisBase}/Dynaven/dyn_basic_nwg_ot_honey_na_sa.webp`,
-        sizeChartImage: `${sigvarisBase}/Dynaven/SIZE_CHART_DYN_BASIC_SA.jpg`,
+        sizeChartImage: `${sigvarisBase}/Dynaven/SIZE_CHART_DYN_BASIC_SA.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1167,12 +1167,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Bege",
             swatch: colors.bege,
-            image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Beige_SA.jpg`,
+            image: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Beige_SA.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_ALGODÃO SUPER_PACKING_WOMAN_BRAZIL_BOX.png`,
-        genericImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Beige_SA.jpg`,
-        sizeChartImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/SIZE_CHART_ESS_FibrasNaturais_Calf.jpg`,
+        boxImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_ALGODÃO SUPER_PACKING_WOMAN_BRAZIL_BOX.webp`,
+        genericImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/ESS_NaturalFibers_Unisex_Beige_SA.webp`,
+        sizeChartImage: `${sigvarisBase}/Essencial/Algodão-fibras naturais/SIZE_CHART_ESS_FibrasNaturais_Calf.webp`,
         specifications: [
           {
             title: "Características da linha",
@@ -1207,9 +1207,9 @@ export const compressionStockingBrands: StockingBrand[] = [
             image: `${sigvarisBase}/Essencial/Conforto/ess_confort_calf_sigvaris_unisex_suntan_sa.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.jpg`,
+        boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.webp`,
         genericImage: `${sigvarisBase}/Essencial/Conforto/ess_confort_calf_sigvaris_unisex_suntan_sa.webp`,
-        sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.jpg`,
+        sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1240,9 +1240,9 @@ export const compressionStockingBrands: StockingBrand[] = [
             image: `${sigvarisBase}/Essencial/Conforto/ess_confort_pantyhouse_sigvaris_unisex_suntan_sa.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.jpg`,
+        boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.webp`,
         genericImage: `${sigvarisBase}/Essencial/Conforto/ess_confort_pantyhouse_sigvaris_unisex_suntan_sa.webp`,
-        sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.jpg`,
+        sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1273,9 +1273,9 @@ export const compressionStockingBrands: StockingBrand[] = [
             image: `${sigvarisBase}/Essencial/Conforto/meia-coxa-ponteira-aberta.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.jpg`,
+        boxImage: `${sigvarisBase}/Essencial/Conforto/essencial-caixa-2.webp`,
         genericImage: `${sigvarisBase}/Essencial/Conforto/meia-coxa-ponteira-aberta.webp`,
-        sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.jpg`,
+        sizeChartImage: `${sigvarisBase}/Essencial/Conforto/SIZE_CHART_ESS_Conforto_TH.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1310,9 +1310,9 @@ export const compressionStockingBrands: StockingBrand[] = [
             image: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_branca.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Performance (esportiva)/Performance_Sigvaris_Unisex_Packaging_BR.jpg`,
+        boxImage: `${sigvarisBase}/Performance (esportiva)/Performance_Sigvaris_Unisex_Packaging_BR.webp`,
         genericImage: `${sigvarisBase}/Performance (esportiva)/ACM_HighTech_CW_black.webp`,
-        sizeChartImage: `${sigvarisBase}/Performance (esportiva)/SIZE_CHART_SPO_all sports.jpg`,
+        sizeChartImage: `${sigvarisBase}/Performance (esportiva)/SIZE_CHART_SPO_all sports.webp`,
         specifications: [
           {
             title: "Características da linha",
@@ -1343,17 +1343,17 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Preta",
             swatch: colors.preta,
-            image: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Black_1_SA.jpg`,
+            image: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Black_1_SA.webp`,
           },
           {
             name: "Caqui",
             swatch: colors.caqui,
-            image: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Khaki_SA (2).jpg`,
+            image: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Khaki_SA (2).webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Packaging_BR.png`,
-        genericImage: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Black_1_SA.jpg`,
-        sizeChartImage: `${sigvarisBase}/Style/Actitud/SIZE_CHART_STY_Elegancia_Actitud.jpg`,
+        boxImage: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Packaging_BR.webp`,
+        genericImage: `${sigvarisBase}/Style/Actitud/STY_Elegance_Actitud_Sigvaris_Man_Black_1_SA.webp`,
+        sizeChartImage: `${sigvarisBase}/Style/Actitud/SIZE_CHART_STY_Elegancia_Actitud.webp`,
         specifications: [
           {
             title: "Características da linha",
@@ -1389,12 +1389,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Natural escura",
             swatch: colors.naturalEscura,
-            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_calf_open_suntan_sa.jpg`,
+            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_calf_open_suntan_sa.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Style/Audace/STY_Audace_Sigvaris_Unisex_Calf_BOX_SA.png`,
+        boxImage: `${sigvarisBase}/Style/Audace/STY_Audace_Sigvaris_Unisex_Calf_BOX_SA.webp`,
         genericImage: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_calf_open_taupe_sa.webp`,
-        sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_Prevencao_Pantyhouse.jpg`,
+        sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_Prevencao_Pantyhouse.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1421,17 +1421,17 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Natural",
             swatch: colors.natural,
-            image: `${sigvarisBase}/Style/Audace/STY_Preventive_Sigvaris_Woman_Pantyhouse_Open_NaturalEscura_alt3_SA.jpg`,
+            image: `${sigvarisBase}/Style/Audace/STY_Preventive_Sigvaris_Woman_Pantyhouse_Open_NaturalEscura_alt3_SA.webp`,
           },
           {
             name: "Natural escura",
             swatch: colors.naturalEscura,
-            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_pantyhouse_suntan_alt1_SA.jpg`,
+            image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_pantyhouse_suntan_alt1_SA.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Style/Audace/STY_Audace_Sigvaris_Unisex_Calf_BOX_SA.png`,
-        genericImage: `${sigvarisBase}/Style/Audace/STY_Preventive_Sigvaris_Woman_Pantyhouse_Open_NaturalEscura_alt3_SA.jpg`,
-        sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_Prevencao_Pantyhouse.jpg`,
+        boxImage: `${sigvarisBase}/Style/Audace/STY_Audace_Sigvaris_Unisex_Calf_BOX_SA.webp`,
+        genericImage: `${sigvarisBase}/Style/Audace/STY_Preventive_Sigvaris_Woman_Pantyhouse_Open_NaturalEscura_alt3_SA.webp`,
+        sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_Prevencao_Pantyhouse.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1466,9 +1466,9 @@ export const compressionStockingBrands: StockingBrand[] = [
             image: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_th_closed_natural_sa.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Style/Audace/STY_Audace_Sigvaris_Unisex_Calf_BOX_SA.png`,
+        boxImage: `${sigvarisBase}/Style/Audace/STY_Audace_Sigvaris_Unisex_Calf_BOX_SA.webp`,
         genericImage: `${sigvarisBase}/Style/Audace/sty_preventive_sigvaris_woman_th_open_taupe_sa.webp`,
-        sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_Prevencao_Pantyhouse.jpg`,
+        sizeChartImage: `${sigvarisBase}/Style/Audace/SIZE_CHART_STY_Prevencao_Pantyhouse.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1498,9 +1498,9 @@ export const compressionStockingBrands: StockingBrand[] = [
             image: `${sigvarisBase}/Style/Eversheer/sty_transparent_nude_calf_ot_sigvaris_women_cappuccino_brazil_site4.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Style/Eversheer/STY_EverSheer_Sigvaris_Unisex_Thigh_BOX_SA.png`,
+        boxImage: `${sigvarisBase}/Style/Eversheer/STY_EverSheer_Sigvaris_Unisex_Thigh_BOX_SA.webp`,
         genericImage: `${sigvarisBase}/Style/Eversheer/sty_transparent_nude_calf_ot_sigvaris_women_cappuccino_brazil_site4.webp`,
-        sizeChartImage: `${sigvarisBase}/Style/Eversheer/SIZE_CHART_STY_Transparencia_TH.jpg`,
+        sizeChartImage: `${sigvarisBase}/Style/Eversheer/SIZE_CHART_STY_Transparencia_TH.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1527,12 +1527,12 @@ export const compressionStockingBrands: StockingBrand[] = [
           {
             name: "Natural",
             swatch: colors.natural,
-            image: `${sigvarisBase}/Style/Eversheer/STY_Transparent_EverSheer_Pantyhose_OT_Sigvaris_Women_Natural_Brazil_alt.jpg`,
+            image: `${sigvarisBase}/Style/Eversheer/STY_Transparent_EverSheer_Pantyhose_OT_Sigvaris_Women_Natural_Brazil_alt.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Style/Eversheer/STY_EverSheer_Sigvaris_Unisex_Thigh_BOX_SA.png`,
-        genericImage: `${sigvarisBase}/Style/Eversheer/STY_Transparent_EverSheer_Pantyhose_OT_Sigvaris_Women_Natural_Brazil_alt.jpg`,
-        sizeChartImage: `${sigvarisBase}/Style/Eversheer/SIZE_CHART_STY_Transparencia_TH.jpg`,
+        boxImage: `${sigvarisBase}/Style/Eversheer/STY_EverSheer_Sigvaris_Unisex_Thigh_BOX_SA.webp`,
+        genericImage: `${sigvarisBase}/Style/Eversheer/STY_Transparent_EverSheer_Pantyhose_OT_Sigvaris_Women_Natural_Brazil_alt.webp`,
+        sizeChartImage: `${sigvarisBase}/Style/Eversheer/SIZE_CHART_STY_Transparencia_TH.webp`,
         specifications: [
           {
             title: "Apresentação",
@@ -1562,9 +1562,9 @@ export const compressionStockingBrands: StockingBrand[] = [
             image: `${sigvarisBase}/Style/Eversheer/sty_transparent_eversheer_th_ot_sigvaris_women_natural_brazil_site2.webp`,
           },
         ],
-        boxImage: `${sigvarisBase}/Style/Eversheer/STY_EverSheer_Sigvaris_Unisex_Thigh_BOX_SA.png`,
+        boxImage: `${sigvarisBase}/Style/Eversheer/STY_EverSheer_Sigvaris_Unisex_Thigh_BOX_SA.webp`,
         genericImage: `${sigvarisBase}/Style/Eversheer/sty_transparent_eversheer_th_ot_sigvaris_women_natural_brazil_site2.webp`,
-        sizeChartImage: `${sigvarisBase}/Style/Eversheer/SIZE_CHART_STY_Transparencia_TH.jpg`,
+        sizeChartImage: `${sigvarisBase}/Style/Eversheer/SIZE_CHART_STY_Transparencia_TH.webp`,
         specifications: [
           {
             title: "Apresentação",

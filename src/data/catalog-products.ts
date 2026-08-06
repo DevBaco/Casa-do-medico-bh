@@ -111,7 +111,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O oxímetro de dedo facilita a verificação rápida da saturação periférica de oxigênio (SpO₂) e da frequência de pulso. Trabalhamos com diferentes modelos, visores e recursos; a escolha e a interpretação dos resultados devem respeitar a orientação do profissional de saúde.",
     images: [
       {
-        src: `${produtosBase}/oxímetro.png`,
+        src: `${produtosBase}/oxímetro.webp`,
         alt: "Oxímetro digital posicionado no dedo",
         brandId: "gtech",
       },
@@ -137,17 +137,17 @@ const rawCatalogProducts: CatalogProduct[] = [
       "Os aparelhos digitais automatizam a medição da pressão arterial e podem oferecer memórias, indicadores no visor e braçadeiras de diferentes tamanhos. Há opções de braço e de pulso; consulte nossa equipe para comparar o ajuste, os recursos e a disponibilidade de cada modelo.",
     images: [
       {
-        src: `${produtosBase}/aparelho-de-pressao-digital.jpg (1).jpg`,
+        src: `${produtosBase}/aparelho-de-pressao-digital.jpg (1).webp`,
         alt: "Aparelho digital de pressão arterial com braçadeira",
         brandId: "gtech",
       },
       {
-        src: `${acumedBase}/Aparelho de pressão digital pulso.jpg`,
+        src: `${acumedBase}/Aparelho de pressão digital pulso.webp`,
         alt: "Aparelho digital de pressão arterial de pulso",
         brandId: "gtech",
       },
       {
-        src: `${acumedBase}/BPSP11A 02.jpg (1).jpg (1).jpg`,
+        src: `${acumedBase}/BPSP11A 02.jpg (1).jpg (1).webp`,
         alt: "Outra opção de aparelho digital de pressão com braçadeira",
         brandId: "gtech",
       },
@@ -173,7 +173,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O aparelho de pressão manual reúne manômetro, braçadeira e pera de insuflação para a aferição pelo método auscultatório. Trabalhamos com diferentes tamanhos de braçadeira, materiais e configurações, indicados principalmente para uso por pessoas treinadas na técnica.",
     images: [
       {
-        src: `${produtosBase}/aparelho-de-pressao-manual.jpg`,
+        src: `${produtosBase}/aparelho-de-pressao-manual.webp`,
         alt: "Aparelho manual de pressão arterial com manômetro e braçadeira",
         brandId: "premium",
       },
@@ -198,7 +198,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O manguito adulto é o componente que envolve o braço em um esfigmomanômetro manual. Possui fecho ajustável, bolsa inflável interna e conexões para o conjunto de aferição. Confirme a compatibilidade com o aparelho antes da compra.",
     images: [
       {
-        src: "/Produtos/manguito-adulto-esfigmomanometro.png",
+        src: "/Produtos/manguito-adulto-esfigmomanometro.webp",
         alt: "Manguito adulto preto para esfigmomanômetro com tubos de conexão",
       },
     ],
@@ -238,7 +238,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     name: "Válvula de Deflação para Esfigmomanômetro",
     summary: "Peça de reposição para controlar a liberação de ar em aparelhos manuais de pressão.",
     description: "A válvula de deflação é um componente de reposição do conjunto de insuflação de esfigmomanômetros aneroides. Confirme a compatibilidade com o modelo e a conexão antes da compra.",
-    images: [{ src: "/Produtos/valvula-deflacao-esfigmomanometro.png", alt: "Válvula metálica de deflação para aparelho manual de pressão" }],
+    images: [{ src: "/Produtos/valvula-deflacao-esfigmomanometro.webp", alt: "Válvula metálica de deflação para aparelho manual de pressão" }],
     highlights: ["Peça de reposição", "Controle de liberação de ar", "Conector para mangueira"], badges: ["Reposição", "Aparelho manual"],
     consultation: ["Compatibilidade", "Tipo de conexão", "Disponibilidade"], keywords: ["valvula deflacao", "esfigmomanometro", "reparo aparelho pressao"],
   },
@@ -248,7 +248,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     name: "Pera para Esfigmomanômetro",
     summary: "Pera de borracha para insuflação em aparelhos manuais de pressão arterial.",
     description: "A pera é o componente usado para insuflar o manguito de um esfigmomanômetro aneroide. Confirme a compatibilidade das conexões antes da compra.",
-    images: [{ src: "/Produtos/pera-esfigmomanometro.png", alt: "Pera preta de borracha para aparelho manual de pressão" }],
+    images: [{ src: "/Produtos/pera-esfigmomanometro.webp", alt: "Pera preta de borracha para aparelho manual de pressão" }],
     highlights: ["Borracha flexível", "Acessório de reposição", "Para conjunto manual"], badges: ["Reposição", "Aparelho manual"],
     consultation: ["Compatibilidade", "Tipo de conexão", "Disponibilidade"], keywords: ["pera pressao", "pera esfigmomanometro", "insuflador"],
   },
@@ -259,7 +259,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     name: "Estetoscópio Littmann Classic III Profissional Original – 3M",
     summary: "Estetoscópio de dupla face para ausculta clínica adulto e pediátrico.",
     description: "Experimente a precisão e o conforto dos Estetoscópios Littmann Classic III, disponível nas versões adulto e pediátrica. Com alta sensibilidade acústica para desempenho excepcional, o estetoscópio Classic III é usado por estudantes e profissionais médicos para identificar, ouvir e estudar sons do coração, pulmões e outros sons corporais para avaliação física, monitoramento do paciente e diagnóstico. Possui olivas macias e auscultador de dupla face; o lado pediátrico pode ser usado como campânula aberta com o aro apropriado. Consulte a disponibilidade antes da compra.",
-    images: [{ src: "/Produtos/estetoscopio-littmann-classic-iii.png", alt: "Estetoscópio Littmann Classic III com auscultador metálico", brandId: "3m" }],
+    images: [{ src: "/Produtos/estetoscopio-littmann-classic-iii.webp", alt: "Estetoscópio Littmann Classic III com auscultador metálico", brandId: "3m" }],
     highlights: ["Dupla face", "Auscultador de dupla face", "Olivas macias"], badges: ["Ausculta", "Clínico"],
     consultation: ["Modelo", "Disponibilidade"], keywords: ["estetoscopio littmann", "classic iii"],
   },
@@ -285,7 +285,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O martelo Buck neurológico é utilizado em avaliações clínicas de reflexos. Possui cabeça com extremidades emborrachadas e acompanha acessórios para estímulos complementares, como ponta e pincel. O uso deve ser realizado por profissional habilitado.",
     images: [
       {
-        src: "/Produtos/martelo-buck-neurologico.png",
+        src: "/Produtos/martelo-buck-neurologico.webp",
         alt: "Martelo Buck neurológico preto e metálico com ponta e pincel",
       },
     ],
@@ -305,7 +305,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     name: "Olivas Pretas para Estetoscópio",
     summary: "Par de olivas macias para reposição em estetoscópios compatíveis.",
     description: "As olivas são as pontas que se encaixam nas hastes auriculares do estetoscópio. Este par preto serve como peça de reposição; confirme a compatibilidade com o modelo antes da compra.",
-    images: [{ src: "/Produtos/olivas-estetoscopio-pretas.png", alt: "Par de olivas pretas macias para estetoscópio" }],
+    images: [{ src: "/Produtos/olivas-estetoscopio-pretas.webp", alt: "Par de olivas pretas macias para estetoscópio" }],
     highlights: ["Par de reposição", "Material macio", "Cor preta"], badges: ["Reposição", "Ausculta"],
     consultation: ["Modelo do estetoscópio", "Compatibilidade", "Disponibilidade"], keywords: ["olivas estetoscopio", "oliva preta", "reposicao estetoscopio"],
   },
@@ -316,7 +316,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     name: "Estetoscópio Duplo",
     summary: "Estetoscópio clínico para ausculta em diferentes rotinas de atendimento.",
     description: "Estetoscópio com auscultador de face única, hastes metálicas, olivas macias e tubo flexível. Consulte as opções disponíveis para encontrar a configuração adequada à sua rotina.",
-    images: [{ src: "/Produtos/estetoscopio-simples.png", alt: "Estetoscópio clínico simples preto com auscultador metálico" }],
+    images: [{ src: "/Produtos/estetoscopio-simples.webp", alt: "Estetoscópio clínico simples preto com auscultador metálico" }],
     highlights: ["Auscultador de face única", "Tubo flexível", "Olivas macias"],
     badges: ["Ausculta", "Clínico"],
     consultation: ["Tipo de estetoscópio", "Cor", "Disponibilidade"],
@@ -334,7 +334,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O termômetro digital é uma opção prática para acompanhar a temperatura corporal. Tempo de leitura, sinal sonoro, memória e flexibilidade da ponta podem variar entre os modelos; confirme com a equipe as alternativas disponíveis no estoque.",
     images: [
       {
-        src: `${produtosBase}/termometro-digital.jpg`,
+        src: `${produtosBase}/termometro-digital.webp`,
         alt: "Termômetro clínico digital",
         brandId: "gtech",
       },
@@ -423,12 +423,12 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O glicômetro permite acompanhar a glicemia a partir de uma pequena amostra de sangue, usando tiras compatíveis com o aparelho. Trabalhamos com diferentes marcas, kits e capacidades de memória. A escolha deve considerar também a disponibilidade contínua das tiras reagentes correspondentes.",
     images: [
       {
-        src: `${produtosBase}/glicometro.jpg`,
+        src: `${produtosBase}/glicometro.webp`,
         alt: "Kit de glicômetro digital",
         brandId: "gtech",
       },
       {
-        src: `${acumedBase}/GTECH FREE.jpg`,
+        src: `${acumedBase}/GTECH FREE.webp`,
         alt: "Outra opção de glicômetro portátil",
         brandId: "gtech",
       },
@@ -454,7 +454,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "As tiras reagentes são específicas para cada família de glicômetros e não devem ser escolhidas apenas pela aparência. Antes da compra, confirme o nome exato do aparelho, a apresentação da embalagem e a compatibilidade indicada pelo fabricante.",
     images: [
       {
-        src: `${produtosBase}/tiras-reagentes-para-glicose.jpg`,
+        src: `${produtosBase}/tiras-reagentes-para-glicose.webp`,
         alt: "Embalagem de tiras reagentes para teste de glicose",
         brandId: "gtech",
       },
@@ -529,7 +529,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O coxal elástico envolve a musculatura da coxa e pode ser utilizado em atividades e rotinas de recuperação conforme orientação profissional. Trabalhamos com diferentes níveis de elasticidade e tamanhos; a medida da circunferência ajuda a selecionar um ajuste confortável.",
     images: [
       {
-        src: `${hidrolightBase}/EL2021.1.png`,
+        src: `${hidrolightBase}/EL2021.1.webp`,
         alt: "Pessoa usando coxal elástico preto",
       },
     ],
@@ -554,7 +554,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "As tornozeleiras ajudam a oferecer compressão e sensação de estabilidade na região do tornozelo. Há modelos elásticos para uso simples e opções com ajustes adicionais. A escolha depende da medida, do nível de suporte desejado e da recomendação recebida.",
     images: [
       {
-        src: `${hidrolightBase}/EL2022.1.png`,
+        src: `${hidrolightBase}/EL2022.1.webp`,
         alt: "Pessoa usando tornozeleira elástica preta",
       },
     ],
@@ -579,11 +579,11 @@ const rawCatalogProducts: CatalogProduct[] = [
       "As joelheiras podem oferecer compressão, proteção e suporte durante atividades ou recuperação. Trabalhamos com versões lisas, com abertura e reforço patelar, além de modelos com ajustes. A medida do joelho e a finalidade de uso orientam a escolha.",
     images: [
       {
-        src: `${hidrolightBase}/Hidrolight_0522_edit_flat Lucas.jpg`,
+        src: `${hidrolightBase}/Hidrolight_0522_edit_flat Lucas.webp`,
         alt: "Joelheira lisa envolvendo a articulação",
       },
       {
-        src: `${hidrolightBase}/_MTS9054_.png`,
+        src: `${hidrolightBase}/_MTS9054_.webp`,
         alt: "Joelheira com abertura e reforço patelar",
       },
     ],
@@ -642,7 +642,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O imobilizador de joelho é utilizado para restringir movimentos e manter o membro alinhado durante situações de recuperação. Comprimento, posição das talas e sistema de fechamento variam por modelo; o tamanho correto deve seguir a medida e a orientação profissional.",
     images: [
       {
-        src: `${hidrolightBase}/_MTS8359__edit.jpg`,
+        src: `${hidrolightBase}/_MTS8359__edit.webp`,
         alt: "Pessoa usando imobilizador longo de joelho",
       },
     ],
@@ -667,7 +667,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O Protetor para Punho é indicado para a prevenção e tratamento de contusões, distensões e tendinites; alívio de dores agudas e crônicas; prevenção de lesões durante a prática de exercícios; auxílio no tratamento fisioterapêutico; L.E.R. e D.O.R.T. Comprime a região do punho sem limitar seus movimentos, oferecendo suporte leve e conforto durante atividades físicas ou no dia a dia.",
     images: [
       {
-        src: `${hidrolightBase}/_MTS9119_.jpg`,
+        src: `${hidrolightBase}/_MTS9119_.webp`,
         alt: "Protetor para punho ajustável",
       },
     ],
@@ -692,11 +692,11 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A Munhequeira Ajustável possui orifício para o polegar em sua extremidade e aba que envolve o punho promovendo alívio da dor e melhora da estabilidade. É indicada para prevenção e tratamento de contusões, distensões e tendinites; alívio de dores agudas e crônicas; prevenção de lesões durante a prática de exercícios; auxílio no tratamento fisioterapêutico; L.E.R. e D.O.R.T.",
     images: [
       {
-        src: `${hidrolightBase}/Hidrolight_1215_edit_flat Lucas 2.png`,
+        src: `${hidrolightBase}/Hidrolight_1215_edit_flat Lucas 2.webp`,
         alt: "Munhequeira ajustável com apoio para o polegar",
       },
       {
-        src: `${hidrolightBase}/_MTS0330__edit_preview.jpg`,
+        src: `${hidrolightBase}/_MTS0330__edit_preview.webp`,
         alt: "Munhequeira ajustável com estrutura para punho e mão",
       },
     ],
@@ -721,7 +721,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A Órtese Comfort Air com Polegar foi desenvolvida com tecido que permite a transpiração, favorece o conforto térmico através dos microfuros e possui duas talas para maior estabilidade e proteção, além de abertura com ajuste extra no polegar (diferente da versão longa sem polegar). É indicada para imobilização e alinhamento da articulação, período pré e pós-operatório, reabilitação de fraturas de punho, L.E.R., D.O.R.T., tendinites, tenossinovites, lesões ligamentares, síndrome do túnel do carpo e rizartrose.",
     images: [
       {
-        src: `${hidrolightBase}/_MTS9456_.png`,
+        src: `${hidrolightBase}/_MTS9456_.webp`,
         alt: "Órtese Comfort Air com polegar",
       },
     ],
@@ -882,7 +882,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A cotoveleira envolve a articulação e pode contar com abas ajustáveis para regular a compressão. Há opções para esporte, atividades repetitivas e recuperação orientada. Consulte tamanhos, materiais e configurações disponíveis.",
     images: [
       {
-        src: `${hidrolightBase}/Hidrolight_1423_edit_flat Lucas 2.png`,
+        src: `${hidrolightBase}/Hidrolight_1423_edit_flat Lucas 2.webp`,
         alt: "Pessoa usando cotoveleira preta ajustável",
       },
     ],
@@ -929,7 +929,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A Tipoia de Abdução é utilizada para posicionar, estabilizar e sustentar o membro superior. Desenvolvida com design ergonômico e tecido com toque suave, oferece estabilização, sustentação e conforto durante o uso. É indicada para o pós-operatório e para patologias que exigem o posicionamento do membro em abdução. O tempo de uso deve ser determinado conforme avaliação e indicação médica.",
     images: [
       {
-        src: `${hidrolightBase}/tipoia abdução lateral - Quadrado.png`,
+        src: `${hidrolightBase}/tipoia abdução lateral - Quadrado.webp`,
         alt: "Pessoa usando tipoia com apoio de abdução lateral",
       },
     ],
@@ -1065,7 +1065,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A Cinta Lombar com Hastes de Aço Flexíveis é indicada na prevenção de lesões durante atividade física e/ou laboral, no alívio de dores agudas e crônicas, no pré e pós-operatório, como apoio compressivo e como auxílio no tratamento fisioterapêutico.",
     images: [
       {
-        src: `${hidrolightBase}/_MTS9331_.png`,
+        src: `${hidrolightBase}/_MTS9331_.webp`,
         alt: "Pessoa ajustando cinta de suporte lombar",
       },
     ],
@@ -1089,7 +1089,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A Cinta Modeladora proporciona suporte ao abdômen por meio das hastes distribuídas pela cinta e da compressão que ela exerce.",
     images: [
       {
-        src: "/Produtos/cinta-modeladora-kestal-pink.png",
+        src: "/Produtos/cinta-modeladora-kestal-pink.webp",
         alt: "Pessoa usando cinta modeladora Kestal preta com faixas rosas",
         brandId: "kestal",
       },
@@ -1215,7 +1215,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A bota imobilizadora curta ajuda a limitar movimentos do pé e tornozelo durante a recuperação. O modelo e o tamanho devem seguir a indicação recebida.",
     images: [
       {
-        src: "/Produtos/bota-imobilizadora-curta.png",
+        src: "/Produtos/bota-imobilizadora-curta.webp",
         alt: "Bota imobilizadora ortopédica curta",
       },
     ],
@@ -1240,7 +1240,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A bota imobilizadora longa ajuda a limitar movimentos do pé, tornozelo e parte da perna durante a recuperação. O modelo e o tamanho devem seguir a indicação recebida.",
     images: [
       {
-        src: `${hidrolightBase}/OR1030 - Bota Imobilizadora Longa diagonal.jpg`,
+        src: `${hidrolightBase}/OR1030 - Bota Imobilizadora Longa diagonal.webp`,
         alt: "Bota imobilizadora ortopédica longa",
       },
     ],
@@ -1265,7 +1265,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A sandália de Barouk acomoda curativos e adaptações de volume com fechamento regulável. O formato do solado e a área de descarga podem variar conforme o modelo; confirme a indicação e o lado antes da compra.",
     images: [
       {
-        src: `${hidrolightBase}/_MTS9534_.jpg`,
+        src: `${hidrolightBase}/_MTS9534_.webp`,
         alt: "Sandália ortopédica pós-operatória preta",
       },
     ],
@@ -1290,7 +1290,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "As calcanheiras de silicone são colocadas dentro do calçado para acomodar e amortecer a região do calcanhar. Existem modelos simples, com ponto de alívio e diferentes alturas. O tamanho e o formato devem ser compatíveis com o calçado e a orientação de uso.",
     images: [
       {
-        src: `${hidrolightBase}/_MTS9142_.jpg`,
+        src: `${hidrolightBase}/_MTS9142_.webp`,
         alt: "Pessoa posicionando calcanheira de silicone no pé",
       },
     ],
@@ -1364,7 +1364,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O assento elevado sanitário com tampa auxilia o uso do vaso sanitário por pessoas que precisam de mais conforto, segurança e facilidade durante a higiene. Possui formato anatômico, tampa articulada e sistema de fixação para manter o assento estável durante o uso. Consulte a disponibilidade do modelo.",
     images: [
       {
-        src: "/Produtos/assento-elevado-sanitario.png",
+        src: "/Produtos/assento-elevado-sanitario.webp",
         alt: "Assento elevado sanitário branco com tampa, sem marca",
       },
     ],
@@ -1396,7 +1396,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A cadeira de banho auxilia a rotina de higiene e pode facilitar transferências com mais segurança. Há modelos com rodas, apoios de braço, pedais e assento sanitário. Dimensões, capacidade suportada e espaço disponível no ambiente são pontos importantes na escolha.",
     images: [
       {
-        src: `${produtosBase}/cadeira-de-banho.png`,
+        src: `${produtosBase}/cadeira-de-banho.webp`,
         alt: "Cadeira de banho com rodas, braços e apoio para os pés",
       },
     ],
@@ -1556,11 +1556,11 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A sonda uretral é um dispositivo estéril, descartável e de uso único. A escolha da medida e a utilização devem seguir a orientação de um profissional habilitado.",
     images: [
       {
-        src: "/Produtos/sonda-uretral-n08-produto.png",
+        src: "/Produtos/sonda-uretral-n08-produto.webp",
         alt: "Sonda uretral em PVC com conector azul",
       },
       {
-        src: "/Produtos/sonda-uretral-n08.png",
+        src: "/Produtos/sonda-uretral-n08.webp",
         alt: "Sonda uretral em embalagem estéril azul-clara",
       },
     ],
@@ -1580,7 +1580,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A ponteira é um acessório de reposição para a base da muleta axilar ou canadense. Sua estrutura de borracha auxilia na aderência ao piso. Confirme a compatibilidade com o modelo de muleta antes da compra.",
     images: [
       {
-        src: "/Produtos/ponteira-22mm-muleta-axilar.png",
+        src: "/Produtos/ponteira-22mm-muleta-axilar.webp",
         alt: "Ponteira preta de borracha para muleta axilar ou canadense",
         brandId: "dellamed",
       },
@@ -1602,7 +1602,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O frasco para nutrição enteral é destinado ao acondicionamento de dietas conforme a orientação de profissionais habilitados. Confirme a capacidade, os acessórios compatíveis e a disponibilidade durante o atendimento.",
     images: [
       {
-        src: "/Produtos/frasco-nutricao-enteral.png",
+        src: "/Produtos/frasco-nutricao-enteral.webp",
         alt: "Frasco plástico branco para nutrição enteral com tampa cinza",
       },
     ],
@@ -1623,7 +1623,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A fronha impermeável com zíper protege o travesseiro em rotinas de cuidado domiciliar. A embalagem fotografada indica composição em PVC siliconizado, com características laváveis e antiácaro. Confirme a medida e a cor disponíveis durante o atendimento.",
     images: [
       {
-        src: "/Produtos/fronha-impermeavel-com-ziper.png",
+        src: "/Produtos/fronha-impermeavel-com-ziper.webp",
         alt: "Fronha bege impermeável dobrada com zíper branco",
       },
     ],
@@ -1644,7 +1644,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O protetor para colchão de berço americano possui elástico nas bordas para ajuste ao colchão. A apresentação fotografada é bege, lavável e feita em PVC siliconizado. Confirme a medida e a cor disponíveis durante o atendimento.",
     images: [
       {
-        src: "/Produtos/protetor-colchao-berco-americano.png",
+        src: "/Produtos/protetor-colchao-berco-americano.webp",
         alt: "Protetor bege impermeável com elástico instalado em colchão de berço americano",
       },
     ],
@@ -1665,7 +1665,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O protetor para colchão casal padrão possui elástico nas bordas para ajuste ao colchão. A apresentação fotografada é bege, lavável e feita em PVC siliconizado. Confirme a medida e a cor disponíveis durante o atendimento.",
     images: [
       {
-        src: "/Produtos/protetor-colchao-casal.png",
+        src: "/Produtos/protetor-colchao-casal.webp",
         alt: "Protetor bege impermeável com elástico instalado em colchão casal",
       },
     ],
@@ -1682,7 +1682,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     imageFrame: { detailAspectRatio: "landscape", detailFit: "contain" },
     summary: "Capa impermeável com elástico para colchão solteiro padrão, na medida 190 × 90 cm.",
     description: "O protetor para colchão solteiro padrão possui elástico nas bordas para ajuste ao colchão. A apresentação fotografada é bege, lavável e feita em PVC siliconizado. Confirme a medida e a cor disponíveis durante o atendimento.",
-    images: [{ src: "/Produtos/protetor-colchao-solteiro.png", alt: "Protetor bege impermeável com elástico instalado em colchão solteiro" }],
+    images: [{ src: "/Produtos/protetor-colchao-solteiro.webp", alt: "Protetor bege impermeável com elástico instalado em colchão solteiro" }],
     highlights: ["Medida 190 × 90 cm", "Elástico nas bordas", "Material impermeável e lavável"],
     badges: ["Solteiro padrão", "Impermeável"],
     consultation: ["Medida do colchão", "Cor disponível", "Disponibilidade"],
@@ -1700,7 +1700,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A máscara para dormir (KSN055) possui faixa elástica ajustável e cobertura macia para os olhos. É uma opção para quem busca reduzir a incidência de luz durante o repouso, viagens ou pausas de descanso.",
     images: [
       {
-        src: "/Produtos/mascara-para-dormir-kestal.jpeg",
+        src: "/Produtos/mascara-para-dormir-kestal.webp",
         alt: "Pessoa usando máscara preta para dormir Kestal",
         brandId: "kestal",
       },
@@ -1718,7 +1718,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     summary: "Luva descartável de látex para proteção e procedimentos de rotina.",
     description:
       "A luva de látex é indicada para proteção das mãos em rotinas de cuidado, higiene e procedimentos não cirúrgicos, conforme a finalidade de uso. Modelo ambidestro, descartável e de uso único. Tamanho, apresentação e demais informações devem ser consultados.",
-    images: [{ src: "/Produtos/luva-latex.png", alt: "Caixa genérica e luva descartável de látex amarelada" }],
+    images: [{ src: "/Produtos/luva-latex.webp", alt: "Caixa genérica e luva descartável de látex amarelada" }],
     highlights: ["Látex", "Ambidestra", "Descartável e de uso único"],
     badges: ["Proteção", "Descartável"],
     consultation: ["Tamanho", "Quantidade por embalagem", "Disponibilidade"],
@@ -1732,7 +1732,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     summary: "Luva descartável de vinil para proteção e procedimentos de rotina.",
     description:
       "A luva de vinil é confeccionada em PVC e indicada para proteção das mãos em atividades de cuidado, higiene e procedimentos não cirúrgicos, conforme a finalidade de uso. É lisa, ambidestra, descartável e de uso único. Tamanho, apresentação e demais informações devem ser consultados.",
-    images: [{ src: "/Produtos/luva-vinil.png", alt: "Caixa genérica e luva descartável de vinil transparente" }],
+    images: [{ src: "/Produtos/luva-vinil.webp", alt: "Caixa genérica e luva descartável de vinil transparente" }],
     highlights: ["Vinil em PVC", "Ambidestra", "Descartável e de uso único"],
     badges: ["Proteção", "Descartável"],
     consultation: ["Tamanho", "Quantidade por embalagem", "Disponibilidade"],
@@ -1746,7 +1746,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     summary: "Luva descartável de nitrila para proteção em procedimentos não cirúrgicos.",
     description:
       "A luva nitrílica é indicada para proteção das mãos em procedimentos não cirúrgicos, exames e rotinas de cuidado, conforme a finalidade de uso. É ambidestra, descartável e de uso único. Tamanho, apresentação e demais informações devem ser consultados.",
-    images: [{ src: "/Produtos/luva-nitrilica.png", alt: "Caixa genérica e luva descartável nitrílica azul" }],
+    images: [{ src: "/Produtos/luva-nitrilica.webp", alt: "Caixa genérica e luva descartável nitrílica azul" }],
     highlights: ["Nitrila", "Ambidestra", "Descartável e de uso único"],
     badges: ["Proteção", "Descartável"],
     consultation: ["Tamanho", "Quantidade por embalagem", "Disponibilidade"],
@@ -1987,7 +1987,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "Alta precisão, corte afiado e confiabilidade são essenciais em procedimentos cirúrgicos odontológicos. A Lâmina de Bisturi de Aço Carbono Estéril Solidor reúne esses atributos com excelência. É estéril e segura, com esterilização por raio gama. Há diversos tamanhos e modelos para cada necessidade clínica. De uso único e prático, oferece corte afiado, preciso e durável. Indicada para cirurgia e periodontia, atende desde procedimentos simples até os mais específicos. Consulte modelos, numerações, apresentação e disponibilidade.",
     images: [
       {
-        src: "/Produtos/laminas-bisturi-aco-carbono.png",
+        src: "/Produtos/laminas-bisturi-aco-carbono.webp",
         alt: "Lâminas de bisturi de aço carbono estéreis em diferentes formatos, sem numeração",
       },
     ],
@@ -2011,7 +2011,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O cabo de bisturi em aço inox é um instrumento cirúrgico reutilizável, autoclavável e resistente à corrosão, usado para fixar lâminas descartáveis com firmeza e precisão. Disponível nos modelos compatíveis com lâminas nº 3 e nº 4, conforme consulta e disponibilidade.",
     images: [
       {
-        src: "/Produtos/cabos-bisturi-inox.png",
+        src: "/Produtos/cabos-bisturi-inox.webp",
         alt: "Cabos de bisturi em aço inox para lâminas nº 3 e nº 4",
       },
     ],
@@ -2043,7 +2043,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A torneira de três vias permite conectar e direcionar o fluxo entre linhas compatíveis com encaixe Luer Lock. É um produto estéril, descartável e de uso único. A escolha e a utilização devem seguir a orientação de profissional habilitado.",
     images: [
       {
-        src: "/Produtos/torneira-3-vias-luer-lock.png",
+        src: "/Produtos/torneira-3-vias-luer-lock.webp",
         alt: "Torneira descartável transparente de três vias com comando vermelho",
         brandId: "descarpack",
       },
@@ -2061,7 +2061,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     imageFrame: { detailAspectRatio: "standard" },
     summary: "Bandagem elástica adesiva em rolo de 5 cm × 5 m, para aplicações funcionais.",
     description: "A fita kinesio é uma bandagem elástica adesiva desenvolvida para acompanhar a textura e a elasticidade da pele, oferecendo suporte sem restringir a amplitude de movimento. Confeccionada em algodão com elastano e adesivo hipoalergênico, é resistente à água e ao suor. É utilizada em aplicações orientadas para suporte muscular e articular, edemas, pós-operatório, prevenção de lesões e acompanhamento fisioterapêutico. A técnica de aplicação e o tempo de uso devem seguir orientação de profissional habilitado. Disponível em cores variadas; consulte a disponibilidade.",
-    images: [{ src: "/Produtos/fita-kinesio-5cm-5m.png", alt: "Rolos de fita kinesio nas cores preta, bege, rosa e azul" }],
+    images: [{ src: "/Produtos/fita-kinesio-5cm-5m.webp", alt: "Rolos de fita kinesio nas cores preta, bege, rosa e azul" }],
     highlights: ["Rolo de 5 cm × 5 m", "Elástica e hipoalergênica, resistente à água", "Preserva a amplitude de movimento"],
     badges: ["Fisioterapia", "Bandagem"],
     consultation: ["Cor desejada", "Quantidade", "Orientação de aplicação"],
@@ -2071,31 +2071,31 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "escalpe-21g", categoryId: "cuidados-medico-hospitalares", brandIds: ["descarpack"], name: "Escalpe Descartável",
     summary: "Dispositivo com agulha alada e tubo flexível para procedimentos.",
     description: "O escalpe é um dispositivo estéril e descartável para procedimentos conforme orientação profissional.",
-    images: [{ src: "/Produtos/escalpe-21g.png", alt: "Escalpe descartável com tubo flexível" }], highlights: ["Estéril", "Uso único", "Tubo flexível"], badges: ["Uso profissional", "Descartável"], consultation: ["Quantidade", "Orientação profissional"], keywords: ["escalpe", "agulha alada", "butterfly"],
+    images: [{ src: "/Produtos/escalpe-21g.webp", alt: "Escalpe descartável com tubo flexível" }], highlights: ["Estéril", "Uso único", "Tubo flexível"], badges: ["Uso profissional", "Descartável"], consultation: ["Quantidade", "Orientação profissional"], keywords: ["escalpe", "agulha alada", "butterfly"],
   },
   {
     id: "cateter-periferico-iv-14g", categoryId: "cuidados-medico-hospitalares", brandIds: ["descarpack"], name: "Cateter Periférico IV",
     summary: "Cateter periférico intravenoso estéril para acesso venoso.",
     description: "O cateter periférico intravenoso é um dispositivo de uso único para procedimentos conforme orientação de profissional habilitado.",
-    images: [{ src: "/Produtos/cateter-periferico-iv-14g.png", alt: "Cateter periférico intravenoso com componente laranja" }], highlights: ["Estéril", "Uso único", "Acesso venoso"], badges: ["Uso profissional", "Descartável"], consultation: ["Tipo de cateter", "Orientação profissional"], keywords: ["cateter iv", "cateter periferico", "acesso venoso"],
+    images: [{ src: "/Produtos/cateter-periferico-iv-14g.webp", alt: "Cateter periférico intravenoso com componente laranja" }], highlights: ["Estéril", "Uso único", "Acesso venoso"], badges: ["Uso profissional", "Descartável"], consultation: ["Tipo de cateter", "Orientação profissional"], keywords: ["cateter iv", "cateter periferico", "acesso venoso"],
   },
   {
     id: "equipo-nutricao-enteral", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Equipo para Nutrição Enteral",
     summary: "Equipo para administração de dieta enteral com conector escalonado.",
     description: "O equipo para nutrição enteral possui tubo flexível, câmara de gotejamento e conector escalonado. A utilização deve seguir orientação profissional.",
-    images: [{ src: "/Produtos/equipo-nutricao-enteral.png", alt: "Equipo para nutrição enteral com câmara azul e conector escalonado" }], highlights: ["Conector escalonado", "Uso único", "Para dieta enteral"], badges: ["Nutrição enteral", "Uso profissional"], consultation: ["Compatibilidade", "Quantidade", "Orientação profissional"], keywords: ["equipo enteral", "nutricao enteral", "conector escalonado"],
+    images: [{ src: "/Produtos/equipo-nutricao-enteral.webp", alt: "Equipo para nutrição enteral com câmara azul e conector escalonado" }], highlights: ["Conector escalonado", "Uso único", "Para dieta enteral"], badges: ["Nutrição enteral", "Uso profissional"], consultation: ["Compatibilidade", "Quantidade", "Orientação profissional"], keywords: ["equipo enteral", "nutricao enteral", "conector escalonado"],
   },
   {
     id: "tubo-extensor-luer-lock-40cm", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Tubo Extensor Luer Lock 40 cm",
     summary: "Tubo extensor com 40 cm e conectores Luer Lock nas extremidades.",
     description: "O tubo extensor é um acessório de conexão com 40 cm de comprimento e encaixes Luer Lock. Confirme a compatibilidade e a orientação de uso.",
-    images: [{ src: "/Produtos/tubo-extensor-luer-lock-40cm.png", alt: "Tubo extensor transparente de 40 centímetros com conectores Luer Lock" }], highlights: ["40 cm", "Conexão Luer Lock", "Tubo transparente"], badges: ["Conexão", "Uso profissional"], consultation: ["Compatibilidade", "Tipo de conexão", "Orientação profissional"], keywords: ["tubo extensor", "luer lock", "40cm", "extensor"],
+    images: [{ src: "/Produtos/tubo-extensor-luer-lock-40cm.webp", alt: "Tubo extensor transparente de 40 centímetros com conectores Luer Lock" }], highlights: ["40 cm", "Conexão Luer Lock", "Tubo transparente"], badges: ["Conexão", "Uso profissional"], consultation: ["Compatibilidade", "Tipo de conexão", "Orientação profissional"], keywords: ["tubo extensor", "luer lock", "40cm", "extensor"],
   },
   {
     id: "solucao-cloreto-sodio-09-100ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Soro Fisiológico 0,9% Estéril e Injetável — Sistema Fechado, 100 mL",
     summary: "Soro fisiológico 0,9% estéril e injetável, sistema fechado, 100 mL.",
     description: "Soro fisiológico 0,9% estéril e apirogênico, em sistema fechado que preserva a esterilidade e facilita o manuseio seguro. Indicado para uso venoso injetável, diluição de medicamentos, fluidoterapia e outros procedimentos médicos. Frasco de 100 mL.",
-    images: [{ src: "/Produtos/soro-100ml.jpg", alt: "Frasco de soro fisiológico estéril de 100 mililitros" }],
+    images: [{ src: "/Produtos/soro-100ml.webp", alt: "Frasco de soro fisiológico estéril de 100 mililitros" }],
     highlights: ["Estéril e injetável", "Sistema fechado", "Frasco de 100 mL"], badges: ["Cuidados", "Estéril", "100 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "100ml", "esteril", "injetavel", "sistema fechado"],
   },
   {
@@ -2116,7 +2116,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "solucao-cloreto-sodio-09-10ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Solução de Cloreto de Sódio 0,9% 10 mL",
     summary: "Solução de cloreto de sódio 0,9% em ampolas monodose de 10 mL.",
     description: "Solução de cloreto de sódio 0,9% apresentada em ampolas monodose de 10 mL. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
-    images: [{ src: "/Produtos/solucao-cloreto-sodio-09-10ml.png", alt: "Três ampolas monodose de solução de cloreto de sódio 0,9% de 10 mililitros" }],
+    images: [{ src: "/Produtos/solucao-cloreto-sodio-09-10ml.webp", alt: "Três ampolas monodose de solução de cloreto de sódio 0,9% de 10 mililitros" }],
     highlights: ["Concentração 0,9%", "Ampolas de 10 mL", "Uso monodose"], badges: ["Cuidados", "10 mL"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["soro fisiologico", "cloreto sodio", "09", "10ml", "ampola", "monodose"],
   },
   {
@@ -2130,7 +2130,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "bolsa-coletora-urina-sistema-fechado", categoryId: "cuidados-medico-hospitalares", brandIds: ["premium"], name: "Bolsa Coletora de Urina – Sistema Fechado",
     summary: "Bolsa coletora de urina em sistema fechado, com válvula antirrefluxo.",
     description: "Bolsa coletora de urina em sistema fechado, com tubo de conexão, graduação e válvula de drenagem. Utilize conforme orientação de profissional habilitado e confirme a disponibilidade.",
-    images: [{ src: "/Produtos/bolsa-coletora-urina-sistema-fechado.png", alt: "Bolsa coletora de urina em sistema fechado" }],
+    images: [{ src: "/Produtos/bolsa-coletora-urina-sistema-fechado.webp", alt: "Bolsa coletora de urina em sistema fechado" }],
     highlights: ["Sistema fechado", "Válvula antirrefluxo", "Com graduação"], badges: ["Cuidados", "Descartável"], consultation: ["Apresentação", "Quantidade", "Orientação profissional"], keywords: ["bolsa coletora", "urina", "sistema fechado", "antirrefluxo", "drenagem"],
   },
   {
@@ -2158,7 +2158,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A esponja com escova é um produto médico estéril e descartável indicado para a antissepsia cirúrgica das mãos, braços e preparo da pele de profissionais da saúde antes de procedimentos invasivos. Cada unidade vem impregnada com 22 ml de digliconato de clorexidina a 2% com tensoativos.",
     images: [
       {
-        src: "/Produtos/esponja-com-escova-clorexidina.png",
+        src: "/Produtos/esponja-com-escova-clorexidina.webp",
         alt: "Esponja estéril com escova para antissepsia cirúrgica, sem marca",
       },
     ],
@@ -2183,7 +2183,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "alcool-70-100ml", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Álcool Líquido 70% INPM 100 mL",
     summary: "Álcool líquido 70% INPM em frasco de 100 mL para higienização.",
     description: "Álcool líquido com graduação de 70% INPM, apresentado em frasco de 100 mL. Utilize conforme as orientações de segurança indicadas no rótulo.",
-    images: [{ src: "/Produtos/alcool.png", alt: "Frasco de álcool líquido 70% INPM de 100 mililitros" }],
+    images: [{ src: "/Produtos/alcool.webp", alt: "Frasco de álcool líquido 70% INPM de 100 mililitros" }],
     highlights: ["70% INPM", "Frasco de 100 mL", "Uso externo"], badges: ["Higienização", "100 mL"], consultation: ["Apresentação", "Quantidade", "Orientações de uso"], keywords: ["alcool", "70", "inpm", "100ml", "higienizacao"],
   },
   {
@@ -2197,14 +2197,14 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "dispositivo-incontinencia-masculina-g", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Dispositivo para Incontinência Urinária Masculina G",
     summary: "Dispositivo externo masculino para coleta de urina, no tamanho G.",
     description: "Dispositivo externo para incontinência urinária masculina, apresentado no tamanho G, com medida aproximada de 10 cm por 4 cm. Utilize conforme orientação de profissional habilitado.",
-    images: [{ src: "/Produtos/dispositivo-incontinencia-masculina-g.png", alt: "Dispositivo externo para incontinência urinária masculina" }],
+    images: [{ src: "/Produtos/dispositivo-incontinencia-masculina-g.webp", alt: "Dispositivo externo para incontinência urinária masculina" }],
     highlights: ["Tamanho G", "Uso externo", "Para coleta de urina"], badges: ["Cuidados", "Descartável"], consultation: ["Tamanho", "Apresentação", "Orientação profissional"], keywords: ["incontinencia", "urinaria", "masculina", "coletor", "dispositivo", "tamanho g"],
   },
   {
     id: "bolas-algodao-100g", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Bolas de Algodão 100 g",
     summary: "Bolas de algodão branco em embalagem de 100 g.",
     description: "Bolas de algodão macias para cuidados e higienização. Apresentação em embalagem de 100 g.",
-    images: [{ src: "/Produtos/bolas-algodao-100g.png", alt: "Embalagem com bolas de algodão branco" }],
+    images: [{ src: "/Produtos/bolas-algodao-100g.webp", alt: "Embalagem com bolas de algodão branco" }],
     highlights: ["Algodão branco", "Embalagem de 100 g", "Uso para cuidados"], badges: ["Cuidados", "100 g"], consultation: ["Apresentação", "Quantidade", "Disponibilidade"], keywords: ["algodao", "bolas de algodao", "100g", "higienizacao"],
   },
   {
@@ -2218,14 +2218,14 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "caixa-descarpack-3-litros-perfuro-cortante", categoryId: "cuidados-medico-hospitalares", brandIds: ["descarpack"], name: "Caixa para Descarte de Perfuro Cortantes 3 Litros",
     summary: "Caixa coletora para descarte de material perfuro cortante, capacidade de 3 litros.",
     description: "Caixa composta de papel resistente e saco plástico resistente, com capacidade para 3 litros e alça dupla para transporte. Produzida de acordo com a norma NBR 13853.",
-    images: [{ src: "/Produtos/caixa-perfurocortantes-3L.jpeg", alt: "Caixa coletora Descarpack para descarte de perfuro cortantes de 3 litros" }],
+    images: [{ src: "/Produtos/caixa-perfurocortantes-3L.webp", alt: "Caixa coletora Descarpack para descarte de perfuro cortantes de 3 litros" }],
     highlights: ["Capacidade para 3 litros", "Alça dupla para transporte", "Conforme NBR 13853"], badges: ["Descarte", "3 litros"], consultation: ["Quantidade", "Disponibilidade"], keywords: ["caixa perfuro cortante", "descarpack", "coletor", "3 litros", "nbr 13853"],
   },
   {
     id: "oculos-de-protecao", categoryId: "cuidados-medico-hospitalares", brandIds: [], name: "Óculos de Proteção Incolor",
     summary: "Óculos de proteção com lente incolor e hastes ajustáveis, para procedimentos e atividades esportivas.",
     description: "Óculos de proteção com lente incolor, que preserva a visibilidade natural e protege os olhos contra respingos e partículas. A lente tem tratamento de proteção, as laterais são fechadas e as hastes ajustáveis permitem adequar o encaixe ao rosto. Serve tanto para procedimentos e limpeza quanto para proteção esportiva.",
-    images: [{ src: "/Produtos/oculos-protecao.png", alt: "Óculos de proteção com lente incolor e hastes ajustáveis" }],
+    images: [{ src: "/Produtos/oculos-protecao.webp", alt: "Óculos de proteção com lente incolor e hastes ajustáveis" }],
     highlights: ["Lente incolor com tratamento de proteção", "Hastes ajustáveis", "Proteção lateral", "Uso clínico ou esportivo"], badges: ["Proteção", "Incolor"], consultation: ["Modelo", "Quantidade", "Disponibilidade"], keywords: ["oculos de protecao", "epi", "incolor", "protecao ocular", "respingos", "esportivo"],
   },
   {
@@ -2246,7 +2246,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "tubo-recortavel-calos-malha-gel", categoryId: "ortopedia-mobilidade", brandIds: ["hidrolight"], name: "Tubo Recortável para Calos – Malha Revestida com Gel",
     summary: "Tubo recortável para proteção dos dedos, com malha macia revestida internamente em gel.",
     description: "Tubo para proteção dos dedos que ajuda a diminuir o atrito com o calçado. Possui malha revestida internamente em gel e pode ser cortado conforme o tamanho desejado.",
-    images: [{ src: "/Produtos/tubo-recortavel-calos-hidrolight.png", alt: "Tubo recortável de malha bege revestido internamente com gel" }],
+    images: [{ src: "/Produtos/tubo-recortavel-calos-hidrolight.webp", alt: "Tubo recortável de malha bege revestido internamente com gel" }],
     highlights: ["Malha com gel", "Recortável", "Para proteção dos dedos"], badges: ["Foot care", "Ajustável"], consultation: ["Tamanho", "Apresentação", "Orientação profissional"], keywords: ["tubo recortavel", "calos", "gel", "dedos", "foot care", "FT305"],
   },
   {
@@ -2267,7 +2267,7 @@ const rawCatalogProducts: CatalogProduct[] = [
     id: "bolsa-agua-quente", categoryId: "fisioterapia-recuperacao", brandIds: ["hidrolight"], name: "Bolsa de Água Quente",
     summary: "Bolsa de borracha para aplicação de calor local, com tampa de vedação.",
     description: "Bolsa de água quente para termoterapia local e auxílio no relaxamento muscular. Encha conforme as instruções do produto, sem utilizar água fervente.",
-    images: [{ src: "/Produtos/bolsa-agua-quente-hidrolight.png", alt: "Bolsa de água quente vermelha com tampa preta" }],
+    images: [{ src: "/Produtos/bolsa-agua-quente-hidrolight.webp", alt: "Bolsa de água quente vermelha com tampa preta" }],
     highlights: ["Aplicação de calor", "Tampa de vedação", "Borracha flexível"], badges: ["Termoterapia", "Reutilizável"], consultation: ["Capacidade", "Apresentação", "Orientações de uso"], keywords: ["bolsa agua quente", "termoterapia", "calor", "relaxamento muscular", "BAQ101", "BAQ102"],
   },
   {
@@ -2282,15 +2282,15 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O colchão pneumático alterna pontos de apoio por meio de células de ar conectadas a um compressor. Modelos, ciclos, capacidade suportada e peças incluídas variam. Consulte o kit completo, as dimensões e a compatibilidade com a cama antes da escolha.",
     images: [
       {
-        src: `${hidrolightBase}/SC400 - KIT Colchão Pneumático/COLCHÃO PNEUMÁTICO.png`,
+        src: `${hidrolightBase}/SC400 - KIT Colchão Pneumático/COLCHÃO PNEUMÁTICO.webp`,
         alt: "Colchão pneumático com células de ar",
       },
       {
-        src: `${hidrolightBase}/SC400 - KIT Colchão Pneumático/Bomba-Compressora.png`,
+        src: `${hidrolightBase}/SC400 - KIT Colchão Pneumático/Bomba-Compressora.webp`,
         alt: "Compressor para colchão pneumático",
       },
       {
-        src: `${hidrolightBase}/SC400 - KIT Colchão Pneumático/kit reparos.png`,
+        src: `${hidrolightBase}/SC400 - KIT Colchão Pneumático/kit reparos.webp`,
         alt: "Kit de reparo para colchão pneumático",
       },
     ],
@@ -2315,7 +2315,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A bolsa térmica em gel pode ser preparada para aplicação fria ou quente, seguindo as instruções do fabricante e a orientação recebida. Está disponível em diferentes formatos e tamanhos para se adaptar a diversas regiões do corpo.",
     images: [
       {
-        src: `${hidrolightBase}/bolsa térmica gel 200g - frente.jpg`,
+        src: `${hidrolightBase}/bolsa térmica gel 200g - frente.webp`,
         alt: "Embalagem de bolsa térmica em gel reutilizável",
       },
     ],
@@ -2339,7 +2339,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "As bolas de fisioterapia podem ser utilizadas em exercícios de preensão, fortalecimento, coordenação motora e estímulo sensorial. Disponíveis em modelos com superfície lisa ou texturizada, conforme a necessidade do exercício e a disponibilidade.",
     images: [
       {
-        src: "/Produtos/bolas-fisioterapia-lisa-texturizada.png",
+        src: "/Produtos/bolas-fisioterapia-lisa-texturizada.webp",
         alt: "Bolas de fisioterapia azuis, uma lisa e outra texturizada",
       },
     ],
@@ -2371,7 +2371,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O tubo de látex número 200 serve para garroteamento em exames de sangue, condução de oxigênio e fluidos em hospitais, além de exercícios leves de fisioterapia e confecção de estilingues. Ele possui cerca de 3 mm de diâmetro interno e 5,5 mm de diâmetro externo.",
     images: [
       {
-        src: "/Produtos/tubo-de-latex-200.png",
+        src: "/Produtos/tubo-de-latex-200.webp",
         alt: "Tubo de látex nº 200 enrolado, sem marca",
       },
     ],
@@ -2409,7 +2409,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O hand grip oferece resistência ao movimento de fechamento da mão e pode integrar exercícios orientados de fortalecimento e coordenação. Resistência, formato da empunhadura e possibilidade de ajuste variam conforme o modelo.",
     images: [
       {
-        src: `${hidrolightBase}/FL01 - Hand Grip Basic.jpg`,
+        src: `${hidrolightBase}/FL01 - Hand Grip Basic.webp`,
         alt: "Hand grip com molas e empunhaduras laranjas",
       },
     ],
@@ -2463,7 +2463,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "As faixas elásticas permitem variar a resistência em exercícios para diferentes grupos musculares. Cores, comprimentos, formatos e níveis de tensão mudam entre as linhas. A intensidade deve ser selecionada de acordo com o exercício e a orientação profissional.",
     images: [
       {
-        src: `${hidrolightBase}/FL42C - Faixa Elástica cinza - com resistencia NOVA.png`,
+        src: `${hidrolightBase}/FL42C - Faixa Elástica cinza - com resistencia NOVA.webp`,
         alt: "Faixa elástica cinza para exercícios com resistência",
       },
     ],
@@ -2487,7 +2487,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A palmilha com arco brando, piloto e ponto azul é confeccionada em silicone e possui áreas de diferentes densidades. Ela auxilia a reduzir o impacto ao caminhar e a aliviar a pressão nas regiões do calcanhar e dos metatarsos. Consulte a grade de tamanhos e a orientação profissional para escolher o modelo adequado.",
     images: [
       {
-        src: `${hidrolightBase}/hidrolight-03-22__edit_flat.png`,
+        src: `${hidrolightBase}/hidrolight-03-22__edit_flat.webp`,
         alt: "Palmilha de silicone branca com pontos azuis",
         brandId: "hidrolight",
       },
@@ -2512,12 +2512,12 @@ const rawCatalogProducts: CatalogProduct[] = [
       "As almotolias são frascos com bico aplicador, disponíveis em versões transparentes e âmbar. São utilizadas para armazenar e aplicar líquidos conforme a rotina indicada; capacidade, material e tipo de tampa variam por modelo. Consulte a equipe para confirmar a opção disponível e a finalidade adequada.",
     images: [
       {
-        src: `${produtosBase}/automolia-plastica-transparente.png`,
+        src: `${produtosBase}/automolia-plastica-transparente.webp`,
         alt: "Almotolia plástica transparente com bico aplicador",
         colorSwatch: "clear",
       },
       {
-        src: `${produtosBase}/automolia-250-marrom.png`,
+        src: `${produtosBase}/automolia-250-marrom.webp`,
         alt: "Almotolia plástica âmbar com bico aplicador",
         colorSwatch: "amber",
       },
@@ -2542,7 +2542,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "O garrote é utilizado para produzir compressão temporária durante procedimentos de coleta ou acesso venoso. O modelo disponível possui faixa ajustável e fecho de liberação rápida. Deve ser utilizado apenas por profissional habilitado, seguindo os protocolos de segurança e higiene aplicáveis.",
     images: [
       {
-        src: `${produtosBase}/garrote-premium.jpg`,
+        src: `${produtosBase}/garrote-premium.webp`,
         alt: "Garrote azul ajustável com fecho branco",
         brandId: "premium",
       },
@@ -2563,7 +2563,7 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A forração ortopédica para calcanhar é confeccionada em espuma no formato caixa de ovo e possui fecho de contato. Foi desenvolvida para ajudar a proteger a região do tornozelo de pessoas acamadas. Consulte a equipe sobre disponibilidade e a orientação profissional para o uso adequado.",
     images: [
       {
-        src: "/Produtos/forracao-ortopedica-calcanhar.png",
+        src: "/Produtos/forracao-ortopedica-calcanhar.webp",
         alt: "Forração ortopédica acolchoada para calcanhar",
       },
     ],
@@ -2583,12 +2583,12 @@ const rawCatalogProducts: CatalogProduct[] = [
       "A sandália para gesso é uma opção de apoio e proteção para uso sobre bota gessada, quando liberado pelo profissional responsável. Possui solado de EVA, laterais em tecido sintético e fecho de contato, em tamanhos definidos pela numeração do calçado.",
     images: [
       {
-        src: "/Produtos/sandalia-para-gesso-branca.png",
+        src: "/Produtos/sandalia-para-gesso-branca.webp",
         alt: "Sandália ortopédica branca para uso sobre gesso",
         colorSwatch: "white",
       },
       {
-        src: "/Produtos/sandalia-para-gesso-preta.png",
+        src: "/Produtos/sandalia-para-gesso-preta.webp",
         alt: "Sandália ortopédica preta para uso sobre gesso",
         colorSwatch: "black",
       },
