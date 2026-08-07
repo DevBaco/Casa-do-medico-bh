@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://casadomedicobh.com.br',
+  site: 'https://www.casadomedicobh.com.br',
   integrations: [react(), sitemap()],
 
   vite: {
